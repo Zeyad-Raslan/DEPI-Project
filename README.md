@@ -1,4 +1,4 @@
-لبدء العمل على مشروع GitHub حيث لا تملك برانش وتريد إجراء تعديلات ودمجها، يجب عليك اتباع الخطوات التالية. سنبدأ من البداية:
+## لبدء العمل على مشروع GitHub
 
 ### 1. **فورك (Fork) الريبو:**
 - بما أنك لا تملك برانش في الريبو، أول خطوة هي عمل فورك (Fork) للريبو إلى حسابك على GitHub.
@@ -9,7 +9,7 @@
 - افتح الـ PowerShell أو أي terminal تفضله واكتب الأمر التالي لاستنساخ المشروع:
 
 ```bash
-git clone https://github.com/fawzyfathi01/DEPI-Project.git
+git clone https://github.com/YOUR-USERNAME/DEPI-Project.git
 ```
 
 - تأكد من استبدال `YOUR-USERNAME` باسم المستخدم الخاص بك على GitHub.
@@ -24,7 +24,7 @@ cd DEPI-Project
 - أنشئ برانش جديد للعمل على التعديلات الخاصة بك:
 
 ```bash
-git checkout -b fawzy
+git checkout -b new-feature
 ```
 
 استبدل `new-feature` باسم وصفي للتعديل الذي ستقوم به.
@@ -55,7 +55,7 @@ git commit -m "Add new feature"
 - بعد ذلك، ارفع التعديلات إلى البرانش الجديد في الريبو الخاص بك على GitHub:
 
 ```bash
-git push origin fawzy
+git push origin new-feature
 ```
 
 ### 7. **فتح Pull Request (PR):**
@@ -68,4 +68,3 @@ git push origin fawzy
 
 ---
 
-إذا كنت بحاجة إلى أي مساعدة إضافية أثناء هذه الخطوات، لا تتردد في طرح الأسئلة!
