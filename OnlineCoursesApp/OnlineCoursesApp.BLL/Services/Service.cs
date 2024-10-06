@@ -10,29 +10,29 @@ public class Service<T> : IService<T> where T : class
     public Service(OnlineCoursesContext context)
     {
         _context = context;
-        _dbSet = context.Set<T>(); // إنشاء DbSet للكائن
+        _dbSet = context.Set<T>(); 
     }
 
     public IQueryable<T> Query()
     {
-        return _dbSet.AsQueryable(); // إرجاع استعلام للكائنات
+        return _dbSet.AsQueryable(); 
     }
 
     public T GetById(int id)
     {
-        return _dbSet.Find(id); // إيجاد الكائن باستخدام الـ id
+        return _dbSet.Find(id);
     }
 
     public void Add(T entity)
     {
-        _dbSet.Add(entity); // إضافة الكائن
-        _context.SaveChanges(); // حفظ التغييرات
+        _dbSet.Add(entity); 
+        _context.SaveChanges(); 
     }
 
     public void Update(T entity)
     {
-        _dbSet.Update(entity); // تحديث الكائن
-        _context.SaveChanges(); // حفظ التغييرات
+        _dbSet.Update(entity);
+        _context.SaveChanges(); 
     }
 
     public void Delete(int id)
@@ -40,8 +40,8 @@ public class Service<T> : IService<T> where T : class
         var entity = GetById(id);
         if (entity != null)
         {
-            _dbSet.Remove(entity); // إزالة الكائن
-            _context.SaveChanges(); // حفظ التغييرات
+            _dbSet.Remove(entity); 
+            _context.SaveChanges(); 
         }
     }
 }
