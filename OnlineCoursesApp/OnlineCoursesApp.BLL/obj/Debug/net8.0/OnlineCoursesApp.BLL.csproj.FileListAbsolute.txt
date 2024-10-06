@@ -1,0 +1,16 @@
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.BLL.deps.json
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.BLL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.BLL.pdb
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.AssemblyInfoInputs.cache
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.AssemblyInfo.cs
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.csproj.CoreCompileInputs.cache
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.sourcelink.json
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\refint\OnlineCoursesApp.BLL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.pdb
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\ref\OnlineCoursesApp.BLL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.DAL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.DAL.pdb
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.csproj.AssemblyReference.cache
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCo.891CB8F5.Up2Date
