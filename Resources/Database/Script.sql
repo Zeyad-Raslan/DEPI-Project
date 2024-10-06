@@ -5,7 +5,7 @@ GO
 -- Use the newly created database
 USE OnlineCoursesDB;
 GO
-
+ 
 -- Create the 'Instructor' table
 CREATE TABLE Instructor (
     ID INT PRIMARY KEY IDENTITY(1,1),
