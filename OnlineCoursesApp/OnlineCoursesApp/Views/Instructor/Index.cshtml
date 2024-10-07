@@ -1,0 +1,75 @@
+﻿
+
+@model IEnumerable<CourseViewModelForInst>
+
+<div class="container mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Courses</h3>
+        <a asp-controller="Instructor" asp-action="Profile" asp-route-id="@ViewBag.InstructorId" class="btn btn-custom btn-sm">
+            <h3>Profile</h3>
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p>No courses available for this instructor.</p>
+    }
+    else
+    {
+        <div class="mb-3">
+            <button type="button" class="btn btn-primary">New Course</button>
+        </div>
+
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Number of Students</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var course in Model)
+                {
+                    <tr>
+                        <td>@course.CourseId</td>
+                        <td>@course.CourseName</td>
+                        <td>@course.NumStudents</td>
+                        <td>@course.Type</td>
+                        <td>
+                            <a asp-controller="Instructor" asp-action="Manage" class="btn btn-success btn-sm">Manage Course</a>
+                            <a asp-controller="Instructor" asp-action="Students" asp-route-id="@course.CourseId" class="btn btn-info btn-sm">Students</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+
+
+<style>
+    .btn {
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+    .btn-custom {
+        background-color: #28a745; 
+        color: white; 
+        border-radius: 50px; 
+        padding: 10px 20px;
+        border: none; 
+    }
+
+        .btn-custom:hover {
+            background-color: #218838; 
+        }
+</style>

@@ -1,0 +1,15 @@
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.deps.json
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.runtimeconfig.json
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.pdb
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.csproj.AssemblyReference.cache
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.AssemblyInfoInputs.cache
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.AssemblyInfo.cs
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.csproj.CoreCompileInputs.cache
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.sourcelink.json
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\refint\OnlineCoursesApp.DAL.dll
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.pdb
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.genruntimeconfig.cache
+D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\ref\OnlineCoursesApp.DAL.dll

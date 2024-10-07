@@ -1,0 +1,23 @@
+﻿@model InstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img src="@Model.ImageUrl" alt="Instructor Image" class="rounded-circle img-fluid" style="max-width: 150px;">
+        </div>
+        <div class="col-md-9">
+            <h2>Profile</h2>
+            <hr>
+            <p><strong>Eng:</strong> @Model.Name</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>About:</strong> @Model.About</p>
+            <a href="/Instructor/Index/@Model.InstructorId" class="btn btn-success">Courses</a>
+        </div>
+    </div>
+</div>
+
