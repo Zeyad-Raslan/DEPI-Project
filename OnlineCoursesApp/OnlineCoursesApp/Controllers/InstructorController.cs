@@ -18,18 +18,22 @@ namespace OnlineCoursesApp.Controllers
             _instructorService = instructorService;
         }
 
-     
+
+
         public IActionResult Index(int id)
         {
             var instructor = _instructorService.Query()
                                                .Include(i => i.Courses)
-                                               .ThenInclude(c => c.Enrolls) 
+                                               .ThenInclude(c => c.Enrolls)
                                                .FirstOrDefault(i => i.InstructorId == id);
 
             if (instructor == null)
             {
                 return NotFound();
             }
+
+            // تمرير InstructorId إلى الـ View باستخدام ViewBag
+            ViewBag.InstructorId = instructor.InstructorId;
 
             var courses = instructor.Courses.Select(course => new CourseViewModelForInst
             {
@@ -41,6 +45,7 @@ namespace OnlineCoursesApp.Controllers
 
             return View(courses);
         }
+
 
 
 
@@ -82,7 +87,30 @@ namespace OnlineCoursesApp.Controllers
             }).ToList();
 
             ViewData["CourseName"] = course.Name;
+            ViewData["InstructorId"] = instructor.InstructorId;
             return View(students);
+        }
+
+
+        public IActionResult Profile(int id)
+        {
+            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == id);
+
+            if (instructor == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new InstructorProfileViewModel
+            {
+                InstructorId = instructor.InstructorId,
+                Name = instructor.Name,
+                Email = instructor.Email,
+                About = instructor.About,  // Assuming you have an "About" field in Instructor model
+                ImageUrl = instructor.Image  // Assuming there's an image URL field
+            };
+
+            return View(viewModel);
         }
 
 
