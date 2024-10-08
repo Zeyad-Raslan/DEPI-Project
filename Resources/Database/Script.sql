@@ -76,28 +76,28 @@ GO
 
 
 --### Inserting Data into the `Instructor` Table
-sql
+
 INSERT INTO Instructor (name, email, password, about, image) VALUES
 ('Dr. John Doe', 'john.doe@example.com', 'password123', 'Expert in Data Science', 'https://example.com/images/john_doe.jpg'),
 ('Jane Smith', 'jane.smith@example.com', 'securepassword', 'Specializes in Web Development', 'https://example.com/images/jane_smith.jpg');
 
 
 --### Inserting Data into the `Course` Table
-sql
+
 INSERT INTO Course (name, type, description, status, image) VALUES
 ('Introduction to Data Science', 'Online', 'Learn the basics of data science and analytics.', 1, 'https://example.com/images/data_science.jpg'),
 ('Web Development Bootcamp', 'Online', 'A comprehensive course on modern web development.', 1, 'https://example.com/images/web_dev.jpg');
 
 
 --### Inserting Data into the `Student` Table
-sql
+
 INSERT INTO Student (name, email, password, education, image) VALUES
 ('Alice Brown', 'alice.brown@example.com', 'password456', 'Bachelor of Science in Computer Science', 'https://example.com/images/alice_brown.jpg'),
 ('Bob Johnson', 'bob.johnson@example.com', 'mypassword', 'Bachelor of Arts in Design', 'https://example.com/images/bob_johnson.jpg');
 
 
 -- ### Inserting Data into the `Sections` Table
-sql
+
 INSERT INTO Sections (title, link, number, course_id) VALUES
 ('Introduction to Data Science', 'https://example.com/course1/section1', 1, 1),
 ('Data Analysis Techniques', 'https://example.com/course1/section2', 2, 1),
@@ -106,14 +106,14 @@ INSERT INTO Sections (title, link, number, course_id) VALUES
 
 
 --### Inserting Data into the `Teach` Table
-sql
+
 INSERT INTO Teach (Instructor_id, Course_id) VALUES
 (1, 1),  -- Dr. John Doe teaches Introduction to Data Science
 (2, 2);  -- Jane Smith teaches Web Development Bootcamp
 
 
 --### Inserting Data into the `Enroll` Table
-sql
+
 INSERT INTO Enroll (Course_id, Student_id, progress) VALUES
 (1, 1, 20),  -- Alice Brown is enrolled in Introduction to Data Science with 20% progress
 (2, 2, 50),  -- Bob Johnson is enrolled in Web Development Bootcamp with 50% progress
