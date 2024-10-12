@@ -19,5 +19,9 @@ public partial class Instructor
 
     public string? Image { get; set; }
 
-    public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
+    public virtual ICollection<Course> Courses { get; set; }
+    public Instructor()
+    {
+        Courses = new HashSet<Course>();
+    }
 }
