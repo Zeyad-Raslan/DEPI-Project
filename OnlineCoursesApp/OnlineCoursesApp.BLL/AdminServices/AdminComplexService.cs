@@ -11,6 +11,7 @@ namespace OnlineCoursesApp.BLL.AdminServices
 {
     public class AdminComplexService : IAdminComplexService
     {
+        // all services that needed for admin to do complex service
         private readonly IService<Instructor> _instructorService;
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
