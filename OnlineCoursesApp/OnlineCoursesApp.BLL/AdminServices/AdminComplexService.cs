@@ -9,20 +9,14 @@ using System.Threading.Tasks;
 
 namespace OnlineCoursesApp.BLL.AdminServices
 {
-    public class AdminService : Service<Admin>, IAdminService
+    public class AdminComplexService : IAdminComplexService
     {
-        private readonly OnlineCoursesContext _context;
-        private readonly DbSet<Admin> _dbSetAdmin;
-
         private readonly IService<Instructor> _instructorService;
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
-        public AdminService(OnlineCoursesContext context, IService<Instructor> instructorService, IService<Course> courseService, IService<Student> studentService) : base(context)
+        public AdminComplexService(OnlineCoursesContext context, IService<Instructor> instructorService, IService<Course> courseService, IService<Student> studentService) 
         {
-           _context = context;
-            _dbSetAdmin = context.Admins;
-
-            _instructorService = instructorService;
+          _instructorService = instructorService;
             _courseService = courseService;
             _studentService = studentService;
         }

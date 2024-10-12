@@ -11,9 +11,9 @@ namespace Admin_Views.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly IAdminService _adminService;
+        private readonly IAdminComplexService _adminService;
 
-        public AdminController(IAdminService adminService)
+        public AdminController(IAdminComplexService adminService)
         {
             _adminService = adminService;
         }
