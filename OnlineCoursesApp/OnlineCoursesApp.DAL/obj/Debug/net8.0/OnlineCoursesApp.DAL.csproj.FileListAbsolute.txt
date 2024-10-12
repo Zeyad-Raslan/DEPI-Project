@@ -13,3 +13,18 @@ D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCou
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.pdb
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.genruntimeconfig.cache
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\ref\OnlineCoursesApp.DAL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.deps.json
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.runtimeconfig.json
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\bin\Debug\net8.0\OnlineCoursesApp.DAL.pdb
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.csproj.AssemblyReference.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.GeneratedMSBuildEditorConfig.editorconfig
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.AssemblyInfoInputs.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.AssemblyInfo.cs
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.csproj.CoreCompileInputs.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.sourcelink.json
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\refint\OnlineCoursesApp.DAL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.pdb
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\OnlineCoursesApp.DAL.genruntimeconfig.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.DAL\obj\Debug\net8.0\ref\OnlineCoursesApp.DAL.dll

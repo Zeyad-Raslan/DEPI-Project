@@ -24,7 +24,7 @@ namespace OnlineCoursesApp.Controllers
         {
             var instructor = _instructorService.Query()
                                                .Include(i => i.Courses)
-                                               .ThenInclude(c => c.Enrolls)
+                                               .ThenInclude(i=>i.Students)
                                                .FirstOrDefault(i => i.InstructorId == id);
 
             if (instructor == null)
@@ -34,12 +34,12 @@ namespace OnlineCoursesApp.Controllers
 
             // تمرير InstructorId إلى الـ View باستخدام ViewBag
             ViewBag.InstructorId = instructor.InstructorId;
-
+            
             var courses = instructor.Courses.Select(course => new CourseViewModelForInst
             {
                 CourseId = course.CourseId,
                 CourseName = course.Name,
-                NumStudents = course.Enrolls.Count,
+                NumStudents = course.Students.Count,
                 Type = course.Type
             }).ToList();
 
@@ -56,40 +56,40 @@ namespace OnlineCoursesApp.Controllers
 
 
 
-        public IActionResult Students(int id)
-        {
-            int courseId = id;
+        //public IActionResult Students(int id)
+        //{
+        //    int courseId = id;
 
-          
-            var instructor = _instructorService.Query()
-                .Include(i => i.Courses)
-                .ThenInclude(c => c.Enrolls)
-                .ThenInclude(e => e.Student)
-                .FirstOrDefault(i => i.Courses.Any(c => c.CourseId == courseId));
 
-            if (instructor == null)
-            {
-                return NotFound();
-            }
+        //    var instructor = _instructorService.Query()
+        //        .Include(i => i.Courses)
+        //        .ThenInclude(c => c.Enrolls)
+        //        .ThenInclude(e => e.Student)
+        //        .FirstOrDefault(i => i.Courses.Any(c => c.CourseId == courseId));
 
-            var course = instructor.Courses.FirstOrDefault(c => c.CourseId == courseId);
+        //    if (instructor == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            if (course == null)
-            {
-                return NotFound();
-            }
+        //    var course = instructor.Courses.FirstOrDefault(c => c.CourseId == courseId);
 
-            var students = course.Enrolls.Select(e => new StudentViewModelForInst
-            {
-                StudentId = e.Student.StudentId,
-                StudentName = e.Student.Name,
-                Progress = e.Progress ?? 0
-            }).ToList();
+        //    if (course == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            ViewData["CourseName"] = course.Name;
-            ViewData["InstructorId"] = instructor.InstructorId;
-            return View(students);
-        }
+        //    var students = course.Enrolls.Select(e => new StudentViewModelForInst
+        //    {
+        //        StudentId = e.Student.StudentId,
+        //        StudentName = e.Student.Name,
+        //        Progress = e.Progress ?? 0
+        //    }).ToList();
+
+        //    ViewData["CourseName"] = course.Name;
+        //    ViewData["InstructorId"] = instructor.InstructorId;
+        //    return View(students);
+        //}
 
 
         public IActionResult Profile(int id)

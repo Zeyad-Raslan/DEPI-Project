@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineCoursesApp.DAL.Models;
 
 public partial class Student
 {
+    [Key]
     public int StudentId { get; set; }
 
     public string Name { get; set; } = null!;
@@ -17,5 +19,10 @@ public partial class Student
 
     public string? Image { get; set; }
 
-    public virtual ICollection<Enroll> Enrolls { get; set; } = new List<Enroll>();
+    public virtual ICollection<Course> Courses { get; set; }
+
+    public Student()
+    {
+        Courses = new HashSet<Course>();
+    }
 }

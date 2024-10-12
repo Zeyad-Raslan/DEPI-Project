@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {}
+    "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {}
   },
   "projects": {
-    "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+    "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+        "projectUniqueName": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
         "projectName": "OnlineCoursesApp.DAL",
-        "projectPath": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
-        "packagesPath": "C:\\Users\\original\\.nuget\\packages\\",
-        "outputPath": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
+        "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+        "packagesPath": "C:\\Users\\Lail\\.nuget\\packages\\",
+        "outputPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\original\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lail\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -82,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -16,7 +16,6 @@ namespace OnlineCoursesApp
 
             builder.Services.AddScoped<IService<Instructor>, Service<Instructor>>();
             builder.Services.AddScoped<IService<Course>, Service<Course>>();
-            builder.Services.AddScoped<IService<Enroll>, Service<Enroll>>();
             builder.Services.AddScoped<IService<Section>, Service<Section>>();
             builder.Services.AddScoped<IService<Student>, Service<Student>>();
 

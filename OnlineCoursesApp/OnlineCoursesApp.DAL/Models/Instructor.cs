@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineCoursesApp.DAL.Models;
 
 public partial class Instructor
 {
+    [Key]
     public int InstructorId { get; set; }
 
     public string Name { get; set; } = null!;
