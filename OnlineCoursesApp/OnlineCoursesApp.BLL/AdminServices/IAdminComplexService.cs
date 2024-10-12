@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineCoursesApp.BLL.AdminServices
 {
-    public interface IAdminService
+    public interface IAdminComplexService
     {
         IQueryable<Course> GetNewCourses();
         IQueryable<Course> GetAllCourses();
