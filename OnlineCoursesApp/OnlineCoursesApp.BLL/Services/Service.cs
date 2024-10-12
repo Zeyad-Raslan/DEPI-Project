@@ -2,6 +2,7 @@
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 
+// can create service class from different models
 public class Service<T> : IService<T> where T : class
 {
     private readonly OnlineCoursesContext _context;
