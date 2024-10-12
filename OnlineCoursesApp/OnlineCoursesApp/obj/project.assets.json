@@ -7756,19 +7756,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\original\\.nuget\\packages\\": {}
+    "C:\\Users\\Lail\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
+      "projectUniqueName": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
       "projectName": "OnlineCoursesApp",
-      "projectPath": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
-      "packagesPath": "C:\\Users\\original\\.nuget\\packages\\",
-      "outputPath": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\obj\\",
+      "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
+      "packagesPath": "C:\\Users\\Lail\\.nuget\\packages\\",
+      "outputPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\original\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lail\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7782,11 +7782,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
-              "projectPath": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj"
+            "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
+              "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj"
             },
-            "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
-              "projectPath": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
+            "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+              "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
             }
           }
         }
@@ -7795,11 +7795,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7840,7 +7835,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

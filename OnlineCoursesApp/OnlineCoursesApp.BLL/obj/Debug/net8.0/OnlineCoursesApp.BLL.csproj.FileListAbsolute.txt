@@ -14,3 +14,19 @@ D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCou
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.DAL.pdb
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.csproj.AssemblyReference.cache
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCo.891CB8F5.Up2Date
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.BLL.deps.json
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.BLL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.BLL.pdb
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.DAL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\bin\Debug\net8.0\OnlineCoursesApp.DAL.pdb
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.csproj.AssemblyReference.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.GeneratedMSBuildEditorConfig.editorconfig
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.AssemblyInfoInputs.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.AssemblyInfo.cs
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.csproj.CoreCompileInputs.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.sourcelink.json
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.csproj.CopyComplete
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\refint\OnlineCoursesApp.BLL.dll
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\OnlineCoursesApp.BLL.pdb
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp.BLL\obj\Debug\net8.0\ref\OnlineCoursesApp.BLL.dll
