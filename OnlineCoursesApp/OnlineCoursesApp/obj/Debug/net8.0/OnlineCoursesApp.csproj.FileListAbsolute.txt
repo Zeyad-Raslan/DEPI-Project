@@ -256,15 +256,6 @@ D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCou
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\00_Track .Net\00_Project_GitHub\.Net (Backend)\MVC\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.csproj.AssemblyReference.cache
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.GeneratedMSBuildEditorConfig.editorconfig
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.AssemblyInfoInputs.cache
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.AssemblyInfo.cs
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.csproj.CoreCompileInputs.cache
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.MvcApplicationPartsAssemblyInfo.cache
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.RazorAssemblyInfo.cache
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.RazorAssemblyInfo.cs
-F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.sourcelink.json
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\appsettings.Development.json
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\appsettings.json
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\OnlineCoursesApp.staticwebassets.runtime.json
@@ -498,6 +489,15 @@ F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\On
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\OnlineCoursesApp.DAL.dll
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\OnlineCoursesApp.BLL.pdb
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\bin\Debug\net8.0\OnlineCoursesApp.DAL.pdb
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.csproj.AssemblyReference.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.GeneratedMSBuildEditorConfig.editorconfig
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.AssemblyInfoInputs.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.AssemblyInfo.cs
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.csproj.CoreCompileInputs.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.MvcApplicationPartsAssemblyInfo.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.RazorAssemblyInfo.cache
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.RazorAssemblyInfo.cs
+F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\OnlineCoursesApp.sourcelink.json
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\staticwebassets.build.json
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\staticwebassets.development.json
 F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp\obj\Debug\net8.0\staticwebassets\msbuild.OnlineCoursesApp.Microsoft.AspNetCore.StaticWebAssets.props

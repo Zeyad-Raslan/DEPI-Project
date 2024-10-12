@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\OnlineCoursesApp.bundle.scp.css"
     },
     {
+      "Id": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\wwwroot\\css\\ceruleanTheme.css",
+      "PackagePath": "staticwebassets\\css\\ceruleanTheme.css"
+    },
+    {
       "Id": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
