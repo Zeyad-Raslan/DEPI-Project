@@ -11,6 +11,7 @@ namespace Admin_Views.Controllers
 {
     public class AdminController : Controller
     {
+        // need to use admin complex service here
         private readonly IAdminComplexService _adminService;
 
         public AdminController(IAdminComplexService adminService)

@@ -19,9 +19,9 @@ public partial class Course
 
     public string? Image { get; set; }
 
-    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
+    public virtual ICollection<Student> Students { get; set; } 
 
-    public virtual ICollection<Section> Sections { get; set; } = new List<Section>();
+    public virtual ICollection<Section> Sections { get; set; }
 
     public virtual Instructor Instructor { get; set; }
     public Course()

@@ -19,7 +19,6 @@ namespace OnlineCoursesApp.Controllers
         }
 
 
-
         public IActionResult Index(int id)
         {
             var instructor = _instructorService.Query()
