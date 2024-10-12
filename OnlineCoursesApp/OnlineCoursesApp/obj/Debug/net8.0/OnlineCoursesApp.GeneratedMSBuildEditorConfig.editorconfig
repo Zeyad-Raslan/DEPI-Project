@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\CSE_56\DEPI\DEPI_Project\Project_Source_Code\DEPI-Project\OnlineCoursesApp\OnlineCoursesApp
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Admin/ManageCourses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlQ291cnNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Admin/ManageInstructors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlSW5zdHJ1Y3RvcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Admin/ManageNewCourses.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlTmV3Q291cnNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Admin/ManageStudents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTWFuYWdlU3R1ZGVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/CSE_56/DEPI/DEPI_Project/Project_Source_Code/DEPI-Project/OnlineCoursesApp/OnlineCoursesApp/Views/Shared/_ValidationScriptsPartial.cshtml]

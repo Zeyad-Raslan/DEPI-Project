@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Z4tL+O3HfIPlkCMVYcZkt/u0eALPXka8sfYKZ32uzUI=",
+  "Hash": "swRypg3dIyH9XxXOqwOJYIqj3civJpGACptYPJPMPYY=",
   "Source": "OnlineCoursesApp",
   "BasePath": "_content/OnlineCoursesApp",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\OnlineCoursesApp.bundle.scp.css"
+    },
+    {
+      "Identity": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\wwwroot\\css\\ceruleanTheme.css",
+      "SourceId": "OnlineCoursesApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\wwwroot\\",
+      "BasePath": "_content/OnlineCoursesApp",
+      "RelativePath": "css/ceruleanTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ceruleanTheme.css"
     },
     {
       "Identity": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\wwwroot\\css\\site.css",
