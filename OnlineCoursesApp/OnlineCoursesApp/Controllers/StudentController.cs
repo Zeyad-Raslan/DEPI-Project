@@ -10,9 +10,11 @@ namespace project_student.Controllers
     public class StudentController : Controller
     {
         private readonly IService<Course> _courseService;
-        public StudentController(IService<Course> courseService)
+        private readonly IService<Student> _studentService;
+        public StudentController(IService<Course> courseService, IService<Student> studentService)
         {
              _courseService = courseService;
+            _studentService = studentService;
         }
         public IActionResult HomePage()
         {
@@ -28,15 +30,16 @@ namespace project_student.Controllers
                 NumStudent = e.Students.Count
                 
             }).ToList();
-            return View("HomePage", courceList);
+            return View(courceList);
         }
         public IActionResult MyCourses()
         {
-            return View("MyCourses");
-        }
-        public IActionResult ProfilePage()
-        {
             return View();
+        }
+        public IActionResult ProfilePage(int id)
+        {
+            Student profileInfo = _studentService.GetById(id);
+            return View(profileInfo);
         }
         public IActionResult DisplayMyCourse()
         {
