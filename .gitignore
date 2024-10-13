@@ -20,5 +20,27 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+
+
+# Build artifacts
+bin/
+obj/
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# Configuration files
+*.user
+*.suo
+
+# IDE-specific files
+*.vs
+*.sln
+*.csproj
+
+
 .vs/
 .vs
+
