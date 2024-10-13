@@ -47,8 +47,11 @@ TestResults.xml
 
 
 # Build artifacts
+
 bin/
+bin/*.*
 obj/
+obj/*.*
 
 # Temporary files
 *.tmp
