@@ -2767,19 +2767,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lail\\.nuget\\packages\\": {}
+    "C:\\Users\\Hassan\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
       "projectName": "OnlineCoursesApp.BLL",
-      "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
-      "packagesPath": "C:\\Users\\Lail\\.nuget\\packages\\",
-      "outputPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\obj\\",
+      "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
+      "packagesPath": "C:\\Users\\Hassan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Lail\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Hassan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2793,8 +2798,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
-              "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
+            "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+              "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
             }
           }
         }
@@ -2803,7 +2808,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -2824,8 +2835,60 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Azure.Identity' 1.10.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Azure.Identity' 1.10.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-wvxc-855f-jvrv",
+      "libraryId": "Azure.Identity",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m5vv-6r4h-3vj9",
+      "libraryId": "Microsoft.Identity.Client",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1901",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Identity.Client' 4.56.0 has a known low severity vulnerability, https://github.com/advisories/GHSA-x674-v45j-fwxw",
+      "libraryId": "Microsoft.Identity.Client",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Formats.Asn1' 5.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-447r-wph3-92pm",
+      "libraryId": "System.Formats.Asn1",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

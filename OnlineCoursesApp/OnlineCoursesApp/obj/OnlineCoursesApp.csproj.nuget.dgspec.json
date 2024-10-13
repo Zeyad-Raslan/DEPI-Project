@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj": {}
+    "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj": {}
   },
   "projects": {
-    "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
+    "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
         "projectName": "OnlineCoursesApp.BLL",
-        "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
-        "packagesPath": "C:\\Users\\Lail\\.nuget\\packages\\",
-        "outputPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\obj\\",
+        "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
+        "packagesPath": "C:\\Users\\Hassan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lail\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hassan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
-                "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
+              "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+                "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
               }
             }
           }
@@ -38,7 +42,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -59,21 +69,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+    "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
         "projectName": "OnlineCoursesApp.DAL",
-        "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
-        "packagesPath": "C:\\Users\\Lail\\.nuget\\packages\\",
-        "outputPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+        "packagesPath": "C:\\Users\\Hassan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lail\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hassan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +107,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -136,21 +156,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj": {
+    "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
+        "projectUniqueName": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
         "projectName": "OnlineCoursesApp",
-        "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
-        "packagesPath": "C:\\Users\\Lail\\.nuget\\packages\\",
-        "outputPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\obj\\",
+        "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
+        "packagesPath": "C:\\Users\\Hassan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lail\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hassan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -164,11 +188,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
-                "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj"
+              "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
+                "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj"
               },
-              "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
-                "projectPath": "F:\\CSE_56\\DEPI\\DEPI_Project\\Project_Source_Code\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
+              "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+                "projectPath": "C:\\Users\\Hassan\\Source\\Repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
               }
             }
           }
@@ -177,7 +201,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -217,7 +247,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

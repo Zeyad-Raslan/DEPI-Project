@@ -1,0 +1,56 @@
+﻿@model List<StudentCoursesHomeViewModel>
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+    @using OnlineCoursesApp.ViewModel.Student
+}
+
+<main>
+    <div class="main">
+        <h1>Home Page</h1>
+        <p>We are here to help you find the best path to achieve your goals.</p>
+    </div>
+    <section class="search-container">
+        <input type="text"
+               id="course-search"
+               placeholder="Search for a course..."
+               class="search-input" />
+    </section>
+
+    <!-- Cards Section -->
+    <div class="cards">
+        <a href="#" class="HomeCard">
+            <h1>JavaScript Basics</h1>
+            <p>By :</p>
+            <p>Learn the fundamentals of JavaScript, one of the most popular programming languages in web development.</p>
+            <button class="enroll-button">Enroll</button>
+        </a>
+        @foreach (var course in @Model)
+        {
+            <form class="HomeCard" action="/Student/EnrollCourse" method="post">
+
+            <div  >
+                <h1>@course.CourseName</h1>
+                <p>By: @course.InsrUctorName</p>
+                <p>Number of Students: @course.NumStudent</p>
+                <p>@course.CourseDescription</p>
+                <button class="enroll-button" type="submit">Enroll</button>
+            </div>
+           </form>
+        }
+    </div>
+    </div>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+       

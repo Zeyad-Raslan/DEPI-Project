@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "MyCourses";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+}
+
+<body class="course-body">
+    <div class="course-container">
+        <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourse", "Student")'">
+            <h1>JavaScript Basics</h1>
+            <p>Learn the fundamentals of JavaScript, one of the most popular programming languages in web development.</p>
+        </div>
+
+        <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourse", "Student")'">
+            <h1>C# for Beginners</h1>
+            <p>Learn the basics of C#, a versatile language for building desktop, web, and mobile applications.</p>
+        </div>
+
+        <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourse", "Student")'">
+            <h1>C++ Essentials</h1>
+            <p>Master the essentials of C++, a powerful language widely used in systems programming and game development.</p>
+        </div>
+
+
+
+    </div>
+</body>
