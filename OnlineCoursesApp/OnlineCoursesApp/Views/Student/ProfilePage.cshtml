@@ -10,8 +10,22 @@
     <div class="profile-container">
         <div class="header">
             <img src="./images/user.png" alt="Profile Image" class="profile-image">
+            @if (@Model.Name==null)
+            {
+                <p>add your name</p>
+            }
+            else
+            {     
             <h1>@Model.Name </h1>
+            }
             <p>Email: @Model.Email</p>
+            @if(Model.Education==null)
+            {}
+            else
+            {
+                <p>@Model.Education</p>
+            }
+            
             @* <div class="score">
                 <div class="title">Scores</div>
                 <div class="value">50</div>
@@ -21,12 +35,13 @@
         <form class="profile-form">
             <div class="input-group">
                 <label for="Name">Name</label>
-                <input type="text" id="Name" name="" required placeholder="Enter your Name">
+                <input type="text" id="Name" name=""  placeholder="Enter your Name">
             </div>
             <div class="input-group">
-                <label for="Email">Email</label>
-                <input type="text" id="Email" name="" required placeholder="Enter your Email">
+                <label for="Education">Education</label>
+                <input type="text" id="Education" name=""  placeholder="Enter your Education">
             </div>
+          
             <div class="input-group">
                 <label for="info">Additional Information</label>
                 <textarea id="info" name="info"  placeholder="Additional details about yourself..."></textarea>
