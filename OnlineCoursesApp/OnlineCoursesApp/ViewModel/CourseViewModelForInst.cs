@@ -1,6 +1,6 @@
 ﻿namespace OnlineCoursesApp.ViewModel
 {
-    public class CourseViewModelForInst
+    public class CourseHomePageViewModel
     {
         public int CourseId { get; set; }
         public string CourseName { get; set; }

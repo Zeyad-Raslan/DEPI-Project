@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "ProfilePage";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+}
+
+<body class="profile-body">
+    <div class="profile-container">
+        <div class="header">
+            <img src="./images/user.png" alt="Profile Image" class="profile-image">
+            <h1>Hassan</h1>
+            <p>Email: hassan443@gmail.com</p>
+            <div class="score">
+                <div class="title">Scores</div>
+                <div class="value">50</div>
+            </div>
+        </div>
+
+        <form class="profile-form">
+            <div class="input-group">
+                <label for="birthday">Birthday</label>
+                <input type="date" id="birthday" name="birthday" required>
+            </div>
+            <div class="input-group">
+                <label for="college">College</label>
+                <input type="text" id="college" name="college" required placeholder="Enter your college">
+            </div>
+            <div class="input-group">
+                <label for="info">Additional Information</label>
+                <textarea id="info" name="info" required placeholder="Additional details about yourself..."></textarea>
+            </div>
+            <button type="submit" class="button">Save</button>
+        </form>
+    </div>
+</body>
+

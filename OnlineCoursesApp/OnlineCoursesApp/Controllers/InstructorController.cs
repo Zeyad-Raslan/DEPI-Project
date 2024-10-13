@@ -34,7 +34,7 @@ namespace OnlineCoursesApp.Controllers
             // تمرير InstructorId إلى الـ View باستخدام ViewBag
             ViewBag.InstructorId = instructor.InstructorId;
             
-            var courses = instructor.Courses.Select(course => new CourseViewModelForInst
+            var courses = instructor.Courses.Select(course => new CourseHomePageViewModel
             {
                 CourseId = course.CourseId,
                 CourseName = course.Name,

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learnig Platform</title>
+    <link rel="stylesheet" href="~/css/Layout_style.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="@Url.Action("HomePage", "Student")">Home</a></li>
+                <li><a href="@Url.Action("MyCourses", "Student")">My Courses</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="@Url.Action("Manage", "Instructor")">Contact</a></li>
+
+            </ul>
+            <div class="profile">
+                <a href="@Url.Action("ProfilePage", "Student")" class="a_tag">
+                    <img src="../user.png"
+                         alt="Profile Image"
+                         class="profile-img" />
+                    <span class="username">Hassan</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+        <footer>
+            <div class="footer-content">
+                <p>&copy; DEPI Grad_Project(Team). All Rights Reserved.</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
