@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OnlineCoursesApp.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcc1eda108a176482610a17b3034569da4d134ec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+31ed5a137da3f44b51281aa04a860a322ebaa04b")]
 [assembly: System.Reflection.AssemblyProductAttribute("OnlineCoursesApp.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OnlineCoursesApp.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
