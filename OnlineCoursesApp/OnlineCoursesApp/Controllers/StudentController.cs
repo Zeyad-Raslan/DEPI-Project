@@ -16,6 +16,7 @@ namespace project_student.Controllers
         }
         public IActionResult HomePage()
         {
+            //hhhhhhhhhh
             var  courses = _courseService.Query().
                 Include(i=>i.Students).
                 Include(i => i.Instructor).ToList();
