@@ -23,6 +23,9 @@ namespace project_student.Controllers
             _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
 
+            // save info to session
+            HttpContext.Session.SetInt32("studentId", 2);
+
         }
         public IActionResult HomePage()
         {
@@ -45,6 +48,7 @@ namespace project_student.Controllers
         }
         public IActionResult MyCourses(int studentId)
         {
+            TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
 
             var student = _studentService.Query()
                                  .Include(i => i.Courses)
@@ -71,6 +75,7 @@ namespace project_student.Controllers
         }
         public IActionResult DisplayHomeCourseContent(int courseId)
         {
+
             TempData["StudentId"] = 2;
             Course? course = _courseService.Query()
                 .Include(c => c.Sections)
@@ -95,6 +100,7 @@ namespace project_student.Controllers
         }
         public IActionResult DisplayMyCourseContent(int courseId, int studentId)
         {
+            TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
             Course? course = _courseService.Query()
                 .Include(c => c.Sections)
                 .Include(c => c.Instructor)
@@ -133,10 +139,13 @@ namespace project_student.Controllers
         }
         public IActionResult DisplaySession()
         {
+            TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+
             return View();
         }
         public IActionResult EnrollCourse(int studentId, int courseId)
         {
+            TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
 
             bool enrollStudent = _studentComplexService.EnrolleStudentInCourse(studentId, courseId);
             if (enrollStudent)
@@ -155,6 +164,8 @@ namespace project_student.Controllers
         [HttpPost]
         public IActionResult SaveProfile(Student model)
         {
+            TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+
             var existingStudent = _studentService.GetById(model.StudentId);
 
 
