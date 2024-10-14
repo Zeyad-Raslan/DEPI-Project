@@ -13,12 +13,16 @@ namespace project_student.Controllers
     {
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
+        private readonly IService<StudentProgress> _studentProgressService;
         private readonly IStudentComplexService  _studentComplexService;
-        public StudentController(IService<Course> courseService, IService<Student> studentService, IStudentComplexService studentComplexService)
+        public StudentController(IService<Course> courseService, IService<Student> studentService,
+            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService)
         {
              _courseService = courseService;
             _studentService = studentService;
+            _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
+
         }
         public IActionResult HomePage()
         {
@@ -87,8 +91,36 @@ namespace project_student.Controllers
             };
             return View(couseContentsViewModel);
         }
-        public IActionResult DisplayMyCourse()
+        public IActionResult DisplayMyCourseContent(int courseId, int studentId)
         {
+            Course? course = _courseService.Query()
+                .Include(c => c.Sections)
+                .Include(c => c.Instructor)
+                .Include(c => c.Students)
+                .Where(c => c.CourseId == courseId)
+                .SingleOrDefault();
+            MyCourseContentViewModel myCourseContentsViewModel = new MyCourseContentViewModel()
+            {
+                CourseId = course.CourseId,
+                Name = course.Name,
+                Type = course.Type,
+                Description = course.Description,
+                Image = course.Image,
+                StudentCount = course.Students.Count(),
+                InstructoID = course.Instructor.InstructorId,
+                InstructorName = course.Instructor.Name,
+            };
+            foreach (var section in course.Sections) {
+
+                var currentSectionStatus = _studentProgressService.Query()
+                    .Include(p => p.Course)
+                    .Include(p => p.Student)
+                    .Include(p => p.Section)
+                    .Where(p => p.Course.CourseId == courseId
+                             && p.Student.StudentId == studentId
+                             && p.Section.SectionId == section.SectionId);
+
+            }
             return View();
         }
         public IActionResult DisplaySession()
