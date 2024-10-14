@@ -3,6 +3,7 @@
     ViewData["Title"] = "DisplayHomeCourses";
     Layout = "~/Views/Shared/Layout_student.cshtml";
     @using OnlineCoursesApp.ViewModel.CourseViewModels
+    @using OnlineCoursesApp.DAL.Models
 }
 
 
@@ -26,24 +27,22 @@
         </div>
         <div class="sessions-container">
             <h2>Course Sessions</h2>
-        <div>
-            @{
-                foreach (var section in Model.Sections)
-                {
+            <div>
+                @{
+                    foreach (Section sectionVar in @Model.Sections)
+                    {
                     
-                        <div class="session-card">
-                            <div class="session-info">
-                                <h3>Session 1: Introduction to C++</h3>
-                                <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
+                            <div class="session-card">
+                                <div class="session-info">
+                                <h3>@sectionVar.Title</h3>
+                                <link href="@sectionVar.Link"/>
+                                </div>
                             </div>
-                        </div>
                    
+                    }
                 }
-            }
+                </div>
             </div>
-        </div>
-
-        </div>
 
 </body>
 
