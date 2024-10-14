@@ -62,8 +62,11 @@ obj/*.*
 
 # IDE-specific files
 *.vs
+<<<<<<< HEAD
 *.sln
 *.csproj
+=======
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
 
 
 .vs/

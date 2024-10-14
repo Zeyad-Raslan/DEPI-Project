@@ -5,26 +5,40 @@ using OnlineCoursesApp.BLL.AdminServices;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel.AdminUsedModels;
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
 using System.Linq;
+=======
+
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
 
 namespace Admin_Views.Controllers
 {
     public class AdminController : Controller
     {
+<<<<<<< HEAD
         // Need to use admin complex service here
+=======
+        // need to use admin complex service here
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         private readonly IAdminComplexService _adminService;
 
         public AdminController(IAdminComplexService adminService)
         {
             _adminService = adminService;
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         public IActionResult Index()
         {
             return View();
         }
+<<<<<<< HEAD
 
         // Existing method for managing new courses
+=======
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         public IActionResult ManageNewCourses()
         {
             List<NewCourseViewModel> newCourses = _adminService.GetNewCourses()
@@ -37,8 +51,11 @@ namespace Admin_Views.Controllers
 
             return View(newCourses);
         }
+<<<<<<< HEAD
 
         // Existing method for managing courses
+=======
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         public IActionResult ManageCourses()
         {
             List<ManageCoursesViewModel> courses = _adminService.GetAllCourses()
@@ -53,6 +70,7 @@ namespace Admin_Views.Controllers
 
             return View(courses);
         }
+<<<<<<< HEAD
 
         // New method: Create a course
         [HttpGet]
@@ -138,10 +156,13 @@ namespace Admin_Views.Controllers
             return RedirectToAction("ManageCourses");
         }
 
+=======
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         public IActionResult ManageStudents()
         {
             return View();
         }
+<<<<<<< HEAD
 
         public IActionResult ManageInstructors()
         {
@@ -307,5 +328,12 @@ namespace Admin_Views.Controllers
             _adminService.DeleteStudent(student);
             return RedirectToAction("ManageStudents");
         }
+=======
+        public IActionResult ManageInstructors()
+        {
+            return View();
+        }
+
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
     }
 }

@@ -1,12 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
+<<<<<<< HEAD
 using System.Linq;
+=======
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
 
 namespace OnlineCoursesApp.BLL.AdminServices
 {
     public class AdminComplexService : IAdminComplexService
     {
+<<<<<<< HEAD
         private readonly IService<Instructor> _instructorService;
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
@@ -14,10 +23,20 @@ namespace OnlineCoursesApp.BLL.AdminServices
         public AdminComplexService(IService<Instructor> instructorService, IService<Course> courseService, IService<Student> studentService)
         {
             _instructorService = instructorService;
+=======
+        // all services that needed for admin to do complex service
+        private readonly IService<Instructor> _instructorService;
+        private readonly IService<Course> _courseService;
+        private readonly IService<Student> _studentService;
+        public AdminComplexService(OnlineCoursesContext context, IService<Instructor> instructorService, IService<Course> courseService, IService<Student> studentService) 
+        {
+          _instructorService = instructorService;
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
             _courseService = courseService;
             _studentService = studentService;
         }
 
+<<<<<<< HEAD
         // Courses
         public IQueryable<Course> GetAllCourses()
         {
@@ -53,11 +72,21 @@ namespace OnlineCoursesApp.BLL.AdminServices
         }
 
         // Instructors
+=======
+       
+
+        public IQueryable<Course> GetAllCourses()
+        {
+            return _courseService.Query().Where(i=> (i.CourseStatus != CourseStatus.UnderReview));
+        }
+
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         public IQueryable<Instructor> GetAllInstructors()
         {
             return _instructorService.Query();
         }
 
+<<<<<<< HEAD
         public Instructor GetInstructorById(int instructorId)
         {
             return _instructorService.Query().FirstOrDefault(i => i.InstructorId == instructorId);
@@ -82,9 +111,20 @@ namespace OnlineCoursesApp.BLL.AdminServices
         }
 
         // Students
+=======
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         public IQueryable<Student> GetAllStudents()
         {
             return _studentService.Query();
         }
+<<<<<<< HEAD
+=======
+
+        public IQueryable<Course> GetNewCourses()
+        {
+            return _courseService.Query().
+                Where(i=> i.CourseStatus== CourseStatus.UnderReview);
+        }
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
     }
 }

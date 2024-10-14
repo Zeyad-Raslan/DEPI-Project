@@ -10,7 +10,11 @@
     }
     public class StudentCoursesHomeViewModel
     {
+<<<<<<< HEAD
         //public int CourseId { get; set; } 
+=======
+        public int CourseId { get; set; } 
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
         public string? CourseName { get; set; }
         public int NumStudent { get; set; }
         

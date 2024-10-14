@@ -1,10 +1,19 @@
 ﻿using OnlineCoursesApp.DAL.Models;
+<<<<<<< HEAD
 using System.Linq;
+=======
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
 
 namespace OnlineCoursesApp.BLL.AdminServices
 {
     public interface IAdminComplexService
     {
+<<<<<<< HEAD
         // Courses
         IQueryable<Course> GetNewCourses();
         IQueryable<Course> GetAllCourses();
@@ -22,5 +31,12 @@ namespace OnlineCoursesApp.BLL.AdminServices
 
         // Students
         IQueryable<Student> GetAllStudents();
+=======
+        IQueryable<Course> GetNewCourses();
+        IQueryable<Course> GetAllCourses();
+        IQueryable<Instructor> GetAllInstructors();
+        IQueryable<Student> GetAllStudents();
+
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
     }
 }

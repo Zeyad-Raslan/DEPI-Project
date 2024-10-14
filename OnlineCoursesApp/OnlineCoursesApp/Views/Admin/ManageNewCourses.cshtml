@@ -1,4 +1,5 @@
 ﻿@model List<NewCourseViewModel>
+<<<<<<< HEAD
     @{
     ViewData["Title"] = "ManageNewCourses";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -60,3 +61,61 @@
             </div>
         </div>
     </div>
+=======
+@{
+    ViewData["Title"] = "ManageNewCourses";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+        
+}
+
+<div class="container-fluid my-4">
+    <div class="row">
+        <!-- manage nwe courses table -->
+        <div class="card mb-4">
+            <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                <h4>Manage New Courses</h4>
+                <div class="dropdown">
+                    <button class="btn btn-warning dropdown-toggle" type="button" id="filterType"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter: Type
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="filterType">
+                        <li><a class="dropdown-item" href="#">Type 1</a></li>
+                        <li><a class="dropdown-item" href="#">Type 2</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead class="table-warning">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach(var course in @Model)
+                            {
+                                <tr>
+                                    <td>@course.CourseId</td>
+                                    <td>@course.Name</td>
+                                    <td>@course.Type</td>
+                                    <td>
+                                        <a href="#" class="btn btn-info btn-sm">Details</a>
+                                        <a href="#" class="btn btn-success  btn-sm">approve</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Reject</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+>>>>>>> 4392f2c2d6689bfe5ae3ea61d2782d6931c2ad6f
