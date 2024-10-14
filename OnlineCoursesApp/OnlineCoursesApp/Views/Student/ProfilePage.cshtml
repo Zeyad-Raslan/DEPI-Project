@@ -1,38 +1,51 @@
-﻿@model Student 
+﻿@model Student
+
 @{
     ViewData["Title"] = "HomePage";
     Layout = "~/Views/Shared/Layout_student.cshtml";
-    @using OnlineCoursesApp.DAL.Models
-    @using OnlineCoursesApp.ViewModel
+    @using OnlineCoursesApp.DAL.Models;
+    @using OnlineCoursesApp.ViewModel;
 }
 
 <body class="profile-body">
     <div class="profile-container">
         <div class="header">
-            <img src="./images/user.png" alt="Profile Image" class="profile-image">
-            <h1>@Model.Name </h1>
+            <img src="~/images/image1.jpg" alt="Profile Image" class="profile-image">
+            @if (@Model.Name == null)
+            {
+                <p>Add your name</p>
+            }
+            else
+            {
+                <h1>@Model.Name</h1>
+            }
             <p>Email: @Model.Email</p>
-            @* <div class="score">
-                <div class="title">Scores</div>
-                <div class="value">50</div>
-            </div> *@
+            @if (Model.Education != null)
+            {
+                <p>@Model.Education</p>
+            }
         </div>
 
-        <form class="profile-form">
+        <form class="profile-form" asp-action="SaveProfile" asp-controller="Student" method="post">
+            <input type="hidden" id="StudentId" name="StudentId" value="@Model.StudentId" />
+
             <div class="input-group">
                 <label for="Name">Name</label>
-                <input type="text" id="Name" name="" required placeholder="Enter your Name">
+                <input type="text" id="Name" name="Name" placeholder="Enter your Name" required>
             </div>
+
             <div class="input-group">
-                <label for="Email">Email</label>
-                <input type="text" id="Email" name="" required placeholder="Enter your Email">
+                <label for="Education">Education</label>
+                <input type="text" id="Education" name="Education" placeholder="Enter your Education" required>
             </div>
+
             <div class="input-group">
                 <label for="info">Additional Information</label>
-                <textarea id="info" name="info"  placeholder="Additional details about yourself..."></textarea>
+                <textarea id="info" name="info" placeholder="Additional details about yourself..."></textarea>
             </div>
+
             <button type="submit" class="Profilebutton">Save</button>
         </form>
+
     </div>
 </body>
-
