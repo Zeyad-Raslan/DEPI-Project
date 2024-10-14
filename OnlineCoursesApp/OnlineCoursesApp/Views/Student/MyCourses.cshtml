@@ -1,0 +1,27 @@
+﻿@model List<StudentMyCoursesViewModel>
+@{
+    ViewData["Title"] = "MyCourses";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+    @using OnlineCoursesApp.ViewModel.Student
+}
+
+<body class="course-body">
+    <div class="course-container">
+
+        @{
+            foreach (var course in @Model)
+            {
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourse", "Student")'">
+                    <h1>@course.CourseName</h1>
+                    <p>@course.CourseDescription</p>
+                    <p>@course.InsrUctorName</p>
+                </div>
+
+            }
+        }
+
+        
+
+
+    </div>
+</body>

@@ -1,0 +1,47 @@
+﻿
+
+ @model List<StudentViewModelForInst>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>Students Enrolled in @ViewData["CourseName"]</h2>
+
+@if (!Model.Any())
+{
+    <p>No students are enrolled in this course.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Progress</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@student.StudentId</td>
+                    <td>@student.StudentName</td>
+                    <td>
+                        @if (student.Progress > 0)
+                        {
+                            @student.Progress 
+                        }
+                        else
+                        {
+                            <span>N/A</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-controller="Instructor" asp-action="Index" asp-route-id="@ViewData["InstructorId"]" class="btn btn-primary">Back to List</a>
+}
