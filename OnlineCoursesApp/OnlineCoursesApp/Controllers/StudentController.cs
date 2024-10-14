@@ -14,11 +14,11 @@ namespace project_student.Controllers
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
         private readonly IService<StudentProgress> _studentProgressService;
-        private readonly IStudentComplexService  _studentComplexService;
+        private readonly IStudentComplexService _studentComplexService;
         public StudentController(IService<Course> courseService, IService<Student> studentService,
             IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService)
         {
-             _courseService = courseService;
+            _courseService = courseService;
             _studentService = studentService;
             _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
@@ -26,18 +26,18 @@ namespace project_student.Controllers
         }
         public IActionResult HomePage()
         {
-            var  courses = _courseService.Query().
-                Include(i=>i.Students).
+            var courses = _courseService.Query().
+                Include(i => i.Students).
                 Include(i => i.Instructor).ToList();
 
-            List<StudentCoursesHomeViewModel> courceList = courses.Select( e=> new StudentCoursesHomeViewModel()
+            List<StudentCoursesHomeViewModel> courceList = courses.Select(e => new StudentCoursesHomeViewModel()
             {
                 CourseId = e.CourseId,
                 CourseName = e.Name,
                 CourseDescription = e.Description,
                 InsrUctorName = e.Instructor.Name,
                 NumStudent = e.Students.Count
-                
+
             }).ToList();
 
             TempData["StudentId"] = 2;
@@ -45,21 +45,22 @@ namespace project_student.Controllers
         }
         public IActionResult MyCourses(int studentId)
         {
-            
+
             var student = _studentService.Query()
                                  .Include(i => i.Courses)
-                                 .ThenInclude(c=> c.Instructor)
+                                 .ThenInclude(c => c.Instructor)
                                  .Where(i => i.StudentId == studentId)
                                  .FirstOrDefault();
 
             //var currentstudent = student.ToList().First();
-            var  courses = student.Courses.
-                Select(course=> new StudentMyCoursesViewModel()
-            {
-                CourseName=course.Name,
-                CourseDescription = course.Description,
-                InsrUctorName = course.Instructor.Name
-            }).ToList();
+            var courses = student.Courses.
+                Select(course => new StudentMyCoursesViewModel()
+                {
+                    CourseId = course.CourseId,
+                    CourseName = course.Name,
+                    CourseDescription = course.Description,
+                    InsrUctorName = course.Instructor.Name
+                }).ToList();
 
             return View(courses);
         }
@@ -79,15 +80,15 @@ namespace project_student.Controllers
                 .FirstOrDefault();
             CouseContentsViewModel couseContentsViewModel = new CouseContentsViewModel()
             {
-               CourseId = course.CourseId,
-               Name = course.Name,
-               Type = course.Type,
-               Description = course.Description,
-               Image = course.Image,
-               StudentCount = course.Students.Count(),
-               InstructoID = course.Instructor.InstructorId,
-               InstructorName = course.Instructor.Name,
-               Sections = course.Sections
+                CourseId = course.CourseId,
+                Name = course.Name,
+                Type = course.Type,
+                Description = course.Description,
+                Image = course.Image,
+                StudentCount = course.Students.Count(),
+                InstructoID = course.Instructor.InstructorId,
+                InstructorName = course.Instructor.Name,
+                Sections = course.Sections
 
             };
             return View(couseContentsViewModel);
@@ -111,7 +112,8 @@ namespace project_student.Controllers
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
             };
-            foreach (var section in course.Sections) {
+            foreach (var section in course.Sections)
+            {
 
                 var currentSectionStatus = _studentProgressService.Query()
                     .Include(p => p.Course)
@@ -137,7 +139,7 @@ namespace project_student.Controllers
         {
 
             bool enrollStudent = _studentComplexService.EnrolleStudentInCourse(studentId, courseId);
-            if(enrollStudent)
+            if (enrollStudent)
             {
                 //return Content("enroll Sucess");
             }
@@ -165,4 +167,4 @@ namespace project_student.Controllers
             return RedirectToAction("ProfilePage", new { id = model.StudentId });
         }
     }
-    }
+}
