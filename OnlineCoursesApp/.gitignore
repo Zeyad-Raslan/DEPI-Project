@@ -1,1 +1,39 @@
+# Ignore build and debug files
+bin/
+obj/
+*.pdb
+*.exe
+*.dll
+*.cache
+*.log
+
+# Ignore Visual Studio files
 .vs/
+*.user
+*.suo
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.bak
+
+# Ignore project related cache files
+*.dbcache
+*.futdcache
+.vscode/
+
+# Ignore compiled outputs
+*.o
+*.a
+*.lib
+
+# Ignore NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Ignore configuration/environment files
+appsettings*.json
+.env
+*.config
