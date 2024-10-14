@@ -119,10 +119,15 @@ namespace project_student.Controllers
                     .Include(p => p.Section)
                     .Where(p => p.Course.CourseId == courseId
                              && p.Student.StudentId == studentId
-                             && p.Section.SectionId == section.SectionId);
+                             && p.Section.SectionId == section.SectionId).SingleOrDefault();
 
+                myCourseContentsViewModel.SectionsStatus.Add(new Pair<Section, bool>()
+                {
+                    First = section,
+                    Second = currentSectionStatus.Status
+                });
             }
-            return View();
+            return View(myCourseContentsViewModel);
         }
         public IActionResult DisplaySession()
         {
