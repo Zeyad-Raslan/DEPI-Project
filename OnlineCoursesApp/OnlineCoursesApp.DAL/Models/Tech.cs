@@ -15,7 +15,10 @@ namespace OnlineCoursesApp.DAL.Models
     {
         [Key, Column(Order = 0)]
         public int InstructorID { get; set; }
-
+  
+  
+		
+		// Test
         [Key, Column(Order = 1)]
         public int CourseID { get; set; }
 
