@@ -57,6 +57,10 @@ namespace project_student.Controllers
             Student profileInfo = _studentService.GetById(id);
             return View(profileInfo);
         }
+        public IActionResult DisplayHomeCourses()
+        {
+            return View();
+        }
         public IActionResult DisplayMyCourse()
         {
             return View();
