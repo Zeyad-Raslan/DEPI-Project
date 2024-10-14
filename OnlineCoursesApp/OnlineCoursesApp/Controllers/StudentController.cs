@@ -101,15 +101,15 @@ namespace project_student.Controllers
             bool enrollStudent = _studentComplexService.EnrolleStudentInCourse(studentId, courseId);
             if(enrollStudent)
             {
-                return Content("enroll Sucess");
+                //return Content("enroll Sucess");
             }
             else
             {
-                return Content("enroll Faild");
+                //return Content("enroll Faild");
 
             }
 
-            return RedirectToAction("MyCourses");
+            return RedirectToAction("MyCourses", new { studentId = studentId });
         }
 
         [HttpPost]
