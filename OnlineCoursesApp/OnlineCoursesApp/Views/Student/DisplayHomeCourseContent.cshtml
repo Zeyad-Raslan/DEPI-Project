@@ -19,14 +19,14 @@
     <div class="course-detail-container">
 
         <div class="course-header">
-            <h1>Course Title:@Model.Name</h1>
-            <p>Description: @Model.Description</p>
+            <h1>@Model.Name</h1>
+            <p> @Model.Description</p>
                 <form action="" method="post">
                     <button class="enroll-button" type="submit">Enroll</button>
                 </form>
         </div>
+        <br/>
         <div class="sessions-container">
-            <h2>Course Sessions</h2>
             <div>
                 @{
                     foreach (Section sectionVar in @Model.Sections)
