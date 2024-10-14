@@ -82,10 +82,27 @@ namespace OnlineCoursesApp.BLL.StudentService
 
             return percentProgress;
         }
-        public void CompleteSection(int StudentId, int CourseId, int SectionId)
+        public void CompleteSection(int studentId, int courseId, int sectionId)
         {
+            //get sections
+            var sectionStatus = _studentProgressService.Query()
+                                 .Include(i => i.Status)
+                                 .Include(i => i.Student)
+                                 .Include(i => i.Course)
+                                 .Include(i => i.Section)   
+                                 .Where(i => i.Student.StudentId == studentId
+                                          && i.Course.CourseId == courseId
+                                          && i.Section.SectionId == sectionId).SingleOrDefault();
+            //sectionStatus.Student.StudentId = studentId;
+            //sectionStatus.Course.CourseId = courseId;
+            //sectionStatus.Section.SectionId = sectionId;
+            //sectionStatus.Status = (sectionStatus.Status == false) ? true : false ; 
 
-        
+            if (sectionStatus.Status == false) sectionStatus.Status = true;
+            else if(sectionStatus.Status == true) sectionStatus.Status = false;
+
+            _studentProgressService.Update(sectionStatus);
+
         }
 
 
