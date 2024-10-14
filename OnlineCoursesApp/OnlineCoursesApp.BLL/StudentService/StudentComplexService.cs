@@ -63,5 +63,31 @@ namespace OnlineCoursesApp.BLL.StudentService
 
             return true;
         }
+        public int CountStudentProgress(int studentId, int courseId) 
+        {
+            //get sections
+            var countCompletesection = _studentProgressService.Query()
+                                 .Include(i => i.Student)
+                                 .Include(i => i.Course)
+                                 .Where(i => i.Student.StudentId == studentId 
+                                          && i.Course.CourseId == courseId
+                                          && i.Status == true).Count();
+
+            var countSection = _studentProgressService.Query()
+                                 .Include(i => i.Student)
+                                 .Include(i => i.Course)
+                                 .Where(i => i.Student.StudentId == studentId
+                                          && i.Course.CourseId == courseId).Count();
+            var percentProgress = (countCompletesection / countSection) * 100;
+
+            return percentProgress;
+        }
+        public void CompleteSection(int StudentId, int CourseId, int SectionId)
+        {
+
+        
+        }
+
+
     }
 }
