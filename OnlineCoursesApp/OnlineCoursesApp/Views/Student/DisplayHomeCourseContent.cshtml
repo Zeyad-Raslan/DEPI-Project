@@ -1,0 +1,49 @@
+﻿@model CouseContentsViewModel
+@{
+    ViewData["Title"] = "DisplayHomeCourses";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+    @using OnlineCoursesApp.ViewModel.CourseViewModels
+    @using OnlineCoursesApp.DAL.Models
+}
+
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Platform</title>
+    <link rel="stylesheet" href="~/css/DisplayMyCourse.css" />
+
+</head>
+<body>
+    <div class="course-detail-container">
+
+        <div class="course-header">
+            <h1>Course Title:@Model.Name</h1>
+            <p>Description: @Model.Description</p>
+                <form action="" method="post">
+                    <button class="enroll-button" type="submit">Enroll</button>
+                </form>
+        </div>
+        <div class="sessions-container">
+            <h2>Course Sessions</h2>
+            <div>
+                @{
+                    foreach (Section sectionVar in @Model.Sections)
+                    {
+                    
+                            <div class="session-card">
+                                <div class="session-info">
+                                <h3>@sectionVar.Title</h3>
+                                <link href="@sectionVar.Link"/>
+                                </div>
+                            </div>
+                   
+                    }
+                }
+                </div>
+            </div>
+
+</body>
+
+

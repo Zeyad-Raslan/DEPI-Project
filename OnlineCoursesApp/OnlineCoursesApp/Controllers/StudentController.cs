@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.BLL.StudentService;
 using OnlineCoursesApp.DAL.Models;
+using OnlineCoursesApp.ViewModel.CourseViewModels;
 using OnlineCoursesApp.ViewModel.Student;
 using System.Collections.Generic;
 
@@ -63,9 +64,28 @@ namespace project_student.Controllers
             Student profileInfo = _studentService.GetById(id);
             return View(profileInfo);
         }
-        public IActionResult DisplayHomeCourses()
+        public IActionResult DisplayHomeCourseContent(int courseId)
         {
-            return View();
+            Course? course = _courseService.Query()
+                .Include(c => c.Sections)
+                .Include(c => c.Instructor)
+                .Include(c => c.Students)
+                .Where(c => c.CourseId == courseId)
+                .FirstOrDefault();
+            CouseContentsViewModel couseContentsViewModel = new CouseContentsViewModel()
+            {
+               CourseId = course.CourseId,
+               Name = course.Name,
+               Type = course.Type,
+               Description = course.Description,
+               Image = course.Image,
+               StudentCount = course.Students.Count(),
+               InstructoID = course.Instructor.InstructorId,
+               InstructorName = course.Instructor.Name,
+               Sections = course.Sections
+
+            };
+            return View(couseContentsViewModel);
         }
         public IActionResult DisplayMyCourse()
         {
