@@ -19,28 +19,21 @@
 
     <!-- Cards Section -->
     <div class="cards">
-        <a href="#" class="HomeCard">
-            <h1>JavaScript Basics</h1>
-            <p>By :</p>
-            <p>Learn the fundamentals of JavaScript, one of the most popular programming languages in web development.</p>
-            <button class="enroll-button">Enroll</button>
-        </a>
         @foreach (var course in @Model)
         {
             <form class="HomeCard" action="/Student/EnrollCourse" method="post">
 
-            <div  >
-                <h1>@course.CourseName</h1>
-                <p>By: @course.InsrUctorName</p>
-                <p>Number of Students: @course.NumStudent</p>
-                <p>@course.CourseDescription</p>
-                <button class="enroll-button" type="submit">Enroll</button>
-            </div>
+                <div>
+                    <h1>@course.CourseName</h1>
+                    <p>By: @course.InsrUctorName</p>
+                    <p>Number of Students: @course.NumStudent</p>
+                    <p>@course.CourseDescription</p>
+                    <button class="enroll-button" type="submit">Enroll</button>
+                </div>
                 <input type="hidden" id="courseId" name="courseId" value="@course.CourseId" />
-                <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]"/>
-           </form>
+                <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]" />
+            </form>
         }
-    </div>
     </div>
 </main>
 
@@ -55,4 +48,4 @@
 
 
 
-       
+
