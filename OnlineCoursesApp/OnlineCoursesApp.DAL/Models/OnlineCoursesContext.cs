@@ -1,113 +1,109 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace OnlineCoursesApp.DAL.Models;
-
-public partial class OnlineCoursesContext : DbContext
+namespace OnlineCoursesApp.DAL.Models
 {
-    public OnlineCoursesContext()
+    public class OnlineCoursesDbContext : DbContext
     {
+        public DbSet<Instructor> Instructors { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<StudentProgress> StudentProgresses { get; set; }
+        public DbSet<Enroll> Enrolls { get; set; }
+        public DbSet<Tech> Techs { get; set; }
+
+        public OnlineCoursesDbContext(DbContextOptions<OnlineCoursesDbContext> options): base(options)
+        {
+        }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            
+            // Many-to-Many relationship between Student and Course (Enroll)
+            modelBuilder.Entity<Enroll>()
+                .HasKey(e => new { e.StudentID, e.CourseID });
+            modelBuilder.Entity<Enroll>()
+                .HasOne(e => e.Student)
+                .WithMany(s => s.Enrollments)
+                .HasForeignKey(e => e.StudentID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Student
+            modelBuilder.Entity<Enroll>()
+                .HasOne(e => e.Course)
+                .WithMany(c => c.Enrollments)
+                .HasForeignKey(e => e.CourseID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Course
+
+            // Many-to-Many relationship between Instructor and Course (Tech)
+            modelBuilder.Entity<Tech>()
+                .HasKey(t => new { t.InstructorID, t.CourseID });
+            modelBuilder.Entity<Tech>()
+                .HasOne(t => t.Instructor)
+                .WithMany(i => i.Techs)
+                .HasForeignKey(t => t.InstructorID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Instructor
+            modelBuilder.Entity<Tech>()
+                .HasOne(t => t.Course)
+                .WithMany(c => c.Techs)
+                .HasForeignKey(t => t.CourseID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Course
+
+            // One-to-Many relationship between Section and Course
+            modelBuilder.Entity<Section>()
+                .HasOne(s => s.Course)
+                .WithMany(c => c.Sections)
+                .HasForeignKey(s => s.CourseID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Course in Section
+
+            // One-to-Many relationships for StudentProgress
+            modelBuilder.Entity<StudentProgress>()
+                .HasOne(sp => sp.Course)
+                .WithMany(c => c.StudentProgresses)
+                .HasForeignKey(sp => sp.CourseID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Course in StudentProgress
+            modelBuilder.Entity<StudentProgress>()
+                .HasOne(sp => sp.Student)
+                .WithMany(s => s.StudentProgresses)
+                .HasForeignKey(sp => sp.StudentID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Student in StudentProgress
+            modelBuilder.Entity<StudentProgress>()
+                .HasOne(sp => sp.Section)
+                .WithMany(s => s.StudentProgresses)
+                .HasForeignKey(sp => sp.SectionID)
+                .OnDelete(DeleteBehavior.NoAction);  // No Action on Delete for Section in StudentProgress
+
+
+
+
+            // DefultValue
+
+            // modelBuilder.Entity<Course>()
+            //     .Property(c => c.Status)
+            //     .HasDefaultValue(CourseStatus.UnderReview);
+            //     base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<StudentProgress>()
+            //     .Property(sp => sp.IsCompleted)
+            //     .HasDefaultValue(false);
+
+            // // Unique 
+
+            modelBuilder.Entity<Student>()
+                .HasIndex(s => s.Email)
+                .IsUnique();
+
+            modelBuilder.Entity<Instructor>()
+                .HasIndex(i => i.Email)
+                .IsUnique();
+
+
+
+        }
+
     }
-
-    public OnlineCoursesContext(DbContextOptions<OnlineCoursesContext> options)
-        : base(options)
-    {
-    }
-
-    public virtual DbSet<Course> Courses { get; set; }
-
-    public virtual DbSet<Enroll> Enrolls { get; set; }
-
-    public virtual DbSet<Instructor> Instructors { get; set; }
-
-    public virtual DbSet<Section> Sections { get; set; }
-
-    public virtual DbSet<Student> Students { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.;Database=OnlineCoursesDB;Trusted_Connection=True;Integrated Security = SSPI; TrustServerCertificate = True;");
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Course>(entity =>
-        {
-            entity.HasKey(e => e.CourseId).HasName("PK__Courses__C92D71A75FE343BA");
-
-            entity.Property(e => e.Name).HasMaxLength(255);
-            entity.Property(e => e.Status).HasDefaultValue(0);
-            entity.Property(e => e.Type).HasMaxLength(100);
-        });
-
-        modelBuilder.Entity<Enroll>(entity =>
-        {
-            entity.HasKey(e => new { e.CourseId, e.StudentId }).HasName("PK__Enroll__4A01231EB3DB2A91");
-
-            entity.ToTable("Enroll");
-
-            entity.HasOne(d => d.Course).WithMany(p => p.Enrolls)
-                .HasForeignKey(d => d.CourseId)
-                .HasConstraintName("FK__Enroll__CourseId__46E78A0C");
-
-            entity.HasOne(d => d.Student).WithMany(p => p.Enrolls)
-                .HasForeignKey(d => d.StudentId)
-                .HasConstraintName("FK__Enroll__StudentI__47DBAE45");
-        });
-
-        modelBuilder.Entity<Instructor>(entity =>
-        {
-            entity.HasKey(e => e.InstructorId).HasName("PK__Instruct__9D010A9B4F012C42");
-
-            entity.HasIndex(e => e.Email, "UQ__Instruct__A9D10534830EE413").IsUnique();
-
-            entity.Property(e => e.Email).HasMaxLength(255);
-            entity.Property(e => e.Name).HasMaxLength(255);
-            entity.Property(e => e.Password).HasMaxLength(255);
-
-            entity.HasMany(d => d.Courses).WithMany(p => p.Instructors)
-                .UsingEntity<Dictionary<string, object>>(
-                    "Teach",
-                    r => r.HasOne<Course>().WithMany()
-                        .HasForeignKey("CourseId")
-                        .HasConstraintName("FK__Teach__CourseId__440B1D61"),
-                    l => l.HasOne<Instructor>().WithMany()
-                        .HasForeignKey("InstructorId")
-                        .HasConstraintName("FK__Teach__Instructo__4316F928"),
-                    j =>
-                    {
-                        j.HasKey("InstructorId", "CourseId").HasName("PK__Teach__F193DD81AAD5C822");
-                        j.ToTable("Teach");
-                    });
-        });
-
-        modelBuilder.Entity<Section>(entity =>
-        {
-            entity.HasKey(e => e.SectionId).HasName("PK__Sections__80EF0872680CC077");
-
-            entity.Property(e => e.Link).HasMaxLength(255);
-            entity.Property(e => e.Title).HasMaxLength(255);
-
-            entity.HasOne(d => d.Course).WithMany(p => p.Sections)
-                .HasForeignKey(d => d.CourseId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("FK__Sections__Course__403A8C7D");
-        });
-
-        modelBuilder.Entity<Student>(entity =>
-        {
-            entity.HasKey(e => e.StudentId).HasName("PK__Students__32C52B9940635B20");
-
-            entity.HasIndex(e => e.Email, "UQ__Students__A9D10534B408C74F").IsUnique();
-
-            entity.Property(e => e.Education).HasMaxLength(255);
-            entity.Property(e => e.Email).HasMaxLength(255);
-            entity.Property(e => e.Name).HasMaxLength(255);
-            entity.Property(e => e.Password).HasMaxLength(255);
-        });
-
-        OnModelCreatingPartial(modelBuilder);
-    }
-
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

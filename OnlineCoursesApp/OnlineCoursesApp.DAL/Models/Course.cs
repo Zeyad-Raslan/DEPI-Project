@@ -1,25 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace OnlineCoursesApp.DAL.Models;
-
-public partial class Course
+namespace OnlineCoursesApp.DAL.Models
 {
-    public int CourseId { get; set; }
+    [Table("Course")]
+    public class Course
+    {
+        [Key]
+        public int ID { get; set; }
 
-    public string Name { get; set; } = null!;
+        [Required]
+        [StringLength(100)]
+        public string Name { get; set; } = null!;
 
-    public string Type { get; set; } = null!;
+        [Required]
+        [StringLength(50)]
+        public string Type { get; set; } = null!;
 
-    public string Description { get; set; } = null!;
+        public string? Image { get; set; }
 
-    public int? Status { get; set; }
+        [StringLength(500)]
+        public string Description { get; set; } = null!;
 
-    public string? Image { get; set; }
+        public CourseStatus Status { get; set; } = CourseStatus.UnderReview;
 
-    public virtual ICollection<Enroll> Enrolls { get; set; } = new List<Enroll>();
+        // Navigation properties
+        public ICollection<Enroll> Enrollments { get; set; } = new List<Enroll>();
+        public ICollection<Tech> Techs { get; set; } = new List<Tech>();
+        public ICollection<Section> Sections { get; set; } = new List<Section>();
+        public ICollection<StudentProgress> StudentProgresses { get; set; } = new List<StudentProgress>();
 
-    public virtual ICollection<Section> Sections { get; set; } = new List<Section>();
-
-    public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
+    }
 }

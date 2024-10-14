@@ -11,90 +11,83 @@ namespace OnlineCoursesApp.Controllers
 
     public class InstructorController : Controller
     {
-        private readonly IService<Instructor> _instructorService;
 
-        public InstructorController(IService<Instructor> instructorService)
+
+        private readonly IService<Instructor> _instructorService;
+        private readonly IService<Tech> _techService;
+        private readonly IService<Course> _courseService;
+
+        public InstructorController(IService<Instructor> instructorService, IService<Tech> techService, IService<Course> courseService)
         {
             _instructorService = instructorService;
+            _techService = techService;
+            _courseService = courseService;
         }
 
 
 
+
+  
         public IActionResult Index(int id)
         {
             var instructor = _instructorService.Query()
-                                               .Include(i => i.Courses)
-                                               .ThenInclude(c => c.Enrolls)
-                                               .FirstOrDefault(i => i.InstructorId == id);
+                                               .Include(i => i.Techs)
+                                               .ThenInclude(t => t.Course)
+                                               .ThenInclude(c => c.Enrollments) 
+                                               .FirstOrDefault(i => i.ID == id);
 
             if (instructor == null)
             {
-                return NotFound();
+                return NotFound(); 
             }
 
-            // تمرير InstructorId إلى الـ View باستخدام ViewBag
-            ViewBag.InstructorId = instructor.InstructorId;
+            ViewBag.InstructorId = instructor.ID;
 
-            var courses = instructor.Courses.Select(course => new CourseViewModelForInst
+            var courses = instructor.Techs.Select(t => new CourseViewModelForInst
             {
-                CourseId = course.CourseId,
-                CourseName = course.Name,
-                NumStudents = course.Enrolls.Count,
-                Type = course.Type
+                CourseId = t.Course.ID,
+                CourseName = t.Course.Name,
+                NumStudents = t.Course.Enrollments.Count(), 
+                Type = t.Course.Type,
+                Status = t.Course.Status 
             }).ToList();
 
-            return View(courses);
+            return View(courses); 
         }
-
-
-
-
-        public IActionResult Manage()
-        {
-            return View();
-        }
-
-
 
         public IActionResult Students(int id)
         {
-            int courseId = id;
-
-          
-            var instructor = _instructorService.Query()
-                .Include(i => i.Courses)
-                .ThenInclude(c => c.Enrolls)
-                .ThenInclude(e => e.Student)
-                .FirstOrDefault(i => i.Courses.Any(c => c.CourseId == courseId));
-
-            if (instructor == null)
-            {
-                return NotFound();
-            }
-
-            var course = instructor.Courses.FirstOrDefault(c => c.CourseId == courseId);
+            var course = _courseService.Query()
+                                       .Include(c => c.Enrollments) 
+                                       .ThenInclude(e => e.Student) 
+                                       .Include(c => c.StudentProgresses) 
+                                       .FirstOrDefault(c => c.ID == id);
 
             if (course == null)
             {
                 return NotFound();
             }
 
-            var students = course.Enrolls.Select(e => new StudentViewModelForInst
+          
+            var students = course.Enrollments.Select(e => new StudentViewModelForInst
             {
-                StudentId = e.Student.StudentId,
-                StudentName = e.Student.Name,
-                Progress = e.Progress ?? 0
+                StudentId = e.Student.ID,
+                StudentName = e.Student.Name, 
+                Progress = course.StudentProgresses
+                                 .Where(sp => sp.StudentID == e.Student.ID)
+                                 .Select(sp => sp.IsCompleted ? 100 : 0) 
+                                 .FirstOrDefault() 
             }).ToList();
 
             ViewData["CourseName"] = course.Name;
-            ViewData["InstructorId"] = instructor.InstructorId;
-            return View(students);
-        }
+            ViewData["InstructorId"] = course.Techs.FirstOrDefault()?.InstructorID;
 
+            return View(students); 
+        }
 
         public IActionResult Profile(int id)
         {
-            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == id);
+            var instructor = _instructorService.Query().FirstOrDefault(i => i.ID == id);
 
             if (instructor == null)
             {
@@ -103,14 +96,38 @@ namespace OnlineCoursesApp.Controllers
 
             var viewModel = new InstructorProfileViewModel
             {
-                InstructorId = instructor.InstructorId,
+                InstructorId = instructor.ID,
                 Name = instructor.Name,
                 Email = instructor.Email,
-                About = instructor.About,  // Assuming you have an "About" field in Instructor model
-                ImageUrl = instructor.Image  // Assuming there's an image URL field
+                About = instructor.About,  
+                ImageUrl = instructor.Image  
             };
 
             return View(viewModel);
+        }
+
+
+
+
+        // Task Omer (Action, View, if you need ModelView )
+        public IActionResult NewCourse()
+        {
+            return View();
+        }
+
+        public IActionResult Manage()
+        {
+            return View();
+        }
+
+        public IActionResult AddSection()
+        {
+            return View();
+        }
+
+        public IActionResult EditSection()
+        {
+            return View();
         }
 
 

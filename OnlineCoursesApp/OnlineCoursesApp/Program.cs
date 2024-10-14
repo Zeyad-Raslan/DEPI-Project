@@ -16,14 +16,16 @@ namespace OnlineCoursesApp
 
             builder.Services.AddScoped<IService<Instructor>, Service<Instructor>>();
             builder.Services.AddScoped<IService<Course>, Service<Course>>();
-            builder.Services.AddScoped<IService<Enroll>, Service<Enroll>>();
             builder.Services.AddScoped<IService<Section>, Service<Section>>();
             builder.Services.AddScoped<IService<Student>, Service<Student>>();
+            builder.Services.AddScoped<IService<Tech>, Service<Tech>>();
+            builder.Services.AddScoped<IService<Enroll>, Service<Enroll>>();
+            builder.Services.AddScoped<IService<StudentProgress>, Service<StudentProgress>>();
 
 
 
-            builder.Services.AddDbContext<OnlineCoursesContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDbContext<OnlineCoursesDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); 
 
 
 

@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace OnlineCoursesApp.DAL.Models;
-
-public partial class Enroll
+namespace OnlineCoursesApp.DAL.Models
 {
-    public int CourseId { get; set; }
+    [Table("Enroll")]
+    public class Enroll
+    {
+        [Key, Column(Order = 0)]
+        public int StudentID { get; set; }
 
-    public int StudentId { get; set; }
+        [Key, Column(Order = 1)]
+        public int CourseID { get; set; }
 
-    public int? Progress { get; set; }
+        // Navigation properties
+        public Student Student { get; set; } = new Student();
+        public Course Course { get; set; } = new Course();
+    }
 
-    public virtual Course Course { get; set; } = null!;
 
-    public virtual Student Student { get; set; } = null!;
 }

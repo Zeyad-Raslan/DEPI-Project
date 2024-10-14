@@ -1,78 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\",
+  "WorkspaceRootPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\views\\instructor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\instructor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\views\\instructor\\students.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\instructor\\students.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\views\\instructor\\manage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\instructor\\manage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\viewmodel\\courseviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\viewmodel\\courseviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\views\\instructor\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\instructor\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\viewmodel\\instructorprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\viewmodel\\instructorprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\instructor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp.bll\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|solutionrelative:onlinecoursesapp.bll\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp.bll\\services\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|solutionrelative:onlinecoursesapp.bll\\services\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\section.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\enroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\enroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\viewmodel\\studentviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\viewmodel\\studentviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\00_project_github\\.net (backend)\\mvc\\onlinecoursesapp\\onlinecoursesapp\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7BE5ECD7-48DA-4643-A074-FF2F84CFF0E4}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|d:\\00_track .net\\01_depi .net\\project\\depi-project\\onlinecoursesapp\\onlinecoursesapp.bll\\services\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BE5ECD7-48DA-4643-A074-FF2F84CFF0E4}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|solutionrelative:onlinecoursesapp.bll\\services\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -82,231 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Profile.cshtml",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Profile.cshtml",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Instructor\\Profile.cshtml",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Profile.cshtml",
-              "RelativeToolTip": "OnlineCoursesApp\\Views\\Instructor\\Profile.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-07T08:41:14.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InstructorController.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\InstructorController.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Controllers\\InstructorController.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\InstructorController.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\Controllers\\InstructorController.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAkwFgAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:42:08.795Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Manage.cshtml",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Manage.cshtml",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Instructor\\Manage.cshtml",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Manage.cshtml",
-              "RelativeToolTip": "OnlineCoursesApp\\Views\\Instructor\\Manage.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-06T15:44:01.184Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
-              "RelativeToolTip": "OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEgAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-06T07:42:14.61Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CourseViewModelForInst.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:51:22.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Students.cshtml",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Students.cshtml",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Instructor\\Students.cshtml",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Students.cshtml",
-              "RelativeToolTip": "OnlineCoursesApp\\Views\\Instructor\\Students.cshtml",
-              "ViewState": "AQIAABwAAAAAAAAAAAAIwC0AAAB2AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-06T09:35:55.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "InstructorProfileViewModel.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T08:39:14.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Service.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\Service.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.BLL\\Services\\Service.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\Service.cs",
-              "RelativeToolTip": "OnlineCoursesApp.BLL\\Services\\Service.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAwwCsAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:11:55.373Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "IService.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\IService.cs",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\IService.cs",
               "RelativeDocumentMoniker": "OnlineCoursesApp.BLL\\Services\\IService.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\IService.cs",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\IService.cs",
               "RelativeToolTip": "OnlineCoursesApp.BLL\\Services\\IService.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAuwAoAAAAeAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:10:54.26Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Instructor.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Instructor.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\Instructor.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Instructor.cs",
-              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\Instructor.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAwA8AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:03:23.31Z",
+              "WhenOpened": "2024-10-14T10:58:54.8Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Student.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:03:30.462Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Section.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Section.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\Section.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Section.cs",
-              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\Section.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:03:26.917Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Enroll.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Enroll.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\Enroll.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Enroll.cs",
-              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\Enroll.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:03:19.359Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Course.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "ViewState": "AQIAABkAAAAAAAAAAAAAAA0AAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T14:19:22.149Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "StudentViewModelForInst.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T08:47:36.906Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Program.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\Program.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAQwCgAAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T07:14:17.128Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Controllers\\HomeController.cs",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-06T13:48:10.71Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\_ViewImports.cshtml",
-              "ToolTip": "D:\\00_Track .Net\\00_Project_GitHub\\.Net (Backend)\\MVC\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "OnlineCoursesApp\\Views\\_ViewImports.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-06T09:30:40.153Z"
             }
           ]
         }

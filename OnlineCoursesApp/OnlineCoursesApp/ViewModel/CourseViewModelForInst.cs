@@ -1,4 +1,6 @@
-﻿namespace OnlineCoursesApp.ViewModel
+﻿using OnlineCoursesApp.DAL.Models;
+
+namespace OnlineCoursesApp.ViewModel
 {
     public class CourseViewModelForInst
     {
@@ -6,5 +8,8 @@
         public string CourseName { get; set; }
         public int NumStudents { get; set; }
         public string Type { get; set; }
+
+        public CourseStatus Status { get; set; } 
+
     }
 }

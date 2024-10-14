@@ -1,19 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace OnlineCoursesApp.DAL.Models;
-
-public partial class Section
+namespace OnlineCoursesApp.DAL.Models
 {
-    public int SectionId { get; set; }
+    [Table("Section")]
+    public class Section
+    {
+        [Key]
+        public int ID { get; set; }
 
-    public string Title { get; set; } = null!;
+        [Required]
+        public int CourseID { get; set; }  // Weak entity key, related to Course
 
-    public string Link { get; set; } = null!;
+        [Required]
+        [StringLength(100)]
+        public string Title { get; set; } = null!;
 
-    public int Number { get; set; }
+        [Url]
+        public string Link { get; set; } = null!;
 
-    public int? CourseId { get; set; }
+        [Range(1, 1000)]
+        public int Num { get; set; }
 
-    public virtual Course? Course { get; set; }
+        // Navigation property
+        public Course Course { get; set; } = new Course();
+        public ICollection<StudentProgress> StudentProgresses { get; set; } = new List<StudentProgress>();
+    }
 }
