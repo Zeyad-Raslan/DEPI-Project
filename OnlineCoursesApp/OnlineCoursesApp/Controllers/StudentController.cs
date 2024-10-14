@@ -71,6 +71,19 @@ namespace project_student.Controllers
             return RedirectToAction("MyCourses");
         }
 
+        [HttpPost]
+        public IActionResult SaveProfile(Student model)
+        {
+            var existingStudent = _studentService.GetById(model.StudentId);
 
+
+            existingStudent.Name = model.Name;
+            existingStudent.Education = model.Education;
+
+            _studentService.Update(existingStudent);
+            int id = model.StudentId;
+
+            return RedirectToAction("ProfilePage", new { id = model.StudentId });
+        }
     }
     }
