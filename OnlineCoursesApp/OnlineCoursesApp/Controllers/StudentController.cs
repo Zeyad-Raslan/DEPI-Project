@@ -38,7 +38,7 @@ namespace project_student.Controllers
         }
         public IActionResult ProfilePage(int id)
         {
-            Student profileInfo = _studentService.GetById(id);
+          Student profileInfo = _studentService.GetById(id);
             return View(profileInfo);
         }
         public IActionResult DisplayMyCourse()
@@ -54,7 +54,22 @@ namespace project_student.Controllers
             //add course to my courses list
             return RedirectToAction("MyCourses");
         }
+        [HttpPost]
+        public IActionResult SaveProfile(Student model)
+        {
+            var existingStudent = _studentService.GetById(model.StudentId);
+
+            
+            existingStudent.Name = model.Name;
+            existingStudent.Education = model.Education;
+
+            _studentService.Update(existingStudent);
+            int id = model.StudentId;
+
+            return RedirectToAction("ProfilePage",new { id=model.StudentId });
+        }
+
 
 
     }
-    }
+}

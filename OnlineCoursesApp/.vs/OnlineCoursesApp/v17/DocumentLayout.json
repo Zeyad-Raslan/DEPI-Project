@@ -7,60 +7,36 @@
       "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\student\\profilepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\wwwroot\\css\\layout_style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\wwwroot\\css\\layout_style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\views\\shared\\layout_student.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\shared\\layout_student.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\views\\student\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\student\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\viewmodel\\studentviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\viewmodel\\studentviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\viewmodel\\courseviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\viewmodel\\courseviewmodelforinst.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\viewmodel\\student\\coursehomepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\viewmodel\\student\\coursehomepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\viewmodel\\instructorprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\viewmodel\\instructorprofileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp.bll\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|solutionrelative:onlinecoursesapp.bll\\services\\service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\views\\student\\mycourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\student\\mycourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp.bll\\adminservices\\admincomplexservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|solutionrelative:onlinecoursesapp.bll\\adminservices\\admincomplexservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\views\\student\\displaysession.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\student\\displaysession.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp.bll\\adminservices\\iadmincomplexservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE7F44C8-FF69-4271-B34F-357FF107C7E3}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|solutionrelative:onlinecoursesapp.bll\\adminservices\\iadmincomplexservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|c:\\users\\hassan\\source\\repos\\depi-project_repo\\onlinecoursesapp\\onlinecoursesapp\\views\\student\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\student\\homepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,45 +46,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Layout_style.css",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\wwwroot\\css\\Layout_style.css",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\wwwroot\\css\\Layout_style.css",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\wwwroot\\css\\Layout_style.css",
-              "RelativeToolTip": "OnlineCoursesApp\\wwwroot\\css\\Layout_style.css",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAAAEIBAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-10-13T21:50:48.672Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Layout_student.cshtml",
               "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Shared\\Layout_student.cshtml",
               "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Shared\\Layout_student.cshtml",
               "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Shared\\Layout_student.cshtml",
               "RelativeToolTip": "OnlineCoursesApp\\Views\\Shared\\Layout_student.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-14T00:52:15.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Service.cs",
+              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\Service.cs",
+              "RelativeDocumentMoniker": "OnlineCoursesApp.BLL\\Services\\Service.cs",
+              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\Service.cs",
+              "RelativeToolTip": "OnlineCoursesApp.BLL\\Services\\Service.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAuwBYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T00:20:41.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-13T21:50:27.734Z",
+              "WhenOpened": "2024-10-14T00:18:06.038Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Student.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\Student.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Program.cs",
+              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
+              "RelativeToolTip": "OnlineCoursesApp\\Program.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAIwCgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T21:34:51.771Z",
+              "WhenOpened": "2024-10-13T23:43:05.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MyCourses.cshtml",
+              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\MyCourses.cshtml",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Student\\MyCourses.cshtml",
+              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\MyCourses.cshtml",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\Student\\MyCourses.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-13T23:38:19.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DisplaySession.cshtml",
+              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\DisplaySession.cshtml",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Student\\DisplaySession.cshtml",
+              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\DisplaySession.cshtml",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\Student\\DisplaySession.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-13T23:38:14.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomePage.cshtml",
+              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
+              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-13T23:38:05.024Z",
               "EditorCaption": ""
             },
             {
@@ -117,147 +145,25 @@
               "Title": "ProfilePage.cshtml",
               "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\ProfilePage.cshtml",
               "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Student\\ProfilePage.cshtml",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\ProfilePage.cshtml",
-              "RelativeToolTip": "OnlineCoursesApp\\Views\\Student\\ProfilePage.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\ProfilePage.cshtml*",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\Student\\ProfilePage.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-13T20:31:54.426Z",
+              "WhenOpened": "2024-10-13T23:30:21.748Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HomePage.cshtml",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
-              "RelativeToolTip": "OnlineCoursesApp\\Views\\Student\\HomePage.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-13T18:18:00.762Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Course.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\Course.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAIwBUAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:12:09.063Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "StudentViewModelForInst.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\ViewModel\\StudentViewModelForInst.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:09:04.582Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "InstructorProfileViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\ViewModel\\InstructorProfileViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:09:02.609Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CourseHomePageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\Student\\CourseHomePageViewModel.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\ViewModel\\Student\\CourseHomePageViewModel.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\Student\\CourseHomePageViewModel.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\ViewModel\\Student\\CourseHomePageViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:05:23.221Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CourseViewModelForInst.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\ViewModel\\CourseViewModelForInst.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T18:03:20.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "StudentController.cs",
               "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\StudentController.cs",
               "RelativeDocumentMoniker": "OnlineCoursesApp\\Controllers\\StudentController.cs",
               "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\StudentController.cs",
               "RelativeToolTip": "OnlineCoursesApp\\Controllers\\StudentController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAADEAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAADQAAAAAAAAAAAAIwEQAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:59:35.468Z",
+              "WhenOpened": "2024-10-13T23:26:20.571Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Program.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\Program.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:48:23.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AdminComplexService.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\AdminServices\\AdminComplexService.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.BLL\\AdminServices\\AdminComplexService.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\AdminServices\\AdminComplexService.cs",
-              "RelativeToolTip": "OnlineCoursesApp.BLL\\AdminServices\\AdminComplexService.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAuwCsAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:46:24.729Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "IAdminComplexService.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\AdminServices\\IAdminComplexService.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.BLL\\AdminServices\\IAdminComplexService.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\AdminServices\\IAdminComplexService.cs",
-              "RelativeToolTip": "OnlineCoursesApp.BLL\\AdminServices\\IAdminComplexService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:46:16.988Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\Hassan\\source\\repos\\DEPI-Project_Repo\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "OnlineCoursesApp\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAABoAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-13T17:45:49.961Z"
             }
           ]
         }
