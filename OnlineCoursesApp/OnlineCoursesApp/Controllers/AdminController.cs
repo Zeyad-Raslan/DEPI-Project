@@ -36,7 +36,8 @@ namespace Admin_Views.Controllers
         }
         public IActionResult ManageCourses()
         {
-            List<ManageCoursesViewModel> courses = _adminService.GetAllCourses().Include(i => i.Students)
+            List<ManageCoursesViewModel> courses = _adminService.GetAllCourses()
+                .Include(i => i.Students)
                 .Select(course => new ManageCoursesViewModel()
                 {
                     CourseId = course.CourseId,

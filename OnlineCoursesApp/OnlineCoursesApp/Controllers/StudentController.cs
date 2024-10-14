@@ -32,9 +32,25 @@ namespace project_student.Controllers
             }).ToList();
             return View(courceList);
         }
-        public IActionResult MyCourses()
+        public IActionResult MyCourses(int studentId)
         {
-            return View();
+            
+            var student = _studentService.Query()
+                                 .Include(i => i.Courses)
+                                 .ThenInclude(c=> c.Instructor)
+                                 .Where(i => i.StudentId == studentId)
+                                 .FirstOrDefault();
+
+            //var currentstudent = student.ToList().First();
+            var  courses = student.Courses.
+                Select(course=> new StudentMyCoursesViewModel()
+            {
+                CourseName=course.Name,
+                CourseDescription = course.Description,
+                InsrUctorName = course.Instructor.Name
+            }).ToList();
+
+            return View(courses);
         }
         public IActionResult ProfilePage(int id)
         {
