@@ -1,4 +1,4 @@
-﻿@model List<StudentCoursesHomeViewModel>
+﻿@* @model List<StudentCoursesHomeViewModel>
 @{
     ViewData["Title"] = "HomePage";
     Layout = "~/Views/Shared/Layout_student.cshtml";
@@ -43,10 +43,96 @@
             
         }
     </div>
+</main> *@
+
+
+
+@model List<StudentCoursesHomeViewModel>
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+    @using OnlineCoursesApp.ViewModel.Student;
+}
+
+<main>
+    <div class="main">
+        <h1>Home Page</h1>
+        <p>We are here to help you find the best path to achieve your goals.</p>
+    </div>
+
+    <section class="search-container">
+        <input type="text"
+               id="course-search"
+               placeholder="Search for a course..."
+               class="search-input" />
+    </section>
+
+    <!-- Cards Section -->
+    <div class="cards">
+        @foreach (var course in @Model)
+        {
+            <div class="HomeCard-container">
+                @* class="HomeCard" *@
+                <!-- The entire card links to course details -->
+                <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
+                    <div class="HomeCard">
+                        <h1>@course.CourseName</h1>
+                        <p>By: @course.InsrUctorName</p>
+                        <p>Number of Students: @course.NumStudent</p>
+                        <p>@course.CourseDescription</p>
+                    </div>
+                </a>
+
+
+                <!-- Enroll button inside form -->
+                <form action="/Student/EnrollCourse" method="post" class="enroll-form">
+                    <input type="hidden" name="courseId" value="@course.CourseId" />
+                    <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]" />
+                    <button class="enroll-button" type="submit">Enroll</button>
+                </form>
+            </div>
+        }
+    </div>
 </main>
 
 
 
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
 
 
 
