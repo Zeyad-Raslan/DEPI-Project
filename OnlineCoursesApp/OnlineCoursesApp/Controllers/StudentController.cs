@@ -76,7 +76,7 @@ namespace project_student.Controllers
         public IActionResult DisplayHomeCourseContent(int courseId)
         {
 
-            TempData["StudentId"] = 2;
+            TempData["studentId"] = HttpContext.Session.GetInt32("studentId");
             Course? course = _courseService.Query()
                 .Include(c => c.Sections)
                 .Include(c => c.Instructor)
