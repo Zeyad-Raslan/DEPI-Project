@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using OnlineCoursesApp.BLL.AdminServices;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
-
+using OnlineCoursesApp.BLL.AdminServices;
+using OnlineCoursesApp.BLL.StudentService;
 namespace OnlineCoursesApp
 {
     public class Program
@@ -19,7 +19,10 @@ namespace OnlineCoursesApp
             builder.Services.AddScoped<IService<Course>, Service<Course>>();
             builder.Services.AddScoped<IService<Section>, Service<Section>>();
             builder.Services.AddScoped<IService<Student>, Service<Student>>();
+            builder.Services.AddScoped<IService<StudentProgress>, Service<StudentProgress>>();
+
             builder.Services.AddScoped<IAdminComplexService, AdminComplexService>();
+            builder.Services.AddScoped<IStudentComplexService, StudentComplexService>();
 
 
 

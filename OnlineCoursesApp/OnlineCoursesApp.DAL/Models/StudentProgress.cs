@@ -11,7 +11,7 @@ namespace OnlineCoursesApp.DAL.Models
     {
         [Key]
         public int Id { get; set; }
-        public bool Status {  get; set; }
+        public bool Status {  get; set; }=false;
 
         public Section Section { get; set; }
         public Student Student { get; set; }
