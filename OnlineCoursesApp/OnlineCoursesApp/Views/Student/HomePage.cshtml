@@ -36,6 +36,8 @@
                 <p>@course.CourseDescription</p>
                 <button class="enroll-button" type="submit">Enroll</button>
             </div>
+                <input type="hidden" id="courseId" name="courseId" value="@course.CourseId" />
+                <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]"/>
            </form>
         }
     </div>

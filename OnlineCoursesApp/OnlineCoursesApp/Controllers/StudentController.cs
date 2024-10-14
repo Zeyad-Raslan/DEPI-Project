@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
+using OnlineCoursesApp.BLL.StudentService;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel.Student;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace project_student.Controllers
     {
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
-        public StudentController(IService<Course> courseService, IService<Student> studentService)
+        private readonly IStudentComplexService  _studentComplexService;
+        public StudentController(IService<Course> courseService, IService<Student> studentService, IStudentComplexService studentComplexService)
         {
              _courseService = courseService;
             _studentService = studentService;
+            _studentComplexService = studentComplexService;
         }
         public IActionResult HomePage()
         {
@@ -24,12 +27,15 @@ namespace project_student.Controllers
 
             List<StudentCoursesHomeViewModel> courceList = courses.Select( e=> new StudentCoursesHomeViewModel()
             {
+                CourseId = e.CourseId,
                 CourseName = e.Name,
                 CourseDescription = e.Description,
                 InsrUctorName = e.Instructor.Name,
                 NumStudent = e.Students.Count
                 
             }).ToList();
+
+            TempData["StudentId"] = 2;
             return View(courceList);
         }
         public IActionResult MyCourses(int studentId)
@@ -69,9 +75,20 @@ namespace project_student.Controllers
         {
             return View();
         }
-        public IActionResult EnrollCourse()
+        public IActionResult EnrollCourse(int studentId, int courseId)
         {
-            //add course to my courses list
+
+            bool enrollStudent = _studentComplexService.EnrolleStudentInCourse(studentId, courseId);
+            if(enrollStudent)
+            {
+                return Content("enroll Sucess");
+            }
+            else
+            {
+                return Content("enroll Faild");
+
+            }
+
             return RedirectToAction("MyCourses");
         }
 
