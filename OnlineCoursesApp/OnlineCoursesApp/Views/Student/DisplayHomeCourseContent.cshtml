@@ -2,47 +2,85 @@
 @{
     ViewData["Title"] = "DisplayHomeCourses";
     Layout = "~/Views/Shared/Layout_student.cshtml";
+    
     @using OnlineCoursesApp.ViewModel.CourseViewModels
-    @using OnlineCoursesApp.DAL.Models
 }
 
+<style>
+    .enroll-button-display {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 30px; /* Increased padding for a larger button */
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px; /* Increased font size */
+        margin-top: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        float: inline-end;
+        width: 100%; /* Optionally set width to 100% to make it full-width within its container */
+    }
 
+        .enroll-button-display:hover {
+            background-color: #45a049;
+        }
+</style>
+ @*  CourseId = course.CourseId,
+               Name = course.Name,
+               Type = course.Type,
+               Description = course.Description,
+               Image = course.Image,
+               StudentCount = course.Students.Count(),
+               InstructoID = course.Instructor.InstructorId,
+               InstructorName = course.Instructor.Name,
+               Sections = course.Sections *@
 <head>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learning Platform</title>
+    <title>Learnig Platform</title>
     <link rel="stylesheet" href="~/css/DisplayMyCourse.css" />
 
 </head>
 <body>
     <div class="course-detail-container">
-
         <div class="course-header">
-            <h1>@Model.Name</h1>
-            <p> @Model.Description</p>
-                <form action="" method="post">
-                    <button class="enroll-button" type="submit">Enroll</button>
-                </form>
+            <h1>Course Title: @Model.Name</h1>
+            <p>Description: @Model.Description</p>
         </div>
-        <br/>
-        <div class="sessions-container">
-            <div>
-                @{
-                    foreach (Section sectionVar in @Model.Sections)
-                    {
-                    
-                            <div class="session-card">
-                                <div class="session-info">
-                                <h3>@sectionVar.Title</h3>
-                                <link href="@sectionVar.Link"/>
-                                </div>
-                            </div>
-                   
-                    }
-                }
+        <form action="/Student/EnrollCourse" method="post">
+            <input type="hidden" id="courseId" name="courseId" value="@Model.CourseId" />
+            <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]" />
+            <button class="enroll-button-display" type="submit">Enroll</button>
+        </form>
+
+      @*   <div class="sessions-container">
+            <h2>Course Sessions</h2>
+            <div class="session-card">
+                <div class="session-info">
+                    <h3>Session 1: Introduction to C++</h3>
+                    <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
                 </div>
-            </div>
+            </div> *@
+                    <h2>Course Sessions</h2>
+            @foreach (var item in @Model.Sections)
+            {
+                <div class="sessions-container">
+                    <div class="session-card">
+                        <div class="session-info">
+                            <h3>Session @item.Number: @item.Title</h3>
+@*                             <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
+ *@                        </div>
+                    </div>
+                 </div>
+            }
+
+
+
+    </div>
 
 </body>
 

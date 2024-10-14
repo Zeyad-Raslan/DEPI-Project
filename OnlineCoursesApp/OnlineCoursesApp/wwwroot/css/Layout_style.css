@@ -70,6 +70,10 @@
     padding: 30px;
     align-items: start;
 }
+.HomeCard-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Ensure the link inherits the color of the HomeCard */
+}
 
 .HomeCard {
     background-color: #fafafa;
@@ -80,9 +84,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     text-align: left;
-    text-decoration: none;
     color: black;
-    /* Removed the width property to revert to original design */
 }
 
     .HomeCard:hover {
@@ -101,6 +103,7 @@
         color: #555;
         margin-bottom: 15px;
     }
+
 
 .enroll-button {
     background-color: #4CAF50;
@@ -122,6 +125,8 @@
     .enroll-button:hover {
         background-color: #45a049;
     }
+
+
 
 .card {
     background-color: #fafafa;
@@ -318,6 +323,20 @@ p {
     max-width: 600px;
 }*/
 
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.completed-badge {
+    background-color: #4CAF50; /* Green for completed */
+}
 
 
    
