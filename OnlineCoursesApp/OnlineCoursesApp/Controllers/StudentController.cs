@@ -169,15 +169,23 @@ namespace project_student.Controllers
             }
             return View(myCourseContentsViewModel);
         }
-        public IActionResult DisplaySession()
+        public IActionResult DisplaySession(int courseId, int sectionId)
         {
             //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            TempData["studentId"] = studentId;
 
+            if (studentId == 0)
+            {
+                return Content("DisplayMyCourseContent\nstudentId == 0");
+            }
 
             return View();
         }
-        public IActionResult EnrollCourse(int studentId, int courseId)
+        public IActionResult EnrollCourse(int courseId)
         {
+            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            TempData["studentId"] = studentId;
             //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
             if (studentId == 0)
             {
