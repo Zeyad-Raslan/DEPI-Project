@@ -4,6 +4,10 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
 {
     public class MyCourseContentViewModel
     {
+        public MyCourseContentViewModel()
+        {
+            SectionsStatus = new List<Pair<Section, bool>>();
+        }
         public int CourseId { get; set; }
 
         public string Name { get; set; } = null!;

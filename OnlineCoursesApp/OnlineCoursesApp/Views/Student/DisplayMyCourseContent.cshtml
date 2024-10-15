@@ -1,0 +1,64 @@
+﻿@model MyCourseContentViewModel
+
+@{
+    ViewData["Title"] = "MyCourses";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+    @using OnlineCoursesApp.ViewModel.CourseViewModels
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Model.Name</title>
+    <link rel="stylesheet" href="~/css/DisplayMyCourse.css" />
+</head>
+
+@section StudentInfo {
+    <label style="color: whitesmoke;">Id:</label>
+    <div>
+        <p style="color: whitesmoke;">
+            @TempData.Peek("studentId");
+        </p>
+    </div>
+}
+
+<body>
+    <div class="course-detail-container">
+        <div class="course-header">
+            <h1>Course Title: @Model.Name</h1>
+            <p>Description: @Model.Description</p>
+            <p>Instructor: @Model.InstructorName</p>
+        </div>
+
+        <div class="sessions-container">
+            <h2>Course Sessions</h2>
+
+            @foreach (var sectionStatus in Model.SectionsStatus)
+            {
+                var sectionVar = sectionStatus.First;
+                var isCompleted = sectionStatus.Second;
+
+                <div class="session-card">
+                    <div class="session-info">
+                        <h3>
+                            @sectionVar.Title
+                            @if (isCompleted)
+                            {
+                                <span class="badge completed-badge">Completed</span>
+                            }
+                            else
+                            {
+                                <span class="badge incomplete-badge ">In Progress</span>
+                            }
+                        </h3>
+                    </div>
+                    <div class="session-actions">
+                        <button onclick="window.location.href='@Url.Action("DisplaySession", "Student", new { sessionId = sectionVar.SectionId ,isCompleted=isCompleted})'">
+                            Start Session
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>

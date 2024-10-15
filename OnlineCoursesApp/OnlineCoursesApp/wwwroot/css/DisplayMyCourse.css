@@ -62,3 +62,18 @@
         background-color: #219653;
     }
 
+.completed-badge {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.incomplete-badge {
+    background-color:dodgerblue;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+
