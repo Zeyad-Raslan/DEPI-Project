@@ -154,9 +154,11 @@ namespace project_student.Controllers
                 Description = course.Description,
                 Image = course.Image,
                 StudentCount = course.Students.Count(),
+                StudentProgress = _studentComplexService.CountStudentProgress(studentId, course.CourseId),
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
             };
+
             foreach (var section in course.Sections)
             {
 
