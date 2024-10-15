@@ -4,6 +4,8 @@
     ViewData["Title"] = "MyCourses";
     Layout = "~/Views/Shared/Layout_student.cshtml";
     @using OnlineCoursesApp.ViewModel.CourseViewModels
+    
+    
 }
 
 <head>
@@ -28,6 +30,10 @@
             <h1>Course Title: @Model.Name</h1>
             <p>Description: @Model.Description</p>
             <p>Instructor: @Model.InstructorName</p>
+        </div>
+        <p> Add Progress Here</p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
 
         <div class="sessions-container">

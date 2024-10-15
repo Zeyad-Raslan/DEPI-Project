@@ -111,6 +111,18 @@
 
         <!-- Back Button -->
         <a class="back-button" href="@Url.Action("DisplayMyCourseContent", "Student", new{courseId = Model.CourseId})">Back to Sessions</a>
+        @{
+            if (Model.IsCompleted)
+            {
+                <button type="button" class="btn btn-lg btn-Sucess" disabled>Completed Section</button>
+            }
+            else
+            {
+
+                <a class="back-button" href="@Url.Action("MarkSectionAsCompleted", "Student", new{courseId = Model.CourseId, sectionId = Model.SectionId})">Mark as completed</a>
+            }
+        }
+
     </div>
 
 </body>

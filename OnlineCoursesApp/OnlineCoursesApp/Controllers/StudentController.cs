@@ -131,6 +131,10 @@ namespace project_student.Controllers
             //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
             TempData["studentId"] = studentId;
+            if(courseId == 0)
+            {
+                courseId = int.Parse( TempData["courseId"].ToString());
+            }
 
             if (studentId == 0)
             {
@@ -199,8 +203,19 @@ namespace project_student.Controllers
         {
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
             TempData["studentId"] = studentId;
-
-            return View();
+            var currentProgress = _studentProgressService.Query()
+                .Include(p => p.Course)
+                .Include(p => p.Section)
+                .Include(p => p.Student)
+                .Where(p => (
+                p.Course.CourseId == courseId
+                && p.Section.SectionId == sectionId
+                && p.Student.StudentId == studentId
+                )).SingleOrDefault();
+            currentProgress.Status = true;
+            _studentProgressService.Update(currentProgress);
+            TempData["courseId"] = courseId;
+            return RedirectToAction("DisplayMyCourseContent", courseId);
         }
 
         public IActionResult EnrollCourse(int courseId)
