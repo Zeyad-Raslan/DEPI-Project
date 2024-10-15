@@ -78,7 +78,7 @@ namespace OnlineCoursesApp.BLL.StudentService
                                  .Include(i => i.Course)
                                  .Where(i => i.Student.StudentId == studentId
                                           && i.Course.CourseId == courseId).Count();
-            var percentProgress = (countCompletesection / countSection) * 100;
+            int percentProgress = (int)(((float)countCompletesection / (float)countSection) * 100);
 
             return percentProgress;
         }
