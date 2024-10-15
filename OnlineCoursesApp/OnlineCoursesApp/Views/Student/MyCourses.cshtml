@@ -18,8 +18,9 @@
 
         @{
             foreach (var course in @Model)
+
             {
-                <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourseContent", "Student")'">
+                <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourseContent", "Student", new { courseId = course.CourseId })'">
                     <h1>@course.CourseName</h1>
                     <p>@course.CourseDescription</p>
                     <p>@course.InsrUctorName</p>
