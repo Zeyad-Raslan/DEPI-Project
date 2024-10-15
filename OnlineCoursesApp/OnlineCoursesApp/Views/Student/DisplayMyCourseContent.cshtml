@@ -4,6 +4,8 @@
     ViewData["Title"] = "MyCourses";
     Layout = "~/Views/Shared/Layout_student.cshtml";
     @using OnlineCoursesApp.ViewModel.CourseViewModels
+    
+    
 }
 
 <head>
@@ -29,6 +31,10 @@
             <p>Description: @Model.Description</p>
             <p>Instructor: @Model.InstructorName</p>
         </div>
+        <p> Add Progress Here</p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
 
         <div class="sessions-container">
             <h2>Course Sessions</h2>
@@ -53,7 +59,7 @@
                         </h3>
                     </div>
                     <div class="session-actions">
-                        <button onclick="window.location.href='@Url.Action("DisplaySession", "Student", new { sessionId = sectionVar.SectionId ,isCompleted=isCompleted})'">
+                        <button onclick="window.location.href='@Url.Action("DisplaySession", "Student", new {courseId = Model.CourseId, sectionId = sectionVar.SectionId ,isCompleted=isCompleted})'">
                             Start Session
                         </button>
                     </div>

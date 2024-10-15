@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.BLL.StudentService;
@@ -13,15 +14,17 @@ namespace project_student.Controllers
     {
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
+        private readonly IService<Section> _sectiontService;
         private readonly IService<StudentProgress> _studentProgressService;
         private readonly IStudentComplexService _studentComplexService;
         public StudentController(IService<Course> courseService, IService<Student> studentService,
-            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService)
+            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService, IService<Section> sectiontService)
         {
             _courseService = courseService;
             _studentService = studentService;
             _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
+            _sectiontService = sectiontService;
 
             // save info to session
 
@@ -128,6 +131,10 @@ namespace project_student.Controllers
             //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
             TempData["studentId"] = studentId;
+            if(courseId == 0)
+            {
+                courseId = int.Parse( TempData["courseId"].ToString());
+            }
 
             if (studentId == 0)
             {
@@ -169,7 +176,7 @@ namespace project_student.Controllers
             }
             return View(myCourseContentsViewModel);
         }
-        public IActionResult DisplaySession(int courseId, int sectionId)
+        public IActionResult DisplaySession(int courseId, int sectionId, bool isCompleted)
         {
             //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
@@ -179,15 +186,36 @@ namespace project_student.Controllers
             {
                 return Content("DisplayMyCourseContent\nstudentId == 0");
             }
+            Section section = _sectiontService.GetById(sectionId);
 
-            return View();
+            DisplaySectionViewModel displaySectionViewModel = new DisplaySectionViewModel()
+            {
+                CourseId = courseId,
+                SectionId = sectionId,
+                IsCompleted = isCompleted,
+                Section = section
+            };
+            
+
+            return View(displaySectionViewModel);
         }
         public IActionResult MarkSectionAsCompleted(int courseId, int sectionId)
         {
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
             TempData["studentId"] = studentId;
-
-            return View();
+            var currentProgress = _studentProgressService.Query()
+                .Include(p => p.Course)
+                .Include(p => p.Section)
+                .Include(p => p.Student)
+                .Where(p => (
+                p.Course.CourseId == courseId
+                && p.Section.SectionId == sectionId
+                && p.Student.StudentId == studentId
+                )).SingleOrDefault();
+            currentProgress.Status = true;
+            _studentProgressService.Update(currentProgress);
+            TempData["courseId"] = courseId;
+            return RedirectToAction("DisplayMyCourseContent", courseId);
         }
 
         public IActionResult EnrollCourse(int courseId)
