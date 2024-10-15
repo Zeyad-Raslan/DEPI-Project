@@ -56,13 +56,16 @@ namespace project_student.Controllers
                 Include(i => i.Students).
                 Include(i => i.Instructor).ToList();
 
+            Student student = _studentService.GetById(studentId);
+
             List<StudentCoursesHomeViewModel> courceList = courses.Select(e => new StudentCoursesHomeViewModel()
             {
                 CourseId = e.CourseId,
                 CourseName = e.Name,
                 CourseDescription = e.Description,
                 InsrUctorName = e.Instructor.Name,
-                NumStudent = e.Students.Count
+                NumStudent = e.Students.Count,
+                IsEnrolled = (e.Students.Any(st => st.StudentId == studentId))
 
             }).ToList();
 
