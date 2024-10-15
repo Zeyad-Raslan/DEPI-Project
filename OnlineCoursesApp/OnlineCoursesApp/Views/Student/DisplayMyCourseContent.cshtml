@@ -53,7 +53,7 @@
                         </h3>
                     </div>
                     <div class="session-actions">
-                        <button onclick="window.location.href='@Url.Action("DisplaySession", "Student", new { sessionId = sectionVar.SectionId ,isCompleted=isCompleted})'">
+                        <button onclick="window.location.href='@Url.Action("DisplaySession", "Student", new {courseId = Model.CourseId, sectionId = sectionVar.SectionId ,isCompleted=isCompleted})'">
                             Start Session
                         </button>
                     </div>

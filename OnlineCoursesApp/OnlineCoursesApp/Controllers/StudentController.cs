@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Humanizer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.BLL.StudentService;
@@ -13,15 +14,17 @@ namespace project_student.Controllers
     {
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
+        private readonly IService<Section> _sectiontService;
         private readonly IService<StudentProgress> _studentProgressService;
         private readonly IStudentComplexService _studentComplexService;
         public StudentController(IService<Course> courseService, IService<Student> studentService,
-            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService)
+            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService, IService<Section> sectiontService)
         {
             _courseService = courseService;
             _studentService = studentService;
             _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
+            _sectiontService = sectiontService;
 
             // save info to session
 
@@ -169,7 +172,7 @@ namespace project_student.Controllers
             }
             return View(myCourseContentsViewModel);
         }
-        public IActionResult DisplaySession(int courseId, int sectionId)
+        public IActionResult DisplaySession(int courseId, int sectionId, bool isCompleted)
         {
             //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
@@ -179,8 +182,18 @@ namespace project_student.Controllers
             {
                 return Content("DisplayMyCourseContent\nstudentId == 0");
             }
+            Section section = _sectiontService.GetById(sectionId);
 
-            return View();
+            DisplaySectionViewModel displaySectionViewModel = new DisplaySectionViewModel()
+            {
+                CourseId = courseId,
+                SectionId = sectionId,
+                IsCompleted = isCompleted,
+                Section = section
+            };
+            
+
+            return View(displaySectionViewModel);
         }
         public IActionResult MarkSectionAsCompleted(int courseId, int sectionId)
         {

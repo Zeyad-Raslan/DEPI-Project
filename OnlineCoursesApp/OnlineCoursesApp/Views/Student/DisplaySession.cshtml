@@ -1,6 +1,10 @@
-﻿@{
+﻿@model DisplaySectionViewModel
+@{
     ViewData["Title"] = "Play Session";
     Layout = null;  // No layout for a standalone page
+    @using OnlineCoursesApp.DAL.Models
+    @using OnlineCoursesApp.ViewModel.CourseViewModels;
+
 }
 
 <!DOCTYPE html>
@@ -90,13 +94,12 @@
     <div class="video-container">
         <!-- Video Header -->
         <div class="video-header">
-            <h1>Session 1: Introduction to C++</h1>
-            <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
+            <h1>Session @Model.Section.Number: @Model.Section.Title</h1>
         </div>
 
         <!-- Video Player -->
         <video controls>
-            <source src="/path/to/session1.mp4" type="video/mp4"> <!-- Replace with actual video URL -->
+            <source src="@Model.Section.Link" type="video/mp4"> <!-- Replace with actual video URL -->
             Your browser does not support the video tag.
         </video>
 
@@ -107,7 +110,7 @@
         </div>
 
         <!-- Back Button -->
-        <a class="back-button" href="@Url.Action("DisplayMyCourse", "Student")">Back to Sessions</a>
+        <a class="back-button" href="@Url.Action("DisplayMyCourseContent", "Student", new{courseId = Model.CourseId})">Back to Sessions</a>
     </div>
 
 </body>
