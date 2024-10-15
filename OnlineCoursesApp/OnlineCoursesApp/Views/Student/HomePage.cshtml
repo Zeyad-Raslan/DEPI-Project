@@ -40,7 +40,7 @@
                 </div>
             </form>
             </div>
-            
+
         }
     </div>
 </main> *@
@@ -53,7 +53,14 @@
     Layout = "~/Views/Shared/Layout_student.cshtml";
     @using OnlineCoursesApp.ViewModel.Student;
 }
-
+@section StudentInfo {
+    <label style="color:whitesmoke;">Id:</label>
+    <div >
+        <p style="color:whitesmoke;">
+           @TempData.Peek("studentId");
+        </p>
+    </div>
+}
 <main>
     <div class="main">
         <h1>Home Page</h1>
@@ -87,7 +94,7 @@
                 <!-- Enroll button inside form -->
                 <form action="/Student/EnrollCourse" method="post" class="enroll-form">
                     <input type="hidden" name="courseId" value="@course.CourseId" />
-                    <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]" />
+                    <input type="hidden" id="studentId" name="studentId" value=@TempData.Peek("studentId") />
                     <button class="enroll-button" type="submit">Enroll</button>
                 </form>
             </div>
@@ -107,7 +114,6 @@
 
 
 
-       
 
 
 
@@ -132,7 +138,8 @@
 
 
 
-       
+
+
 
 
 

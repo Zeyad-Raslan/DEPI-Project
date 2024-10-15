@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/Layout_student.cshtml";
     @using OnlineCoursesApp.ViewModel.Student
 }
+@section StudentInfo {
+    <label style="color:whitesmoke;">Id:</label>
+    <div>
+        <p style="color:whitesmoke;">
+            @TempData.Peek("studentId");
+        </p>
+    </div>
+}
 
 <body class="course-body">
     <div class="course-container">

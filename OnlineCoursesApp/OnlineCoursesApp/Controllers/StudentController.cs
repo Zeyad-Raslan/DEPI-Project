@@ -14,63 +14,92 @@ namespace project_student.Controllers
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
         private readonly IService<StudentProgress> _studentProgressService;
-        private readonly IStudentComplexService  _studentComplexService;
+        private readonly IStudentComplexService _studentComplexService;
         public StudentController(IService<Course> courseService, IService<Student> studentService,
             IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService)
         {
-             _courseService = courseService;
+            _courseService = courseService;
             _studentService = studentService;
             _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
 
+            // save info to session
+
         }
-        public IActionResult HomePage()
+        public IActionResult HomePage(int studentId)
         {
-            var  courses = _courseService.Query().
-                Include(i=>i.Students).
+            if (studentId == 0)
+            {
+                if (HttpContext.Session.Keys.Contains("studentId"))
+                {
+                    studentId= (int)HttpContext.Session.GetInt32("studentId");
+                }
+                else
+                {
+                return Content("Homepage\nStudentId == 0");
+
+                }
+
+            }
+
+            
+            HttpContext.Session.SetInt32("studentId", studentId);
+                TempData["studentId"] = studentId;
+
+            
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+
+            var courses = _courseService.Query().
+                Include(i => i.Students).
                 Include(i => i.Instructor).ToList();
 
-            List<StudentCoursesHomeViewModel> courceList = courses.Select( e=> new StudentCoursesHomeViewModel()
+            List<StudentCoursesHomeViewModel> courceList = courses.Select(e => new StudentCoursesHomeViewModel()
             {
                 CourseId = e.CourseId,
                 CourseName = e.Name,
                 CourseDescription = e.Description,
                 InsrUctorName = e.Instructor.Name,
                 NumStudent = e.Students.Count
-                
+
             }).ToList();
 
-            TempData["StudentId"] = 2;
             return View(courceList);
         }
-        public IActionResult MyCourses(int studentId)
+        public IActionResult MyCourses()
         {
-            
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+            //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
+            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            TempData["studentId"] = studentId;
+
+            if (studentId == 0)
+            {
+                return Content("MyCourses\nstudentId == 0");
+            }
             var student = _studentService.Query()
                                  .Include(i => i.Courses)
-                                 .ThenInclude(c=> c.Instructor)
+                                 .ThenInclude(c => c.Instructor)
                                  .Where(i => i.StudentId == studentId)
                                  .FirstOrDefault();
 
             //var currentstudent = student.ToList().First();
-            var  courses = student.Courses.
-                Select(course=> new StudentMyCoursesViewModel()
-            {
-                CourseName=course.Name,
-                CourseDescription = course.Description,
-                InsrUctorName = course.Instructor.Name
-            }).ToList();
+            var courses = student.Courses.
+                Select(course => new StudentMyCoursesViewModel()
+                {
+                    CourseId = course.CourseId,
+                    CourseName = course.Name,
+                    CourseDescription = course.Description,
+                    InsrUctorName = course.Instructor.Name
+                }).ToList();
 
             return View(courses);
         }
-        public IActionResult ProfilePage(int id)
-        {
-            Student profileInfo = _studentService.GetById(id);
-            return View(profileInfo);
-        }
+        
         public IActionResult DisplayHomeCourseContent(int courseId)
         {
-            TempData["StudentId"] = 2;
+
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId");
+
             Course? course = _courseService.Query()
                 .Include(c => c.Sections)
                 .Include(c => c.Instructor)
@@ -79,21 +108,31 @@ namespace project_student.Controllers
                 .FirstOrDefault();
             CouseContentsViewModel couseContentsViewModel = new CouseContentsViewModel()
             {
-               CourseId = course.CourseId,
-               Name = course.Name,
-               Type = course.Type,
-               Description = course.Description,
-               Image = course.Image,
-               StudentCount = course.Students.Count(),
-               InstructoID = course.Instructor.InstructorId,
-               InstructorName = course.Instructor.Name,
-               Sections = course.Sections
+                CourseId = course.CourseId,
+                Name = course.Name,
+                Type = course.Type,
+                Description = course.Description,
+                Image = course.Image,
+                StudentCount = course.Students.Count(),
+                InstructoID = course.Instructor.InstructorId,
+                InstructorName = course.Instructor.Name,
+                Sections = course.Sections
 
             };
             return View(couseContentsViewModel);
         }
-        public IActionResult DisplayMyCourseContent(int courseId, int studentId)
+        public IActionResult DisplayMyCourseContent(int courseId)
         {
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+
+            //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
+            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            TempData["studentId"] = studentId;
+
+            if (studentId == 0)
+            {
+                return Content("DisplayMyCourseContent\nstudentId == 0");
+            }
             Course? course = _courseService.Query()
                 .Include(c => c.Sections)
                 .Include(c => c.Instructor)
@@ -111,7 +150,8 @@ namespace project_student.Controllers
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
             };
-            foreach (var section in course.Sections) {
+            foreach (var section in course.Sections)
+            {
 
                 var currentSectionStatus = _studentProgressService.Query()
                     .Include(p => p.Course)
@@ -119,20 +159,32 @@ namespace project_student.Controllers
                     .Include(p => p.Section)
                     .Where(p => p.Course.CourseId == courseId
                              && p.Student.StudentId == studentId
-                             && p.Section.SectionId == section.SectionId);
+                             && p.Section.SectionId == section.SectionId).SingleOrDefault();
 
+                myCourseContentsViewModel.SectionsStatus.Add(new Pair<Section, bool>()
+                {
+                    First = section,
+                    Second = currentSectionStatus.Status
+                });
             }
-            return View();
+            return View(myCourseContentsViewModel);
         }
         public IActionResult DisplaySession()
         {
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+
+
             return View();
         }
         public IActionResult EnrollCourse(int studentId, int courseId)
         {
-
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+            if (studentId == 0)
+            {
+                return Content("EnrollCourse\nstudentId == 0");
+            }
             bool enrollStudent = _studentComplexService.EnrolleStudentInCourse(studentId, courseId);
-            if(enrollStudent)
+            if (enrollStudent)
             {
                 //return Content("enroll Sucess");
             }
@@ -145,9 +197,26 @@ namespace project_student.Controllers
             return RedirectToAction("MyCourses", new { studentId = studentId });
         }
 
+        public IActionResult ProfilePage()
+        {
+            //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
+            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            TempData["studentId"] = studentId;
+
+            if (studentId == 0)
+            {
+                return Content("ProfilePage\nstudentId == 0");
+            }
+
+            Student profileInfo = _studentService.GetById(studentId);
+            return View(profileInfo);
+        }
+
         [HttpPost]
         public IActionResult SaveProfile(Student model)
         {
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+
             var existingStudent = _studentService.GetById(model.StudentId);
 
 
@@ -160,4 +229,4 @@ namespace project_student.Controllers
             return RedirectToAction("ProfilePage", new { id = model.StudentId });
         }
     }
-    }
+}

@@ -14,9 +14,11 @@
             <ul>
                 <li><a href="@Url.Action("HomePage", "Student")">Home</a></li>
                 <li><a href="@Url.Action("MyCourses", "Student")">My Courses</a></li>
+
                 <li><a href="">About</a></li>
                 <li><a href="@Url.Action("Manage", "Instructor")">Contact</a></li>
-
+                @* Section to add student info here*@
+                @RenderSection("StudentInfo", required: false)
             </ul>
             <div class="profile">
                 <a href="@Url.Action("ProfilePage", "Student")" class="a_tag">
