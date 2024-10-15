@@ -45,6 +45,14 @@
     <link rel="stylesheet" href="~/css/DisplayMyCourse.css" />
 
 </head>
+@section StudentInfo {
+    <label style="color:whitesmoke;">Id:</label>
+    <div>
+        <p style="color:whitesmoke;">
+            @TempData.Peek("studentId");
+        </p>
+    </div>
+}
 <body>
     <div class="course-detail-container">
         <div class="course-header">
@@ -53,7 +61,7 @@
         </div>
         <form action="/Student/EnrollCourse" method="post">
             <input type="hidden" id="courseId" name="courseId" value="@Model.CourseId" />
-            <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]" />
+            <input type="hidden" id="studentId" name="studentId" value="@Context.Session.GetInt32("studentId");" />
             <button class="enroll-button-display" type="submit">Enroll</button>
         </form>
 
