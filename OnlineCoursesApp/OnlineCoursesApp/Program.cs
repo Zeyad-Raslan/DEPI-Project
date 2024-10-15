@@ -33,10 +33,12 @@ namespace OnlineCoursesApp
 
             builder.Services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(20);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
+
+            
 
             var app = builder.Build();
 
@@ -50,6 +52,7 @@ namespace OnlineCoursesApp
             app.UseRouting();
 
             app.UseAuthorization();
+
             app.UseSession();
 
             app.MapControllerRoute(
