@@ -182,6 +182,14 @@ namespace project_student.Controllers
 
             return View();
         }
+        public IActionResult MarkSectionAsCompleted(int courseId, int sectionId)
+        {
+            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            TempData["studentId"] = studentId;
+
+            return View();
+        }
+
         public IActionResult EnrollCourse(int courseId)
         {
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
