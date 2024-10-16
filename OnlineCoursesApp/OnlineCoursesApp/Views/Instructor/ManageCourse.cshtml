@@ -12,8 +12,9 @@
             <h1>@Model.Title</h1>
             <img src="@Model.Image" alt="Course Image" class="img-thumbnail">
             <p>@Model.Description</p>
-
-            <a asp-action="NewSection" asp-route-courseId="@Model.CourseId" class="btn btn-primary">New Section</a>
+            <a href="c:\users\omarm\onedrive\desktop\depi gradproj\depi-project-new\onlinecoursesapp\onlinecoursesapp\views\instructor\managecourse.cshtml">c:\users\omarm\onedrive\desktop\depi gradproj\depi-project-new\onlinecoursesapp\onlinecoursesapp\views\instructor\managecourse.cshtml</a>
+            <a href="@Url.Action("NewSection", "Instructor", new { courseId = Model.CourseId })" class="btn btn-secondary">Add New Section</a>
+            @* <a asp-action="NewSection" asp-route-courseId="@Model.CourseId" class="btn btn-primary">New Section</a> *@
         </div>
     </div>
 
@@ -22,29 +23,51 @@
     <table class="table table-striped">
         <thead>
             <tr>
+                @* <th>SectionID</th> *@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Link</th>
                 <th>Num</th>
                 <th>Action</th>
+
             </tr>
         </thead>
         <tbody>
             @foreach (var sec in Model.Sections)
             {
                 <tr>
-                    <td>@sec.Id</td>
+                    @* <td>@sec.SectionId</td> *@
+
+                    <td>@sec.CourseId</td>
                     <td>@sec.Title</td>
                     <td>
                         <a href="@sec.Link" target="_blank">@sec.Link</a>
                     </td>
-                    <td>@sec.Num</td>
+                    <td>@sec.Number</td>
+
                     <td>
-                        <a asp-action="EditSection" asp-route-id="@sec.Id" class="btn btn-success">Edit</a>
-                        <a asp-action="DeleteSection" asp-route-id="@sec.Id" class="btn btn-danger">Delete</a>
-                    </td>
+                   
+                        <a asp-action="EditSection" asp-route-id="@sec.SectionId" class="btn btn-success">Edit</a>
+                   
+
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete('@Url.Action("DeleteSection", "Instructor", new { sectionId = sec.SectionId })')">Delete</button>
+                    </td> 
+
+
+
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+
+
+
+<script type="text/javascript">
+    function confirmDelete(deleteUrl) {
+        if (confirm("Are you sure you want to delete this section?")) {
+            window.location.href = deleteUrl;
+        }
+    }
+</script>

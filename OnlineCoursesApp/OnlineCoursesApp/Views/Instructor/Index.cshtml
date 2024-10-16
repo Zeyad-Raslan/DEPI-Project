@@ -17,7 +17,9 @@
     else
     {
         <div class="mb-3">
-            <button type="button" class="btn btn-primary">New Course</button>
+            <a asp-controller="Instructor" asp-action="NewCourse" asp-route-id="@ViewBag.InstructorId" class="btn btn-success btn-sm">New Course</a>
+
+            @* <button type="button" class="btn btn-primary">New Course</button> *@
         </div>
 
         <table class="table table-striped table-bordered">
