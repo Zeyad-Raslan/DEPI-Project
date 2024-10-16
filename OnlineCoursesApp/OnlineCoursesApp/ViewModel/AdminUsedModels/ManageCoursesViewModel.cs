@@ -1,7 +1,11 @@
 ﻿namespace OnlineCoursesApp.ViewModel.AdminUsedModels
 {
-    public class ManageCoursesViewModel : NewCourseViewModel
+    public class ManageCoursesViewModel
     {
-        public int StudentNumber {  get; set; }
+        public int CourseId { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public int StudentCount { get; set; }
     }
 }
+
