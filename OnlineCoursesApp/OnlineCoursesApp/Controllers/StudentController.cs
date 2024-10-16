@@ -49,12 +49,12 @@ namespace project_student.Controllers
             HttpContext.Session.SetInt32("studentId", studentId);
                 TempData["studentId"] = studentId;
 
-            
-            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
+
+            //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication 
 
             var courses = _courseService.Query().
                 Include(i => i.Students).
-                Include(i => i.Instructor).ToList();
+                Include(i => i.Instructor).Where(i => i.CourseStatus == CourseStatus.Approved).ToList();  // filter Home Courses
 
             Student student = _studentService.GetById(studentId);
 
@@ -88,8 +88,8 @@ namespace project_student.Controllers
                                  .Where(i => i.StudentId == studentId)
                                  .FirstOrDefault();
 
-            //var currentstudent = student.ToList().First();
-            var courses = student.Courses.
+            //var currentstudent = student.ToList().First();              // filter my course
+            var courses = student.Courses.Where(i => i.CourseStatus == CourseStatus.Approved || i.CourseStatus == CourseStatus.Closed).
                 Select(course => new StudentMyCoursesViewModel()
                 {
                     CourseId = course.CourseId,
@@ -219,7 +219,11 @@ namespace project_student.Controllers
                 && p.Section.SectionId == sectionId
                 && p.Student.StudentId == studentId
                 )).SingleOrDefault();
-            currentProgress.Status = true;
+
+            if (currentProgress.Status == false)
+                currentProgress.Status = true;
+            else if (currentProgress.Status == true)
+                currentProgress.Status = false;
             _studentProgressService.Update(currentProgress);
             TempData["courseId"] = courseId;
             return RedirectToAction("DisplayMyCourseContent", courseId);

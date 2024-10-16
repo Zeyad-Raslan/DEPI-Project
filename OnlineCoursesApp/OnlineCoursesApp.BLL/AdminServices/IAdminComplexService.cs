@@ -1,18 +1,21 @@
 ﻿using OnlineCoursesApp.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OnlineCoursesApp.BLL.AdminServices
+public interface IAdminComplexService
 {
-    public interface IAdminComplexService
-    {
-        IQueryable<Course> GetNewCourses();
-        IQueryable<Course> GetAllCourses();
-        IQueryable<Instructor> GetAllInstructors();
-        IQueryable<Student> GetAllStudents();
+    // Manage courses
+    IQueryable<Course> GetNewCourses();
+    IQueryable<Course> GetAllCourses();
+    Course GetCourseById(int id);
+    void ApproveCourse(int courseId);
+    void RejectCourse(int courseId);
 
-    }
+    // Manage students
+    IQueryable<Student> GetAllStudents();
+    Student GetStudentById(int id);
+    void DeleteStudent(int studentId);
+
+    // Manage instructors
+    IQueryable<Instructor> GetAllInstructors();
+    Instructor GetInstructorById(int id);
+    void DeleteInstructor(int instructorId);
 }
