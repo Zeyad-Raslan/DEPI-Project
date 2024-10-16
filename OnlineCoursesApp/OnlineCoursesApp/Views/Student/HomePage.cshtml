@@ -1,152 +1,77 @@
-﻿@* @model List<StudentCoursesHomeViewModel>
+﻿@model List<StudentCoursesHomeViewModel>
 @{
-    ViewData["Title"] = "HomePage";
-    Layout = "~/Views/Shared/Layout_student.cshtml";
-    @using OnlineCoursesApp.ViewModel.Student
-}
+	ViewData["Title"] = "HomePage";
+	Layout = "~/Views/Shared/Layout_student.cshtml";
+	@using OnlineCoursesApp.ViewModel.Student;
 
-<main>
-    <div class="main">
-        <h1>Home Page</h1>
-        <p>We are here to help you find the best path to achieve your goals.</p>
-    </div>
-    <section class="search-container">
-        <input type="text"
-               id="course-search"
-               placeholder="Search for a course..."
-               class="search-input" />
-    </section>
-
-    <!-- Cards Section -->
-    <div class="cards">
-        @foreach (var course in @Model)
-        {
-            <div>
-            <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId">
-                <div class="card border-secondary mb-3" style="max-width: 20rem;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h4 class="card-title">@course.CourseName</h4>
-                        <p class="card-text">@course.CourseDescription</p>
-                        <p class="card-text">@course.NumStudent students enrolled</p>
-                    </div>
-                </div>
-            </a>
-             <form class="HomeCard" asp-action="EnrollCourse" asp-controller="Student" method="post">
-                <input type="hidden" id="courseId" name="courseId" value="@course.CourseId" />
-                <input type="hidden" id="studentId" name="studentId" value="@TempData["StudentId"]" />
-                <div class="d-grid gap-2">
-                    <button class="btn btn-lg btn-primary" type="submit">Enroll</button>
-                </div>
-            </form>
-            </div>
-
-        }
-    </div>
-</main> *@
-
-
-
-@model List<StudentCoursesHomeViewModel>
-@{
-    ViewData["Title"] = "HomePage";
-    Layout = "~/Views/Shared/Layout_student.cshtml";
-    @using OnlineCoursesApp.ViewModel.Student;
 }
 @section StudentInfo {
-    <label style="color:whitesmoke;">Id:</label>
-    <div >
-        <p style="color:whitesmoke;">
-           @TempData.Peek("studentId");
-        </p>
-    </div>
+	<label style="color: whitesmoke;">Id:</label>
+	<div>
+		<p style="color: whitesmoke;">
+			@TempData.Peek("studentId");
+		</p>
+	</div>
 }
 <main>
-    <div class="main">
-        <h1>Home Page</h1>
-        <p>We are here to help you find the best path to achieve your goals.</p>
-    </div>
+	<div class="main">
+		<h1>Home Page</h1>
+		<p>We are here to help you find the best path to achieve your goals.</p>
+	</div>
 
-    <section class="search-container">
-        <input type="text"
-               id="course-search"
-               placeholder="Search for a course..."
-               class="search-input" />
-    </section>
+	<section class="search-container">
+		<input type="text" id="course-search" placeholder="Search for a course..." class="search-input" />
+	</section>
 
-    <!-- Cards Section -->
-    <div class="cards">
-        @foreach (var course in @Model)
-        {
-            <div class="HomeCard-container">
-                @* class="HomeCard" *@
-                <!-- The entire card links to course details -->
-                <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
-                    <div class="HomeCard">
-                        <h1>@course.CourseName</h1>
-                        <p>By: @course.InsrUctorName</p>
-                        <p>Number of Students: @course.NumStudent</p>
-                        <p>@course.CourseDescription</p>
-                    </div>
-                </a>
+	<!-- Cards Section -->
+	<div class="cards">
+		@{
+			foreach (var course in @Model)
+			{
+				if (course.CourseId>3)
+				{
 
 
-                <!-- Enroll button inside form -->
-                <form action="/Student/EnrollCourse" method="post" class="enroll-form">
-                    <input type="hidden" name="courseId" value="@course.CourseId" />
-                    <input type="hidden" id="studentId" name="studentId" value=@TempData.Peek("studentId") />
-                    <button class="enroll-button" type="submit">Enroll</button>
-                </form>
-            </div>
-        }
-    </div>
-</main>
+					<div class="HomeCard-container">
+						<a href="/student/DisplayMyCourseContent?courseId=@course.CourseId" class="HomeCard-link">
+							<div class="HomeCard">
+								<h1>@course.CourseName</h1>
+								<p>By: @course.InsrUctorName</p>
+								<p>Number of Students: @course.NumStudent</p>
+								<p>@course.CourseDescription</p>
+							</div>
+						</a>
 
 
+						<a class="enrolled-button">
+							Enrolled
+						</a>
+						</div>
+		       }
 
+				else
+				{
+						<div class="HomeCard-container">
+							<a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
+								<div class="HomeCard">
+									<h1>@course.CourseName</h1>
+									<p>By: @course.InsrUctorName</p>
+									<p>Number of Students: @course.NumStudent</p>
+									<p>@course.CourseDescription</p>
+								</div>
+							</a>
+							<form action="/Student/EnrollCourse" method="post" class="enroll-form">
+								<input type="hidden" name="courseId" value="@course.CourseId" />
+								<input type="hidden" id="studentId" name="studentId" value="@TempData.Peek("studentId")" />
+								<button class="enroll-button" type="submit">Enroll</button>
+							</form>
+							}
+						</div>
+				}
+		}
+		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+					</div>
+			</main>
 
 
