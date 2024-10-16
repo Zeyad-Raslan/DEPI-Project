@@ -130,12 +130,44 @@ namespace OnlineCoursesApp.Controllers
 
         // --------------------------------------------------------------------------------------------------------
 
+        //public IActionResult ManageCourse(int id)
+        //{
+        //    // Retrieve the course and its sections
+        //    var course = _courseService.Query()
+        //                                .Include(c => c.Sections)
+        //                                .FirstOrDefault(c => c.CourseId == id);
+
+        //    if (course == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var viewModel = new CourseManageViewModel
+        //    {
+        //        CourseId = course.CourseId,
+        //        Title = course.Name,
+        //        Description = course.Description,
+        //        // If the course.Image is null, use a default placeholder image
+        //        Image = course.Image ?? "/images/default-placeholder.png",
+        //        Sections = course.Sections.Select(s => new SectionViewModel
+        //        {
+        //            Id = s.SectionId,
+        //            Title = s.Title,
+        //            Link = s.Link,
+        //            Num = s.Number
+        //        }).ToList()
+        //    };
+
+
+        //    return View(viewModel);
+        //}
+
         public IActionResult ManageCourse(int id)
         {
             // Retrieve the course and its sections
             var course = _courseService.Query()
-                                        .Include(c => c.Sections)
-                                        .FirstOrDefault(c => c.CourseId == id);
+                                       .Include(c => c.Sections)
+                                       .FirstOrDefault(c => c.CourseId == id);
 
             if (course == null)
             {
@@ -149,18 +181,21 @@ namespace OnlineCoursesApp.Controllers
                 Description = course.Description,
                 // If the course.Image is null, use a default placeholder image
                 Image = course.Image ?? "/images/default-placeholder.png",
-                Sections = course.Sections.Select(s => new SectionViewModel
-                {
-                    Id = s.SectionId,
-                    Title = s.Title,
-                    Link = s.Link,
-                    Num = s.Number
-                }).ToList()
+                Sections = course.Sections
+                                 .OrderBy(s => s.Number) // ترتيب الـ Sections حسب رقم Num
+                                 .Select(s => new SectionViewModel
+                                 {
+                                     Id = s.SectionId,
+                                     Title = s.Title,
+                                     Link = s.Link,
+                                     Num = s.Number
+                                 })
+                                 .ToList()
             };
-
 
             return View(viewModel);
         }
+
 
 
 
