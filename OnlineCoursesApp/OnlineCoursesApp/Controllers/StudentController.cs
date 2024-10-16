@@ -95,7 +95,9 @@ namespace project_student.Controllers
                     CourseId = course.CourseId,
                     CourseName = course.Name,
                     CourseDescription = course.Description,
-                    InsrUctorName = course.Instructor.Name
+                    InsrUctorName = course.Instructor.Name,
+                    StudentProgress = _studentComplexService.CountStudentProgress(studentId, course.CourseId)
+
                 }).ToList();
 
             return View(courses);
