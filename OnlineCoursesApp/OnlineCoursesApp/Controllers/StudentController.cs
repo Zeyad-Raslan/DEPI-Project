@@ -219,7 +219,11 @@ namespace project_student.Controllers
                 && p.Section.SectionId == sectionId
                 && p.Student.StudentId == studentId
                 )).SingleOrDefault();
-            currentProgress.Status = true;
+
+            if (currentProgress.Status == false)
+                currentProgress.Status = true;
+            else if (currentProgress.Status == true)
+                currentProgress.Status = false;
             _studentProgressService.Update(currentProgress);
             TempData["courseId"] = courseId;
             return RedirectToAction("DisplayMyCourseContent", courseId);

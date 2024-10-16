@@ -67,7 +67,8 @@
             <!-- Mark as Completed -->
             @if (Model.IsCompleted)
             {
-                <button class="right-button disabled-button" disabled>Completed Section</button>
+                <a class="warning-button" href="@Url.Action("MarkSectionAsCompleted", "Student", new { courseId = Model.CourseId, sectionId = Model.SectionId })">Completed Section</a>
+
             }
             else
             {
