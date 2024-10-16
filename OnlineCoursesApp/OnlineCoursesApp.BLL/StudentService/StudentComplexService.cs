@@ -39,7 +39,7 @@ namespace OnlineCoursesApp.BLL.StudentService
                                  .Include(i=> i.Students)
                                  .Where(i => i.CourseId == courseId)
                                  .FirstOrDefault();
-            if (course.Students.Any(st => st.StudentId == studentId){
+            if (course.Students.Any(st => st.StudentId == studentId)){
                 return false;
             } 
             // add course in student
