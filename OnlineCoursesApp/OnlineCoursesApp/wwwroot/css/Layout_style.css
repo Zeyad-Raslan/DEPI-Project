@@ -351,4 +351,38 @@ p {
 }
 
 
+
+
+.progress-container {
+    width: 80%; /* Now the progress bar will be 80% of the card width */
+    background-color: #e0e0e0; /* Light gray background for the progress bar */
+    border-radius: 5px; /* Rounded corners */
+    height: 10px; /* Height of the progress bar */
+    margin-top: 10px; /* Spacing above the progress bar */
+}
+
+.progress-bar {
+    height: 100%; /* Full height of the container */
+    background-color: green; /* Progress bar color */
+    border-radius: 5px; /* Rounded corners for the progress bar */
+    transition: width 0.3s ease; /* Smooth transition as progress changes */
+}
+
+.badge-done {
+    background-color: green;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.card h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+
    

@@ -17,16 +17,28 @@
     <div class="course-container">
 
         @{
-            foreach (var course in @Model)
-
+            @foreach (var course in @Model)
+{
+    <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourseContent", "Student", new { courseId = course.CourseId })'">
+        <h1>
+            @course.CourseName
+            @if (course.StudentProgress > 0 && course.StudentProgress != 100)
             {
-                <div class="card" style="cursor: pointer;" onclick="window.location.href='@Url.Action("DisplayMyCourseContent", "Student", new { courseId = course.CourseId })'">
-                    <h1>@course.CourseName   </h1>
-                    <p>@course.CourseDescription</p>
-                    <p>@course.InsrUctorName</p>
+                <!-- Progress Bar Section -->
+                <div class="progress-container" style="width: 35%;">
+                    <div class="progress-bar" style="width: @course.StudentProgress%;"></div>
                 </div>
-
             }
+            else if (course.StudentProgress == 100)
+            {
+                <span class="badge-done">Done</span>
+            }
+        </h1>
+
+        <p>@course.CourseDescription</p>
+        <p>@course.InsrUctorName</p>
+    </div>
+}
         }
     </div>
 </body>
