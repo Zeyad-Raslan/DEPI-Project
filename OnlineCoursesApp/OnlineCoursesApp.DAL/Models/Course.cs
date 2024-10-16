@@ -1,39 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace OnlineCoursesApp.DAL.Models
+namespace OnlineCoursesApp.DAL.Models;
+
+public partial class Course
 {
-    [Table("Course")]
-    public class Course
+    [Key]
+    public int CourseId { get; set; }
+
+    public string Name { get; set; } = null!;
+
+    public string Type { get; set; } = null!;
+
+    public string Description { get; set; } = null!;
+
+    public CourseStatus CourseStatus { get; set; } = CourseStatus.UnderReview;
+
+    public string? Image { get; set; }
+
+    public virtual ICollection<Student> Students { get; set; } 
+
+    public virtual ICollection<Section> Sections { get; set; }
+
+    public virtual Instructor Instructor { get; set; }
+    public Course()
     {
-        [Key]
-        public int ID { get; set; }
-
-        [Required]
-        [StringLength(100)]
-        public string Name { get; set; } = null!;
-
-        [Required]
-        [StringLength(50)]
-        public string Type { get; set; } = null!;
-
-        public string? Image { get; set; }
-
-        [StringLength(500)]
-        public string Description { get; set; } = null!;
-
-        public CourseStatus Status { get; set; } = CourseStatus.UnderReview;
-
-        // Navigation properties
-        public ICollection<Enroll> Enrollments { get; set; } = new List<Enroll>();
-        public ICollection<Tech> Techs { get; set; } = new List<Tech>();
-        public ICollection<Section> Sections { get; set; } = new List<Section>();
-        public ICollection<StudentProgress> StudentProgresses { get; set; } = new List<StudentProgress>();
-
+        Sections = new HashSet<Section>();
+        Students = new HashSet<Student>();
     }
 }

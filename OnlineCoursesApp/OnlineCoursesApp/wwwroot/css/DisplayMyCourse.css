@@ -1,0 +1,79 @@
+﻿.course-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+
+
+.sessions-container {
+    margin-top: 20px;
+}
+
+    .sessions-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: left;
+        color: #2c3e50;
+    }
+
+.session-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+    .session-card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+.session-info h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.session-info p {
+    margin: 5px 0 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.session-actions button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    .session-actions button:hover {
+        background-color: #219653;
+    }
+
+.completed-badge {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.incomplete-badge {
+    background-color:dodgerblue;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+

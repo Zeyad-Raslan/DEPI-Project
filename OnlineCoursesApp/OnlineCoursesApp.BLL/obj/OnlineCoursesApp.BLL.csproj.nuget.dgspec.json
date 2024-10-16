@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {}
+    "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {}
   },
   "projects": {
-    "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
+    "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
+        "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
         "projectName": "OnlineCoursesApp.BLL",
-        "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
+        "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj",
         "packagesPath": "C:\\Users\\original\\.nuget\\packages\\",
-        "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\obj\\",
+        "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\original\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
-                "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
+              "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+                "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
               }
             }
           }
@@ -48,12 +48,6 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.10, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -74,14 +68,14 @@
         }
       }
     },
-    "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+    "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+        "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
         "projectName": "OnlineCoursesApp.DAL",
-        "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+        "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
         "packagesPath": "C:\\Users\\original\\.nuget\\packages\\",
-        "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
+        "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\original\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -115,15 +109,25 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.10, )"
+              "version": "[8.0.8, )"
             },
             "Microsoft.Extensions.Configuration": {
               "target": "Package",

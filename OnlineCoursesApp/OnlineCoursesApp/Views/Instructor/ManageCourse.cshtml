@@ -1,0 +1,50 @@
+﻿@model CourseManageViewModel
+
+@{
+    ViewData["Title"] = "ManageCourse";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>@Model.Title</h1>
+            <img src="@Model.Image" alt="Course Image" class="img-thumbnail">
+            <p>@Model.Description</p>
+
+            <a asp-action="NewSection" asp-route-courseId="@Model.CourseId" class="btn btn-primary">New Section</a>
+        </div>
+    </div>
+
+    <hr />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Num</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sec in Model.Sections)
+            {
+                <tr>
+                    <td>@sec.Id</td>
+                    <td>@sec.Title</td>
+                    <td>
+                        <a href="@sec.Link" target="_blank">@sec.Link</a>
+                    </td>
+                    <td>@sec.Num</td>
+                    <td>
+                        <a asp-action="EditSection" asp-route-id="@sec.Id" class="btn btn-success">Edit</a>
+                        <a asp-action="DeleteSection" asp-route-id="@sec.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

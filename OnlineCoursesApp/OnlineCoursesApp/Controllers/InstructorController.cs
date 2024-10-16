@@ -11,83 +11,47 @@ namespace OnlineCoursesApp.Controllers
 
     public class InstructorController : Controller
     {
-
-
         private readonly IService<Instructor> _instructorService;
-        private readonly IService<Tech> _techService;
         private readonly IService<Course> _courseService;
+        private readonly IService<Section> _sectionService;
 
-        public InstructorController(IService<Instructor> instructorService, IService<Tech> techService, IService<Course> courseService)
+        public InstructorController(IService<Instructor> instructorService, IService<Course> courseService, IService<Section> sectionService)
         {
             _instructorService = instructorService;
-            _techService = techService;
             _courseService = courseService;
+            _sectionService = sectionService;
         }
 
 
-
-
-  
         public IActionResult Index(int id)
         {
             var instructor = _instructorService.Query()
-                                               .Include(i => i.Techs)
-                                               .ThenInclude(t => t.Course)
-                                               .ThenInclude(c => c.Enrollments) 
-                                               .FirstOrDefault(i => i.ID == id);
+                                               .Include(i => i.Courses)
+                                               .ThenInclude(i=>i.Students)
+                                               .FirstOrDefault(i => i.InstructorId == id);
 
             if (instructor == null)
-            {
-                return NotFound(); 
-            }
-
-            ViewBag.InstructorId = instructor.ID;
-
-            var courses = instructor.Techs.Select(t => new CourseViewModelForInst
-            {
-                CourseId = t.Course.ID,
-                CourseName = t.Course.Name,
-                NumStudents = t.Course.Enrollments.Count(), 
-                Type = t.Course.Type,
-                Status = t.Course.Status 
-            }).ToList();
-
-            return View(courses); 
-        }
-
-        public IActionResult Students(int id)
-        {
-            var course = _courseService.Query()
-                                       .Include(c => c.Enrollments) 
-                                       .ThenInclude(e => e.Student) 
-                                       .Include(c => c.StudentProgresses) 
-                                       .FirstOrDefault(c => c.ID == id);
-
-            if (course == null)
             {
                 return NotFound();
             }
 
-          
-            var students = course.Enrollments.Select(e => new StudentViewModelForInst
+            // تمرير InstructorId إلى الـ View باستخدام ViewBag
+            ViewBag.InstructorId = instructor.InstructorId;
+            
+            var courses = instructor.Courses.Select(course => new CourseHomePageViewModel
             {
-                StudentId = e.Student.ID,
-                StudentName = e.Student.Name, 
-                Progress = course.StudentProgresses
-                                 .Where(sp => sp.StudentID == e.Student.ID)
-                                 .Select(sp => sp.IsCompleted ? 100 : 0) 
-                                 .FirstOrDefault() 
+                CourseId = course.CourseId,
+                CourseName = course.Name,
+                NumStudents = course.Students.Count,
+                Type = course.Type
             }).ToList();
 
-            ViewData["CourseName"] = course.Name;
-            ViewData["InstructorId"] = course.Techs.FirstOrDefault()?.InstructorID;
-
-            return View(students); 
+            return View(courses);
         }
 
         public IActionResult Profile(int id)
         {
-            var instructor = _instructorService.Query().FirstOrDefault(i => i.ID == id);
+            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == id);
 
             if (instructor == null)
             {
@@ -96,11 +60,11 @@ namespace OnlineCoursesApp.Controllers
 
             var viewModel = new InstructorProfileViewModel
             {
-                InstructorId = instructor.ID,
+                InstructorId = instructor.InstructorId,
                 Name = instructor.Name,
                 Email = instructor.Email,
-                About = instructor.About,  
-                ImageUrl = instructor.Image  
+                About = instructor.About,  // Assuming you have an "About" field in Instructor model
+                ImageUrl = instructor.Image  // Assuming there's an image URL field
             };
 
             return View(viewModel);
@@ -109,27 +73,247 @@ namespace OnlineCoursesApp.Controllers
 
 
 
-        // Task Omer (Action, View, if you need ModelView )
-        public IActionResult NewCourse()
+        //public IActionResult Students(int id)
+        //{
+        //    int courseId = id;
+
+
+        //    var instructor = _instructorService.Query()
+        //        .Include(i => i.Courses)
+        //        .ThenInclude(c => c.Enrolls)
+        //        .ThenInclude(e => e.Student)
+        //        .FirstOrDefault(i => i.Courses.Any(c => c.CourseId == courseId));
+
+        //    if (instructor == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var course = instructor.Courses.FirstOrDefault(c => c.CourseId == courseId);
+
+        //    if (course == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var students = course.Enrolls.Select(e => new StudentViewModelForInst
+        //    {
+        //        StudentId = e.Student.StudentId,
+        //        StudentName = e.Student.Name,
+        //        Progress = e.Progress ?? 0
+        //    }).ToList();
+
+        //    ViewData["CourseName"] = course.Name;
+        //    ViewData["InstructorId"] = instructor.InstructorId;
+        //    return View(students);
+        //}
+
+
+        // --------------------------------------------------------------------------------------------------------
+
+        public IActionResult ManageCourse(int id)
         {
-            return View();
+            // Retrieve the course and its sections
+            var course = _courseService.Query()
+                                        .Include(c => c.Sections)
+                                        .FirstOrDefault(c => c.CourseId == id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new CourseManageViewModel
+            {
+                CourseId = course.CourseId,
+                Title = course.Name,
+                Description = course.Description,
+                // If the course.Image is null, use a default placeholder image
+                Image = course.Image ?? "/images/default-placeholder.png",
+                Sections = course.Sections.Select(s => new SectionViewModel
+                {
+                    Id = s.SectionId,
+                    Title = s.Title,
+                    Link = s.Link,
+                    Num = s.Number
+                }).ToList()
+            };
+
+
+            return View(viewModel);
         }
 
-        public IActionResult Manage()
+
+
+        //[HttpGet]
+        //public IActionResult NewCourse(int id)
+        //{
+        //    ViewBag.InstructorId = id;
+        //    return View();
+        //}
+
+
+        //public IActionResult SaveNewCourse(CourseViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var course = new Course
+        //        {
+        //            Name = model.Name,
+        //            Type = model.Type,
+        //            Description = model.Description,
+        //            Image = model.Image,
+        //            Status = CourseStatus.UnderReview // Set default status
+        //        };
+
+        //        _courseService.Add(course); // Save the course
+        //        _courseService.Save();
+
+        //        var tech = new Tech
+        //        {
+        //            CourseID = course.ID,
+        //            InstructorID = model.TechId
+        //        };
+
+        //        _techService.Add(tech);
+        //        _techService.Save();    
+
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View("NewCourse", model); // If validation fails, stay on the same page
+        //}
+
+
+        //[HttpPost]
+        //public IActionResult SaveNewCourse(CourseViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var course = new Course
+        //        {
+        //            Name = model.Name,
+        //            Type = model.Type,
+        //            Description = model.Description,
+        //            Image = model.Image,
+        //            Status = CourseStatus.UnderReview // Set default status
+        //        };
+
+        //        _courseService.Add(course); // Save the course
+        //        _courseService.Save(); // تأكد من حفظ الكورس أولاً
+
+        //        // تأكد من أن المعرفات صحيحة قبل إضافة Tech
+        //        if (model.TechId > 0) // Assuming TechId is the InstructorId
+        //        {
+        //            var tech = new Tech
+        //            {
+        //                CourseID = course.ID, // يجب أن يكون المعرف صحيحًا هنا
+        //                InstructorID = model.TechId // تأكد من أن هذا هو المعرف الصحيح
+        //            };
+
+        //            _techService.Add(tech); // Save the tech relationship
+        //            _techService.Save();
+        //        }
+        //        else
+        //        {
+        //            // تعامل مع حالة عدم وجود TechId أو InstructorId بشكل صحيح
+        //            ModelState.AddModelError("", "Invalid Instructor ID.");
+        //            return View("NewCourse", model);
+        //        }
+
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View("NewCourse", model); // If validation fails, stay on the same page
+        //}
+
+
+
+
+        //[HttpGet]
+        //public IActionResult NewSection(int courseId)
+        //{
+        //    var model = new SectionViewModel01 { CourseId = courseId };
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //public IActionResult SaveNewSection(SectionViewModel01 model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var section = new Section
+        //        {
+        //            Title = model.Title,
+        //            Link = model.Link,
+        //            Num = model.Num,
+        //            CourseID = model.CourseId
+        //        };
+
+        //        _sectionService.Add(section);
+        //        _sectionService.Save();
+        //        return RedirectToAction("ManageCourse", new { id = model.CourseId });
+        //    }
+
+        //    return View("NewSection", model);
+        //}
+
+
+
+
+
+        [HttpGet]
+        public IActionResult EditSection(int id)
         {
-            return View();
+            var section = _sectionService.GetById(id);
+            if (section == null)
+            {
+                return NotFound();
+            }
+
+            var model = new SectionViewModel
+            {
+                Id = section.SectionId,
+                Title = section.Title,
+                Link = section.Link,
+                Num = section.Number
+            };
+
+            return View(model);
         }
 
-        public IActionResult AddSection()
+        [HttpPost]
+        public IActionResult EditSection(SectionViewModel model)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var section = _sectionService.GetById(model.Id);
+                if (section == null)
+                {
+                    return NotFound();
+                }
+
+                section.Title = model.Title;
+                section.Link = model.Link;
+                section.Number = model.Num;
+
+                _sectionService.Update(section);
+                return RedirectToAction("ManageCourse", new { id = section.Course.CourseId });
+            }
+
+            return View(model);
         }
 
-        public IActionResult EditSection()
+        public IActionResult DeleteSection(int id)
         {
-            return View();
-        }
+            var section = _sectionService.GetById(id);
+            if (section != null)
+            {
+                _sectionService.Delete(id);
+            }
 
+            return RedirectToAction("ManageCourse", new { id = section.Course.CourseId });
+        }
 
 
 

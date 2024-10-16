@@ -1,0 +1,129 @@
+﻿@model DisplaySectionViewModel
+@{
+    ViewData["Title"] = "Play Session";
+    Layout = null;  // No layout for a standalone page
+    @using OnlineCoursesApp.DAL.Models
+    @using OnlineCoursesApp.ViewModel.CourseViewModels;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Internal CSS or link external CSS files here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container {
+            max-width: 900px;
+            width: 100%;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .video-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+            .video-header h1 {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            .video-header p {
+                color: #777;
+                font-size: 14px;
+            }
+
+        video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .session-details {
+            margin-top: 20px;
+        }
+
+            .session-details h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            .session-details p {
+                font-size: 14px;
+                color: #555;
+            }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+            .back-button:hover {
+                background-color: #2980b9;
+            }
+
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <!-- Video Header -->
+        <div class="video-header">
+            <h1>Session @Model.Section.Number: @Model.Section.Title</h1>
+        </div>
+
+        <!-- Video Player -->
+        <video controls>
+            <source src="@Model.Section.Link" type="video/mp4"> <!-- Replace with actual video URL -->
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Session Details (optional) -->
+        <div class="session-details">
+            <h3>Session Overview:</h3>
+            <p>This session introduces the fundamentals of C++ programming, covering basic syntax, variables, and data types. You'll learn how to write simple programs and understand key concepts like memory management and object-oriented programming.</p>
+        </div>
+
+        <!-- Back Button -->
+        <a class="back-button" href="@Url.Action("DisplayMyCourseContent", "Student", new{courseId = Model.CourseId})">Back to Sessions</a>
+        @{
+            if (Model.IsCompleted)
+            {
+                <button type="button" class="btn btn-lg btn-Sucess" disabled>Completed Section</button>
+            }
+            else
+            {
+
+                <a class="back-button" href="@Url.Action("MarkSectionAsCompleted", "Student", new{courseId = Model.CourseId, sectionId = Model.SectionId})">Mark as completed</a>
+            }
+        }
+
+    </div>
+
+</body>
+</html>

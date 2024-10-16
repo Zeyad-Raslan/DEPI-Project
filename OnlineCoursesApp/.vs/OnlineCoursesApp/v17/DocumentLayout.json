@@ -1,10 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\",
+  "WorkspaceRootPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7BE5ECD7-48DA-4643-A074-FF2F84CFF0E4}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|d:\\00_track .net\\01_depi .net\\project\\depi-project\\onlinecoursesapp\\onlinecoursesapp.bll\\services\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BE5ECD7-48DA-4643-A074-FF2F84CFF0E4}|OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj|solutionrelative:onlinecoursesapp.bll\\services\\iservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\01_depi .net\\project\\p6\\depi-project\\onlinecoursesapp\\onlinecoursesapp\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\controllers\\instructorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\01_depi .net\\project\\p6\\depi-project\\onlinecoursesapp\\onlinecoursesapp\\views\\instructor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\instructor\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\01_depi .net\\project\\p6\\depi-project\\onlinecoursesapp\\onlinecoursesapp\\views\\instructor\\editsection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\instructor\\editsection.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\01_depi .net\\project\\p6\\depi-project\\onlinecoursesapp\\onlinecoursesapp\\views\\admin\\managecourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\views\\admin\\managecourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\01_depi .net\\project\\p6\\depi-project\\onlinecoursesapp\\onlinecoursesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|d:\\00_track .net\\01_depi .net\\project\\p6\\depi-project\\onlinecoursesapp\\onlinecoursesapp.dal\\models\\onlinecoursescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0904F35-D3A9-4A49-B6BE-6F0AFD33F1DC}|OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj|solutionrelative:onlinecoursesapp.dal\\models\\onlinecoursescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|d:\\00_track .net\\01_depi .net\\project\\p6\\depi-project\\onlinecoursesapp\\onlinecoursesapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B51D59B9-3CF6-4238-9920-0E971763391F}|OnlineCoursesApp\\OnlineCoursesApp.csproj|solutionrelative:onlinecoursesapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +38,96 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\Instructor\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T03:49:41.801Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditSection.cshtml",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\EditSection.cshtml",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Instructor\\EditSection.cshtml",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Instructor\\EditSection.cshtml",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\Instructor\\EditSection.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T03:49:38.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IService.cs",
-              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\IService.cs",
-              "RelativeDocumentMoniker": "OnlineCoursesApp.BLL\\Services\\IService.cs",
-              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\Services\\IService.cs",
-              "RelativeToolTip": "OnlineCoursesApp.BLL\\Services\\IService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Title": "InstructorController.cs",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\InstructorController.cs",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Controllers\\InstructorController.cs",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Controllers\\InstructorController.cs",
+              "RelativeToolTip": "OnlineCoursesApp\\Controllers\\InstructorController.cs",
+              "ViewState": "AQIAAC4BAAAAAAAAAAAQwD0BAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T10:58:54.8Z",
+              "WhenOpened": "2024-10-16T03:32:24.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ManageCourses.cshtml",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Admin\\ManageCourses.cshtml",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Views\\Admin\\ManageCourses.cshtml",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Views\\Admin\\ManageCourses.cshtml",
+              "RelativeToolTip": "OnlineCoursesApp\\Views\\Admin\\ManageCourses.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T03:32:18.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OnlineCoursesContext.cs",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\OnlineCoursesContext.cs",
+              "RelativeDocumentMoniker": "OnlineCoursesApp.DAL\\Models\\OnlineCoursesContext.cs",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\Models\\OnlineCoursesContext.cs",
+              "RelativeToolTip": "OnlineCoursesApp.DAL\\Models\\OnlineCoursesContext.cs",
+              "ViewState": "AQIAAAgAAABAl5mZmZkdwAoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T21:31:20.481Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\appsettings.json",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\appsettings.json",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\appsettings.json",
+              "RelativeToolTip": "OnlineCoursesApp\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-15T21:28:35.111Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
+              "RelativeDocumentMoniker": "OnlineCoursesApp\\Program.cs",
+              "ToolTip": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\Program.cs",
+              "RelativeToolTip": "OnlineCoursesApp\\Program.cs",
+              "ViewState": "AQIAAA8AAABgMjMzM7MQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T21:28:30.993Z",
               "EditorCaption": ""
             }
           ]
