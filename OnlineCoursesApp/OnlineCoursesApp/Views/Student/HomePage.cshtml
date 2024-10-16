@@ -28,7 +28,9 @@
 		@{
 			foreach (var course in @Model)
 			{
-				if (course.CourseId>3)
+
+				if (@course.IsEnrolled)
+
 				{
 
 
@@ -65,7 +67,7 @@
 								<input type="hidden" id="studentId" name="studentId" value="@TempData.Peek("studentId")" />
 								<button class="enroll-button" type="submit">Enroll</button>
 							</form>
-							}
+							
 						</div>
 				}
 		}
