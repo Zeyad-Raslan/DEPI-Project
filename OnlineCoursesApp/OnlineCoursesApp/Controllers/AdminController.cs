@@ -1,61 +1,173 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OnlineCoursesApp.BLL.Services;
-using OnlineCoursesApp.BLL.AdminServices;
-
-using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel.AdminUsedModels;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace Admin_Views.Controllers
 {
     public class AdminController : Controller
     {
-        // need to use admin complex service here
         private readonly IAdminComplexService _adminService;
 
         public AdminController(IAdminComplexService adminService)
         {
             _adminService = adminService;
         }
+
+        // Index action
         public IActionResult Index()
         {
             return View();
         }
+
+        // 1. Manage New Courses: Approve or Reject
         public IActionResult ManageNewCourses()
         {
-            List<NewCourseViewModel> newCourses = _adminService.GetNewCourses()
-                .Select(course => new NewCourseViewModel()
-                {
-                    CourseId = course.CourseId,
-                    Name = course.Name,
-                    Type = course.Type
-                }).ToList();
-
-            return View(newCourses);
-        }
-        public IActionResult ManageCourses()
-        {
-            List<ManageCoursesViewModel> courses = _adminService.GetAllCourses()
-                .Include(i => i.Students)
-                .Select(course => new ManageCoursesViewModel()
+            var newCourses = _adminService.GetNewCourses()
+                .Select(course => new NewCourseViewModel
                 {
                     CourseId = course.CourseId,
                     Name = course.Name,
                     Type = course.Type,
-                    StudentNumber = course.Students.Count()
+                    Status = course.CourseStatus
+                }).ToList();
+
+            return View(newCourses);
+        }
+
+        [HttpPost]
+        public IActionResult ApproveCourse(int courseId)
+        {
+            _adminService.ApproveCourse(courseId);
+            TempData["SuccessMessage"] = "Course approved successfully!";
+            return RedirectToAction("ManageNewCourses");
+        }
+
+        [HttpPost]
+        public IActionResult RejectCourse(int courseId)
+        {
+            _adminService.RejectCourse(courseId);
+            TempData["ErrorMessage"] = "Course rejected!";
+            return RedirectToAction("ManageNewCourses");
+        }
+
+        // 2. Manage Current Courses: View Details
+        public IActionResult ManageCourses()
+        {
+            var courses = _adminService.GetAllCourses()
+                .Include(c => c.Students)
+                .Select(course => new ManageCoursesViewModel
+                {
+                    CourseId = course.CourseId,
+                    Name = course.Name,
+                    Type = course.Type,
+                    StudentCount = course.Students.Count()
                 }).ToList();
 
             return View(courses);
         }
-        public IActionResult ManageStudents()
+
+        public IActionResult CourseDetails(int id)
         {
-            return View();
-        }
-        public IActionResult ManageInstructors()
-        {
-            return View();
+            var course = _adminService.GetCourseById(id);
+            if (course == null) return NotFound();
+
+            var viewModel = new CourseDetailsViewModel
+            {
+                CourseId = course.CourseId,
+                Name = course.Name,
+                Type = course.Type,
+                Description = course.Description,
+                Students = course.Students.Select(s => new StudentViewModel
+                {
+                    StudentId = s.StudentId,
+                    Name = s.Name
+                }).ToList()
+            };
+
+            return View(viewModel);
         }
 
+
+        // 3. Manage Students: View Details and Delete
+        public IActionResult ManageStudents()
+        {
+            var students = _adminService.GetAllStudents()
+                .Select(student => new ManageStudentsViewModel
+                {
+                    StudentId = student.StudentId,
+                    Name = student.Name
+                }).ToList();
+
+            return View(students);
+        }
+
+        public IActionResult StudentDetails(int id)
+        {
+            var student = _adminService.GetStudentById(id);
+            if (student == null) return NotFound();
+
+            var viewModel = new StudentDetailsViewModel
+            {
+                StudentId = student.StudentId,
+                Name = student.Name,
+                Email = student.Email,
+                Education = student.Education
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteStudent(int id)
+        {
+            _adminService.DeleteStudent(id);
+            TempData["SuccessMessage"] = "Student deleted successfully!";
+            return RedirectToAction("ManageStudents");
+        }
+
+        // 4. Manage Instructors: View Details and Delete
+        public IActionResult ManageInstructors()
+        {
+            var instructors = _adminService.GetAllInstructors()
+                .Select(instructor => new ManageInstructorsViewModel
+                {
+                    InstructorId = instructor.InstructorId,
+                    Name = instructor.Name
+                }).ToList();
+
+            return View(instructors);
+        }
+
+        public IActionResult InstructorDetails(int id)
+        {
+            var instructor = _adminService.GetInstructorById(id);
+            if (instructor == null) return NotFound();
+
+            var viewModel = new InstructorDetailsViewModel
+            {
+                InstructorId = instructor.InstructorId,
+                Name = instructor.Name,
+                Email = instructor.Email,
+                About = instructor.About
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteInstructor(int id)
+        {
+            try
+            {
+                _adminService.DeleteInstructor(id);
+                TempData["SuccessMessage"] = "Instructor deleted successfully!";
+            }
+            catch (InvalidOperationException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+
+            return RedirectToAction("ManageInstructors");
+        }
     }
 }

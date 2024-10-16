@@ -1,0 +1,32 @@
+﻿@model CourseDetailsViewModel
+
+<h2>Course Details: @Model.Name</h2>
+
+<p><strong>Type:</strong> @Model.Type</p>
+<p><strong>Description:</strong> @Model.Description</p>
+
+<h3>Enrolled Students</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Students != null && Model.Students.Count > 0)
+        {
+            foreach (var student in Model.Students)
+            {
+                <tr>
+                    <td>@student.StudentId</td>
+                    <td>@student.Name</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="2">No students enrolled</td></tr>
+        }
+    </tbody>
+</table>
