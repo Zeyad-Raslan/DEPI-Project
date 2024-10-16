@@ -33,8 +33,7 @@ public partial class OnlineCoursesContext : DbContext
     {
        string connectionString =
                         /*"Data Source = IUGYI\\SQLEXPRESS;" +*/
-                        "Data Source = .;" +
-                         
+                        "Data Source = DESKTOP-ILHHK5F;" +
                             " Initial Catalog = OnlineCourseDemo; " +
                             "Integrated Security = True;" +
                             " Encrypt = False; " +
