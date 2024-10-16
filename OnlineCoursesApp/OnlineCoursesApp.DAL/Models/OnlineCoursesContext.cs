@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,25 +28,19 @@ public partial class OnlineCoursesContext : DbContext
 
 
 
-    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-       string connectionString =
-<<<<<<< HEAD
-                        /*"Data Source = IUGYI\\SQLEXPRESS;" +
-                        "Data Source = DESKTOP-ILHHK5F;" +
-=======
-                        /*"Data Source = IUGYI\\SQLEXPRESS;" +*/
-                        "Data Source = .;" +
->>>>>>> 463f03d4063e56a5e0db80b0ad032390c0b2be4f
-                            " Initial Catalog = OnlineCourseDemo; " +
-                            "Integrated Security = True;" +
-                            " Encrypt = False; " +
-                            "Trust Server Certificate=True;";
+        string connectionString =
+                             "Data Source = .;" +
+                             " Initial Catalog = OnlineCourseDemo; " +
+                             "Integrated Security = True;" +
+                             " Encrypt = False; " +
+                             "Trust Server Certificate=True;";
         optionsBuilder.UseSqlServer(connectionString);
-    }*/
-     
+    }
 
-   
 
-   
+
+
+
 }

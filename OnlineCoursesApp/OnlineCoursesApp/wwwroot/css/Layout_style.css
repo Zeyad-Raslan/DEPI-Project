@@ -35,15 +35,34 @@
   .navbar a:hover{
     color: aqua;
   }
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo-img {
+    height: 100px; /* Adjust the logo height as needed */
+    width: auto; /* Maintain aspect ratio */
+}
+
   .profile {
     display: flex;
     align-items: center;
   }
-  
+
+.profile-img-nav {
+    height: 40px; /* Adjust height as needed */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Optional: make the image circular */
+    object-fit: cover; /* Ensures the image covers the space neatly */
+}
+
   .profile-img {
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 240px;
+    height: 240px;
     margin-right: 10px;
   }
   
@@ -197,12 +216,12 @@
 
   }*/
 footer {
-    background-color: #696262;
+    background-color: #898181;
     padding: 20px;
     text-align: center;
     border-top: 1px solid #ddd;
     height: 60px;
-    position: fixed; /* Fixes the footer to the bottom */
+    position: absolute; /* Fixes the footer to the bottom */
     bottom: 0; /* Aligns it to the bottom */
     left: 0;
     width: 100%; /* Makes sure it spans the full width */
@@ -382,6 +401,29 @@ p {
     font-size: 24px;
     margin-bottom: 10px;
 }
+.Profilebutton {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 20px; /* Top/bottom and left/right padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Inline block for better alignment */
+    font-size: 16px; /* Increase font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+}
+
+    .Profilebutton:hover {
+        background-color: #45a049; /* Darker green on hover */
+        transform: scale(1.05); /* Slightly increase size on hover */
+    }
+
+    .Profilebutton:active {
+        background-color: #3e8e41; /* Even darker green when active */
+        transform: scale(0.98); /* Slightly decrease size when clicked */
+    }
 
 
 
