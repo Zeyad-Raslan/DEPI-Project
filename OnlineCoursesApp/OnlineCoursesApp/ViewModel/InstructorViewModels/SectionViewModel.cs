@@ -3,9 +3,12 @@
 
     public class SectionViewModel
     {
-        public int Id { get; set; }
-        public string Title { get; set; } = string.Empty;
-        public string Link { get; set; } = string.Empty;
-        public int Num { get; set; }
+        public int CourseId { get; set; }
+        public string Title { get; set; }
+        public string Link { get; set; }
+        public int Number { get; set; }
+        public int SectionId { get; set; }
     }
+
+
 }
