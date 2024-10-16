@@ -8063,11 +8063,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
+      "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
       "projectName": "OnlineCoursesApp",
-      "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
+      "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
       "packagesPath": "C:\\Users\\original\\.nuget\\packages\\",
-      "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\obj\\",
+      "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\original\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8084,11 +8084,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
-              "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj"
+            "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj": {
+              "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.BLL\\OnlineCoursesApp.BLL.csproj"
             },
-            "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
-              "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
+            "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj": {
+              "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj"
             }
           }
         }

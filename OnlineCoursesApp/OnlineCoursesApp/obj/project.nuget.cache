@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "INsnBDetQEGmC0pBznGzBoY8dvYPnOdJqiQglZgLLPP7L9getYRtlTh7MQZA7Rq7otQVNMM/f8N6H+iBrfW4Pg==",
+  "dgSpecHash": "sx+NOCSYqEdZSjfagIqqNG9DGMW6uKIcHsVncd5xbo4PIFP+JSl4vZIzLbqU9qt5RwPD9PwRJvUjTxaNcaqOhA==",
   "success": true,
-  "projectFilePath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
+  "projectFilePath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp\\OnlineCoursesApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\original\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\original\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

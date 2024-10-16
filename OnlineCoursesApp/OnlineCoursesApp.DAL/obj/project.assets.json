@@ -4415,11 +4415,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+      "projectUniqueName": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
       "projectName": "OnlineCoursesApp.DAL",
-      "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
+      "projectPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\OnlineCoursesApp.DAL.csproj",
       "packagesPath": "C:\\Users\\original\\.nuget\\packages\\",
-      "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\p6\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
+      "outputPath": "D:\\00_Track .Net\\01_DEPI .Net\\Project\\DEPI-Project\\OnlineCoursesApp\\OnlineCoursesApp.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\original\\AppData\\Roaming\\NuGet\\NuGet.Config",
