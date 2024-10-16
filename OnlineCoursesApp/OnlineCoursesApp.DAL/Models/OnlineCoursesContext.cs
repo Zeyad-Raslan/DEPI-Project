@@ -29,20 +29,20 @@ public partial class OnlineCoursesContext : DbContext
 
 
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //   string connectionString =
-    //                      "Data Source = IUGYI\\SQLEXPRESS;" +
-                         
-    //                        " Initial Catalog = OnlineCourseDemo; " +
-    //                        "Integrated Security = True;" +
-    //                        " Encrypt = False; " +
-    //                        "Trust Server Certificate=True;";
-    //    optionsBuilder.UseSqlServer(connectionString);
-    //}
-     
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        string connectionString =
+                           "Data Source = IUGYI\\SQLEXPRESS;" +
 
-   
+                             " Initial Catalog = OnlineCourseDemo; " +
+                             "Integrated Security = True;" +
+                             " Encrypt = False; " +
+                             "Trust Server Certificate=True;";
+        optionsBuilder.UseSqlServer(connectionString);
+    }
 
-   
+
+
+
+
 }
