@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace OnlineCoursesApp.DAL.Models;
 
-public partial class OnlineCoursesContext : DbContext
+public partial class OnlineCoursesContext : IdentityDbContext<ApplicationUser>
 {
     public OnlineCoursesContext()
     {
