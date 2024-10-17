@@ -182,6 +182,7 @@ namespace OnlineCoursesApp.Controllers
                 Description = course.Description,
                 // If the course.Image is null, use a default placeholder image
                 Image = course.Image ?? "/images/default-placeholder.png",
+               
                 Sections = course.Sections
                                  .OrderBy(s => s.Number) // ترتيب الـ Sections حسب رقم Num
                                  .Select(s => new SectionViewModel
@@ -199,67 +200,7 @@ namespace OnlineCoursesApp.Controllers
         }
 
 
-
-
-        [HttpGet]
-        //public IActionResult EditSection(int id)
-        //{
-        //    var section = _sectionService.GetById(id);
-        //    if (section == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var model = new SectionViewModel
-        //    {
-        //        CourseId = section.SectionId,
-        //        Title = section.Title,
-        //        Link = section.Link,
-        //        Number = section.Number
-        //    };
-
-        //    return View(model);
-        //}
-
-        //[HttpPost]
-        //public IActionResult EditSection(SectionViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var section = _sectionService.GetById(model.Id);
-        //        if (section == null)
-        //        {
-        //            return NotFound();
-        //        }
-
-        //        section.Title = model.Title;
-        //        section.Link = model.Link;
-        //        section.Number = model.Num;
-
-        //        _sectionService.Update(section);
-        //        return RedirectToAction("ManageCourse", new { id = section.Course.CourseId });
-        //    }
-
-        //    return View(model);
-        //}
-
-        //public IActionResult DeleteSection(int id)
-        //{
-        //    var section = _sectionService.GetById(id);
-        //    if (section != null)
-        //    {
-        //        _sectionService.Delete(id);
-        //    }
-
-        //    return RedirectToAction("ManageCourse", new { id = section.Course.CourseId });
-        //}
-
-
-
-
-        // ----------------------------------------------------------------------------------------------
-
-        [HttpGet]
+        //-------------------------------------- NewCourse
         public IActionResult NewCourse(int id)
         {
             ViewBag.InstructorId = id;
@@ -289,7 +230,7 @@ namespace OnlineCoursesApp.Controllers
         }
 
 
-        //------------------------------------------
+        //------------------------------------------New Section
         [HttpGet]
         [HttpGet]
         public IActionResult NewSection(int courseId)
@@ -322,7 +263,7 @@ namespace OnlineCoursesApp.Controllers
         }
 
 
-        //----------------------------------------------Edit Action 
+        //----------------------------------------------Edit  
 
         [HttpGet]
         public IActionResult EditSection(int id)
@@ -354,7 +295,9 @@ namespace OnlineCoursesApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var section = _sectionService.GetById(model.SectionId);
+                // _sectionService.Query().Include(x => x.Course).FirstOrDefault(x => x.SectionId == id);
+                //var section = _sectionService.GetById(model.SectionId);
+                var section = _sectionService.Query().Include(x=>x.Course).FirstOrDefault(m=> m.SectionId == model.SectionId);
 
                 if (section == null)
                 {
@@ -367,7 +310,7 @@ namespace OnlineCoursesApp.Controllers
 
                 _sectionService.Update(section); 
 
-                return RedirectToAction("ManageCourse", new { courseId = model.CourseId });
+                return RedirectToAction("ManageCourse", new { id = model.CourseId });
             }
 
             return View("EditSection", model);
@@ -376,8 +319,7 @@ namespace OnlineCoursesApp.Controllers
 
 
 
-        ////----------------------------delete action
-        //[HttpGet]
+        ////----------------------------delete 
         public IActionResult DeleteSection(int sectionId)
         {
             //var section = _sectionService.GetById(sectionId);
@@ -396,47 +338,6 @@ namespace OnlineCoursesApp.Controllers
 
             return RedirectToAction("ManageCourse", new { id = courseID });
         }
-
-
-        // ######################    OMER TASKS #############################################################
-
-
-
-
-
-
-
-
-
-
-        //[HttpGet]
-        //public IActionResult NewSection(int courseId)
-        //{
-        //    var model = new SectionViewModel01 { CourseId = courseId };
-        //    return View(model);
-        //}
-
-        //[HttpPost]
-        //public IActionResult SaveNewSection(SectionViewModel01 model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var section = new Section
-        //        {
-        //            Title = model.Title,
-        //            Link = model.Link,
-        //            Num = model.Num,
-        //            CourseID = model.CourseId
-        //        };
-
-        //        _sectionService.Add(section);
-        //        _sectionService.Save();
-        //        return RedirectToAction("ManageCourse", new { id = model.CourseId });
-        //    }
-
-        //    return View("NewSection", model);
-        //}
-
 
 
 
