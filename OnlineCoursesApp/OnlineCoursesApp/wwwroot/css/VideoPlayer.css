@@ -59,3 +59,12 @@ iframe {
     font-size: 16px;
     cursor: not-allowed;
 }
+.warning-button {
+    background-color: #ffcc00; /* Yellow */
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+}
