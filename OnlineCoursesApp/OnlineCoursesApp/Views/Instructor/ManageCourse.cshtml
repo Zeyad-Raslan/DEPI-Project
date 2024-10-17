@@ -4,6 +4,7 @@
     ViewData["Title"] = "ManageCourse";
 }
 
+@* <a href="c:\users\omarm\onedrive\desktop\depi gradproj\depi-project-new\onlinecoursesapp\onlinecoursesapp\views\instructor\managecourse.cshtml">c:\users\omarm\onedrive\desktop\depi gradproj\depi-project-new\onlinecoursesapp\onlinecoursesapp\views\instructor\managecourse.cshtml</a> *@
 
 
 <div class="container">
@@ -12,7 +13,6 @@
             <h1>@Model.Title</h1>
             <img src="@Model.Image" alt="Course Image" class="img-thumbnail">
             <p>@Model.Description</p>
-            <a href="c:\users\omarm\onedrive\desktop\depi gradproj\depi-project-new\onlinecoursesapp\onlinecoursesapp\views\instructor\managecourse.cshtml">c:\users\omarm\onedrive\desktop\depi gradproj\depi-project-new\onlinecoursesapp\onlinecoursesapp\views\instructor\managecourse.cshtml</a>
             <a href="@Url.Action("NewSection", "Instructor", new { courseId = Model.CourseId })" class="btn btn-secondary">Add New Section</a>
             @* <a asp-action="NewSection" asp-route-courseId="@Model.CourseId" class="btn btn-primary">New Section</a> *@
         </div>
