@@ -3,9 +3,11 @@ using OnlineCoursesApp.ViewModel.AdminUsedModels;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.BLL.AdminServices;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Admin_Views.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private readonly IAdminComplexService _adminService;

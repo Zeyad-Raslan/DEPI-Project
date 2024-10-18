@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "DisplayHomeCourses";
     Layout = "~/Views/Shared/Layout_student.cshtml";
-    
+
     @using OnlineCoursesApp.ViewModel.CourseViewModels
 }
 
@@ -28,7 +28,7 @@
             background-color: #45a049;
         }
 </style>
- @*  CourseId = course.CourseId,
+@*  CourseId = course.CourseId,
                Name = course.Name,
                Type = course.Type,
                Description = course.Description,
@@ -61,30 +61,31 @@
         </div>
         <form action="/Student/EnrollCourse" method="post">
             <input type="hidden" id="courseId" name="courseId" value="@Model.CourseId" />
-            <input type="hidden" id="studentId" name="studentId" value=@TempData.Peek("studentId")/>
+            <input type="hidden" id="studentId" name="studentId" value=@TempData.Peek("studentId") />
             <button class="enroll-button-display" type="submit">Enroll</button>
         </form>
 
-      @*   <div class="sessions-container">
-            <h2>Course Sessions</h2>
-            <div class="session-card">
-                <div class="session-info">
-                    <h3>Session 1: Introduction to C++</h3>
-                    <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
-                </div>
-            </div> *@
-                    <h2>Course Sessions</h2>
-            @foreach (var item in @Model.Sections)
-            {
-                <div class="sessions-container">
-                    <div class="session-card">
-                        <div class="session-info">
-                            <h3>@item.Number. @item.Title</h3>
-@*                             <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
- *@                        </div>
+        @*   <div class="sessions-container">
+        <h2>Course Sessions</h2>
+        <div class="session-card">
+        <div class="session-info">
+        <h3>Session 1: Introduction to C++</h3>
+        <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
+        </div>
+        </div> *@
+        <h2>Course Sessions</h2>
+        @foreach (var item in @Model.Sections)
+        {
+            <div class="sessions-container">
+                <div class="session-card">
+                    <div class="session-info">
+                        <h3>@item.Number. @item.Title</h3>
+                        @*                             <p>Learn the basics of C++ programming and get familiar with syntax, variables, and data types.</p>
+                    *@
                     </div>
-                 </div>
-            }
+                </div>
+            </div>
+        }
 
 
 
