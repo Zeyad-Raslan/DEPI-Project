@@ -20,6 +20,7 @@ namespace OnlineCoursesApp
             builder.Services.AddScoped<IService<Course>, Service<Course>>();
             builder.Services.AddScoped<IService<Section>, Service<Section>>();
             builder.Services.AddScoped<IService<Student>, Service<Student>>();
+            builder.Services.AddScoped<IService<WebAdmin>, Service<WebAdmin>>();
             builder.Services.AddScoped<IService<StudentProgress>, Service<StudentProgress>>();
 
             builder.Services.AddScoped<IAdminComplexService, AdminComplexService>();
@@ -37,9 +38,12 @@ namespace OnlineCoursesApp
             {
                 options.User.RequireUniqueEmail = true;
                 options.User.AllowedUserNameCharacters = null;
+
                 options.Password.RequiredUniqueChars = 0;
                 options.Password.RequiredLength= 4;
                 options.Password.RequireUppercase= false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
             })
                 .AddEntityFrameworkStores<OnlineCoursesContext>();
 

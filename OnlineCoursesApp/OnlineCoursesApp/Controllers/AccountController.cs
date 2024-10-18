@@ -72,7 +72,7 @@ namespace OnlineCoursesApp.Controllers
                             
                         };
                         _studentService.Add(newStudent);
-                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+                        return RedirectToAction("Login");
 
                     }
                     else if (newUserVm.Role == "Instructor")
@@ -88,25 +88,28 @@ namespace OnlineCoursesApp.Controllers
                             IdentityUser = newUser
 
                         };
-                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+                        _instructorService.Add(newInstructoer);
+                        return RedirectToAction("Login");
+
 
                     }
-                    else if (newUserVm.Role == "Admin")
-                    {
-                        roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-                        // add admin to admin table
-                        WebAdmin newWebAdmin = new WebAdmin()
-                        {
-                            Name = newUserVm.FirstName + " " + newUserVm.LastName,
-                            Email = newUserVm.Email,
-                            IdentityUserID = newUser.Id,
-                            IdentityUser = newUser
+                    //else if (newUserVm.Role == "Admin")
+                    //{
+                    //    roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
+                    //    // add admin to admin table
+                    //    WebAdmin newWebAdmin = new WebAdmin()
+                    //    {
+                    //        Name = newUserVm.FirstName + " " + newUserVm.LastName,
+                    //        Email = newUserVm.Email,
+                    //        IdentityUserID = newUser.Id,
+                    //        IdentityUser = newUser
 
-                        };
-                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+                    //    };
+                   //     _webAdminService.Add(newWebAdmin);
+                  //      return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
 
-                    }
-                    // create cookie
+                  //  }
+                  //  // create cookie
                   
                 }
                 else
@@ -148,11 +151,15 @@ namespace OnlineCoursesApp.Controllers
                         // instructor
                         if (userVm.Role == "Student")
                         {
-                            return Content("Sucess login : student");
+                            return RedirectToAction("HomePage", "Student");
                         }
                         else if (userVm.Role == "Instructor")
                         {
-                            return Content("Sucess login : Instructor");
+                            return RedirectToAction("index", "Instructor");
+                        }
+                        else if (userVm.Role == "Admin")
+                        {
+                            return RedirectToAction("index", "Admin");
                         }
 
                     }

@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h1>Register</h1>
 
 <h4>RegisterViewModel</h4>
@@ -21,9 +22,9 @@
 
                 <input type="radio" asp-for="Role" value="Instructor" id="roleInstructor" />
                 <label for="roleInstructor">Instructor</label><br />
-
+@* 
                 <input type="radio" asp-for="Role" value="Admin" id="roleAdmin" />
-                <label for="roleAdmin">Admin</label>
+                <label for="roleAdmin">Admin</label> *@
 
                 <span asp-validation-for="Role" class="text-danger"></span>
             </div>

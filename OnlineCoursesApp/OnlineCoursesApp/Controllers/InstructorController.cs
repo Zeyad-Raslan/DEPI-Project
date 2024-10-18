@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel;
 using OnlineCoursesApp.ViewModel.InstructorViewModels;
 using System.Linq;
+using System.Security.Claims;
 using static OnlineCoursesApp.ViewModel.StudentViewModelForInst;
 
 namespace OnlineCoursesApp.Controllers
 {
-
+    [Authorize(Roles = "Instructor")]
     public class InstructorController : Controller
     {
         private readonly IService<Instructor> _instructorService;
@@ -25,9 +27,18 @@ namespace OnlineCoursesApp.Controllers
             _studentProgress = studentProgress;
         }
 
+        [Authorize(Roles = "Instructor")]
 
-        public IActionResult Index(int id)
+        public IActionResult Index()
         {
+            int id;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            Instructor currentInstructor = _instructorService.Query()
+                .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
+
+            id = currentInstructor.InstructorId;
+
             var instructor = _instructorService.Query()
                                                .Include(i => i.Courses)
                                                .ThenInclude(i => i.Students)

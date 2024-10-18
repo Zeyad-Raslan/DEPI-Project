@@ -12,6 +12,7 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Login">
+
             <div class="form-group">
                 <label>Select Role:</label><br />
 
@@ -20,6 +21,9 @@
 
                 <input type="radio" asp-for="Role" value="Instructor" id="roleInstructor" />
                 <label for="roleInstructor">Instructor</label>
+
+                <input type="radio" asp-for="Role" value="Admin" id="roleAdmin" />
+                <label for="roleAdmin">Admin</label>
 
                 <span asp-validation-for="Role" class="text-danger"></span>
             </div>
