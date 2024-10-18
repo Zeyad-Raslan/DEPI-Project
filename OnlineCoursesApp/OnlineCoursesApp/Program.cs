@@ -37,6 +37,9 @@ namespace OnlineCoursesApp
             {
                 options.User.RequireUniqueEmail = true;
                 options.User.AllowedUserNameCharacters = null;
+                options.Password.RequiredUniqueChars = 0;
+                options.Password.RequiredLength= 4;
+                options.Password.RequireUppercase= false;
             })
                 .AddEntityFrameworkStores<OnlineCoursesContext>();
 
@@ -62,6 +65,7 @@ namespace OnlineCoursesApp
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSession();
