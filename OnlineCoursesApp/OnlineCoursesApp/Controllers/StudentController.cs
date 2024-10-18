@@ -35,19 +35,19 @@ namespace project_student.Controllers
             {
                 if (HttpContext.Session.Keys.Contains("studentId"))
                 {
-                    studentId= (int)HttpContext.Session.GetInt32("studentId");
+                    studentId = (int)HttpContext.Session.GetInt32("studentId");
                 }
                 else
                 {
-                return Content("Homepage\nStudentId == 0");
+                    return Content("Homepage\nStudentId == 0");
 
                 }
 
             }
 
-            
+
             HttpContext.Session.SetInt32("studentId", studentId);
-                TempData["studentId"] = studentId;
+            TempData["studentId"] = studentId;
 
 
             //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication 
@@ -102,7 +102,7 @@ namespace project_student.Controllers
 
             return View(courses);
         }
-        
+
         public IActionResult DisplayHomeCourseContent(int courseId)
         {
 
@@ -136,9 +136,9 @@ namespace project_student.Controllers
             //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
             int studentId = (int)HttpContext.Session.GetInt32("studentId");
             TempData["studentId"] = studentId;
-            if(courseId == 0)
+            if (courseId == 0)
             {
-                courseId = int.Parse( TempData["courseId"].ToString());
+                courseId = int.Parse(TempData["courseId"].ToString());
             }
 
             if (studentId == 0)
@@ -159,21 +159,28 @@ namespace project_student.Controllers
                 Description = course.Description,
                 Image = course.Image,
                 StudentCount = course.Students.Count(),
-                StudentProgress = _studentComplexService.CountStudentProgress(studentId, course.CourseId),
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
             };
+
+            if (course.Sections.Count() > 0)
+                myCourseContentsViewModel.StudentProgress = _studentComplexService.CountStudentProgress(studentId, course.CourseId);
+            else myCourseContentsViewModel.StudentProgress = 0;
 
             foreach (var section in course.Sections)
             {
 
                 var currentSectionStatus = _studentProgressService.Query()
-                    .Include(p => p.Course)
                     .Include(p => p.Student)
+                    .Include(p => p.Course)
                     .Include(p => p.Section)
-                    .Where(p => p.Course.CourseId == courseId
+                    .FirstOrDefault(p => p.Course.CourseId == courseId
                              && p.Student.StudentId == studentId
-                             && p.Section.SectionId == section.SectionId).SingleOrDefault();
+                             && p.Section.SectionId == section.SectionId);
+                if (currentSectionStatus == null)
+                {
+                    continue;
+                }
 
                 myCourseContentsViewModel.SectionsStatus.Add(new Pair<Section, bool>()
                 {
@@ -202,7 +209,7 @@ namespace project_student.Controllers
                 IsCompleted = isCompleted,
                 Section = section
             };
-            
+
 
             return View(displaySectionViewModel);
         }

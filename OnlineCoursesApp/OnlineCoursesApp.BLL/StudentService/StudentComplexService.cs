@@ -79,11 +79,11 @@ namespace OnlineCoursesApp.BLL.StudentService
                                           && i.Course.CourseId == courseId
                                           && i.Status == true).Count();
 
-            var countSection = _studentProgressService.Query()
-                                 .Include(i => i.Student)
-                                 .Include(i => i.Course)
-                                 .Where(i => i.Student.StudentId == studentId
-                                          && i.Course.CourseId == courseId).Count();
+            var countSection = _courseService.Query()
+                                 .Include(i => i.Sections)
+                                 .FirstOrDefault(crs => crs.CourseId == courseId)
+                                 .Sections.Count();
+
             int percentProgress = (int)(((float)countCompletesection / (float)countSection) * 100);
 
             return (percentProgress > 0) ? percentProgress : 0;
