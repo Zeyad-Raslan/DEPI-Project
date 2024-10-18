@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using OnlineCoursesApp.ViewModel.AccountViewModels;
@@ -9,11 +10,13 @@ namespace OnlineCoursesApp.Controllers
     {
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
+            this._roleManager = roleManager;
         }
 
 
@@ -38,11 +41,35 @@ namespace OnlineCoursesApp.Controllers
                 newUser.EmailConfirmed = true;
                 newUser.PasswordHash = newUserVm.Password;
 
+
+
+                // save it
                 IdentityResult result = await _userManager.CreateAsync(newUser, newUserVm.Password);
                 if (result.Succeeded)
                 {
+                    // add role 
+                    // give it a role 
+                    IdentityResult roleResult = new IdentityResult();
+                    if (newUserVm.Role == "Student")
+                    {
+                        roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
+                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+
+                    }
+                    else if (newUserVm.Role == "Instructor")
+                    {
+                        roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
+                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+
+                    }
+                    else if (newUserVm.Role == "Admin")
+                    {
+                        roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
+                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+
+                    }
                     // create cookie
-                    return Content($"{newUserVm.FirstName} Added Sucessfully");
+                  
                 }
                 else
                 {
@@ -53,6 +80,8 @@ namespace OnlineCoursesApp.Controllers
                         ModelState.AddModelError("", errorItem.Description);
                     }
                 }
+
+
             }
             return View(newUserVm);
         }
@@ -87,12 +116,40 @@ namespace OnlineCoursesApp.Controllers
                         {
                             return Content("Sucess login : Instructor");
                         }
-                        
+
                     }
                 }
                 ModelState.AddModelError("", "Email or password is wrong");
             }
             return View(userVm);
+        }
+        public async Task<IActionResult> LogOutAsync()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult AddNewRole()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddNewRole(NewRoleViewModel roleVm)
+
+        {
+            if (roleVm != null)
+            {
+                IdentityRole newRole = new IdentityRole();
+                newRole.Name = roleVm.RoleName.Trim();
+                await _roleManager.CreateAsync(newRole);
+                return Content($"{roleVm} added");
+            }
+            //await _roleManager.CreateAsync(newRole);
+            return Content($"failed to add role a{roleVm}");
+
         }
     }
 }
