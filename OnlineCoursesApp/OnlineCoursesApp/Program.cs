@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.BLL.StudentService;
+using Microsoft.AspNetCore.Identity;
 using OnlineCoursesApp.BLL.AdminServices;
 namespace OnlineCoursesApp
 {
@@ -24,10 +25,20 @@ namespace OnlineCoursesApp
             builder.Services.AddScoped<IAdminComplexService, AdminComplexService>();
             builder.Services.AddScoped<IStudentComplexService, StudentComplexService>();
 
+           // builder.Services.AddScoped()
+
 
 
             builder.Services.AddDbContext<OnlineCoursesContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Inject UserManager (authentication)
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>(options=>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters = null;
+            })
+                .AddEntityFrameworkStores<OnlineCoursesContext>();
 
             builder.Services.AddDistributedMemoryCache();
 

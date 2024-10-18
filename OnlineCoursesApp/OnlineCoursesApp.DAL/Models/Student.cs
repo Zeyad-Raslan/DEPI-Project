@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OnlineCoursesApp.DAL.Models;
 
@@ -21,6 +23,10 @@ public partial class Student
 
     public virtual ICollection<Course> Courses { get; set; }
 
+    // for authentication 
+    [ForeignKey("IdentityUser")]
+    public string IdentityUserID { get; set; }
+    public virtual IdentityUser IdentityUser { get; set; }
     public Student()
     {
         Courses = new HashSet<Course>();

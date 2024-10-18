@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineCoursesApp.DAL.Models;
 
@@ -11,9 +12,11 @@ using OnlineCoursesApp.DAL.Models;
 namespace OnlineCoursesApp.DAL.Migrations
 {
     [DbContext(typeof(OnlineCoursesContext))]
-    partial class OnlineCoursesContextModelSnapshot : ModelSnapshot
+    [Migration("20241018032344_newDB_add_auth_student")]
+    partial class newDB_add_auth_student
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,10 +305,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ApplicationUserID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -322,8 +321,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("InstructorId");
-
-                    b.HasIndex("ApplicationUserID");
 
                     b.ToTable("Instructors");
                 });
@@ -434,10 +431,6 @@ namespace OnlineCoursesApp.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<string>("ApplicationUserID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -451,8 +444,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ApplicationUserID");
 
                     b.ToTable("WebAdmins");
                 });
@@ -541,17 +532,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.Navigation("Instructor");
                 });
 
-            modelBuilder.Entity("OnlineCoursesApp.DAL.Models.Instructor", b =>
-                {
-                    b.HasOne("OnlineCoursesApp.DAL.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-                });
-
             modelBuilder.Entity("OnlineCoursesApp.DAL.Models.Section", b =>
                 {
                     b.HasOne("OnlineCoursesApp.DAL.Models.Course", "Course")
@@ -598,17 +578,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.Navigation("Section");
 
                     b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("OnlineCoursesApp.DAL.Models.WebAdmin", b =>
-                {
-                    b.HasOne("OnlineCoursesApp.DAL.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("OnlineCoursesApp.DAL.Models.Course", b =>
