@@ -254,7 +254,18 @@ namespace OnlineCoursesApp.Controllers
                 };
 
                 _sectionService.Add(section);
-               
+
+                var course = _courseService.Query().Include(s => s.Students).FirstOrDefault(c => c.CourseId == model.CourseId);
+
+                foreach (var std in course.Students)
+                {
+                    _studentProgress.Add(new StudentProgress()
+                    {
+                        Course = course,
+                        Section = section,
+                        Student = std
+                    });
+                }
 
                 return RedirectToAction("ManageCourse", "Instructor", new { Id = model.CourseId });
             }

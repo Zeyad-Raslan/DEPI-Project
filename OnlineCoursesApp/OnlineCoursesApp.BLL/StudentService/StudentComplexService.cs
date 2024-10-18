@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection.Metadata.Ecma335;
 
 namespace OnlineCoursesApp.BLL.StudentService
 {
@@ -78,14 +79,15 @@ namespace OnlineCoursesApp.BLL.StudentService
                                           && i.Course.CourseId == courseId
                                           && i.Status == true).Count();
 
-            var countSection = _studentProgressService.Query()
-                                 .Include(i => i.Student)
-                                 .Include(i => i.Course)
-                                 .Where(i => i.Student.StudentId == studentId
-                                          && i.Course.CourseId == courseId).Count();
+            var countSection = _courseService.Query()
+                                 .Include(i => i.Sections)
+                                 .FirstOrDefault(crs => crs.CourseId == courseId)
+                                 .Sections.Count();
+
             int percentProgress = (int)(((float)countCompletesection / (float)countSection) * 100);
 
-            return percentProgress;
+            return (percentProgress > 0) ? percentProgress : 0;
+
         }
         public void CompleteSection(int studentId, int courseId, int sectionId)
         {
