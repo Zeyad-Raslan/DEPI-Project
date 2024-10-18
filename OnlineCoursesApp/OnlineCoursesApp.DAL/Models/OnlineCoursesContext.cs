@@ -31,7 +31,8 @@ public partial class OnlineCoursesContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         string connectionString =
-                             "Data Source = .;" +
+                             //OnlineCoursesDemo
+                             "Data Source = DESKTOP-GG9FI94\\SQLEXPRESS;" +
                              " Initial Catalog = OnlineCourseDemo; " +
                              "Integrated Security = True;" +
                              " Encrypt = False; " +

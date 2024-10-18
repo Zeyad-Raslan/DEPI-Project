@@ -159,22 +159,28 @@ namespace project_student.Controllers
                 Description = course.Description,
                 Image = course.Image,
                 StudentCount = course.Students.Count(),
-                StudentProgress = _studentComplexService.CountStudentProgress(studentId, course.CourseId),
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
             };
+
+            if (course.Sections.Count() > 0)
+                myCourseContentsViewModel.StudentProgress = _studentComplexService.CountStudentProgress(studentId, course.CourseId);
+            else myCourseContentsViewModel.StudentProgress = 0;
 
             foreach (var section in course.Sections)
             {
 
                 var currentSectionStatus = _studentProgressService.Query()
-                    .Include(p => p.Course)
                     .Include(p => p.Student)
+                    .Include(p => p.Course)
                     .Include(p => p.Section)
-                    .Where(p => p.Course.CourseId == courseId
+                    .FirstOrDefault(p => p.Course.CourseId == courseId
                              && p.Student.StudentId == studentId
-                             && p.Section.SectionId == section.SectionId).SingleOrDefault();
-
+                             && p.Section.SectionId == section.SectionId);
+                if(currentSectionStatus == null)
+                {
+                    continue;
+                }
                 myCourseContentsViewModel.SectionsStatus.Add(new Pair<Section, bool>()
                 {
                     First = section,
