@@ -39,7 +39,7 @@ namespace OnlineCoursesApp.Controllers
                 newUser.EmailConfirmed = true;
                 newUser.PasswordHash = newUserVm.Password;
 
-                IdentityResult result = await _userManager.CreateAsync(newUser, newUserVm.Password);
+                IdentityResult result =  await _userManager.CreateAsync(newUser, newUserVm.Password);
                 if (result.Succeeded)
                 {
                     // create cookie
@@ -47,7 +47,7 @@ namespace OnlineCoursesApp.Controllers
                 }
                 else
                 {
-                    foreach (var errorItem in result.Errors)
+                    foreach(var errorItem in result.Errors)
                     {
                         if (errorItem.Code == "DuplicateUserName")
                             continue;
@@ -82,13 +82,14 @@ namespace OnlineCoursesApp.Controllers
                         // instructor
                         if (userVm.Role == "Student")
                         {
-                            return Content("Sucess login : student");
+                            return RedirectToAction("HomePage", "Student");
+                           // return Content("Sucess login : student");
                         }
                         else if (userVm.Role == "Instructor")
                         {
                             return Content("Sucess login : Instructor");
                         }
-                        
+
                     }
                 }
                 ModelState.AddModelError("", "Email or password is wrong");
@@ -96,35 +97,38 @@ namespace OnlineCoursesApp.Controllers
             return View(userVm);
         }
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel UserVm)
-        {
-            if (ModelState.IsValid)
-            {
-                //check
-                IdentityUser newUser = new IdentityUser();
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Login(LoginViewModel UserVm)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        //check
+        //        IdentityUser newUser = new IdentityUser();
 
-                IdentityUser userModel = await _userManager.FindByEmailAsync(UserVm.Email);
-                if (userModel != null)
-                {
-                    bool found = await _userManager.CheckPasswordAsync(userModel, UserVm.Password);
-                    if (found)
-                    {
-                           await _signInManager.SignInAsync(userModel, UserVm.RememberMe);
-                       
-                        return RedirectToAction("DisplayHomeCourseContent", "Student");
-                    }
-                }
-                ModelState.AddModelError("", "Email and password invalid");
-            }
-            return View(UserVm);
-        }
+        //        IdentityUser userModel = await _userManager.FindByEmailAsync(UserVm.Email);
+        //        if (userModel != null)
+        //        {
+        //            bool found = await _userManager.CheckPasswordAsync(userModel, UserVm.Password);
+        //            if (found)
+        //            {
+        //                   await _signInManager.SignInAsync(userModel, UserVm.RememberMe);
+
+        //                if (UserVm.Role == "Student")
+        //                {
+        //                    return RedirectToAction("DisplayHomeCourseContent", "Student");
+        //                }
+        //                else if (UserVm.Role == "Instructor")
+        //                {
+        //                    return RedirectToAction("Index", "Instructor");
+        //                }
+        //               // return RedirectToAction("DisplayHomeCourseContent", "Student");
+        //            }
+        //        }
+        //        ModelState.AddModelError("", "Email and password invalid");
+        //    }
+        //    return View(UserVm);
+        //}
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
