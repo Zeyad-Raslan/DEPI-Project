@@ -15,9 +15,9 @@ public partial class Student
 
     public string Email { get; set; } = null!;
 
-    public string Password { get; set; } = null!;
+    //public string Password { get; set; } = null!;
 
-    public string Education { get; set; } = null!;
+    public string? Education { get; set; } 
 
     public string? Image { get; set; }
 

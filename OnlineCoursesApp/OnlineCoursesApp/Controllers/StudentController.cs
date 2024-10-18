@@ -1,4 +1,5 @@
 ﻿using Humanizer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 
 namespace project_student.Controllers
 {
+    [Authorize(Roles ="Student")]
     public class StudentController : Controller
     {
         private readonly IService<Course> _courseService;
