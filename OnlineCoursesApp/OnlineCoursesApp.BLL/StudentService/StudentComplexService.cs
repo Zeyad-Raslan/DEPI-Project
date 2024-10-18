@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection.Metadata.Ecma335;
 
 namespace OnlineCoursesApp.BLL.StudentService
 {
@@ -85,7 +86,8 @@ namespace OnlineCoursesApp.BLL.StudentService
                                           && i.Course.CourseId == courseId).Count();
             int percentProgress = (int)(((float)countCompletesection / (float)countSection) * 100);
 
-            return percentProgress;
+            return (percentProgress > 0) ? percentProgress : 0;
+
         }
         public void CompleteSection(int studentId, int courseId, int sectionId)
         {

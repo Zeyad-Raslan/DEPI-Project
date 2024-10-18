@@ -58,7 +58,8 @@
                 <div class="session-card">
                     <div class="session-info">
                         <h3>
-                            @sectionVar.Title
+                            @(++(sectionVar.Number) + ". " + sectionVar.Title)
+                          @*   Session @(++sectionVar.Number): @sectionVar.Title *@
                             @if (isCompleted)
 
                             {

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.BLL.StudentService;
+using OnlineCoursesApp.BLL.AdminServices;
 namespace OnlineCoursesApp
 {
     public class Program

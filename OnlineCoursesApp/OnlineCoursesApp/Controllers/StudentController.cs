@@ -88,7 +88,7 @@ namespace project_student.Controllers
                                  .Where(i => i.StudentId == studentId)
                                  .FirstOrDefault();
 
-            //var currentstudent = student.ToList().First();              // filter my course
+            //var currentstudent = student.ToList().First();                        // filter my course
             var courses = student.Courses.Where(i => i.CourseStatus == CourseStatus.Approved || i.CourseStatus == CourseStatus.Closed).
                 Select(course => new StudentMyCoursesViewModel()
                 {
@@ -146,7 +146,7 @@ namespace project_student.Controllers
                 return Content("DisplayMyCourseContent\nstudentId == 0");
             }
             Course? course = _courseService.Query()
-                .Include(c => c.Sections)
+                 .Include(c => c.Sections.OrderBy(s => s.Number)) // Order Sections by Number
                 .Include(c => c.Instructor)
                 .Include(c => c.Students)
                 .Where(c => c.CourseId == courseId)
