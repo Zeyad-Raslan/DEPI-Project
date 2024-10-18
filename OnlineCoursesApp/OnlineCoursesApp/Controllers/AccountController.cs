@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using OnlineCoursesApp.ViewModel.AccountViewModels;
+using System.Security.Claims;
 
 namespace OnlineCoursesApp.Controllers
 {
@@ -55,6 +56,41 @@ namespace OnlineCoursesApp.Controllers
                 }
             }
             return View(newUserVm);
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginViewModel UserVm)
+        {
+            if (ModelState.IsValid)
+            {
+                //check
+                IdentityUser newUser = new IdentityUser();
+
+                IdentityUser userModel = await _userManager.FindByEmailAsync(UserVm.Email);
+                if (userModel != null)
+                {
+                    bool found = await _userManager.CheckPasswordAsync(userModel, UserVm.Password);
+                    if (found)
+                    {
+                           await _signInManager.SignInAsync(userModel, UserVm.RememberMe);
+                       
+                        return RedirectToAction("DisplayHomeCourseContent", "Student");
+                    }
+                }
+                ModelState.AddModelError("", "Email and password invalid");
+            }
+            return View(UserVm);
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login", "Account");
         }
     }
 }

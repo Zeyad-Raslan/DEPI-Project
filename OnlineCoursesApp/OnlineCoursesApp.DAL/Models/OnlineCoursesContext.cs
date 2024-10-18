@@ -34,8 +34,8 @@ public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         string connectionString =
-             //"Data Source = IUGYI\\SQLEXPRESS;" +
-                             "Data Source = IUGYI\\SQLEXPRESS;" +
+                             //"Data Source = IUGYI\\SQLEXPRESS;" +
+                             "Data Source = DESKTOP-ILHHK5F;" +
                              " Initial Catalog = OnlineCourseDemo02; " +
                              "Integrated Security = True;" +
                              " Encrypt = False; " +
