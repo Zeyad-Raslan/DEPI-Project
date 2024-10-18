@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineCoursesApp.ViewModel.AdminUsedModels;
 using Microsoft.EntityFrameworkCore;
+using OnlineCoursesApp.DAL.Models;
 
 namespace Admin_Views.Controllers
 {
@@ -28,7 +29,7 @@ namespace Admin_Views.Controllers
                     CourseId = course.CourseId,
                     Name = course.Name,
                     Type = course.Type,
-                    Status = course.CourseStatus
+                    Status = CourseStatus.UnderReview
                 }).ToList();
 
             return View(newCourses);

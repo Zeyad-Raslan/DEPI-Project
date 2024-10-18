@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -23,9 +24,9 @@ public partial class Student
     public virtual ICollection<Course> Courses { get; set; }
 
     // for authentication 
-    [ForeignKey("ApplicationUser")]
-    public string ApplicationUserID { get; set; }
-    public virtual ApplicationUser ApplicationUser { get; set; }
+    [ForeignKey("IdentityUser")]
+    public string IdentityUserID { get; set; }
+    public virtual IdentityUser IdentityUser { get; set; }
     public Student()
     {
         Courses = new HashSet<Course>();

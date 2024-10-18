@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace OnlineCoursesApp.DAL.Models
 {
-    public class Admin
+    public class WebAdmin
     {
         [Key]
         public int ID { get; set; }
@@ -20,8 +21,8 @@ namespace OnlineCoursesApp.DAL.Models
         public string Password { get; set; } = null!;
 
         // for authentication 
-        [ForeignKey("ApplicationUser")]
-        public string ApplicationUserID { get; set; }
-        public virtual ApplicationUser ApplicationUser { get; set; }
+        [ForeignKey("IdentityUser")]
+        public string IdentityUserID { get; set; }
+        public virtual IdentityUser IdentityUser { get; set; }
     }
 }
