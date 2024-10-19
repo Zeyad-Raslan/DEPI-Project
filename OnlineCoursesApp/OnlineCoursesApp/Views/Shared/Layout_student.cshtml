@@ -13,10 +13,11 @@
             <!-- Add your logo here -->
 
             <ul>
-                <li><a href="@Url.Action("HomePage", "Student")">Home</a></li>
+               
                 @{
-                    if (User.Identity.IsAuthenticated)
+                    if (User.IsInRole("Student"))
                     {
+                        <li><a href="@Url.Action("HomePage", "Student")">Home</a></li>
                         <li><a href="@Url.Action("MyCourses", "Student")">My Courses</a></li>
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
@@ -32,7 +33,7 @@
                     <img src="~/image/Screenshot_2024-10-17_000233-removebg-preview.png" alt="Logo" class="logo-img" />
                 </a>
             </div>
-            @if (User.Identity.IsAuthenticated)
+            @if (User.IsInRole("Student"))
             {
               
                 <div class="profile">
@@ -41,13 +42,18 @@
                         <span class="username">profile</span>
                     </a>
                 </div>
+                
+            }
+            @if (User.Identity.IsAuthenticated)
+            {
+                
                 <div>
                     <ul>
                         <li><a href="@Url.Action("Logout", "Account")">Lougout</a></li>
                     </ul>
                 </div>
             }
-           
+
 
             
         </nav>

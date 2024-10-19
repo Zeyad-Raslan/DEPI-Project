@@ -1,5 +1,8 @@
 ﻿@model StudentDetailsViewModel
-
+@{
+    ViewData["Title"] = "Admin Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
 <h2>Student Details: @Model.Name</h2>
 <p><strong>Email:</strong> @Model.Email</p>
 <p><strong>Education:</strong> @Model.Education</p>
