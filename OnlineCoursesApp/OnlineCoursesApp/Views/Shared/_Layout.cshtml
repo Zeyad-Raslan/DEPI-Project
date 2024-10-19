@@ -27,6 +27,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+                    @{
+                        if (User.Identity.IsAuthenticated && ViewBag.InstructorId != null)
+                        {
+                            // <li class="nav-item">
+                            //     <a class="btn btn-primary text-white" asp-area="" asp-controller="Instructor" asp-action="Profile" asp-route-id="@ViewBag.InstructorId">Profile</a>
+                            // </li>
+                            <li class="nav-item">
+                                <a class="btn btn-primary" href="@Url.Action("Profile", "Instructor", new { id = ViewBag.InstructorId })">Profile</a>
+                            </li>
+
+
+
+                        }
+                    }
 
                     @{
                         if (User.Identity.IsAuthenticated == false)

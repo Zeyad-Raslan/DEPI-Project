@@ -84,6 +84,7 @@ namespace OnlineCoursesApp.Controllers
                 About = instructor.About,  // Assuming you have an "About" field in Instructor model
                 ImageUrl = instructor.Image  // Assuming there's an image URL field
             };
+            ViewBag.InstructorId = id;
 
             return View(viewModel);
         }
@@ -183,6 +184,7 @@ namespace OnlineCoursesApp.Controllers
             // Retrieve the course and its sections
             var course = _courseService.Query()
                                        .Include(c => c.Sections)
+                                       .Include(c=>c.Instructor)
                                        .FirstOrDefault(c => c.CourseId == id);
 
             if (course == null)
@@ -211,9 +213,8 @@ namespace OnlineCoursesApp.Controllers
                                    Number = s.Number
                                })
                                .ToList()
-            }; 
-
-
+            };
+            ViewBag.InstructorId = course.Instructor.InstructorId;
             return View(viewModel);
         }
 
