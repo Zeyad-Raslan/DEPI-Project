@@ -114,7 +114,7 @@ namespace project_student.Controllers
 
             return View(courses);
         }
-
+        [AllowAnonymous]
         public IActionResult DisplayHomeCourseContent(int courseId)
         {
 

@@ -9,11 +9,7 @@ namespace OnlineCoursesApp.DAL.Models;
 
 public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
 {
-    public OnlineCoursesContext()
-    {
-    }
-
-    public OnlineCoursesContext(DbContextOptions<OnlineCoursesContext> options)
+   public OnlineCoursesContext(DbContextOptions<OnlineCoursesContext> options)
         : base(options)
     {
     }
@@ -31,17 +27,17 @@ public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
 
 
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        string connectionString =
-             //"Data Source = IUGYI\\SQLEXPRESS;" +
-                             "Data Source = IUGYI\\SQLEXPRESS;" +
-                             " Initial Catalog = OnlineCourseDemo02; " +
-                             "Integrated Security = True;" +
-                             " Encrypt = False; " +
-                             "Trust Server Certificate=True;";
-        optionsBuilder.UseSqlServer(connectionString);
-    }
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    string connectionString =
+    //         //"Data Source = IUGYI\\SQLEXPRESS;" +
+    //                         "Data Source = IUGYI\\SQLEXPRESS;" +
+    //                         " Initial Catalog = OnlineCourseDemo02; " +
+    //                         "Integrated Security = True;" +
+    //                         " Encrypt = False; " +
+    //                         "Trust Server Certificate=True;";
+    //    optionsBuilder.UseSqlServer(connectionString);
+    //}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
