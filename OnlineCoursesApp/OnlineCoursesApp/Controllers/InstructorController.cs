@@ -37,6 +37,10 @@ namespace OnlineCoursesApp.Controllers
             Instructor currentInstructor = _instructorService.Query()
                 .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
 
+            if (currentInstructor == null)
+            {
+                return Content("There is no active user with this logins");
+            }
             id = currentInstructor.InstructorId;
 
             var instructor = _instructorService.Query()

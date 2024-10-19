@@ -40,6 +40,10 @@ namespace project_student.Controllers
             Student currentStd = _studentService.Query()
                 .FirstOrDefault(std => std.IdentityUserID == claimId);
 
+            if(currentStd == null)
+            {
+                return Content("There is no active user with this logins");
+            }
             studentId = currentStd.StudentId;
 
 
