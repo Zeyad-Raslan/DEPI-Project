@@ -283,7 +283,7 @@ namespace OnlineCoursesApp.Controllers
                      .ToList();
                 //bool flag = false;
                 int x = 1;
-                for (var i = 1; i < Sections1.Count; i++)
+                for (var i = 0; i < Sections1.Count; i++)
                 {
         
                             Sections1[i].Number =x;
@@ -361,7 +361,26 @@ namespace OnlineCoursesApp.Controllers
                 section.Link = model.Link;
                 section.Number = model.Number;
 
-                _sectionService.Update(section); 
+                _sectionService.Update(section);
+
+                var course1 = _courseService.Query()
+                                       .Include(c => c.Sections)
+                                       .FirstOrDefault(c => c.CourseId == model.CourseId);
+
+                var Sections1 = course1.Sections
+                     .OrderBy(s => s.Number)
+                     .ToList();
+                //bool flag = false;
+                int x = 1;
+                for (var i = 0; i < Sections1.Count; i++)
+                {
+
+                    Sections1[i].Number = x;
+                    _sectionService.Update(Sections1[i]);
+                    x++;
+
+                    //if (flag) break;
+                }
 
                 return RedirectToAction("ManageCourse", new { id = model.CourseId });
             }
@@ -388,6 +407,7 @@ namespace OnlineCoursesApp.Controllers
             }
 
             _sectionService.Delete(sectionId);
+
 
             return RedirectToAction("ManageCourse", new { id = courseID });
         }
