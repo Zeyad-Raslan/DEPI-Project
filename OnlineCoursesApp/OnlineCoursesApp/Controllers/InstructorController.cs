@@ -408,6 +408,24 @@ namespace OnlineCoursesApp.Controllers
 
             _sectionService.Delete(sectionId);
 
+            var course1 = _courseService.Query()
+                                   .Include(c => c.Sections)
+                                   .FirstOrDefault(c => c.CourseId == courseID);
+
+            var Sections1 = course1.Sections
+                 .OrderBy(s => s.Number)
+                 .ToList();
+            //bool flag = false;
+            int x = 1;
+            for (var i = 0; i < Sections1.Count; i++)
+            {
+
+                Sections1[i].Number = x;
+                _sectionService.Update(Sections1[i]);
+                x++;
+
+                //if (flag) break;
+            }
 
             return RedirectToAction("ManageCourse", new { id = courseID });
         }
