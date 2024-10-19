@@ -184,15 +184,15 @@ namespace OnlineCoursesApp.Controllers
             // Retrieve the course and its sections
             var course = _courseService.Query()
                                        .Include(c => c.Sections)
-                                       .Include(c=>c.Instructor)
+                                       .Include(c => c.Instructor)
                                        .FirstOrDefault(c => c.CourseId == id);
 
             if (course == null)
             {
                 return NotFound();
             }
-            
-           
+
+
 
             var viewModel = new CourseManageViewModel
             {
@@ -236,13 +236,13 @@ namespace OnlineCoursesApp.Controllers
                     Type = model.Type,
                     Description = model.Description,
                     Image = model.Image,
-                    CourseStatus = CourseStatus.UnderReview,   
-                    Instructor = _instructorService.GetById(model.TechId) 
+                    CourseStatus = CourseStatus.UnderReview,
+                    Instructor = _instructorService.GetById(model.TechId)
                 };
 
                 _courseService.Add(course);
 
-                return RedirectToAction("Index", "Instructor", new { id = model.TechId }); 
+                return RedirectToAction("Index", "Instructor", new { id = model.TechId });
             }
 
             return View("NewCourse", model);
@@ -254,7 +254,7 @@ namespace OnlineCoursesApp.Controllers
         [HttpGet]
         public IActionResult NewSection(int courseId)
         {
-            ViewBag.CourseId = courseId;    
+            ViewBag.CourseId = courseId;
             return View();
         }
 
@@ -275,7 +275,7 @@ namespace OnlineCoursesApp.Controllers
 
                 _sectionService.Add(section);
 
-                var course1  = _courseService.Query()
+                var course1 = _courseService.Query()
                                        .Include(c => c.Sections)
                                        .FirstOrDefault(c => c.CourseId == model.CourseId);
 
@@ -286,11 +286,11 @@ namespace OnlineCoursesApp.Controllers
                 int x = 1;
                 for (var i = 0; i < Sections1.Count; i++)
                 {
-        
-                            Sections1[i].Number =x;
-                            _sectionService.Update(Sections1[i]);
+
+                    Sections1[i].Number = x;
+                    _sectionService.Update(Sections1[i]);
                     x++;
-                        
+
                     //if (flag) break;
                 }
 
@@ -351,7 +351,7 @@ namespace OnlineCoursesApp.Controllers
             {
                 // _sectionService.Query().Include(x => x.Course).FirstOrDefault(x => x.SectionId == id);
                 //var section = _sectionService.GetById(model.SectionId);
-                var section = _sectionService.Query().Include(x=>x.Course).FirstOrDefault(m=> m.SectionId == model.SectionId);
+                var section = _sectionService.Query().Include(x => x.Course).FirstOrDefault(m => m.SectionId == model.SectionId);
 
                 if (section == null)
                 {
@@ -398,7 +398,7 @@ namespace OnlineCoursesApp.Controllers
             //var section = _sectionService.GetById(sectionId);
 
             var section = _sectionService.Query().Include(x => x.Course).
-                                          FirstOrDefault(c=>c.SectionId==sectionId);
+                                          FirstOrDefault(c => c.SectionId == sectionId);
 
             var courseID = section.Course.CourseId;
 
