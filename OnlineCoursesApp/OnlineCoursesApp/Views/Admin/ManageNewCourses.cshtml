@@ -1,6 +1,11 @@
 ﻿@using OnlineCoursesApp.DAL.Models  <!-- Import the namespace for CourseStatus -->
 @model List<NewCourseViewModel>
 
+@{
+    ViewData["Title"] = "Admin Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
 <h2>Manage New Courses</h2>
 <table class="table">
     <thead>
