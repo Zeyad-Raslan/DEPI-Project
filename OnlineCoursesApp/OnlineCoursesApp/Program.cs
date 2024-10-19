@@ -29,14 +29,18 @@ namespace OnlineCoursesApp
             // builder.Services.AddScoped()
 
 
-            var dbConnectionString = builder.Configuration.GetConnectionString("OnlineCoursesDemo") ??
-                throw new InvalidOperationException("Missing connection string configuration");
+            //var dbConnectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+            //    throw new InvalidOperationException("Missing connection string configuration");
 
-            //builder.Services.AddDbContext<IWBDbContext>(db => db.UseSqlServer(dbConnectionString));
-            builder.Services.AddDbContext<OnlineCoursesContext>(options =>
-                options.UseSqlServer(dbConnectionString));
+            ////builder.Services.AddDbContext<IWBDbContext>(db => db.UseSqlServer(dbConnectionString));
+            //builder.Services.AddDbContext<OnlineCoursesContext>(options =>
+            //    options.UseSqlServer(dbConnectionString));
 
             // Inject UserManager (authentication)
+
+            builder.Services.AddDbContext<OnlineCoursesContext>(options =>
+              options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             builder.Services.AddIdentity<IdentityUser, IdentityRole>(options=>
             {
                 options.User.RequireUniqueEmail = true;
