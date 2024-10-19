@@ -13,7 +13,6 @@ public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
         : base(options)
     {
     }
-
     public virtual DbSet<Course> Courses { get; set; }
 
     public virtual DbSet<Student> Students { get; set; }

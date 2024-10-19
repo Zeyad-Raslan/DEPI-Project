@@ -84,6 +84,7 @@ namespace OnlineCoursesApp.Controllers
                 About = instructor.About,  // Assuming you have an "About" field in Instructor model
                 ImageUrl = instructor.Image  // Assuming there's an image URL field
             };
+            ViewBag.InstructorId = id;
 
             return View(viewModel);
         }
@@ -183,12 +184,15 @@ namespace OnlineCoursesApp.Controllers
             // Retrieve the course and its sections
             var course = _courseService.Query()
                                        .Include(c => c.Sections)
+                                       .Include(c=>c.Instructor)
                                        .FirstOrDefault(c => c.CourseId == id);
 
             if (course == null)
             {
                 return NotFound();
             }
+            
+           
 
             var viewModel = new CourseManageViewModel
             {
@@ -197,20 +201,20 @@ namespace OnlineCoursesApp.Controllers
                 Description = course.Description,
                 // If the course.Image is null, use a default placeholder image
                 Image = course.Image ?? "/images/default-placeholder.png",
-               
-                Sections = course.Sections
-                                 .OrderBy(s => s.Number) // ترتيب الـ Sections حسب رقم Num
-                                 .Select(s => new SectionViewModel
-                                 {
-                                     CourseId  = course.CourseId,
-                                     SectionId = s.SectionId,
-                                     Title = s.Title,
-                                     Link = s.Link,
-                                     Number = s.Number
-                                 })
-                                 .ToList()
-            };
 
+                Sections = course.Sections
+                               .OrderBy(s => s.Number) // ترتيب الـ Sections حسب رقم Num
+                               .Select(s => new SectionViewModel
+                               {
+                                   CourseId = course.CourseId,
+                                   SectionId = s.SectionId,
+                                   Title = s.Title,
+                                   Link = s.Link,
+                                   Number = s.Number
+                               })
+                               .ToList()
+            };
+            ViewBag.InstructorId = course.Instructor.InstructorId;
             return View(viewModel);
         }
 
@@ -268,7 +272,31 @@ namespace OnlineCoursesApp.Controllers
                     SectionId = model.SectionId
                 };
 
+
                 _sectionService.Add(section);
+
+                var course1  = _courseService.Query()
+                                       .Include(c => c.Sections)
+                                       .FirstOrDefault(c => c.CourseId == model.CourseId);
+
+                var Sections1 = course1.Sections
+                     .OrderBy(s => s.Number)
+                     .ToList();
+                //bool flag = false;
+                int x = 1;
+                for (var i = 0; i < Sections1.Count; i++)
+                {
+        
+                            Sections1[i].Number =x;
+                            _sectionService.Update(Sections1[i]);
+                    x++;
+                        
+                    //if (flag) break;
+                }
+
+                //_sectionService.save();
+                //_courseService.save();
+
 
                 var course = _courseService.Query().Include(s => s.Students).FirstOrDefault(c => c.CourseId == model.CourseId);
 
@@ -334,7 +362,26 @@ namespace OnlineCoursesApp.Controllers
                 section.Link = model.Link;
                 section.Number = model.Number;
 
-                _sectionService.Update(section); 
+                _sectionService.Update(section);
+
+                var course1 = _courseService.Query()
+                                       .Include(c => c.Sections)
+                                       .FirstOrDefault(c => c.CourseId == model.CourseId);
+
+                var Sections1 = course1.Sections
+                     .OrderBy(s => s.Number)
+                     .ToList();
+                //bool flag = false;
+                int x = 1;
+                for (var i = 0; i < Sections1.Count; i++)
+                {
+
+                    Sections1[i].Number = x;
+                    _sectionService.Update(Sections1[i]);
+                    x++;
+
+                    //if (flag) break;
+                }
 
                 return RedirectToAction("ManageCourse", new { id = model.CourseId });
             }
@@ -361,6 +408,25 @@ namespace OnlineCoursesApp.Controllers
             }
 
             _sectionService.Delete(sectionId);
+
+            var course1 = _courseService.Query()
+                                   .Include(c => c.Sections)
+                                   .FirstOrDefault(c => c.CourseId == courseID);
+
+            var Sections1 = course1.Sections
+                 .OrderBy(s => s.Number)
+                 .ToList();
+            //bool flag = false;
+            int x = 1;
+            for (var i = 0; i < Sections1.Count; i++)
+            {
+
+                Sections1[i].Number = x;
+                _sectionService.Update(Sections1[i]);
+                x++;
+
+                //if (flag) break;
+            }
 
             return RedirectToAction("ManageCourse", new { id = courseID });
         }
