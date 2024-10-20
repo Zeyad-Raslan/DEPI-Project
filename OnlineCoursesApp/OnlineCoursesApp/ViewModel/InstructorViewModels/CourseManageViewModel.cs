@@ -7,6 +7,9 @@
         public string Description { get; set; } = string.Empty;
         public string Image { get; set; } = string.Empty;
 
+        // حقل لرفع الصورة
+        public IFormFile ImageFile { get; set; }
+
         public List<SectionViewModel> Sections { get; set; } = new List<SectionViewModel>();
     }
 

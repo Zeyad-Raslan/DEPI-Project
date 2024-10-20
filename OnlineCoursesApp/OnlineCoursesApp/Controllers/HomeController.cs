@@ -39,6 +39,7 @@ namespace OnlineCoursesApp.Controllers
             }).ToList();
 
             return View(courceList);
+            
         }
 
         public IActionResult Privacy()
