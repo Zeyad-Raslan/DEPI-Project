@@ -13,6 +13,8 @@ namespace OnlineCoursesApp.BLL.Services
         void Add(T entity);
         void Update(T entity);
         void Delete(int id);
+
+        void save();
     }
 }
 
