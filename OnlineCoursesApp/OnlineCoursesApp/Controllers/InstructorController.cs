@@ -31,24 +31,63 @@ namespace OnlineCoursesApp.Controllers
 
         [Authorize(Roles = "Instructor")]
 
+        //public IActionResult Index()
+        //{
+        //    int id;
+        //    string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+        //    Instructor currentInstructor = _instructorService.Query()
+        //        .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
+
+        //    if (currentInstructor == null)
+        //    {
+        //        return Content("There is no active user with this logins");
+        //    }
+        //    id = currentInstructor.InstructorId;
+
+        //    var instructor = _instructorService.Query()
+        //                                       .Include(i => i.Courses)
+        //                                       .ThenInclude(i => i.Students)
+        //                                       .FirstOrDefault(i => i.InstructorId == id);
+
+        //    if (instructor == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    // تمرير InstructorId إلى الـ View باستخدام ViewBag
+        //    ViewBag.InstructorId = instructor.InstructorId;
+
+        //    var courses = instructor.Courses.Select(course => new CourseHomePageViewModel
+        //    {
+        //        CourseId = course.CourseId,
+        //        CourseName = course.Name,
+        //        NumStudents = course.Students.Count,
+        //        Type = course.Type,
+        //        CourseStatus = course.CourseStatus // تعيين الحالة الجديدة
+        //    }).ToList();
+
+        //    return View(courses);
+        //}
+
         public IActionResult Index()
         {
             int id;
-            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
             Instructor currentInstructor = _instructorService.Query()
                 .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
 
             if (currentInstructor == null)
             {
-                return Content("There is no active user with this logins");
+                return Content("There is no active user with this login");
             }
             id = currentInstructor.InstructorId;
 
             var instructor = _instructorService.Query()
-                                               .Include(i => i.Courses)
-                                               .ThenInclude(i => i.Students)
-                                               .FirstOrDefault(i => i.InstructorId == id);
+                                                .Include(i => i.Courses)
+                                                .ThenInclude(i => i.Students)
+                                                .FirstOrDefault(i => i.InstructorId == id);
 
             if (instructor == null)
             {
@@ -63,11 +102,13 @@ namespace OnlineCoursesApp.Controllers
                 CourseId = course.CourseId,
                 CourseName = course.Name,
                 NumStudents = course.Students.Count,
-                Type = course.Type
+                Type = course.Type,
+                CourseStatus = course.CourseStatus // تعيين الحالة الجديدة
             }).ToList();
 
             return View(courses);
         }
+
 
         public IActionResult Profile(int id)
         {
@@ -177,43 +218,11 @@ namespace OnlineCoursesApp.Controllers
             return View(students);
         }
 
+        
 
 
-
-
-        // --------------------------------------------------------------------------------------------------------
-
-        //public IActionResult ManageCourse(int id)
-        //{
-        //    // Retrieve the course and its sections
-        //    var course = _courseService.Query()
-        //                                .Include(c => c.Sections)
-        //                                .FirstOrDefault(c => c.CourseId == id);
-
-        //    if (course == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var viewModel = new CourseManageViewModel
-        //    {
-        //        CourseId = course.CourseId,
-        //        Title = course.Name,
-        //        Description = course.Description,
-        //        // If the course.Image is null, use a default placeholder image
-        //        Image = course.Image ?? "/images/default-placeholder.png",
-        //        Sections = course.Sections.Select(s => new SectionViewModel
-        //        {
-        //            Id = s.SectionId,
-        //            Title = s.Title,
-        //            Link = s.Link,
-        //            Num = s.Number
-        //        }).ToList()
-        //    };
-
-
-        //    return View(viewModel);
-        //}
+        // ---------------------------------------------------
+     
 
         public IActionResult ManageCourse(int id)
         {
@@ -255,35 +264,18 @@ namespace OnlineCoursesApp.Controllers
         }
 
 
+
+
+
+        // ############################################################################################
+        // ############################################################################################
+
         //-------------------------------------- NewCourse
         public IActionResult NewCourse(int id)
         {
             ViewBag.InstructorId = id;
             return View();
         }
-
-        //public IActionResult SaveNewCourse(CourseViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var course = new Course
-        //        {
-        //            Name = model.Name,
-        //            Type = model.CourseType,
-        //            Description = model.Description,
-        //            Image = model.Ima,
-        //            CourseStatus = CourseStatus.UnderReview,
-        //            Instructor = _instructorService.GetById(model.TechId)
-        //        };
-
-        //        _courseService.Add(course);
-
-        //        return RedirectToAction("Index", "Instructor", new { id = model.TechId });
-        //    }
-
-        //    return View("NewCourse", model);
-        //}
-
 
         public IActionResult SaveNewCourse(CourseViewModel model)
         {

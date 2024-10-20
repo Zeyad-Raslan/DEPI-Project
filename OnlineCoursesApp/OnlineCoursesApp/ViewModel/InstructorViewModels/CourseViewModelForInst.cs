@@ -8,6 +8,6 @@ namespace OnlineCoursesApp.ViewModel
         public string CourseName { get; set; }
         public int NumStudents { get; set; }
         public CourseType Type { get; set; }
-        public CourseStatus CourseStatus { get; set; }  // أضف خاصية CourseStatus
+        public CourseStatus CourseStatus { get; set; } = CourseStatus.UnderReview;  // أضف خاصية CourseStatus
     }
 }
