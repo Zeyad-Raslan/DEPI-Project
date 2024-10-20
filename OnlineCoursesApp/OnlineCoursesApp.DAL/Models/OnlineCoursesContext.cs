@@ -52,6 +52,20 @@ public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
                 foreignKey.DeleteBehavior = DeleteBehavior.NoAction;
             }
         }
+        modelBuilder.Entity<StudentProgress>()
+            .HasOne(sp => sp.Section)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<StudentProgress>()
+           .HasOne(sp => sp.Student)
+           .WithMany()
+           .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<StudentProgress>()
+           .HasOne(sp => sp.Course)
+           .WithMany()
+           .OnDelete(DeleteBehavior.Cascade);
     }
 
 
