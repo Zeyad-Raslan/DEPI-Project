@@ -91,6 +91,40 @@ namespace OnlineCoursesApp.Controllers
             return View(viewModel);
         }
 
+        [HttpPost]
+        public IActionResult UpdateProfilePicture(InstructorProfileViewModel model)
+        {
+            if (model.Image != null && model.Image.Length > 0)
+            {
+                var instructor = _instructorService.GetById(model.InstructorId);
+
+                if (instructor == null)
+                {
+                    return NotFound();
+                }
+
+                // رفع الصورة وحفظها في مجلد wwwroot/image
+                var fileName = Path.GetFileName(model.Image.FileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image", fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    model.Image.CopyTo(stream);
+                }
+
+                // تحديث مسار الصورة في قاعدة البيانات
+                instructor.Image = "/image/" + fileName;
+                _instructorService.Update(instructor);
+
+                // إعادة توجيه المستخدم إلى صفحة الـ Profile بعد التحديث
+                return RedirectToAction("Profile", new { id = model.InstructorId });
+            }
+
+            // في حالة عدم وجود صورة جديدة مرفوعة، إعادة عرض الصفحة
+            return RedirectToAction("Profile", new { id = model.InstructorId });
+        }
+
+       
 
         public IActionResult Students(int id)
         {
@@ -228,25 +262,73 @@ namespace OnlineCoursesApp.Controllers
             return View();
         }
 
+        //public IActionResult SaveNewCourse(CourseViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var course = new Course
+        //        {
+        //            Name = model.Name,
+        //            Type = model.CourseType,
+        //            Description = model.Description,
+        //            Image = model.Ima,
+        //            CourseStatus = CourseStatus.UnderReview,
+        //            Instructor = _instructorService.GetById(model.TechId)
+        //        };
+
+        //        _courseService.Add(course);
+
+        //        return RedirectToAction("Index", "Instructor", new { id = model.TechId });
+        //    }
+
+        //    return View("NewCourse", model);
+        //}
+
+
         public IActionResult SaveNewCourse(CourseViewModel model)
         {
             if (ModelState.IsValid)
             {
+                string imagePath = null;
+
+                // تحقق إذا كانت الصورة مرفوعة ولها محتوى
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    // الحصول على اسم الملف من الصورة المرفوعة
+                    var fileName = Path.GetFileName(model.Image.FileName);
+
+                    // تحديد مسار حفظ الصورة في wwwroot/image
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image", fileName);
+
+                    // نسخ الملف إلى المجلد المحدد
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        model.Image.CopyTo(stream);
+                    }
+
+                    // تحديد المسار الذي سيتم حفظه في قاعدة البيانات (النسبة للمجلد wwwroot)
+                    imagePath = "/image/" + fileName;
+                }
+
+                // إنشاء الكورس وحفظ المسار في خاصية Image
                 var course = new Course
                 {
                     Name = model.Name,
                     Type = model.CourseType,
                     Description = model.Description,
-                    Image = model.Ima,
+                    Image = imagePath,  // مسار الصورة التي تم رفعها
                     CourseStatus = CourseStatus.UnderReview,
                     Instructor = _instructorService.GetById(model.TechId)
                 };
 
+                // إضافة الكورس الجديد إلى قاعدة البيانات
                 _courseService.Add(course);
 
+                // إعادة توجيه المستخدم لصفحة الـ Index الخاصة بالـ Instructor
                 return RedirectToAction("Index", "Instructor", new { id = model.TechId });
             }
 
+            // إعادة عرض الصفحة مع ظهور الأخطاء إن وجدت
             return View("NewCourse", model);
         }
 
