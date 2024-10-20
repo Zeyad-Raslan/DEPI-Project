@@ -7,7 +7,8 @@ namespace OnlineCoursesApp.ViewModel
         public string Name { get; set; }
         public CourseType CourseType { get; set; }
         public string? Description { get; set; }
-        public string? Image { get; set; }
+         public string? Ima { get; set; }
+        public IFormFile? Image { get; set; }  // لتخزين ملف الصورة المرفوعة
 
         // إضافة TechId لربط كورس واحد بتقنية واحدة
         public int TechId { get; set; }

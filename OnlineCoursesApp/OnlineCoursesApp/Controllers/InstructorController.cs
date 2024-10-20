@@ -9,6 +9,8 @@ using System.Linq;
 using System.Security.Claims;
 using static OnlineCoursesApp.ViewModel.StudentViewModelForInst;
 
+// NEW 
+
 namespace OnlineCoursesApp.Controllers
 {
     [Authorize(Roles = "Instructor")]
@@ -235,7 +237,7 @@ namespace OnlineCoursesApp.Controllers
                     Name = model.Name,
                     Type = model.CourseType,
                     Description = model.Description,
-                    Image = model.Image,
+                    Image = model.Ima,
                     CourseStatus = CourseStatus.UnderReview,
                     Instructor = _instructorService.GetById(model.TechId)
                 };

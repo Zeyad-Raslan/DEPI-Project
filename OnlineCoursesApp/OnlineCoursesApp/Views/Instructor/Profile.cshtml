@@ -1,4 +1,4 @@
-﻿@model InstructorProfileViewModel
+﻿@* @model InstructorProfileViewModel
 
 @{
     ViewData["Title"] = "Profile";
@@ -21,3 +21,28 @@
     </div>
 </div>
 
+ *@
+
+
+
+ @model InstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img src="@Model.ImageUrl" alt="Instructor Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+        </div>
+        <div class="col-md-9">
+            <h2>@Model.Name's Profile</h2>
+            <hr class="my-4">
+            <p><strong>Name:</strong> Eng. @Model.Name</p>
+            <p><strong>Email:</strong> <a href="mailto:@Model.Email">@Model.Email</a></p>
+            <p><strong>About:</strong> @Model.About</p>
+            <a href="/Instructor/Index/@Model.InstructorId" class="btn btn-outline-success btn-sm mt-3">View Courses</a>
+        </div>
+    </div>
+</div>
