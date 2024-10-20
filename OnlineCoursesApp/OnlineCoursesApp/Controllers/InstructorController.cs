@@ -233,7 +233,7 @@ namespace OnlineCoursesApp.Controllers
                 var course = new Course
                 {
                     Name = model.Name,
-                    Type = model.Type,
+                    Type = model.CourseType,
                     Description = model.Description,
                     Image = model.Image,
                     CourseStatus = CourseStatus.UnderReview,

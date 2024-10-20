@@ -23,8 +23,4 @@
     <ProjectReference Include="..\OnlineCoursesApp.BLL\OnlineCoursesApp.BLL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\ForTest\" />
-  </ItemGroup>
-
 </Project>

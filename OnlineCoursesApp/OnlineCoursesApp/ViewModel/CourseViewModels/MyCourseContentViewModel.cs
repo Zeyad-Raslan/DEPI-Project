@@ -12,7 +12,7 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
 
         public string Name { get; set; } = null!;
 
-        public string Type { get; set; } = null!;
+        public CourseType Type { get; set; }
 
         public string Description { get; set; } = null!;
 

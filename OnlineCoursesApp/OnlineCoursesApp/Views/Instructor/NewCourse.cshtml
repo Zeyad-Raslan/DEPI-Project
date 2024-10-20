@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "New Course";
+    @using OnlineCoursesApp.DAL.Models
 }
 
 <h2>New Course</h2>
@@ -15,7 +16,8 @@
 
     <div class="form-group">
         <label for="type">Type</label>
-        <input type="text" id="type" class="form-control" asp-for="Type" required />
+        <select asp-for="CourseType" asp-items="Html.GetEnumSelectList<CourseType>()"></select>
+
     </div>
 
     <div class="form-group">
