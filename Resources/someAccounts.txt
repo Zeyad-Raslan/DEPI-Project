@@ -1,0 +1,11 @@
+student
+mail:student@mail.com
+pass:student
+============
+insturctor
+mail:zero@mail.com
+pass:zero
+==========
+admin
+mail:AdminTest@mail.com
+pass:AdminTest@2

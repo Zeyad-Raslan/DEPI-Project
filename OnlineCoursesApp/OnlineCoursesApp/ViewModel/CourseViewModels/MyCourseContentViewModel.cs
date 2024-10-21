@@ -12,7 +12,7 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
 
         public string Name { get; set; } = null!;
 
-        public string Type { get; set; } = null!;
+        public CourseType Type { get; set; }
 
         public string Description { get; set; } = null!;
 
@@ -23,8 +23,10 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
         public int StudentProgress { get; set; }
         public List<Pair<Section,bool>> SectionsStatus { get; set; }
 
-        public string InstructorName { get; set; }
         public int InstructoID { get; set; }
+        public string InstructorName { get; set; }
+        public string InstructorImage { get; set; }
+        public string InstructorAbout {  get; set; }
 
        
     }

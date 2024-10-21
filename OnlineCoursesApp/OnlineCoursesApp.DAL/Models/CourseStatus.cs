@@ -8,9 +8,9 @@ namespace OnlineCoursesApp.DAL.Models
 {
     public enum CourseStatus
     {
-        Rejected,
-        Approved,
-        UnderReview,
+        Rejected ,
+        Approved ,
+        UnderReview ,
         Closed,
         Deleted,
     }

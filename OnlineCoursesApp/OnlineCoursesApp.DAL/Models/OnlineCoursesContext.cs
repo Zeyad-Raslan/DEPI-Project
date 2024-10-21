@@ -9,15 +9,10 @@ namespace OnlineCoursesApp.DAL.Models;
 
 public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
 {
-    public OnlineCoursesContext()
-    {
-    }
-
-    public OnlineCoursesContext(DbContextOptions<OnlineCoursesContext> options)
+   public OnlineCoursesContext(DbContextOptions<OnlineCoursesContext> options)
         : base(options)
     {
     }
-
     public virtual DbSet<Course> Courses { get; set; }
 
     public virtual DbSet<Student> Students { get; set; }
@@ -31,17 +26,17 @@ public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
 
 
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        string connectionString =
-                             //"Data Source = IUGYI\\SQLEXPRESS;" +
-                             "Data Source = DESKTOP-ILHHK5F;" +
-                             " Initial Catalog = OnlineCourseDemo02; " +
-                             "Integrated Security = True;" +
-                             " Encrypt = False; " +
-                             "Trust Server Certificate=True;";
-        optionsBuilder.UseSqlServer(connectionString);
-    }
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    string connectionString =
+    //         //"Data Source = IUGYI\\SQLEXPRESS;" +
+    //                         "Data Source = IUGYI\\SQLEXPRESS;" +
+    //                         " Initial Catalog = OnlineCourseDemo02; " +
+    //                         "Integrated Security = True;" +
+    //                         " Encrypt = False; " +
+    //                         "Trust Server Certificate=True;";
+    //    optionsBuilder.UseSqlServer(connectionString);
+    //}
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,6 +52,20 @@ public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
                 foreignKey.DeleteBehavior = DeleteBehavior.NoAction;
             }
         }
+        modelBuilder.Entity<StudentProgress>()
+            .HasOne(sp => sp.Section)
+            .WithMany()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<StudentProgress>()
+           .HasOne(sp => sp.Student)
+           .WithMany()
+           .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<StudentProgress>()
+           .HasOne(sp => sp.Course)
+           .WithMany()
+           .OnDelete(DeleteBehavior.Cascade);
     }
 
 

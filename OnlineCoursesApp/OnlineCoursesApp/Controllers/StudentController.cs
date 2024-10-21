@@ -40,6 +40,10 @@ namespace project_student.Controllers
             Student currentStd = _studentService.Query()
                 .FirstOrDefault(std => std.IdentityUserID == claimId);
 
+            if(currentStd == null)
+            {
+                return Content("There is no active user with this logins");
+            }
             studentId = currentStd.StudentId;
 
 
@@ -115,6 +119,7 @@ namespace project_student.Controllers
             return View(courses);
         }
 
+        [AllowAnonymous]
         public IActionResult DisplayHomeCourseContent(int courseId)
         {
 
@@ -134,6 +139,7 @@ namespace project_student.Controllers
                 Description = course.Description,
                 Image = course.Image,
                 StudentCount = course.Students.Count(),
+                Instructor = course.Instructor,
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
                 Sections = course.Sections
@@ -173,6 +179,8 @@ namespace project_student.Controllers
                 StudentCount = course.Students.Count(),
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
+                InstructorImage = course.Instructor.Image,
+                InstructorAbout = course.Instructor.About
             };
 
             if (course.Sections.Count() > 0)

@@ -147,18 +147,20 @@ namespace OnlineCoursesApp.Controllers
                     {
                         // add cookie
                         await _signInManager.SignInAsync(userModel, userVm.RememberMe);
+                        // get the user real role
+                        var userRole = User.Claims.FirstOrDefault(cl => cl.Type == ClaimTypes.Role).Value;
                         // redirect to appropriate controller
                         // student
                         // instructor
-                        if (userVm.Role == "Student")
+                        if (userVm.Role == "Student" && userRole == "Student")
                         {
                             return RedirectToAction("HomePage", "Student");
                         }
-                        else if (userVm.Role == "Instructor")
+                        else if (userVm.Role == "Instructor" && userRole == "Instructor")
                         {
                             return RedirectToAction("index", "Instructor");
                         }
-                        else if (userVm.Role == "Admin")
+                        else if (userVm.Role == "Admin" && userRole == "Admin")
                         {
                             return RedirectToAction("index", "Admin");
                         }

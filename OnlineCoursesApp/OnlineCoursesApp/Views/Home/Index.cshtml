@@ -1,11 +1,10 @@
 ﻿@model List<CoursesHomeViewModel>
 @{
     ViewData["Title"] = "HomePage";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
 @using OnlineCoursesApp.ViewModel.HomePageViewModels;
 
 }
-
 
 <main>
     <div class="main">
@@ -24,21 +23,22 @@
             {
 
                 <div class="HomeCard-container">
-                    <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
-                        <div class="HomeCard">
-                            <h1>@course.CourseName</h1>
-                            <p>By: @course.InsrUctorName</p>
-                            <p>Number of Students: @course.NumStudent</p>
-                            <p>@course.CourseDescription</p>
-                        </div>
-                    </a>
-                    <form action="/Student/EnrollCourse" method="post" class="enroll-form">
-                       
-                        <button class="enroll-button" type="submit">Enroll</button>
-                    </form>
+                        <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
+                            <div class="HomeCard">
+                                <h1>@course.CourseName</h1>
+                                <p>By: @course.InsrUctorName</p>
+                                <p>Number of Students: @course.NumStudent</p>
+                                <p>@course.CourseDescription</p>
+                            </div>
+                        </a>
+                        <form action="/Student/EnrollCourse" method="post" class="enroll-form">
+                            <input type="hidden" name="courseId" value="@course.CourseId" />
+                            <input type="hidden" id="studentId" name="studentId" value="@TempData.Peek("studentId")" />
+                            <button class="enroll-button" type="submit">Enroll</button>
+                        </form>
 
-                </div>
-
+                    </div>
+                
             }
         }
 

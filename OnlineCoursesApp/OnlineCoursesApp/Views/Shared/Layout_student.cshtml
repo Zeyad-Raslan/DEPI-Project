@@ -13,12 +13,16 @@
             <!-- Add your logo here -->
 
             <ul>
-                <li><a href="@Url.Action("HomePage", "Student")">Home</a></li>
-                <li><a href="@Url.Action("MyCourses", "Student")">My Courses</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-                @* Section to add student info here *@
-                @RenderSection("StudentInfo", required: false)
+               
+             
+                        <li><a href="@Url.Action("HomePage", "Student")">Home</a></li>
+                        <li><a href="@Url.Action("MyCourses", "Student")">My Courses</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Contact</a></li>
+                        @* Section to add student info here *@
+                        @RenderSection("StudentInfo", required: false)
+                   
+               
             </ul>
 
             <div class="navbar-center">
@@ -26,17 +30,28 @@
                     <img src="~/image/Screenshot_2024-10-17_000233-removebg-preview.png" alt="Logo" class="logo-img" />
                 </a>
             </div>
-
-            <ul>
-                <li><a href="@Url.Action("Logout", "Account")">Lougout</a></li>
-            </ul>
-
-            <div class="profile">
+            
+              
+          
+            <div class="profile-logout">
                 <a href="@Url.Action("ProfilePage", "Student")" class="a_tag">
                     <img src="~/image/default_profil _mage2.png" alt="Sample Image" class="profile-img-nav" />
-                    <span class="username">profile</span>
+                    <span class="username">Profile</span>
                 </a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("Logout", "Account")" class="loging">Logout</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("Login", "Account")" class="loging">Login</a>
+                }
             </div>
+
+           
+
+
+            
         </nav>
     </header>
     <main>

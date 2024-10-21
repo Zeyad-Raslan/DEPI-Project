@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using OnlineCoursesApp.ViewModel.Test;
 using System.Security.Claims;
 
 namespace OnlineCoursesApp.Controllers
@@ -25,7 +26,12 @@ namespace OnlineCoursesApp.Controllers
 
             return Content($"{mail} : {claimId.Value}");
         }
-       
+
+       public IActionResult EnumCoursType()
+        {
+            CourseTypeViewModel modle = new CourseTypeViewModel();
+            return View(modle);
+        }
 
     }
 }

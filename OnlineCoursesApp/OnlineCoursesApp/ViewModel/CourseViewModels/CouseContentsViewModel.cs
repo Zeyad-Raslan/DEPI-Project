@@ -8,7 +8,7 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
 
         public string Name { get; set; } = null!;
 
-        public string Type { get; set; } = null!;
+        public CourseType Type { get; set; }
 
         public string Description { get; set; } = null!;
 
@@ -18,7 +18,7 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
         public int StudentCount {  get; set; }
         public virtual ICollection<Section> Sections { get; set; }
 
-        public virtual Instructor Instructor { get; set; }
+        public Instructor Instructor { get; set; }
         public string InstructorName { get; set; }
         public int InstructoID { get; set; }
     }

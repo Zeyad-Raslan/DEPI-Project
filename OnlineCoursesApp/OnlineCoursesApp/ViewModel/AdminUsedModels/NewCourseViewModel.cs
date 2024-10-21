@@ -6,7 +6,7 @@ namespace OnlineCoursesApp.ViewModel.AdminUsedModels
     {
         public int CourseId { get; set; }
         public string Name { get; set; }
-        public string Type { get; set; }
+        public CourseType Type { get; set; }
         public CourseStatus Status { get; set; }
     }
 }
