@@ -12,9 +12,15 @@
         <p>We are here to help you find the best path to achieve your goals.</p>
     </div>
 
-    <section class="search-container">
-        <input type="text" id="course-search" placeholder="Search for a course..." class="search-input" />
-    </section>
+
+
+    <form method="get" action="@Url.Action("Index", "Home")">
+        <section class="search-container">
+            <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a course..." class="search-input" />
+        <button type="submit" class="btn btn-primary">Search</button>
+        </section>
+
+    </form>
 
     <!-- Cards Section -->
     <div class="cards">
