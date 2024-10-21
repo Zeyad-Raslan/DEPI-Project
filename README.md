@@ -108,3 +108,4 @@ The platform has different interfaces for its users:
 - **Admins**:  
   - Can manage both instructors and students.
   - Review and approve courses before publishing.
+
