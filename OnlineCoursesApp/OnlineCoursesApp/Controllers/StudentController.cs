@@ -32,7 +32,8 @@ namespace project_student.Controllers
             // save info to session
 
         }
-        public IActionResult HomePage()
+
+        public IActionResult HomePage(string searchQuery)
         {
             int studentId;
                 string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
@@ -74,7 +75,17 @@ namespace project_student.Controllers
 
             Student student = _studentService.GetById(studentId);
 
-            List<StudentCoursesHomeViewModel> courceList = courses.Select(e => new StudentCoursesHomeViewModel()
+            List<Course> filteredCourses;
+            if (string.IsNullOrEmpty(searchQuery))
+            {
+                filteredCourses = courses;
+            }
+            else
+            {
+                filteredCourses = courses.Where(c => c.Name.Contains(searchQuery))
+                                .ToList(); // Search by name
+            }
+            List<StudentCoursesHomeViewModel> courceList = filteredCourses.Select(e => new StudentCoursesHomeViewModel()
             {
                 CourseId = e.CourseId,
                 CourseName = e.Name,
