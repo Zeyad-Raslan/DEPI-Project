@@ -32,45 +32,6 @@ namespace OnlineCoursesApp.Controllers
 
         [Authorize(Roles = "Instructor")]
 
-        //public IActionResult Index()
-        //{
-        //    int id;
-        //    string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-
-        //    Instructor currentInstructor = _instructorService.Query()
-        //        .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
-
-        //    if (currentInstructor == null)
-        //    {
-        //        return Content("There is no active user with this logins");
-        //    }
-        //    id = currentInstructor.InstructorId;
-
-        //    var instructor = _instructorService.Query()
-        //                                       .Include(i => i.Courses)
-        //                                       .ThenInclude(i => i.Students)
-        //                                       .FirstOrDefault(i => i.InstructorId == id);
-
-        //    if (instructor == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    // تمرير InstructorId إلى الـ View باستخدام ViewBag
-        //    ViewBag.InstructorId = instructor.InstructorId;
-
-        //    var courses = instructor.Courses.Select(course => new CourseHomePageViewModel
-        //    {
-        //        CourseId = course.CourseId,
-        //        CourseName = course.Name,
-        //        NumStudents = course.Students.Count,
-        //        Type = course.Type,
-        //        CourseStatus = course.CourseStatus // تعيين الحالة الجديدة
-        //    }).ToList();
-
-        //    return View(courses);
-        //}
-
         public IActionResult Index()
         {
             int id;
