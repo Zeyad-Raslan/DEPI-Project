@@ -133,7 +133,8 @@
                 <h5 class="instructor-name">@Model.InstructorName</h5>
                 <p class="instructor-text">Name: @Model.InstructorName</p>
                 <p class="instructor-text">About: @Model.InstructorAbout</p>
-                <button onclick="window.location.href='/Instructor/Profile/@Model.InstructoID';" class="custom-btn">View Profile</button>
+                <button onclick="window.location.href='/Instructor/ShowInstructorCourses?instructorId=@Model.InstructoID';" class="custom-btn">View Profile</button>
+
             </div>
         </div>
         <!-- Progress Bar Section -->
