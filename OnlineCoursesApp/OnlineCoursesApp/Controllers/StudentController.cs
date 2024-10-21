@@ -146,10 +146,10 @@ namespace project_student.Controllers
             CouseContentsViewModel couseContentsViewModel = new CouseContentsViewModel()
             {
                 CourseId = course.CourseId,
+                Image = course.Image,
                 Name = course.Name,
                 Type = course.Type,
                 Description = course.Description,
-                Image = course.Image,
                 StudentCount = course.Students.Count(),
                 Instructor = course.Instructor,
                 InstructoID = course.Instructor.InstructorId,

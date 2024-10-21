@@ -57,7 +57,6 @@
       
         <p>We are here to help you find the best path to achieve your goals.</p>
     </div>
-
     <form method="get" action="@Url.Action("HomePage", "Student")">
         <section class="search-container">
             <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a course..." class="search-input" />
@@ -86,21 +85,18 @@
                                 <p>@course.CourseDescription</p>
                             </div>
                         </a>
-
-
                         <a class="enrolled-button">
                             Enrolled
                         </a>
                     </div>
                 }
-
                 else
                 {
                     <div class="HomeCard-container">
                         <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
                             <div class="HomeCard">
+                                <img src="@course.CourseImage" class="card-img-top" alt="Course Image" style="max-width: 100%; height: auto;">
                                 <h1>@course.CourseName</h1>
-                                <img src="@course.CourseImage" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
                                 <p>By: @course.InsrUctorName</p>
                                 <p>Number of Students: @course.NumStudent</p>
                                 <p>@course.CourseDescription</p>

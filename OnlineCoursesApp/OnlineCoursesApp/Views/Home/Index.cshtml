@@ -49,8 +49,6 @@
         <p>We are here to help you find the best path to achieve your goals.</p>
     </div>
 
-
-
     <form method="get" action="@Url.Action("Index", "Home")">
         <section class="search-container">
             <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a course..." class="search-input" />
@@ -70,6 +68,7 @@
                 <div class="HomeCard-container">
                         <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
                             <div class="HomeCard">
+                            <img src="@course.CourseImage" class="card-img-top" alt="Home Course Photo" style="max-width: 100%; height: auto;">
                                 <h1>@course.CourseName</h1>
                                 <p>By: @course.InsrUctorName</p>
                                 <p>Number of Students: @course.NumStudent</p>
