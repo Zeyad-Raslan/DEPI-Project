@@ -5,6 +5,7 @@
     {
         public int CourseId { get; set; } 
         public string? CourseName { get; set; }
+        public string CourseImage {  get; set; }
         public int NumStudent { get; set; }
 
         //public string Type { get; set; } //will be enum letter

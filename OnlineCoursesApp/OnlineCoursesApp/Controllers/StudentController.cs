@@ -118,6 +118,7 @@ namespace project_student.Controllers
 
             return View(courses);
         }
+
         [AllowAnonymous]
         public IActionResult DisplayHomeCourseContent(int courseId)
         {
@@ -138,6 +139,7 @@ namespace project_student.Controllers
                 Description = course.Description,
                 Image = course.Image,
                 StudentCount = course.Students.Count(),
+                Instructor = course.Instructor,
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
                 Sections = course.Sections
@@ -177,6 +179,8 @@ namespace project_student.Controllers
                 StudentCount = course.Students.Count(),
                 InstructoID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
+                InstructorImage = course.Instructor.Image,
+                InstructorAbout = course.Instructor.About
             };
 
             if (course.Sections.Count() > 0)
