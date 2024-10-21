@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
+using OnlineCoursesApp.BLL.Services;
+using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel.AccountViewModels;
 using System.Security.Claims;
 
@@ -12,12 +14,18 @@ namespace OnlineCoursesApp.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IService<Student> _studentService;
+        private readonly IService<Instructor> _instructorService;
+        private readonly IService<WebAdmin> _webAdminService;
 
-        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager, IService<Student>_studentService, IService<Instructor> instructorService, IService<WebAdmin> webAdminService)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
             this._roleManager = roleManager;
+            this._studentService = _studentService;
+            this._instructorService = instructorService;
+            this._webAdminService = webAdminService;
         }
 
 
@@ -54,22 +62,55 @@ namespace OnlineCoursesApp.Controllers
                     if (newUserVm.Role == "Student")
                     {
                         roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+                        // add student to the student table
+                        Student newStudent = new Student()
+                        {
+                            Name = newUserVm.FirstName + " " + newUserVm.LastName,
+                            Email = newUserVm.Email,
+                            Education = newUserVm.Education,
+                            IdentityUserID = newUser.Id,
+                            IdentityUser = newUser
+                            
+                        };
+                        _studentService.Add(newStudent);
+                        return RedirectToAction("Login");
 
                     }
                     else if (newUserVm.Role == "Instructor")
                     {
                         roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+                        // add instructor to instructor table
+                        Instructor newInstructoer = new Instructor()
+                        {
+                            Name = newUserVm.FirstName + " " + newUserVm.LastName,
+                            Email = newUserVm.Email,
+                            About = newUserVm.Education,
+                            IdentityUserID = newUser.Id,
+                            IdentityUser = newUser
+
+                        };
+                        _instructorService.Add(newInstructoer);
+                        return RedirectToAction("Login");
+
 
                     }
-                    else if (newUserVm.Role == "Admin")
-                    {
-                        roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-                        return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+                    //else if (newUserVm.Role == "Admin")
+                    //{
+                    //    roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
+                    //    // add admin to admin table
+                    //    WebAdmin newWebAdmin = new WebAdmin()
+                    //    {
+                    //        Name = newUserVm.FirstName + " " + newUserVm.LastName,
+                    //        Email = newUserVm.Email,
+                    //        IdentityUserID = newUser.Id,
+                    //        IdentityUser = newUser
 
-                    }
-                    // create cookie
+                    //    };
+                   //     _webAdminService.Add(newWebAdmin);
+                  //      return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
+
+                  //  }
+                  //  // create cookie
                   
                 }
                 else
@@ -112,11 +153,14 @@ namespace OnlineCoursesApp.Controllers
                         if (userVm.Role == "Student")
                         {
                             return RedirectToAction("HomePage", "Student");
-                           // return Content("Sucess login : student");
                         }
                         else if (userVm.Role == "Instructor")
                         {
-                            return Content("Sucess login : Instructor");
+                            return RedirectToAction("index", "Instructor");
+                        }
+                        else if (userVm.Role == "Admin")
+                        {
+                            return RedirectToAction("index", "Admin");
                         }
 
                     }
@@ -125,18 +169,20 @@ namespace OnlineCoursesApp.Controllers
             }
             return View(userVm);
         }
+
         public async Task<IActionResult> LogOutAsync()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
         }
-        [Authorize(Roles = "Admin")]
+
+        //[Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult AddNewRole()
         {
             return View();
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddNewRole(NewRoleViewModel roleVm)

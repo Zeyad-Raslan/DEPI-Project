@@ -18,7 +18,7 @@ namespace OnlineCoursesApp.DAL.Models
 
         public string Email { get; set; } = null!;
 
-        public string Password { get; set; } = null!;
+       //public string Password { get; set; } = null!;
 
         // for authentication 
         [ForeignKey("IdentityUser")]

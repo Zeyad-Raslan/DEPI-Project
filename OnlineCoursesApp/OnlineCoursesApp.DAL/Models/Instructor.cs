@@ -15,9 +15,9 @@ public partial class Instructor
 
     public string Email { get; set; } = null!;
 
-    public string Password { get; set; } = null!;
+   // public string Password { get; set; } = null!;
 
-    public string About { get; set; } = null!;
+    public string? About { get; set; }
 
     public string? Image { get; set; }
     public virtual ICollection<Course> Courses { get; set; }

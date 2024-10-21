@@ -20,11 +20,16 @@
                 @* Section to add student info here *@
                 @RenderSection("StudentInfo", required: false)
             </ul>
+
             <div class="navbar-center">
                 <a href="@Url.Action("HomePage", "Student")">
                     <img src="~/image/Screenshot_2024-10-17_000233-removebg-preview.png" alt="Logo" class="logo-img" />
                 </a>
             </div>
+
+            <ul>
+                <li><a href="@Url.Action("Logout", "Account")">Lougout</a></li>
+            </ul>
 
             <div class="profile">
                 <a href="@Url.Action("ProfilePage", "Student")" class="a_tag">

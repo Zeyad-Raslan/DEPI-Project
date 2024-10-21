@@ -1,79 +1,79 @@
 ﻿@model List<StudentCoursesHomeViewModel>
 @{
-	ViewData["Title"] = "HomePage";
-	Layout = "~/Views/Shared/Layout_student.cshtml";
-	@using OnlineCoursesApp.ViewModel.Student;
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/Layout_student.cshtml";
+    @using OnlineCoursesApp.ViewModel.Student;
 
 }
 @section StudentInfo {
-	<label style="color: whitesmoke;">Id:</label>
-	<div>
-		<p style="color: whitesmoke;">
-			@TempData.Peek("studentId");
-		</p>
-	</div>
+    <label style="color: whitesmoke;">Id:</label>
+    <div>
+        <p style="color: whitesmoke;">
+            @TempData.Peek("studentId");
+        </p>
+    </div>
 }
 <main>
-	<div class="main">
-		<h1>Home Page</h1>
-		<p>We are here to help you find the best path to achieve your goals.</p>
-	</div>
+    <div class="main">
+        <h1>Home Page</h1>
+        <p>We are here to help you find the best path to achieve your goals.</p>
+    </div>
 
-	<section class="search-container">
-		<input type="text" id="course-search" placeholder="Search for a course..." class="search-input" />
-	</section>
+    <section class="search-container">
+        <input type="text" id="course-search" placeholder="Search for a course..." class="search-input" />
+    </section>
 
-	<!-- Cards Section -->
-	<div class="cards">
-		@{
-			foreach (var course in @Model)
-			{
+    <!-- Cards Section -->
+    <div class="cards">
+        @{
+            foreach (var course in @Model)
+            {
 
-				if (@course.IsEnrolled)
+                if (@course.IsEnrolled)
 
-				{
-
-
-					<div class="HomeCard-container">
-						<a href="/student/DisplayMyCourseContent?courseId=@course.CourseId" class="HomeCard-link">
-							<div class="HomeCard">
-								<h1>@course.CourseName</h1>
-								<p>By: @course.InsrUctorName</p>
-								<p>Number of Students: @course.NumStudent</p>
-								<p>@course.CourseDescription</p>
-							</div>
-						</a>
+                {
 
 
-						<a class="enrolled-button">
-							Enrolled
-						</a>
-						</div>
-		       }
+                    <div class="HomeCard-container">
+                        <a href="/student/DisplayMyCourseContent?courseId=@course.CourseId" class="HomeCard-link">
+                            <div class="HomeCard">
+                                <h1>@course.CourseName</h1>
+                                <p>By: @course.InsrUctorName</p>
+                                <p>Number of Students: @course.NumStudent</p>
+                                <p>@course.CourseDescription</p>
+                            </div>
+                        </a>
 
-				else
-				{
-						<div class="HomeCard-container">
-							<a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
-								<div class="HomeCard">
-									<h1>@course.CourseName</h1>
-									<p>By: @course.InsrUctorName</p>
-									<p>Number of Students: @course.NumStudent</p>
-									<p>@course.CourseDescription</p>
-								</div>
-							</a>
-							<form action="/Student/EnrollCourse" method="post" class="enroll-form">
-								<input type="hidden" name="courseId" value="@course.CourseId" />
-								<input type="hidden" id="studentId" name="studentId" value="@TempData.Peek("studentId")" />
-								<button class="enroll-button" type="submit">Enroll</button>
-							</form>
-							
-						</div>
-				}
-		}
-		}
 
-					</div>
-			</main>
+                        <a class="enrolled-button">
+                            Enrolled
+                        </a>
+                    </div>
+                }
+
+                else
+                {
+                    <div class="HomeCard-container">
+                        <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
+                            <div class="HomeCard">
+                                <h1>@course.CourseName</h1>
+                                <p>By: @course.InsrUctorName</p>
+                                <p>Number of Students: @course.NumStudent</p>
+                                <p>@course.CourseDescription</p>
+                            </div>
+                        </a>
+                        <form action="/Student/EnrollCourse" method="post" class="enroll-form">
+                            <input type="hidden" name="courseId" value="@course.CourseId" />
+                            <input type="hidden" id="studentId" name="studentId" value="@TempData.Peek("studentId")" />
+                            <button class="enroll-button" type="submit">Enroll</button>
+                        </form>
+
+                    </div>
+                }
+            }
+        }
+
+    </div>
+</main>
 
 

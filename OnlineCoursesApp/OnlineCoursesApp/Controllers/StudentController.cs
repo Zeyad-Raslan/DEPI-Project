@@ -1,4 +1,5 @@
 ﻿using Humanizer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
@@ -7,9 +8,11 @@ using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel.CourseViewModels;
 using OnlineCoursesApp.ViewModel.Student;
 using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace project_student.Controllers
 {
+    [Authorize(Roles ="Student")]
     public class StudentController : Controller
     {
         private readonly IService<Course> _courseService;
@@ -29,8 +32,17 @@ namespace project_student.Controllers
             // save info to session
 
         }
-        public IActionResult HomePage(int studentId)
+        public IActionResult HomePage()
         {
+            int studentId;
+                string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+
+            Student currentStd = _studentService.Query()
+                .FirstOrDefault(std => std.IdentityUserID == claimId);
+
+            studentId = currentStd.StudentId;
+
+
             if (studentId == 0)
             {
                 if (HttpContext.Session.Keys.Contains("studentId"))
