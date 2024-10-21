@@ -85,9 +85,9 @@ namespace OnlineCoursesApp.Controllers
             id = currentInstructor.InstructorId;
 
             var instructor = _instructorService.Query()
-                                                .Include(i => i.Courses)
-                                                .ThenInclude(i => i.Students)
-                                                .FirstOrDefault(i => i.InstructorId == id);
+                                .Include(i => i.Courses)
+                                .ThenInclude(i => i.Students)
+                                .FirstOrDefault(i => i.InstructorId == id);
 
             if (instructor == null)
             {
@@ -145,16 +145,41 @@ namespace OnlineCoursesApp.Controllers
                 }
 
                 // رفع الصورة وحفظها في مجلد wwwroot/image
-                var fileName = Path.GetFileName(model.Image.FileName);
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image", fileName);
+                // var fileName = Path.GetFileName(model.Image.FileName);
+                string mustFileName = instructor.InstructorId.ToString();
+               
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                // delete old file if exist
+
+               //// var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Instructor", instructor.InstructorId.ToString());
+
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Instructor");
+
+                var files = Directory.GetFiles(folderPath)
+                             .Where(f => Path.GetFileNameWithoutExtension(f).Equals(mustFileName, System.StringComparison.OrdinalIgnoreCase))
+                             .ToList();
+
+                foreach (var oldFile in files)
+                {
+                    if (System.IO.File.Exists(oldFile))
+                    {
+                        // Delete the file
+                        System.IO.File.Delete(oldFile);
+                    }
+                }
+                
+
+                // update by new file 
+                string fileExtension = Path.GetExtension(model.Image.FileName);
+                var newFileName = mustFileName + fileExtension;
+                var newFfilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Instructor", newFileName);
+                using (var stream = new FileStream(newFfilePath, FileMode.Create))
                 {
                     model.Image.CopyTo(stream);
                 }
 
                 // تحديث مسار الصورة في قاعدة البيانات
-                instructor.Image = "/image/" + fileName;
+                instructor.Image = "/image/Instructor/" + newFileName;
                 _instructorService.Update(instructor);
 
                 // إعادة توجيه المستخدم إلى صفحة الـ Profile بعد التحديث
@@ -165,7 +190,7 @@ namespace OnlineCoursesApp.Controllers
             return RedirectToAction("Profile", new { id = model.InstructorId });
         }
 
-       
+
 
         public IActionResult Students(int id)
         {
@@ -218,11 +243,11 @@ namespace OnlineCoursesApp.Controllers
             return View(students);
         }
 
-        
+
 
 
         // ---------------------------------------------------
-     
+
 
         public IActionResult ManageCourse(int id)
         {
