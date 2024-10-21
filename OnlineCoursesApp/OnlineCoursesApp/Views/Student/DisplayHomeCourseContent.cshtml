@@ -21,12 +21,58 @@
         border-radius: 5px;
         transition: background-color 0.3s ease;
         float: inline-end;
-        width: 100%; /* Optionally set width to 100% to make it full-width within its container */
+        width: 100%;
+        /* Optionally set width to 100% to make it full-width within its container */
     }
 
         .enroll-button-display:hover {
             background-color: #45a049;
         }
+
+        @* styles of the instructor car *@
+        card {
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-img-top {
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+
+        .custom-btn {
+  display: inline-block;
+  font-weight: 400;
+  color: #fff; /* White text */
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  background-color: #6c757d; /* Secondary color (gray) */
+  border: 1px solid transparent;
+  padding: 0.75rem 1.25rem; /* Padding for large button size */
+  font-size: 1.25rem; /* Font size for large button */
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.custom-btn:hover {
+  color: #fff;
+  background-color: #5a6268; /* Darker gray on hover */
+  border-color: #545b62;
+}
+
+.custom-btn:focus,
+.custom-btn:active {
+  color: #fff;
+  background-color: #545b62; /* Slightly darker gray for active/focus state */
+  border-color: #4e555b;
+  box-shadow: 0 0 0 0.2rem rgba(130,138,145,0.5); /* Focused button shadow */
+}
+
+.custom-btn.active {
+  background-color: #545b62;
+  border-color: #4e555b;
+}
 </style>
 @*  CourseId = course.CourseId,
                Name = course.Name,
@@ -59,6 +105,17 @@
             <h1>Course Title: @Model.Name</h1>
             <p>Description: @Model.Description</p>
         </div>
+        <div class="card" style="width: 18rem;">
+            <img src="@Model.Instructor.Image" class="card-img-top" alt="Instructor Photo"style="max-width: 100%; height: auto;">
+            <div class="card-body">
+                <h5 class="card-title"@Model.Instructor.Name></h5>
+                <p class="card-text">Name: @Model.Instructor.Name</p>
+                <p class="card-text">About: @Model.Instructor.About</p>
+                  <button onclick="window.location.href='/Instructor/Profile/@Model.InstructoID';" class="custom-btn">View Profile</button>
+            </div>
+        </div>
+
+
         <form action="/Student/EnrollCourse" method="post">
             <input type="hidden" id="courseId" name="courseId" value="@Model.CourseId" />
             <input type="hidden" id="studentId" name="studentId" value=@TempData.Peek("studentId") />

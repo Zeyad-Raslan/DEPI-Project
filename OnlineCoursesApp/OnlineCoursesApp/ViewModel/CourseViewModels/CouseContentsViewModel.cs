@@ -18,7 +18,7 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
         public int StudentCount {  get; set; }
         public virtual ICollection<Section> Sections { get; set; }
 
-        public virtual Instructor Instructor { get; set; }
+        public Instructor Instructor { get; set; }
         public string InstructorName { get; set; }
         public int InstructoID { get; set; }
     }

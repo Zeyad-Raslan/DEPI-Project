@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel;
+using OnlineCoursesApp.ViewModel.HomePageViewModels;
 using OnlineCoursesApp.ViewModel.InstructorViewModels;
 using System.Linq;
 using System.Security.Claims;
@@ -288,7 +289,26 @@ namespace OnlineCoursesApp.Controllers
             return View(viewModel);
         }
 
-
+        [AllowAnonymous]
+        public IActionResult ShowInstructorCourses(int instructorId)
+        {
+            var instructoreCourses = _instructorService.Query()
+                .Include(inst => inst.Courses)
+                .ThenInclude(crs => crs.Students)
+                .FirstOrDefault(inst => inst.InstructorId == instructorId)
+                .Courses
+                .Where(crs => crs.CourseStatus == CourseStatus.Approved)
+                .ToList();
+            List<CoursesHomeViewModel> coursesVM = instructoreCourses.Select(crs => (new CoursesHomeViewModel()
+            {
+                CourseId = crs.CourseId,
+                CourseName = crs.Name,
+                CourseImage = crs.Image,
+                CourseDescription = crs.Description,
+                NumStudent = crs.Students.Count
+            })).ToList();
+            return View(coursesVM);
+        }
 
 
 

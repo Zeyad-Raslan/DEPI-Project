@@ -14,6 +14,91 @@
     <link rel="stylesheet" href="~/css/DisplayMyCourse.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 </head>
+<style>
+    .custom-btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #fff; /* White text */
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        background-color: #6c757d; /* Secondary color (gray) */
+        border: 1px solid transparent;
+        padding: 0.75rem 1.25rem; /* Padding for large button size */
+        font-size: 1.25rem; /* Font size for large button */
+        line-height: 1.5;
+        border-radius: 0.3rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    }
+
+        .custom-btn:hover {
+            color: #fff;
+            background-color: #5a6268; /* Darker gray on hover */
+            border-color: #545b62;
+        }
+
+        .custom-btn:focus,
+        .custom-btn:active {
+            color: #fff;
+            background-color: #545b62; /* Slightly darker gray for active/focus state */
+            border-color: #4e555b;
+            box-shadow: 0 0 0 0.2rem rgba(130,138,145,0.5); /* Focused button shadow */
+        }
+
+        .custom-btn.active {
+            background-color: #545b62;
+            border-color: #4e555b;
+        }
+
+
+
+    .custom-btn {
+        margin-top: 1rem; /* Space between text and button */
+        padding: 0.75rem 1.25rem; /* Button padding */
+        font-size: 1rem; /* Button font size */
+        background-color: #6c757d; /* Button background color */
+        color: #fff; /* Button text color */
+        border: none; /* Remove default button border */
+        border-radius: 0.3rem; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor for button */
+        transition: background-color 0.3s; /* Transition for hover effect */
+    }
+
+        .custom-btn:hover {
+            background-color: #5a6268; /* Darker color on hover */
+        }
+
+    <!-- instructor card style -->
+    .instructor-card {
+        display: flex; /* Use Flexbox for layout */
+        width: 18rem; /* Fixed width for the card */
+        border: 1px solid #ddd; /* Optional: border for the card */
+        border-radius: 0.3rem; /* Optional: rounded corners */
+        overflow: hidden; /* Ensure content does not overflow */
+    }
+
+    .instructor-image {
+        max-width: 40%; /* Control image width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .instructor-info {
+        padding: 1rem; /* Padding for the text area */
+        display: flex; /* Flex container for text and button */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center content vertically */
+    }
+
+    .instructor-name {
+        font-weight: bold; /* Bold font for the name */
+        margin: 0; /* Remove default margin */
+    }
+
+    .instructor-text {
+        margin: 0.5rem 0; /* Margin for text */
+    }
+
+</style>
 
 @section StudentInfo {
     <label style="color: whitesmoke;">Id:</label>
@@ -29,9 +114,28 @@
         <div class="course-header">
             <h1>Course Title: @Model.Name</h1>
             <p>Description: @Model.Description</p>
-            <p>Instructor: @Model.InstructorName</p>
+            <!--<p>Instructor: @Model.InstructorName</p>-->
         </div>
-
+       @*  <!--Instructor info-->
+        <div class="card" style="width: 18rem;">
+            <img src="@Model.InstructorImage" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
+            <div class="card-body">
+                <h5 class="card-title" @Model.InstructorName></h5>
+                <p class="card-text">Name: @Model.InstructorName</p>
+                <p class="card-text">About: @Model.InstructorAbout</p>
+                <button onclick="window.location.href='/Instructor/Profile/@Model.InstructoID';" class="custom-btn">View Profile</button>
+            </div>
+        </div> *@
+        <!-- Instructor info -->
+        <div class="instructor-card">
+            <img src="@Model.InstructorImage" alt="Instructor Photo" class="instructor-image">
+            <div class="instructor-info">
+                <h5 class="instructor-name">@Model.InstructorName</h5>
+                <p class="instructor-text">Name: @Model.InstructorName</p>
+                <p class="instructor-text">About: @Model.InstructorAbout</p>
+                <button onclick="window.location.href='/Instructor/Profile/@Model.InstructoID';" class="custom-btn">View Profile</button>
+            </div>
+        </div>
         <!-- Progress Bar Section -->
         <div class="progress">
             <div class="progress-bar bg-success" role="progressbar"
