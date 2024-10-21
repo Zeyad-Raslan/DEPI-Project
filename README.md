@@ -1,191 +1,111 @@
-## مهم جدا عشان تكمل شغل بعد التعديلات 
-مرحبًا! سأساعدك في إكمال مشروع الـ MVC باستخدام نهج Code First. بناءً على ما ذكرت، صديقك بدأ المشروع وأنشأ Migration، وأنت قمت بتنزيل المشروع من GitHub وتريد تحويل الـ Models إلى قاعدة بيانات. إليك الخطوات التي يمكنك اتباعها:
 
-### 1. **إعداد المشروع المحلي**
+# Online Course Platform
 
-- **استنساخ المشروع**: تأكد أنك قد استنساخت المشروع بشكل صحيح من GitHub.
-- **استعادة الحزم**: افتح المشروع في Visual Studio أو بيئة تطوير أخرى تدعم .NET وMVC. ثم قم باستعادة حزم NuGet اللازمة بالنقر بزر الماوس الأيمن على الحل واختيار `Restore NuGet Packages`.
+## Introduction
+The **Online Course Platform** is designed to provide a flexible and accessible solution for online education. It enables **students** to enroll in online courses, **instructors** to upload and manage their courses, and **admins** to monitor the platform’s activities, offering a bridge between learners and digital education.
 
-### 2. **تكوين سلسلة الاتصال بقاعدة البيانات**
+### Objectives:
+- Provide a centralized, flexible online learning environment.
+- Enable instructors to effectively manage and update their courses.
+- Facilitate student progress tracking and course enrollment.
 
-- **تحديث `appsettings.json` أو `Web.config`**: تحقق من أن سلسلة الاتصال بقاعدة البيانات مضبوطة بشكل صحيح. يجب أن تعكس إعدادات البيئة المحلية الخاصة بك.
-  
-  مثال على `appsettings.json`:
-  ```json
-  {
-    "ConnectionStrings": {
-      "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=YOUR_DATABASE_NAME;Trusted_Connection=True;MultipleActiveResultSets=true"
-    },
-    ...
-  }
-  ```
+## Project Scope
+### Problem:
+The demand for online education platforms has increased significantly due to the constraints of traditional, in-person learning environments.
 
-### 3. **تطبيق الـ Migrations الحالية**
-
-- **فتح Package Manager Console**: في Visual Studio، اذهب إلى `Tools` > `NuGet Package Manager` > `Package Manager Console`.
-- **التأكد من المشروع الافتراضي**: في أعلى الـ Package Manager Console، تأكد أن المشروع الافتراضي هو مشروع الـ Data (عادة يكون المشروع الذي يحتوي على الـ DbContext).
-- **تطبيق الـ Migration**: نفذ الأمر التالي لتحديث قاعدة البيانات بناءً على الـ Migration الموجود:
-  ```powershell
-  Update-Database
-  ```
-  هذا الأمر سيطبق الـ Migration التي قام بها صديقك ويقوم بإنشاء أو تحديث قاعدة البيانات بناءً على الـ Models.
-
-### 4. **التأكد من نجاح العملية**
-
-- **التحقق من قاعدة البيانات**: بعد تنفيذ الأمر السابق، تحقق من قاعدة البيانات في SQL Server أو أي نظام إدارة قواعد بيانات تستخدمه للتأكد من إنشاء الجداول والعلاقات بشكل صحيح.
-- **تشغيل المشروع**: قم بتشغيل المشروع وتحقق من أن التطبيق يعمل بدون أخطاء وأن البيانات تظهر بشكل صحيح.
-
-### 5. **متابعة العمل باستخدام Code First**
-
-- **إضافة أو تعديل Models**: عندما تحتاج إلى إضافة كائنات جديدة أو تعديل الكائنات الحالية، قم بتعديل الـ Models في المشروع.
-- **إنشاء Migration جديد**: بعد إجراء التعديلات، افتح الـ Package Manager Console ونفذ الأمر:
-  ```powershell
-  Add-Migration اسم_الMigration
-  ```
-  استبدل `اسم_الMigration` باسم يعبر عن التغييرات التي قمت بها، مثل `AddProductTable`.
-
-- **تطبيق الـ Migration الجديد**:
-  ```powershell
-  Update-Database
-  ```
-
-### 6. **إدارة الـ Migrations مع GitHub**
-
-- **دفع التغييرات إلى GitHub**: بعد إنشاء الـ Migration الجديد وتطبيقه، تأكد من إضافة ملفات الـ Migration إلى Git وتدفعها إلى المستودع على GitHub ليتمكن زملاؤك من الاستفادة منها.
-  
-  ```bash
-  git add .
-  git commit -m "Added Migration for إضافة المنتج"
-  git push origin main
-  ```
-
-### نصائح إضافية:
-
-- **التأكد من توافق الإصدارات**: تأكد أن جميع أعضاء الفريق يستخدمون نفس إصدار Entity Framework أو EF Core لتجنب التعارضات.
-- **التعامل مع التعارضات في الـ Migrations**: إذا قام أكثر من شخص بإنشاء Migration في نفس الوقت، قد تحتاج إلى حل التعارضات يدويًا.
-- **استخدام بيئات تطوير منفصلة**: ينصح بأن يكون لكل مطور بيئة تطوير منفصلة لتجنب التأثير على بيئات الآخرين.
-
-إذا واجهت أي مشاكل أو تحتاج إلى توضيحات إضافية في أي من الخطوات، لا تتردد في طرحها!
-
-
-
-## لبدء العمل على مشروع GitHub
-
-### 1. **فورك (Fork) الريبو:**
-- بما أنك لا تملك برانش في الريبو، أول خطوة هي عمل فورك (Fork) للريبو إلى حسابك على GitHub.
-- اذهب إلى الريبو على GitHub الذي تريد تعديله، ثم اضغط على زر "Fork" في الزاوية العلوية اليمنى. هذا سينشئ نسخة من الريبو في حسابك الشخصي.
-
-### 2. **استنساخ (Clone) الريبو:**
-- بعد أن تقوم بعمل فورك، تحتاج إلى استنساخ (Clone) الريبو إلى جهازك المحلي لتتمكن من العمل عليه.
-- افتح الـ PowerShell أو أي terminal تفضله واكتب الأمر التالي لاستنساخ المشروع:
-
-```bash
-git clone https://github.com/YOUR-USERNAME/DEPI-Project.git
-```
-
-- تأكد من استبدال `YOUR-USERNAME` باسم المستخدم الخاص بك على GitHub.
-
-### 3. **إنشاء برانش جديد:**
-- بعد استنساخ المشروع، انتقل إلى المجلد الخاص بالمشروع:
-
-```bash
-cd DEPI-Project
-```
-
-- أنشئ برانش جديد للعمل على التعديلات الخاصة بك:
-
-```bash
-git checkout -b new-feature
-```
-
-استبدل `new-feature` باسم وصفي للتعديل الذي ستقوم به.
-
-### 4. **قم بالتعديلات اللازمة:**
-- الآن قم بالتعديلات المطلوبة في المشروع باستخدام محرر الأكواد الذي تفضله.
-
-### 5. **التأكد من التعديلات:**
-- بعد الانتهاء من التعديلات، يمكنك التحقق من حالة الملفات التي تم تعديلها باستخدام:
-
-```bash
-git status
-```
-
-### 6. **إضافة التعديلات ورفعها:**
-- أضف التعديلات التي قمت بها إلى الـ stage:
-
-```bash
-git add .
-```
-
-- ثم قم بعمل commit للتعديلات:
-
-```bash
-git commit -m "Add new feature"
-```
-
-- بعد ذلك، ارفع التعديلات إلى البرانش الجديد في الريبو الخاص بك على GitHub:
-
-```bash
-git push origin new-feature
-```
-
-### 7. **فتح Pull Request (PR):**
-- بعد رفع التعديلات إلى الريبو الخاص بك، توجه إلى صفحة الريبو على GitHub.
-- ستجد هناك خيار "Compare & pull request". اضغط عليه.
-- في صفحة الـ PR، تأكد من أن كل شيء صحيح، ثم اضغط على "Create pull request" لفتح طلب دمج التعديلات (PR).
-
-### 8. **انتظار المراجعة:**
-- الآن سيقوم مالك الريبو الأصلي أو أعضاء الفريق بمراجعة الـ PR الخاص بك. قد يطلبون منك إجراء بعض التعديلات أو يوافقون على الدمج (Merge) مباشرةً.
+### Solution:
+This platform offers an all-in-one solution where **instructors** can easily upload courses, and **students** can access and engage with educational content.
 
 ---
-عندما تقوم بإجراء تعديلات أخرى على مشروع قمت بإنشاء **Pull Request (PR)** له بالفعل، عليك اتباع بعض الخطوات لإضافة تلك التعديلات على نفس الـ PR، بدلاً من إنشاء PR جديد. إليك الخطوات:
 
-## الخطوات لإجراء تعديلات أخرى بعد إنشاء Pull Request:
+## System Overview
 
-### 1. **العمل على نفس الفرع (branch):**
-   - بما أنك تعمل بالفعل على فرع معين (مثل `new-feature`) الذي تم إنشاء الـ PR منه، تأكد من أنك تعمل عليه.
-   - إذا كنت قد غيرت الفرع (branch)، قم بالعودة إليه باستخدام الأمر:
+### Functional Requirements:
+- **Students**:  
+  - View and enroll in available courses.
+  - Track course progress.
+  
+- **Instructors**:  
+  - Create, edit, and delete courses.
+  - View student enrollments and progress.
+  
+- **Admins**:  
+  - Manage users (students, instructors).
+  - Review and approve courses before publishing.
 
-     ```bash
-     git checkout new-feature
-     ```
+### Non-Functional Requirements:
+- **Performance**: The system is designed to handle multiple simultaneous users efficiently.
+- **Security**: Ensures data protection for users and course content.
+- **Usability**: Provides a user-friendly interface for all users.
 
-### 2. **إجراء التعديلات المطلوبة:**
-   - قم بإجراء التعديلات التي تحتاجها في الملفات على مشروعك المحلي.
+---
 
-### 3. **إضافة التعديلات (git add):**
-   - بعد تعديل الملفات، أضف الملفات المعدلة إلى الـ stage:
+## System Architecture
+This platform is built following the **3-Layer Architecture**:
 
-     ```bash
-     git add .
-     ```
+1. **Presentation Layer**:  
+   Manages the UI/UX for students, instructors, and admins.
+   
+2. **Business Logic Layer**:  
+   Handles the main functionality such as course management, user interaction, and course approval.
+   
+3. **Data Access Layer**:  
+   Communicates with the **SQL Server** database to retrieve and store data.
 
-### 4. **عمل commit للتعديلات:**
-   - قم بعمل commit للتعديلات التي أجريتها:
+---
 
-     ```bash
-     git commit -m "Add more changes to the feature"
-     ```
+## Technology Stack
+- **Language**: C#
+- **Framework**: ASP.NET Core MVC
+- **Database**: SQL Server
+- **ORM**: Entity Framework Core
+- **UI**: Bootstrap for responsive design
 
-### 5. **رفع التعديلات إلى GitHub (git push):**
-   - الآن، قم برفع التعديلات إلى نفس الفرع (`new-feature`) على GitHub:
+---
 
-     ```bash
-     git push origin new-feature
-     ```
+## Database Design
+The platform’s database structure follows the ERD as shown below, illustrating the relationships between entities such as **Students**, **Instructors**, **Courses**, and more.
 
-   - هذا سيقوم بتحديث الـ Pull Request الموجود مسبقاً تلقائيًا على GitHub، ولن تحتاج إلى إنشاء PR جديد.
+### ERD Diagram
+![ERD Diagram](Resources/image/Capture.PNG)
 
-### 6. **مراجعة التعديلات على GitHub:**
-   - بمجرد رفع التعديلات، يمكنك الذهاب إلى صفحة الـ PR الخاصة بك على GitHub والتأكد من أن التعديلات التي قمت بها قد أُضيفت إلى نفس الـ PR.
-   - سيتلقى المراجعون إشعاراً بالتعديلات الجديدة التي أجريتها، وسيقومون بمراجعتها مجددًا.
+### Schema Diagram
+The schema diagram represents the detailed structure of the database.
 
-### 7. **انتظار المراجعة (إذا كان هناك ملاحظات):**
-   - بعد رفع التعديلات، انتظر مراجعة المراجعين للتأكد من أن التعديلات الجديدة تتماشى مع متطلبات المشروع.
-   - إذا كانت هناك تعليقات جديدة أو تعديلات إضافية مطلوبة، اتبع نفس الخطوات لإجراء التعديلات المطلوبة ورفعها.
+![Schema Diagram](Resources/image/Database.PNG)
 
-## ملاحظات إضافية:
+---
 
-- **لا تنشئ PR جديداً:** طالما أن الـ PR الخاص بك مفتوح ولم يتم دمجه بعد، فإن جميع التعديلات على نفس الفرع سيتم إضافتها إلى نفس الـ PR.
-- **اجتياز الفحوصات الآلية:** إذا كان هناك فحوصات آلية (مثل GitHub Actions أو Travis CI)، تأكد من اجتيازها بعد رفع التعديلات الجديدة.
-- **حل التعارضات:** إذا ظهرت تعارضات بين التعديلات الجديدة والكود الموجود في البرانش الرئيسي، سيقوم GitHub بإعلامك، ويمكنك حل التعارضات محليًا ورفع التعديلات مرة أخرى.
+## User Interface Design
+The platform has different interfaces for its users:
+
+1. **Login and Registration**:  
+   Users can create accounts and log in according to their roles (student, instructor, admin).
+   
+2. **Course Listing**:  
+   Students can browse and enroll in courses.
+   
+3. **Student Dashboard**:  
+   Displays enrolled courses and progress tracking.
+   
+4. **Instructor Dashboard**:  
+   Allows course management and interaction with students.
+   
+5. **Admin Dashboard**:  
+   Full control over user management and course approval.
+
+---
+
+## User Interaction
+- **Students**:  
+  - Can browse and enroll in courses.
+  - Can track their progress in enrolled courses.
+  
+- **Instructors**:  
+  - Can create, edit, and manage courses.
+  - Monitor students' progress and engagement.
+  
+- **Admins**:  
+  - Can manage both instructors and students.
+  - Review and approve courses before publishing.
+
