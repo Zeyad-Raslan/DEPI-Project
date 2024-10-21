@@ -39,7 +39,7 @@ namespace OnlineCoursesApp
             // Inject UserManager (authentication)
 
             builder.Services.AddDbContext<OnlineCoursesContext>(options =>
-              options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+              options.UseSqlServer(builder.Configuration.GetConnectionString("OnlineCoursesDemo")));
 
             builder.Services.AddIdentity<IdentityUser, IdentityRole>(options=>
             {

@@ -19,17 +19,28 @@ namespace OnlineCoursesApp.Controllers
             this._courseService = courseService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchQuery)
         {
 
-            var courses = _courseService.Query().
+            List<Course> courses = _courseService.Query().
                 Include(i => i.Students).
                 Include(i => i.Instructor).
                 Where(i => i.CourseStatus == CourseStatus.Approved).
                 ToList();  // filter Home Courses
 
+            // If searchQuery is provided, filter the course list
+            List<Course> filteredCourses;
+            if (string.IsNullOrEmpty(searchQuery))
+            {
+                filteredCourses = courses;
+            }
+            else
+            {
+                filteredCourses = courses.Where(c => c.Name.Contains(searchQuery))
+                                .ToList(); // Search by name
+            }
 
-            List<CoursesHomeViewModel> courceList = courses.Select(e => new CoursesHomeViewModel()
+            List<CoursesHomeViewModel> courceList = filteredCourses.Select(e => new CoursesHomeViewModel()
             {
                 CourseId = e.CourseId,
                 CourseName = e.Name,
