@@ -5,6 +5,8 @@
 
 }
 
+
+@* 
 <h1>ShowInstructorCourses</h1>
 
 @foreach(var crsVm in @Model){
@@ -24,4 +26,202 @@
     </div>
 }
 
+ *@
 
+@* <h1>Courses for Instructor</h1>
+
+@foreach (var crsVm in Model)
+{
+    <div class="card" style="max-width: 500px;">
+        <div class="row g-0">
+            <div class="col-sm-5">
+                <img src="@crsVm.CourseImage" alt="Course Image" class="img-fluid">
+            </div>
+            <div class="col-sm-7">
+                <div class="card-body">
+                    <h5 class="card-title">@crsVm.CourseName</h5>
+                    <p class="card-text"><strong>Instructor:</strong> @crsVm.InstructorName</p> <!-- عرض اسم المدرس -->
+                    <p class="card-text">@crsVm.CourseDescription</p>
+                    <p class="card-text"><small class="text-muted">Number of Students: @crsVm.NumStudent</small></p>
+                    <a href="/student/DisplayHomeCourseContent?courseId=@crsVm.CourseId" class="btn btn-primary stretched-link">View Course</a>
+                </div>
+            </div>
+        </div>
+    </div>
+} *@
+
+
+@* 
+<h1 class="mb-4">Courses for Instructor</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var crsVm in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img src="@crsVm.CourseImage" class="card-img-top img-fluid" alt="Course Image" style="max-height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@crsVm.CourseName</h5>
+                        <p class="card-text"><strong>Instructor:</strong> @crsVm.InstructorName</p>
+                        <p class="card-text">@crsVm.CourseDescription</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">Number of Students: @crsVm.NumStudent</p>
+                        <a href="/student/DisplayHomeCourseContent?courseId=@crsVm.CourseId" class="btn btn-primary stretched-link">View Course</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-dark text-white text-center">
+    <div class="container">
+        <span>&copy; 2024 - OnlineCoursesApp - <a href="#" class="text-white">Privacy</a></span>
+    </div>
+</footer>
+ *@
+
+@* <h1 class="mb-4">Courses for Instructor</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var crsVm in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img src="@crsVm.CourseImage" class="card-img-top img-fluid" alt="Course Image" style="max-height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@crsVm.CourseName</h5>
+                        <p class="card-text"><strong>Instructor:</strong> @crsVm.InstructorName</p>
+                        <p class="card-text">@crsVm.CourseDescription</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">Number of Students: @crsVm.NumStudent</p>
+                        <a href="/student/DisplayHomeCourseContent?courseId=@crsVm.CourseId" class="btn btn-primary stretched-link">View Course</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-dark text-white text-center">
+    <div class="container">
+        <span>&copy; 2024 - OnlineCoursesApp - <a href="#" class="text-white">Privacy</a></span>
+    </div>
+</footer>
+ *@
+
+
+
+<h1 class="mb-4">Courses for Instructor</h1>
+
+<div class="container">
+    <div class="row">
+        @foreach (var crsVm in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                    <img src="@crsVm.CourseImage" class="card-img-top img-fluid" alt="Course Image">
+                    <div class="card-body">
+                        <h5 class="card-title">@crsVm.CourseName</h5>
+                        <p class="card-text"><strong>Instructor:</strong> @crsVm.InsrUctorName</p>
+                        <p class="card-text">@crsVm.CourseDescription</p>
+                    </div>
+                    <div class="card-footer">
+                        <p class="text-muted">Number of Students: @crsVm.NumStudent</p>
+                        <a href="/student/DisplayHomeCourseContent?courseId=@crsVm.CourseId" class="btn btn-primary stretched-link">View Course</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <span>&copy; 2024 - OnlineCoursesApp - <a href="#">Privacy</a></span>
+    </div>
+</footer>
+
+<style>
+    /* تحسينات زر View Course */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    /* تأثير التكبير وإضافة ظل عند التمرير على البطاقة */
+    .card {
+        background-color: #f8f9fa; /* لون البطاقة الأساسي */
+        border: 1px solid #dee2e6; /* حدود البطاقة */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: #e9ecef; /* تغيير لون البطاقة عند التمرير */
+        }
+
+    /* صورة الكورس */
+    .card-img-top {
+        object-fit: cover; /* لجعل الصورة تتناسب مع حجم البطاقة */
+        width: 100%; /* عرض الصورة بالكامل */
+        height: 200px; /* تثبيت ارتفاع الصورة */
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-top {
+        transform: scale(1.05); /* تكبير الصورة عند التمرير */
+    }
+
+    /* تحسين الـ Footer */
+    .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 20px 0;
+    }
+
+        .footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+            .footer a:hover {
+                color: #cccccc;
+                text-decoration: underline;
+            }
+</style>
+
+
+
+@* <style>
+    /* تغيير لون الزر عند تمرير الماوس */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    /* تأثير التكبير وإضافة ظل عند التمرير على البطاقة */
+    .card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* صورة الكورس عند التمرير */
+    .card-img-top {
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-top {
+        transform: scale(1.1);
+    }
+</style>
+
+ *@

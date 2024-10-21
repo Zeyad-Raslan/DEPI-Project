@@ -250,26 +250,58 @@ namespace OnlineCoursesApp.Controllers
             return View(viewModel);
         }
 
+        //[AllowAnonymous]
+        //public IActionResult ShowInstructorCourses(int instructorId)
+        //{
+        //    var instructoreCourses = _instructorService.Query()
+        //        .Include(inst => inst.Courses)
+        //        .ThenInclude(crs => crs.Students)
+        //        .FirstOrDefault(inst => inst.InstructorId == instructorId)
+        //        .Courses
+        //        .Where(crs => crs.CourseStatus == CourseStatus.Approved)
+        //        .ToList();
+        //    List<CoursesHomeViewModel> coursesVM = instructoreCourses.Select(crs => (new CoursesHomeViewModel()
+        //    {
+        //        CourseId = crs.CourseId,
+        //        CourseName = crs.Name,
+        //        CourseImage = crs.Image,
+        //        CourseDescription = crs.Description,
+        //        NumStudent = crs.Students.Count,
+
+        //    })).ToList();
+        //    return View(coursesVM);
+        //}
+
         [AllowAnonymous]
         public IActionResult ShowInstructorCourses(int instructorId)
         {
-            var instructoreCourses = _instructorService.Query()
+            var instructor = _instructorService.Query()
                 .Include(inst => inst.Courses)
                 .ThenInclude(crs => crs.Students)
-                .FirstOrDefault(inst => inst.InstructorId == instructorId)
-                .Courses
+                .FirstOrDefault(inst => inst.InstructorId == instructorId);
+
+            if (instructor == null)
+            {
+                return NotFound(); // التعامل مع حالة عدم وجود المدرس
+            }
+
+            var instructorCourses = instructor.Courses
                 .Where(crs => crs.CourseStatus == CourseStatus.Approved)
                 .ToList();
-            List<CoursesHomeViewModel> coursesVM = instructoreCourses.Select(crs => (new CoursesHomeViewModel()
+
+            List<CoursesHomeViewModel> coursesVM = instructorCourses.Select(crs => new CoursesHomeViewModel()
             {
                 CourseId = crs.CourseId,
                 CourseName = crs.Name,
                 CourseImage = crs.Image,
                 CourseDescription = crs.Description,
-                NumStudent = crs.Students.Count
-            })).ToList();
+                NumStudent = crs.Students.Count,
+                InstructorName = instructor.Name // إضافة اسم المدرس
+            }).ToList();
+
             return View(coursesVM);
         }
+
 
 
 
