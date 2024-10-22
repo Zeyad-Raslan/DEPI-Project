@@ -1,6 +1,7 @@
 ﻿using Humanizer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.BLL.StudentService;
@@ -33,7 +34,7 @@ namespace project_student.Controllers
 
         }
 
-        public IActionResult HomePage(string searchQuery)
+        public IActionResult HomePage(string searchQuery, CourseType? selectedType)
         {
             int studentId;
                 string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
@@ -74,16 +75,16 @@ namespace project_student.Controllers
                 Include(i => i.Instructor).Where(i => i.CourseStatus == CourseStatus.Approved).ToList();  // filter Home Courses
 
             Student student = _studentService.GetById(studentId);
-
-            List<Course> filteredCourses;
-            if (string.IsNullOrEmpty(searchQuery))
-            {
-                filteredCourses = courses;
-            }
-            else
+            ViewBag.CourseTypes = new SelectList(Enum.GetValues(typeof(CourseType)), selectedType);
+            List<Course> filteredCourses = courses;
+            if (!string.IsNullOrEmpty(searchQuery))
             {
                 filteredCourses = courses.Where(c => c.Name.Contains(searchQuery))
                                 .ToList(); // Search by name
+            }
+            if (selectedType.HasValue)
+            {
+                filteredCourses = filteredCourses.Where(c => c.Type == selectedType.Value).ToList(); // serach by type
             }
             List<StudentCoursesHomeViewModel> courceList = filteredCourses.Select(e => new StudentCoursesHomeViewModel()
             {
