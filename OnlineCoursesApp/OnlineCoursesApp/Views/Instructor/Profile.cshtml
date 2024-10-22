@@ -1,4 +1,4 @@
-﻿@model InstructorProfileViewModel
+﻿@* @model InstructorProfileViewModel
 
 @{
     ViewData["Title"] = "Profile";
@@ -20,4 +20,103 @@
         </div>
     </div>
 </div>
+
+ *@
+
+
+@* 
+ @model InstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <img src="@Model.ImageUrl" alt="Instructor Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+        </div>
+        <div class="col-md-9">
+            <h2>@Model.Name's Profile</h2>
+            <hr class="my-4">
+            <p><strong>Name:</strong> Eng. @Model.Name</p>
+            <p><strong>Email:</strong> <a href="mailto:@Model.Email">@Model.Email</a></p>
+            <p><strong>About:</strong> @Model.About</p>
+            <a href="/Instructor/Index/@Model.InstructorId" class="btn btn-outline-success btn-sm mt-3">View Courses</a>
+        </div>
+    </div>
+</div>
+
+ *@
+
+@* @model InstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<div class="container mt-5">
+    <form asp-action="UpdateProfile" asp-controller="Instructor" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="InstructorId" />
+
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="@Model.ImageUrl" alt="Instructor Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+                <input type="file" asp-for="Image" class="form-control mt-2" />
+            </div>
+            <div class="col-md-9">
+                <h2>Edit @Model.Name's Profile</h2>
+                <hr class="my-4">
+
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" class="form-control" asp-for="Name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="about">About:</label>
+                    <textarea id="about" class="form-control" asp-for="About" rows="5"></textarea>
+                </div>
+
+                <p><strong>Email:</strong> <a href="mailto:@Model.Email">@Model.Email</a></p>
+
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+                <a href="/Instructor/Index/@Model.InstructorId" class="btn btn-outline-success btn-sm mt-3">View Courses</a>
+            </div>
+        </div>
+    </form>
+</div>
+ *@
+
+
+@model InstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <!-- عرض الصورة الشخصية الحالية -->
+            <img src="@Model.ImageUrl" alt="Instructor Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+
+            <!-- فورم لرفع صورة جديدة -->
+            <form asp-action="UpdateProfilePicture" asp-controller="Instructor" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="InstructorId" />
+                <input type="file" asp-for="Image" class="form-control mt-2" />
+                <button type="submit" class="btn btn-primary mt-3">Update Profile Picture</button>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <h2>@Model.Name's Profile</h2>
+            <hr class="my-4">
+            <p><strong>Name:</strong> Eng. @Model.Name</p>
+            <p><strong>Email:</strong> <a href="mailto:@Model.Email">@Model.Email</a></p>
+            <p><strong>About:</strong> @Model.About</p>
+            <a href="/Instructor/Index/@Model.InstructorId" class="btn btn-outline-success btn-sm mt-3">View Courses</a>
+        </div>
+    </div>
+</div>
+
 

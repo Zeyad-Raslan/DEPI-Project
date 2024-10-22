@@ -4,10 +4,13 @@ using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel;
+using OnlineCoursesApp.ViewModel.HomePageViewModels;
 using OnlineCoursesApp.ViewModel.InstructorViewModels;
 using System.Linq;
 using System.Security.Claims;
 using static OnlineCoursesApp.ViewModel.StudentViewModelForInst;
+
+// NEW 
 
 namespace OnlineCoursesApp.Controllers
 {
@@ -32,21 +35,21 @@ namespace OnlineCoursesApp.Controllers
         public IActionResult Index()
         {
             int id;
-            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
             Instructor currentInstructor = _instructorService.Query()
                 .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
 
             if (currentInstructor == null)
             {
-                return Content("There is no active user with this logins");
+                return Content("There is no active user with this login");
             }
             id = currentInstructor.InstructorId;
 
             var instructor = _instructorService.Query()
-                                               .Include(i => i.Courses)
-                                               .ThenInclude(i => i.Students)
-                                               .FirstOrDefault(i => i.InstructorId == id);
+                                .Include(i => i.Courses)
+                                .ThenInclude(i => i.Students)
+                                .FirstOrDefault(i => i.InstructorId == id);
 
             if (instructor == null)
             {
@@ -61,11 +64,13 @@ namespace OnlineCoursesApp.Controllers
                 CourseId = course.CourseId,
                 CourseName = course.Name,
                 NumStudents = course.Students.Count,
-                Type = course.Type
+                Type = course.Type,
+                CourseStatus = course.CourseStatus // تعيين الحالة الجديدة
             }).ToList();
 
             return View(courses);
         }
+
 
         public IActionResult Profile(int id)
         {
@@ -88,6 +93,65 @@ namespace OnlineCoursesApp.Controllers
 
             return View(viewModel);
         }
+
+        [HttpPost]
+        public IActionResult UpdateProfilePicture(InstructorProfileViewModel model)
+        {
+            if (model.Image != null && model.Image.Length > 0)
+            {
+                var instructor = _instructorService.GetById(model.InstructorId);
+
+                if (instructor == null)
+                {
+                    return NotFound();
+                }
+
+                // رفع الصورة وحفظها في مجلد wwwroot/image
+                // var fileName = Path.GetFileName(model.Image.FileName);
+                string mustFileName = instructor.InstructorId.ToString();
+               
+
+                // delete old file if exist
+
+               //// var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Instructor", instructor.InstructorId.ToString());
+
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Instructor");
+
+                var files = Directory.GetFiles(folderPath)
+                             .Where(f => Path.GetFileNameWithoutExtension(f).Equals(mustFileName, System.StringComparison.OrdinalIgnoreCase))
+                             .ToList();
+
+                foreach (var oldFile in files)
+                {
+                    if (System.IO.File.Exists(oldFile))
+                    {
+                        // Delete the file
+                        System.IO.File.Delete(oldFile);
+                    }
+                }
+                
+
+                // update by new file 
+                string fileExtension = Path.GetExtension(model.Image.FileName);
+                var newFileName = mustFileName + fileExtension;
+                var newFfilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Instructor", newFileName);
+                using (var stream = new FileStream(newFfilePath, FileMode.Create))
+                {
+                    model.Image.CopyTo(stream);
+                }
+
+                // تحديث مسار الصورة في قاعدة البيانات
+                instructor.Image = "/image/Instructor/" + newFileName;
+                _instructorService.Update(instructor);
+
+                // إعادة توجيه المستخدم إلى صفحة الـ Profile بعد التحديث
+                return RedirectToAction("Profile", new { id = model.InstructorId });
+            }
+
+            // في حالة عدم وجود صورة جديدة مرفوعة، إعادة عرض الصفحة
+            return RedirectToAction("Profile", new { id = model.InstructorId });
+        }
+
 
 
         public IActionResult Students(int id)
@@ -144,40 +208,8 @@ namespace OnlineCoursesApp.Controllers
 
 
 
+        // ---------------------------------------------------
 
-        // --------------------------------------------------------------------------------------------------------
-
-        //public IActionResult ManageCourse(int id)
-        //{
-        //    // Retrieve the course and its sections
-        //    var course = _courseService.Query()
-        //                                .Include(c => c.Sections)
-        //                                .FirstOrDefault(c => c.CourseId == id);
-
-        //    if (course == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var viewModel = new CourseManageViewModel
-        //    {
-        //        CourseId = course.CourseId,
-        //        Title = course.Name,
-        //        Description = course.Description,
-        //        // If the course.Image is null, use a default placeholder image
-        //        Image = course.Image ?? "/images/default-placeholder.png",
-        //        Sections = course.Sections.Select(s => new SectionViewModel
-        //        {
-        //            Id = s.SectionId,
-        //            Title = s.Title,
-        //            Link = s.Link,
-        //            Num = s.Number
-        //        }).ToList()
-        //    };
-
-
-        //    return View(viewModel);
-        //}
 
         public IActionResult ManageCourse(int id)
         {
@@ -218,6 +250,63 @@ namespace OnlineCoursesApp.Controllers
             return View(viewModel);
         }
 
+        //[AllowAnonymous]
+        //public IActionResult ShowInstructorCourses(int instructorId)
+        //{
+        //    var instructoreCourses = _instructorService.Query()
+        //        .Include(inst => inst.Courses)
+        //        .ThenInclude(crs => crs.Students)
+        //        .FirstOrDefault(inst => inst.InstructorId == instructorId)
+        //        .Courses
+        //        .Where(crs => crs.CourseStatus == CourseStatus.Approved)
+        //        .ToList();
+        //    List<CoursesHomeViewModel> coursesVM = instructoreCourses.Select(crs => (new CoursesHomeViewModel()
+        //    {
+        //        CourseId = crs.CourseId,
+        //        CourseName = crs.Name,
+        //        CourseImage = crs.Image,
+        //        CourseDescription = crs.Description,
+        //        NumStudent = crs.Students.Count,
+
+        //    })).ToList();
+        //    return View(coursesVM);
+        //}
+
+        [AllowAnonymous]
+        public IActionResult ShowInstructorCourses(int instructorId)
+        {
+            var instructor = _instructorService.Query()
+                .Include(inst => inst.Courses)
+                .ThenInclude(crs => crs.Students)
+                .FirstOrDefault(inst => inst.InstructorId == instructorId);
+
+            if (instructor == null)
+            {
+                return NotFound(); // التعامل مع حالة عدم وجود المدرس
+            }
+
+            var instructorCourses = instructor.Courses
+                .Where(crs => crs.CourseStatus == CourseStatus.Approved)
+                .ToList();
+
+            List<CoursesHomeViewModel> coursesVM = instructorCourses.Select(crs => new CoursesHomeViewModel()
+            {
+                CourseId = crs.CourseId,
+                CourseName = crs.Name,
+                CourseImage = crs.Image,
+                CourseDescription = crs.Description,
+                NumStudent = crs.Students.Count,
+                InstructorName = instructor.Name // إضافة اسم المدرس
+            }).ToList();
+
+            return View(coursesVM);
+        }
+
+
+
+
+        // ############################################################################################
+        // ############################################################################################
 
         //-------------------------------------- NewCourse
         public IActionResult NewCourse(int id)
@@ -230,21 +319,46 @@ namespace OnlineCoursesApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                string imagePath = null;
+
+                // تحقق إذا كانت الصورة مرفوعة ولها محتوى
+                if (model.Image != null && model.Image.Length > 0)
+                {
+                    // الحصول على اسم الملف من الصورة المرفوعة
+                    var fileName = Path.GetFileName(model.Image.FileName);
+
+                    // تحديد مسار حفظ الصورة في wwwroot/image
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image", fileName);
+
+                    // نسخ الملف إلى المجلد المحدد
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        model.Image.CopyTo(stream);
+                    }
+
+                    // تحديد المسار الذي سيتم حفظه في قاعدة البيانات (النسبة للمجلد wwwroot)
+                    imagePath = "/image/" + fileName;
+                }
+
+                // إنشاء الكورس وحفظ المسار في خاصية Image
                 var course = new Course
                 {
                     Name = model.Name,
                     Type = model.CourseType,
                     Description = model.Description,
-                    Image = model.Image,
+                    Image = imagePath,  // مسار الصورة التي تم رفعها
                     CourseStatus = CourseStatus.UnderReview,
                     Instructor = _instructorService.GetById(model.TechId)
                 };
 
+                // إضافة الكورس الجديد إلى قاعدة البيانات
                 _courseService.Add(course);
 
+                // إعادة توجيه المستخدم لصفحة الـ Index الخاصة بالـ Instructor
                 return RedirectToAction("Index", "Instructor", new { id = model.TechId });
             }
 
+            // إعادة عرض الصفحة مع ظهور الأخطاء إن وجدت
             return View("NewCourse", model);
         }
 

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineCoursesApp.DAL.Models;
 
@@ -11,9 +12,11 @@ using OnlineCoursesApp.DAL.Models;
 namespace OnlineCoursesApp.DAL.Migrations
 {
     [DbContext(typeof(OnlineCoursesContext))]
-    partial class OnlineCoursesContextModelSnapshot : ModelSnapshot
+    [Migration("20241020133202_New Branch")]
+    partial class NewBranch
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -291,9 +294,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.Property<string>("About")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("AccountStatus")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -352,9 +352,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"));
-
-                    b.Property<int>("AccountStatus")
-                        .HasColumnType("int");
 
                     b.Property<string>("Education")
                         .HasColumnType("nvarchar(max)");
@@ -419,9 +416,6 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<int>("AccountStatus")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
