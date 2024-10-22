@@ -75,6 +75,7 @@ namespace project_student.Controllers
                 Include(i => i.Instructor).Where(i => i.CourseStatus == CourseStatus.Approved).ToList();  // filter Home Courses
 
             Student student = _studentService.GetById(studentId);
+
             ViewBag.CourseTypes = new SelectList(Enum.GetValues(typeof(CourseType)), selectedType);
             List<Course> filteredCourses = courses;
             if (!string.IsNullOrEmpty(searchQuery))

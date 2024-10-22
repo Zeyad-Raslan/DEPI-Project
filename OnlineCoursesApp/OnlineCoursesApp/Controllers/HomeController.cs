@@ -28,7 +28,9 @@ namespace OnlineCoursesApp.Controllers
                 Include(i => i.Instructor).
                 Where(i => i.CourseStatus == CourseStatus.Approved).
                 ToList();  // filter Home Courses
+
             ViewBag.CourseTypes = new SelectList(Enum.GetValues(typeof(CourseType)), selectedType);
+
             // If searchQuery is provided, filter the course list
             List<Course> filteredCourses = courses;
             if (!string.IsNullOrEmpty(searchQuery))
