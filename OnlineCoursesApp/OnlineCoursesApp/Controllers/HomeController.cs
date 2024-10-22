@@ -44,6 +44,7 @@ namespace OnlineCoursesApp.Controllers
             {
                 CourseId = e.CourseId,
                 CourseName = e.Name,
+                CourseImage = e.Image,
                 CourseDescription = e.Description,
                 InsrUctorName = e.Instructor.Name,
                 NumStudent = e.Students.Count
