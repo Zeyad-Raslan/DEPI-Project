@@ -113,28 +113,19 @@
     <div class="course-detail-container">
         <div class="course-header">
             <h1>Course Title: @Model.Name</h1>
+            <img src="@Model.Image" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
             <p>Description: @Model.Description</p>
             <!--<p>Instructor: @Model.InstructorName</p>-->
         </div>
-       @*  <!--Instructor info-->
-        <div class="card" style="width: 18rem;">
-            <img src="@Model.InstructorImage" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
-            <div class="card-body">
-                <h5 class="card-title" @Model.InstructorName></h5>
-                <p class="card-text">Name: @Model.InstructorName</p>
-                <p class="card-text">About: @Model.InstructorAbout</p>
-                <button onclick="window.location.href='/Instructor/Profile/@Model.InstructoID';" class="custom-btn">View Profile</button>
-            </div>
-        </div> *@
+       
         <!-- Instructor info -->
         <div class="instructor-card">
-            <img src="@Model.InstructorImage" alt="Instructor Photo" class="instructor-image">
             <div class="instructor-info">
+                <img src="@Model.InstructorImage" alt="Instructor Photo" class="instructor-image">
                 <h5 class="instructor-name">@Model.InstructorName</h5>
                 <p class="instructor-text">Name: @Model.InstructorName</p>
                 <p class="instructor-text">About: @Model.InstructorAbout</p>
                 <button onclick="window.location.href='/Instructor/ShowInstructorCourses?instructorId=@Model.InstructoID';" class="custom-btn">View Profile</button>
-
             </div>
         </div>
         <!-- Progress Bar Section -->
