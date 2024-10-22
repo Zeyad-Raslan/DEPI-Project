@@ -90,15 +90,23 @@
             <img src="@Model.Image" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
             <p>Description: @Model.Description</p>
         </div>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-            <img src="@Model.Instructor.Image" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
-                <h5 class="card-title"@Model.Instructor.Name></h5>
-                <p class="card-text">Name: @Model.Instructor.Name</p>
-                <p class="card-text">About: @Model.Instructor.About</p>
-                  <button onclick="window.location.href='/Instructor/ShowInstructorCourses?instructorId=@Model.InstructoID';" class="custom-btn">View Profile</button>
+        <!--Instructor Card-->
+
+       <div style="width: 100%; max-width: 600px;" class="card">
+            <div class="card-body" style="display: flex; align-items: center;">
+                <!-- Instructor Image -->
+                <img src="/image/Instructor/3.png" alt="Instructor Photo" style="max-width: 150px; height: auto; margin-right: 20px;">
+        
+                <!-- Instructor Details -->
+                <div>
+                    <h5 class="card-title">Osama El Zero</h5>
+                    <p class="card-text">Name: Osama El Zero</p>
+                    <p class="card-text">About: CS</p>
+                    <button onclick="window.location.href='/Instructor/ShowInstructorCourses?instructorId=3';" class="custom-btn">View Courses</button>
+                </div>
             </div>
-        </div>
+</div>
+
 
 
         <form action="/Student/EnrollCourse" method="post">
