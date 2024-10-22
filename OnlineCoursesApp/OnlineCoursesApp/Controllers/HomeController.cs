@@ -25,8 +25,8 @@ namespace OnlineCoursesApp.Controllers
             var courses = _courseService.Query().
                 Include(i => i.Students).
                 Include(i => i.Instructor).
-                Where(i => i.CourseStatus == CourseStatus.Approved).
-                ToList();  // filter Home Courses
+                Where(i => i.CourseStatus == CourseStatus.Approved).ToList();
+                ;
 
 
             List<CoursesHomeViewModel> courceList = courses.Select(e => new CoursesHomeViewModel()
