@@ -5,8 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.BLL.StudentService;
 using OnlineCoursesApp.DAL.Models;
+using OnlineCoursesApp.ViewModel;
 using OnlineCoursesApp.ViewModel.CourseViewModels;
 using OnlineCoursesApp.ViewModel.Student;
+using OnlineCoursesApp.ViewModel.StudentViewModel;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -322,5 +324,63 @@ namespace project_student.Controllers
 
             return RedirectToAction("ProfilePage", new { id = model.StudentId });
         }
+        [HttpPost]
+        public IActionResult UpdateProfilePicture(StudentProfileViewModel model)
+        {
+            if (model.Image != null && model.Image.Length > 0)
+            {
+                var student = _studentService.GetById(model.StudentId);
+
+                if (student == null)
+                {
+                    return NotFound();
+                }
+
+                // رفع الصورة وحفظها في مجلد wwwroot/image
+                // var fileName = Path.GetFileName(model.Image.FileName);
+                string mustFileName = student.StudentId.ToString();
+
+
+                // delete old file if exist
+
+                //// var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Student", Student.StudentId.ToString());
+
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Student");
+
+                var files = Directory.GetFiles(folderPath)
+                             .Where(f => Path.GetFileNameWithoutExtension(f).Equals(mustFileName, System.StringComparison.OrdinalIgnoreCase))
+                             .ToList();
+
+                foreach (var oldFile in files)
+                {
+                    if (System.IO.File.Exists(oldFile))
+                    {
+                        // Delete the file
+                        System.IO.File.Delete(oldFile);
+                    }
+                }
+
+
+                // update by new file 
+                string fileExtension = Path.GetExtension(model.Image.FileName);
+                var newFileName = mustFileName + fileExtension;
+                var newFfilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Student", newFileName);
+                using (var stream = new FileStream(newFfilePath, FileMode.Create))
+                {
+                    model.Image.CopyTo(stream);
+                }
+
+                // تحديث مسار الصورة في قاعدة البيانات
+                student.Image = "/image/Student/" + newFileName;
+                _studentService.Update(student);
+
+                // إعادة توجيه المستخدم إلى صفحة الـ Profile بعد التحديث
+                return RedirectToAction("ProfilePage", new { id = model.StudentId });
+            }
+
+            // في حالة عدم وجود صورة جديدة مرفوعة، إعادة عرض الصفحة
+            return RedirectToAction("ProfilePage", new { id = model.StudentId });
+        }
+
     }
 }

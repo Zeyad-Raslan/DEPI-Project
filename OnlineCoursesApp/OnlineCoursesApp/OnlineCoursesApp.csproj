@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\image\Instructor\" />
+    <Folder Include="wwwroot\image\Student\" />
   </ItemGroup>
 
 </Project>
