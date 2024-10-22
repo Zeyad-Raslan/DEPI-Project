@@ -65,11 +65,17 @@ namespace OnlineCoursesApp.Controllers
                 CourseName = course.Name,
                 NumStudents = course.Students.Count,
                 Type = course.Type,
-                CourseStatus = course.CourseStatus // تعيين الحالة الجديدة
+                CourseStatus = course.CourseStatus, // تعيين الحالة الجديدة
+                // قراءة الصورة المخزنة من قاعدة البيانات
+                 Image = course.Image
+
             }).ToList();
 
             return View(courses);
         }
+
+
+
 
 
         public IActionResult Profile(int id)
