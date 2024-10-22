@@ -100,6 +100,53 @@ namespace OnlineCoursesApp.Controllers
             return View(viewModel);
         }
 
+        // لعرض بيانات المدرس في صفحة تعديل البيانات
+        [HttpGet]
+        public IActionResult EditProfile(int id)
+        {
+            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == id);
+
+            if (instructor == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new EditInstructorProfileViewModel
+            {
+                InstructorId = instructor.InstructorId,
+                Name = instructor.Name,
+                About = instructor.About
+            };
+
+            return View(viewModel);
+        }
+
+        // لحفظ البيانات المعدلة بعد التعديل
+        [HttpPost]
+        public IActionResult EditProfile(EditInstructorProfileViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == model.InstructorId);
+
+            if (instructor == null)
+            {
+                return NotFound();
+            }
+
+            // تحديث بيانات المدرس
+            instructor.Name = model.Name;
+            instructor.About = model.About;
+
+            // حفظ التعديلات في قاعدة البيانات
+            _instructorService.Update(instructor);
+
+            return RedirectToAction("Profile", new { id = instructor.InstructorId });
+        }
+
         [HttpPost]
         public IActionResult UpdateProfilePicture(InstructorProfileViewModel model)
         {
@@ -211,12 +258,6 @@ namespace OnlineCoursesApp.Controllers
             return View(students);
         }
 
-
-
-
-        // ---------------------------------------------------
-
-
         public IActionResult ManageCourse(int id)
         {
             // Retrieve the course and its sections
@@ -256,27 +297,6 @@ namespace OnlineCoursesApp.Controllers
             return View(viewModel);
         }
 
-        //[AllowAnonymous]
-        //public IActionResult ShowInstructorCourses(int instructorId)
-        //{
-        //    var instructoreCourses = _instructorService.Query()
-        //        .Include(inst => inst.Courses)
-        //        .ThenInclude(crs => crs.Students)
-        //        .FirstOrDefault(inst => inst.InstructorId == instructorId)
-        //        .Courses
-        //        .Where(crs => crs.CourseStatus == CourseStatus.Approved)
-        //        .ToList();
-        //    List<CoursesHomeViewModel> coursesVM = instructoreCourses.Select(crs => (new CoursesHomeViewModel()
-        //    {
-        //        CourseId = crs.CourseId,
-        //        CourseName = crs.Name,
-        //        CourseImage = crs.Image,
-        //        CourseDescription = crs.Description,
-        //        NumStudent = crs.Students.Count,
-
-        //    })).ToList();
-        //    return View(coursesVM);
-        //}
 
         [AllowAnonymous]
         public IActionResult ShowInstructorCourses(int instructorId)
