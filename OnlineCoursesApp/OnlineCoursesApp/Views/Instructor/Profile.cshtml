@@ -1,4 +1,4 @@
-﻿@model InstructorProfileViewModel
+﻿@* @model InstructorProfileViewModel
 
 @{
     ViewData["Title"] = "Profile";
@@ -29,3 +29,107 @@
 </div>
 
 
+ *@
+
+@* @model InstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <!-- عرض الصورة الشخصية الحالية -->
+            <img src="@Model.ImageUrl" alt="Instructor Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+
+            <!-- فورم لرفع صورة جديدة -->
+            <form asp-action="UpdateProfilePicture" asp-controller="Instructor" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="InstructorId" />
+                <input type="file" asp-for="Image" class="form-control mt-2" />
+                <button type="submit" class="btn btn-primary mt-3">Update Profile Picture</button>
+            </form>
+        </div>
+
+        <div class="col-md-9">
+            <h2>@Model.Name's Profile</h2>
+            <hr class="my-4">
+
+            <!-- فورم لتعديل الاسم و النبذة الشخصية -->
+            <form asp-action="EditProfile" method="post">
+                <input type="hidden" asp-for="InstructorId" />
+
+                <div class="form-group">
+                    <label asp-for="Name"><strong>Name:</strong></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="About"><strong>About:</strong></label>
+                    <textarea asp-for="About" class="form-control"></textarea>
+                    <span asp-validation-for="About" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+            </form>
+
+            <a href="/Instructor/Index/@Model.InstructorId" class="btn btn-outline-success btn-sm mt-3">View Courses</a>
+        </div>
+    </div>
+</div>
+ *@
+
+@model InstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <!-- عرض الصورة الشخصية الحالية -->
+            <img src="@Model.ImageUrl" alt="Instructor Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+
+            <!-- فورم لرفع صورة جديدة -->
+            <form asp-action="UpdateProfilePicture" asp-controller="Instructor" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="InstructorId" />
+                <input type="file" asp-for="Image" class="form-control mt-2" />
+                <button type="submit" class="btn btn-primary mt-3">Update Profile Picture</button>
+            </form>
+        </div>
+
+        <div class="col-md-9">
+            <h2>@Model.Name's Profile</h2>
+            <hr class="my-4">
+
+            <!-- عرض الاميل كـ رابط -->
+            <div class="form-group">
+                <label><strong>Email:</strong></label>
+                <a href="mailto:@Model.Email" class="text-primary">@Model.Email</a>
+            </div>
+
+            <!-- فورم لتعديل الاسم و النبذة الشخصية -->
+            <form asp-action="EditProfile" method="post">
+                <input type="hidden" asp-for="InstructorId" />
+
+                <div class="form-group">
+                    <label asp-for="Name"><strong>Name:</strong></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="About"><strong>About:</strong></label>
+                    <textarea asp-for="About" class="form-control"></textarea>
+                    <span asp-validation-for="About" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+            </form>
+
+            <a href="/Instructor/Index/@Model.InstructorId" class="btn btn-outline-success btn-sm mt-3">View Courses</a>
+        </div>
+    </div>
+</div>
