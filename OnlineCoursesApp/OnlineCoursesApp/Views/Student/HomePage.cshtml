@@ -59,13 +59,13 @@
     </div>
     <form method="get" action="@Url.Action("HomePage", "Student")">
         <section class="search-container">
-            <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a course..." class="search-input" />
-            <button type="submit" class="custom-btn btn-primary custom-btn-secondary">Search</button>
-            <span style="display: inline-block; width: 20px;"></span>
             @using (Html.BeginForm("Index", "Home", FormMethod.Get))
             {
                 @Html.DropDownList("selectedType", (SelectList)ViewBag.CourseTypes, "All Types", new { @class = "form-control", onchange = "this.form.submit();" })
             }
+            <span style="display: inline-block; width: 20px;"></span>
+            <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a course..." class="search-input" />
+            <button type="submit" class="custom-btn btn-primary custom-btn-secondary">Search</button>
             <span style="display: inline-block; width: 20px;"></span>
             <a href="@Url.Action("HomePage", "Student")" class="custom-btn custom-btn-secondary">Reset</a>
         </section>
