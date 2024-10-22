@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "HomePage";
     Layout = "~/Views/Shared/Layout_student.cshtml";
-@using OnlineCoursesApp.ViewModel.HomePageViewModels;
+    @using OnlineCoursesApp.ViewModel.HomePageViewModels;
 
 }
 <style>
@@ -48,16 +48,41 @@
         <h1>Home Page</h1>
         <p>We are here to help you find the best path to achieve your goals.</p>
     </div>
-
+    <!--Search box -->
     <form method="get" action="@Url.Action("Index", "Home")">
         <section class="search-container">
             <input type="text" id="searchQuery" name="searchQuery" placeholder="Search for a course..." class="search-input" />
             <button type="submit" class="custom-btn btn-primary custom-btn-secondary">Search</button>
             <span style="display: inline-block; width: 20px;"></span>
-        <a href="@Url.Action("Index", "Home")" class="custom-btn custom-btn-secondary">Reset</a>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+            {
+                @Html.DropDownList("selectedType", (SelectList)ViewBag.CourseTypes, "All Types", new { @class = "form-control", onchange = "this.form.submit();" })
+            }
+            <span style="display: inline-block; width: 20px;"></span>
+            <a href="@Url.Action("Index", "Home")" class="custom-btn custom-btn-secondary">Reset</a>
         </section>
 
     </form>
+    <!-- Dropdown for Course Type filter -->
+    <!-- Dropdown for Course Type filter -->
+ @*    <form method="get" action="/Course/Index">
+        <label for="courseType">Choose Course Type:</label>
+        <select id="courseType" name="selectedType" onchange="this.form.submit()">
+            <option value="">All Types</option>
+            @{
+                @foreach (var type in Enum.GetValues(typeof(CourseType)))
+                {
+                    var selected = Request.QueryString["selectedType"] == type.ToString() ? "selected" : "";
+                    <option value="@type" @selected>@type</option>
+                   
+                }
+            }
+
+        </select>
+    </form> *@
+
+
+
 
     <!-- Cards Section -->
     <div class="cards">
@@ -66,23 +91,23 @@
             {
 
                 <div class="HomeCard-container">
-                        <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
-                            <div class="HomeCard">
+                    <a href="/student/DisplayHomeCourseContent?courseId=@course.CourseId" class="HomeCard-link">
+                        <div class="HomeCard">
                             <img src="@course.CourseImage" class="card-img-top" alt="Home Course Photo" style="max-width: 100%; height: auto;">
-                                <h1>@course.CourseName</h1>
-                                <p>By: @course.InsrUctorName</p>
-                                <p>Number of Students: @course.NumStudent</p>
-                                <p>@course.CourseDescription</p>
-                            </div>
-                        </a>
-                        <form action="/Student/EnrollCourse" method="post" class="enroll-form">
-                            <input type="hidden" name="courseId" value="@course.CourseId" />
-                            <input type="hidden" id="studentId" name="studentId" value="@TempData.Peek("studentId")" />
-                            <button class="enroll-button" type="submit">Enroll</button>
-                        </form>
+                            <h1>@course.CourseName</h1>
+                            <p>By: @course.InsrUctorName</p>
+                            <p>Number of Students: @course.NumStudent</p>
+                            <p>@course.CourseDescription</p>
+                        </div>
+                    </a>
+                    <form action="/Student/EnrollCourse" method="post" class="enroll-form">
+                        <input type="hidden" name="courseId" value="@course.CourseId" />
+                        <input type="hidden" id="studentId" name="studentId" value="@TempData.Peek("studentId")" />
+                        <button class="enroll-button" type="submit">Enroll</button>
+                    </form>
 
-                    </div>
-                
+                </div>
+
             }
         }
 

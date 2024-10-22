@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
@@ -13,13 +14,13 @@ namespace OnlineCoursesApp.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IService<Course> _courseService;
 
-        public HomeController(ILogger<HomeController> logger, IService<Course>courseService)
+        public HomeController(ILogger<HomeController> logger, IService<Course> courseService)
         {
             _logger = logger;
             this._courseService = courseService;
         }
 
-        public IActionResult Index(string searchQuery)
+        public IActionResult Index(string searchQuery, CourseType? selectedType)
         {
 
             List<Course> courses = _courseService.Query().
@@ -27,18 +28,19 @@ namespace OnlineCoursesApp.Controllers
                 Include(i => i.Instructor).
                 Where(i => i.CourseStatus == CourseStatus.Approved).
                 ToList();  // filter Home Courses
-
+            ViewBag.CourseTypes = new SelectList(Enum.GetValues(typeof(CourseType)), selectedType);
             // If searchQuery is provided, filter the course list
-            List<Course> filteredCourses;
-            if (string.IsNullOrEmpty(searchQuery))
-            {
-                filteredCourses = courses;
-            }
-            else
+            List<Course> filteredCourses = courses;
+            if (!string.IsNullOrEmpty(searchQuery))
             {
                 filteredCourses = courses.Where(c => c.Name.Contains(searchQuery))
                                 .ToList(); // Search by name
             }
+            if (selectedType.HasValue)
+            {
+                filteredCourses = filteredCourses.Where(c => c.Type == selectedType.Value).ToList();
+            }
+           
 
             List<CoursesHomeViewModel> courceList = filteredCourses.Select(e => new CoursesHomeViewModel()
             {
@@ -51,7 +53,7 @@ namespace OnlineCoursesApp.Controllers
             }).ToList();
 
             return View(courceList);
-            
+
         }
 
         public IActionResult Privacy()
