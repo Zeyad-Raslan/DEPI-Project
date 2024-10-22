@@ -26,8 +26,8 @@ namespace OnlineCoursesApp.Controllers
             List<Course> courses = _courseService.Query().
                 Include(i => i.Students).
                 Include(i => i.Instructor).
-                Where(i => i.CourseStatus == CourseStatus.Approved).
-                ToList();  // filter Home Courses
+                Where(i => i.CourseStatus == CourseStatus.Approved).ToList();
+                ;
 
             ViewBag.CourseTypes = new SelectList(Enum.GetValues(typeof(CourseType)), selectedType);
 
