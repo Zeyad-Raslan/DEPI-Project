@@ -128,10 +128,7 @@ namespace project_student.Controllers
 
 
             //
-            if (studentId == 0)
-            {
-                return Content("MyCourses\nstudentId == 0");
-            }
+         
             var student = _studentService.Query()
                                  .Include(i => i.Courses)
                                  .ThenInclude(c => c.Instructor)
@@ -211,7 +208,7 @@ namespace project_student.Controllers
                 Description = course.Description,
                 Image = course.Image,
                 StudentCount = course.Students.Count(),
-                InstructoID = course.Instructor.InstructorId,
+                InstructorID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
                 InstructorImage = course.Instructor.Image,
                 InstructorAbout = course.Instructor.About
