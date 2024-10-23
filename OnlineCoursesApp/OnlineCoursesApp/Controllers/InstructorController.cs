@@ -78,22 +78,27 @@ namespace OnlineCoursesApp.Controllers
 
 
 
-        public IActionResult Profile(int id)
+        public IActionResult Profile()
         {
-            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == id);
+            int id;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-            if (instructor == null)
+            Instructor currentInstructor = _instructorService.Query()
+                .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
+
+            if (currentInstructor == null)
             {
-                return NotFound();
+                return Content("There is no active user with this login");
             }
+            id = currentInstructor.InstructorId;
 
             var viewModel = new InstructorProfileViewModel
             {
-                InstructorId = instructor.InstructorId,
-                Name = instructor.Name,
-                Email = instructor.Email,
-                About = instructor.About,  // Assuming you have an "About" field in Instructor model
-                ImageUrl = instructor.Image  // Assuming there's an image URL field
+                InstructorId = currentInstructor.InstructorId,
+                Name = currentInstructor.Name,
+                Email = currentInstructor.Email,
+                About = instrucurrentInstructorctor.About,  // Assuming you have an "About" field in Instructor model
+                ImageUrl = currentInstructor.Image  // Assuming there's an image URL field
             };
             ViewBag.InstructorId = id;
 
@@ -104,18 +109,22 @@ namespace OnlineCoursesApp.Controllers
         [HttpGet]
         public IActionResult EditProfile(int id)
         {
-            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == id);
+            nt id;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-            if (instructor == null)
+            Instructor currentInstructor = _instructorService.Query()
+                .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
+
+            if (currentInstructor == null)
             {
-                return NotFound();
+                return Content("There is no active user with this login");
             }
-
+            id = currentInstructor.InstructorId;
             var viewModel = new EditInstructorProfileViewModel
             {
-                InstructorId = instructor.InstructorId,
-                Name = instructor.Name,
-                About = instructor.About
+                InstructorId = currentInstructor.InstructorId,
+                Name = currentInstructor.Name,
+                About = currentInstructor.About
             };
 
             return View(viewModel);
@@ -125,26 +134,33 @@ namespace OnlineCoursesApp.Controllers
         [HttpPost]
         public IActionResult EditProfile(EditInstructorProfileViewModel model)
         {
+            int currentInstructorId;
+            string claimId = User.Claims.
+                FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            Instructor currentInstructor = _instructorService.Query()
+                .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
+
+            if (currentInstructor == null)
+            {
+                return Content("There is no active user with this login");
+            }
+            currentInstructorId = currentInstructor.InstructorId;
+
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            var instructor = _instructorService.Query().FirstOrDefault(i => i.InstructorId == model.InstructorId);
-
-            if (instructor == null)
-            {
-                return NotFound();
-            }
 
             // تحديث بيانات المدرس
-            instructor.Name = model.Name;
-            instructor.About = model.About;
+            currentInstructor.Name = model.Name;
+            currentInstructor.About = model.About;
 
             // حفظ التعديلات في قاعدة البيانات
-            _instructorService.Update(instructor);
+            _instructorService.Update(currentInstructor);
 
-            return RedirectToAction("Profile", new { id = instructor.InstructorId });
+            return RedirectToAction("Profile", new { id = currentInstructor.InstructorId });
         }
 
         [HttpPost]
@@ -209,6 +225,18 @@ namespace OnlineCoursesApp.Controllers
 
         public IActionResult Students(int id)
         {
+            //
+            int currentInstructorId;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            Instructor currentInstructor = _instructorService.Query()
+                .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
+
+            if (currentInstructor == null)
+            {
+                return Content("There is no active user with this login");
+            }
+            //
             int courseId = id;
 
             // الحصول على المحاضر الذي لديه الدورات
@@ -219,7 +247,8 @@ namespace OnlineCoursesApp.Controllers
                     .ThenInclude(c => c.Sections) // تضمين الأقسام
                 .FirstOrDefault(i => i.Courses.Any(c => c.CourseId == courseId));
 
-            if (instructor == null)
+            if (instructor == null || 
+                instructor.InstructorId != currentInstructor.InstructorId)
             {
                 return NotFound();
             }
@@ -260,12 +289,28 @@ namespace OnlineCoursesApp.Controllers
 
         public IActionResult ManageCourse(int id)
         {
+            //
+            int currentInstructorId;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            Instructor currentInstructor = _instructorService.Query()
+                .FirstOrDefault(instructor => instructor.IdentityUserID == claimId);
+
+            if (currentInstructor == null)
+            {
+                return Content("There is no active user with this login");
+            }
+
+            //
             // Retrieve the course and its sections
             var course = _courseService.Query()
                                        .Include(c => c.Sections)
                                        .Include(c => c.Instructor)
                                        .FirstOrDefault(c => c.CourseId == id);
-
+            if(course.Instructor.InstructorId != currentInstructor.InstructorId)
+            {
+                return Content("You do not have access to this page");
+            }
             if (course == null)
             {
                 return NotFound();
