@@ -11,6 +11,7 @@ namespace OnlineCoursesApp.ViewModel.AccountViewModels
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
         [Required]
         public string Role { get; set; }
         public bool RememberMe { get; set; }

@@ -115,7 +115,7 @@ namespace OnlineCoursesApp.Controllers
                 }
                 else
                 {
-                    foreach (var errorItem in result.Errors)
+                    foreach(var errorItem in result.Errors)
                     {
                         if (errorItem.Code == "DuplicateUserName")
                             continue;

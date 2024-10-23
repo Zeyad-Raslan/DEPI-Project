@@ -18,7 +18,17 @@
 <body class="profile-body">
     <div class="profile-container">
         <div class="header">
-            <img src="~/image/default_profil _mage2.png" alt="Sample Image" class="profile-img" />
+            <div class="col-md-3 text-center">
+                <!-- عرض الصورة الشخصية الحالية -->
+                <img src="@Model.Image" alt="Student Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+
+                <!-- فورم لرفع صورة جديدة -->
+                <form asp-action="UpdateProfilePicture" asp-controller="Student" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="StudentId" />
+                    <input type="file" asp-for="Image" class="form-control mt-2" />
+                    <button type="submit" class="btn btn-primary mt-3">Update Profile Picture</button>
+                </form>
+            </div>
             @if (@Model.Name == null)
             {
                 <p>Add your name</p>
@@ -57,3 +67,37 @@
 
     </div>
 </body>
+  
+
+
+@* @model Student
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <!-- عرض الصورة الشخصية الحالية -->
+            <img src="@Model.Image" alt="Student Image" class="rounded-circle img-fluid shadow" style="max-width: 150px; margin-bottom: 20px;">
+
+            <!-- فورم لرفع صورة جديدة -->
+            <form asp-action="UpdateProfilePicture" asp-controller="Student" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="StudentId" />
+                <input type="file" asp-for="Image" class="form-control mt-2" />
+                <button type="submit" class="btn btn-primary mt-3">Update Profile Picture</button>
+            </form>
+        </div>
+        <div class="col-md-9">
+            <h2>@Model.Name's Profile</h2>
+            <hr class="my-4">
+            <p><strong>Name:</strong> Eng. @Model.Name</p>
+            <p><strong>Email:</strong> <a href="mailto:@Model.Email">@Model.Email</a></p>
+            <p><strong>About:</strong> @Model.About</p> 
+            <a href="/Instructor/Index/@Model.StudentId" class="btn btn-outline-success btn-sm mt-3">View Courses</a>
+        </div>
+    </div>
+</div> 
+
+ *@
