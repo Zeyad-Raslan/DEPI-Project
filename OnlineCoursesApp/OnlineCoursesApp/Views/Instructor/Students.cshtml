@@ -1,4 +1,4 @@
-﻿
+﻿@* 
 @model List<StudentViewModelForInst>
 
 @{
@@ -64,5 +64,87 @@
     .progress-bar {
         line-height: 20px; /* محاذاة النص داخل شريط التقدم */
         font-weight: bold; /* جعل النص عريض */
+    }
+</style>
+ *@
+
+
+@model List<StudentViewModelForInst>
+
+@{
+    ViewData["Title"] = "Students";
+}
+
+<div class="container mt-4">
+    <h2>Students Enrolled in <strong>@ViewData["CourseName"]</strong></h2>
+    <hr class="my-4">
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning">No students are enrolled in this course.</div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var student in Model)
+            {
+                string cardClass = student.Progress == 100 ? "card-success" : "card-normal"; // تحديد الكلاس بناءً على تقدم الطالب
+
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center shadow-sm @cardClass" style="background-color: #f8f9fa; border-radius: 10px; border: 1px solid #007bff;">
+                        <div class="card-body">
+                            <h6 class="card-subtitle mb-2 text-muted">ID: @student.StudentId</h6>
+                            <h5 class="card-title" style="color: #007bff;">@student.StudentName</h5>
+                            <p class="card-text">
+                                <strong>Progress:</strong>
+                                @if (student.Progress > 0)
+                                {
+                                    <div class="progress mt-2" style="height: 20px; border-radius: 5px;">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width:@student.Progress%; border-radius: 5px;" aria-valuenow="@student.Progress" aria-valuemin="0" aria-valuemax="100">
+                                            @student.Progress%
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">N/A</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <a asp-controller="Instructor" asp-action="Index" asp-route-id="@ViewData["InstructorId"]" class="btn btn-primary mt-4">Back to List</a>
+    }
+</div>
+
+<style>
+    .card {
+        transition: transform 0.2s; /* تأثير التحريك */
+    }
+
+        .card:hover {
+            transform: scale(1.05); /* تكبير البطاقة عند التمرير */
+        }
+
+    .progress {
+        border-radius: 5px; /* تحسين حواف شريط التقدم */
+    }
+
+    .progress-bar {
+        line-height: 20px; /* محاذاة النص داخل شريط التقدم */
+        font-weight: bold; /* جعل النص عريض */
+    }
+
+    /* تصميم خاص لحالة النجاح */
+    .card-success {
+        background-color: #e9ffe6 !important; /* خلفية خضراء فاتحة تدل على النجاح */
+        border-color: #28a745; /* تحديد بلون النجاح */
+    }
+
+    .card-normal {
+        background-color: #f8f9fa; /* خلفية البطاقة الافتراضية */
     }
 </style>
