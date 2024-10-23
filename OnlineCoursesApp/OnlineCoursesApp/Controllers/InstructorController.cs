@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
@@ -21,18 +22,20 @@ namespace OnlineCoursesApp.Controllers
         private readonly IService<Course> _courseService;
         private readonly IService<Section> _sectionService;
         private readonly IService<StudentProgress> _studentProgress;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public InstructorController(IService<Instructor> instructorService, IService<Course> courseService, IService<Section> sectionService, IService<StudentProgress> studentProgress)
+        public InstructorController(IService<Instructor> instructorService, IService<Course> courseService, IService<Section> sectionService, IService<StudentProgress> studentProgress, SignInManager<IdentityUser> signInManager)
         {
             _instructorService = instructorService;
             _courseService = courseService;
             _sectionService = sectionService;
             _studentProgress = studentProgress;
+            this._signInManager = signInManager;
         }
 
         [Authorize(Roles = "Instructor")]
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
             int id;
             string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
@@ -42,6 +45,7 @@ namespace OnlineCoursesApp.Controllers
 
             if (currentInstructor == null || (currentInstructor.AccountStatus != AccountStatus.Active))
             {
+                await _signInManager.SignOutAsync();
                 return Content("There is no active user with this login");
             }
             id = currentInstructor.InstructorId;

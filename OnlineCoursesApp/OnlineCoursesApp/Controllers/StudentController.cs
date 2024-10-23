@@ -82,7 +82,8 @@ namespace project_student.Controllers
             List<Course> filteredCourses = courses;
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                filteredCourses = courses.Where(c => c.Name.Contains(searchQuery))
+                searchQuery = searchQuery.ToLower();
+                filteredCourses = courses.Where(c => c.Name.ToLower().Contains(searchQuery))
                                 .ToList(); // Search by name
             }
             if (selectedType.HasValue)
