@@ -97,7 +97,7 @@ namespace OnlineCoursesApp.Controllers
                 InstructorId = currentInstructor.InstructorId,
                 Name = currentInstructor.Name,
                 Email = currentInstructor.Email,
-                About = instrucurrentInstructorctor.About,  // Assuming you have an "About" field in Instructor model
+                About = currentInstructor.About,  // Assuming you have an "About" field in Instructor model
                 ImageUrl = currentInstructor.Image  // Assuming there's an image URL field
             };
             ViewBag.InstructorId = id;
@@ -107,9 +107,9 @@ namespace OnlineCoursesApp.Controllers
 
         // لعرض بيانات المدرس في صفحة تعديل البيانات
         [HttpGet]
-        public IActionResult EditProfile(int id)
+        public IActionResult EditProfile()
         {
-            nt id;
+            int id;
             string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
             Instructor currentInstructor = _instructorService.Query()
@@ -615,11 +615,6 @@ namespace OnlineCoursesApp.Controllers
 
             return RedirectToAction("ManageCourse", new { id = courseID });
         }
-
-
-
-
-
 
     }
 }
