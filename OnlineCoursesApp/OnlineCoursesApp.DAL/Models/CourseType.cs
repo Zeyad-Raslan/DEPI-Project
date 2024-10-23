@@ -13,6 +13,15 @@ namespace OnlineCoursesApp.DAL.Models
         [Display(Name = "Computer Science")]
         ComputerScience,
 
+        [Display(Name = "Back End")]
+        BackEnd,
+
+        [Display(Name = "Front End")]
+        FrontEnd,
+
+        [Display(Name = "Programming Language")]
+        ProgrammingLanguage,
+
         [Display(Name = "Data Science")]
         DataScience,
 

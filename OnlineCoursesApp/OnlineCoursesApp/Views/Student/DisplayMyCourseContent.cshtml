@@ -106,7 +106,11 @@
         <div class="course-header">
             <h1>Course Title: @Model.Name</h1>
             <img src="@Model.Image" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
+            <br />
+            <p>     </p>
+            <br />
             <p>Description: @Model.Description</p>
+            <br />
             <!--<p>Instructor: @Model.InstructorName</p>-->
         </div>
 
@@ -122,7 +126,7 @@
                     <h5 class="card-title">Osama El Zero</h5>
                     <p class="card-text">Name: Osama El Zero</p>
                     <p class="card-text">About: CS</p>
-                    <button onclick="window.location.href='/Instructor/ShowInstructorCourses?instructorId=3';" class="custom-btn">View Courses</button>
+                    <button onclick="window.location.href='/Instructor/ShowInstructorCourses?instructorId=@Model.InstructorID';" class="custom-btn">View Courses</button>
                 </div>
             </div>
         <!-- Progress Bar Section -->

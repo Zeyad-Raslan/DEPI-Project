@@ -88,7 +88,11 @@
         <div class="course-header">
             <h1>Course Title: @Model.Name</h1>
             <img src="@Model.Image" class="card-img-top" alt="Instructor Photo" style="max-width: 100%; height: auto;">
+             <br />
+            <p>     </p>
+            <br />
             <p>Description: @Model.Description</p>
+
         </div>
         <!--Instructor Card-->
 
@@ -101,7 +105,7 @@
                 <div>
                     <h5 class="card-title">@Model.InstructorName</h5>
                     <p class="card-text">About: @Model.Instructor.About</p>
-                    <button onclick="window.location.href='/Instructor/ShowInstructorCourses?@Model.InstructoID';" class="custom-btn">View Courses</button>
+                    <button onclick="window.location.href='/Instructor/ShowInstructorCourses?instructorId=@Model.Instructor.InstructorId';" class="custom-btn">View Courses</button>
                 </div>
             </div>
 </div>
