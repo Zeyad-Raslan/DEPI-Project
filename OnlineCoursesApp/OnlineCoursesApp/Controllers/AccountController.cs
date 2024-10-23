@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Antiforgery;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.ViewModel.AccountViewModels;
+using OnlineCoursesApp.ViewModel.AdminUsedModels;
 using System.Security.Claims;
 
 namespace OnlineCoursesApp.Controllers
@@ -94,23 +96,6 @@ namespace OnlineCoursesApp.Controllers
 
 
                     }
-                    //else if (newUserVm.Role == "Admin")
-                    //{
-                    //    roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-                    //    // add admin to admin table
-                    //    WebAdmin newWebAdmin = new WebAdmin()
-                    //    {
-                    //        Name = newUserVm.FirstName + " " + newUserVm.LastName,
-                    //        Email = newUserVm.Email,
-                    //        IdentityUserID = newUser.Id,
-                    //        IdentityUser = newUser
-
-                    //    };
-                   //     _webAdminService.Add(newWebAdmin);
-                  //      return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
-
-                  //  }
-                  //  // create cookie
                   
                 }
                 else
@@ -164,9 +149,13 @@ namespace OnlineCoursesApp.Controllers
                         {
                             return RedirectToAction("index", "Admin");
                         }
+                        else if (userVm.Role == "Admin" && userRole == "SuperAdmin")
+                        {
+                            return RedirectToAction("index", "Admin");
+                        }
 
                     }
-                }
+                }   
                 ModelState.AddModelError("", "Email or password is wrong");
             }
             return View(userVm);
@@ -200,6 +189,69 @@ namespace OnlineCoursesApp.Controllers
             //await _roleManager.CreateAsync(newRole);
             return Content($"failed to add role a{roleVm}");
 
+        }
+
+        // Add new Admin
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpGet]
+        public IActionResult AddAdmin()
+        {
+            return View();
+        }
+        [Authorize(Roles = "SuperAdmin")]
+        [HttpPost]
+       
+        public async Task<IActionResult> AddAdmin(NewAdminViewModel newAdminVm)
+        {
+
+            if (ModelState.IsValid)
+            {
+                IdentityUser newAdmin = new IdentityUser();
+                newAdmin.Email = newAdminVm.Email;
+                newAdmin.UserName = newAdminVm.Email;
+                newAdmin.EmailConfirmed = true;
+                newAdmin.PasswordHash = newAdminVm.Password;
+
+                // save it
+                IdentityResult result = await _userManager.CreateAsync(newAdmin, newAdminVm.Password);
+
+                if (result.Succeeded)
+                {
+                    // add role 
+                    // give it a role 
+                    IdentityResult roleResult = new IdentityResult();
+
+                    //
+                    roleResult = await _userManager.AddToRoleAsync(newAdmin, "Admin");
+                    // add admin to admin table
+                    WebAdmin newWebAdmin = new WebAdmin()
+                    {
+                        Name = newAdminVm.Name,
+                        Email = newAdminVm.Email,
+                        IdentityUserID = newAdmin.Id,
+                        IdentityUser = newAdmin
+
+                    };
+                    _webAdminService.Add(newWebAdmin);
+                    return Content($"{newWebAdmin.Name} Added Sucessfully as | {"Admin"}");
+
+                }
+                else
+                {
+                    foreach (var errorItem in result.Errors)
+                    {
+                        if (errorItem.Code == "DuplicateUserName")
+                            continue;
+                        ModelState.AddModelError("", errorItem.Description);
+                    }
+                }
+            }
+            
+        
+
+
+            
+            return View(newAdminVm);
         }
     }
 }

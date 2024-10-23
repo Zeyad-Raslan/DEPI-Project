@@ -32,7 +32,7 @@
                     @if (User.Identity.IsAuthenticated && ViewBag.InstructorId != null)
                     {
                         <li class="nav-item">
-                            <a class="btn btn-primary" href="@Url.Action("Profile", "Instructor", new { id = ViewBag.InstructorId })">Profile</a>
+                            <a class="btn btn-primary" href="@Url.Action("Profile", "Instructor")">Profile</a>
                         </li>
                     }
                     @if (!User.Identity.IsAuthenticated)

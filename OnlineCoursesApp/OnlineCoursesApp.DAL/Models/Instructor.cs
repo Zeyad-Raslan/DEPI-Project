@@ -14,13 +14,13 @@ public partial class Instructor
     public string Name { get; set; } = null!;
 
     public string Email { get; set; } = null!;
-    public AccountStatus AccountStatus { get; set; }
+    public AccountStatus AccountStatus { get; set; } = AccountStatus.Active;
 
-   // public string Password { get; set; } = null!;
+    // public string Password { get; set; } = null!;
 
     public string? About { get; set; }
 
-    public string? Image { get; set; }
+    public string? Image { get; set; } = "/image/Instructor/default.png";
     public virtual ICollection<Course> Courses { get; set; }
 
     // for authentication 

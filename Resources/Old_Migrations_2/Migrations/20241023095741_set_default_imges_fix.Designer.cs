@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineCoursesApp.DAL.Models;
 
@@ -11,9 +12,11 @@ using OnlineCoursesApp.DAL.Models;
 namespace OnlineCoursesApp.DAL.Migrations
 {
     [DbContext(typeof(OnlineCoursesContext))]
-    partial class OnlineCoursesContextModelSnapshot : ModelSnapshot
+    [Migration("20241023095741_set_default_imges_fix")]
+    partial class set_default_imges_fix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,25 +69,25 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "70360925-baef-4893-a830-78330da78d18",
+                            Id = "5e1471b4-4f1e-49c3-bb82-56dbac59d736",
                             Name = "SuperAdmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
-                            Id = "6dddd1bb-4d93-4c17-a0c8-21c8b485b5f9",
+                            Id = "fc5274d1-9c73-426d-8fe6-a3a20a07ef9d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "0a96fdbf-cae1-484c-b7fb-6999aacd3a00",
+                            Id = "2358588c-838d-44c2-b51f-00ade455e336",
                             Name = "Student",
                             NormalizedName = "STUDENT"
                         },
                         new
                         {
-                            Id = "f844a4bc-b69f-4d5c-982b-ba5565d17064",
+                            Id = "122c765f-c4bb-4049-b280-e20200af947a",
                             Name = "Instructor",
                             NormalizedName = "INSTRUCTOR"
                         });
@@ -182,65 +185,65 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
+                            Id = "d2251667-84de-44a2-82d8-275fd697fb5d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "834f13f0-e0f5-4320-a357-cbabd7c84633",
+                            ConcurrencyStamp = "4c366c8a-6cbe-4059-bfe9-98eafb8ee3db",
                             Email = "superAdmin@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@MAIL.COM",
                             NormalizedUserName = "SUPERADMIN@MAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENmxK/j9PpwDTGqZ5poy0u2+7mM+KuFi2a2uHfLATse0AdA9M15FeXxv61K1z3z6vg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEISPbsQP8k1IVR6at6KxFICfPZpsoRJ9FjIaIS4WarHXnfbMRNb3dP+sUjRpXSlO5w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4e77463-f5db-42eb-95cf-47b6341866c0",
+                            SecurityStamp = "5f3341e0-6066-4651-94bd-31ba0a3e5299",
                             TwoFactorEnabled = false,
                             UserName = "superAdmin@mail.com"
                         },
                         new
                         {
-                            Id = "50481779-3264-46f3-a323-b464e06efc0b",
+                            Id = "21e1a67d-371d-4f9c-9ecd-269e6ae32681",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c8446670-b17a-4af3-9cf9-d61f3f468d7e",
+                            ConcurrencyStamp = "3fb5b99c-9051-401b-b40a-54a4999e44f9",
                             Email = "admin@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@MAIL.COM",
                             NormalizedUserName = "ADMIN@MAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJnQYTGgAkcHb95H0AiY8wPMRYfKWXMmHzIrg/SxDztns6uRh4QWRLIH0R2iaacmew==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIjsHki10l3ryCd0exjSS4XHNkfllN08DitKs3q8nFpw+OJ10U1+1LR6s5rs0NrHKQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "10dcb1a7-708c-4f5b-8fa8-cc768fa1788d",
+                            SecurityStamp = "d91a9223-87b3-4153-be5a-1e68a1c59100",
                             TwoFactorEnabled = false,
                             UserName = "admin@mail.com"
                         },
                         new
                         {
-                            Id = "d0c84e76-0c37-45d2-b8b1-1c10acfe2f5d",
+                            Id = "95d4c99b-0967-454b-90fc-176dc0ca4947",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c7f26a58-c497-413b-a5ea-141bc4ae75dd",
+                            ConcurrencyStamp = "43369278-bd23-40ed-9918-55c7ec88a813",
                             Email = "student@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "STUDENT@MAIL.COM",
                             NormalizedUserName = "STUDENT@MAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEtAsqP9fVCvfxHFm8/40s/ZqEXnZ6CidDMtwFMbOreqeMiOZ4MDCvCYtR5TVpsbSQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENPPAX/cr7iWqN+jsd8/Ii9EpEbfvUESZaDk1oqxO5vSzreZ+Gapm6Z13dPMJ2IVMA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ef6c31fd-d998-4d0d-aefd-8ebe5e5429c1",
+                            SecurityStamp = "ec41c437-d570-41a0-8f2e-9a715844bcde",
                             TwoFactorEnabled = false,
                             UserName = "student@mail.com"
                         },
                         new
                         {
-                            Id = "413bf88a-2a9a-47fb-8e40-3783d55ab68e",
+                            Id = "a5575aa4-79e1-489c-96a9-730ab15bb92f",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "54092c83-c2c3-4bf3-8051-4813e15dbd33",
+                            ConcurrencyStamp = "ba629fff-8d44-408a-923c-a0d06f1f4701",
                             Email = "instructor@mail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "INSTRUCTOR@MAIL.COM",
                             NormalizedUserName = "INSTRUCTOR@MAIL.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGAs4WSWMzZseCpLsIxmualb1NS5ZU70VNHGjNu5+7WiQX1st6Ht5W204qpKxrJuoA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB8NnmmNEI7XpctyluKo2Nky3gHrPuf+CukRdvq2d1iOdNmqNQrxzijhQtFQG8pMjg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "576ce1d8-9d2f-472d-af2d-cfaf438f8a83",
+                            SecurityStamp = "98b7934d-80a7-4269-8d53-f8e0282f5afd",
                             TwoFactorEnabled = false,
                             UserName = "instructor@mail.com"
                         });
@@ -310,28 +313,28 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
-                            RoleId = "70360925-baef-4893-a830-78330da78d18"
+                            UserId = "d2251667-84de-44a2-82d8-275fd697fb5d",
+                            RoleId = "5e1471b4-4f1e-49c3-bb82-56dbac59d736"
                         },
                         new
                         {
-                            UserId = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
-                            RoleId = "6dddd1bb-4d93-4c17-a0c8-21c8b485b5f9"
+                            UserId = "d2251667-84de-44a2-82d8-275fd697fb5d",
+                            RoleId = "fc5274d1-9c73-426d-8fe6-a3a20a07ef9d"
                         },
                         new
                         {
-                            UserId = "50481779-3264-46f3-a323-b464e06efc0b",
-                            RoleId = "6dddd1bb-4d93-4c17-a0c8-21c8b485b5f9"
+                            UserId = "21e1a67d-371d-4f9c-9ecd-269e6ae32681",
+                            RoleId = "fc5274d1-9c73-426d-8fe6-a3a20a07ef9d"
                         },
                         new
                         {
-                            UserId = "d0c84e76-0c37-45d2-b8b1-1c10acfe2f5d",
-                            RoleId = "0a96fdbf-cae1-484c-b7fb-6999aacd3a00"
+                            UserId = "95d4c99b-0967-454b-90fc-176dc0ca4947",
+                            RoleId = "2358588c-838d-44c2-b51f-00ade455e336"
                         },
                         new
                         {
-                            UserId = "413bf88a-2a9a-47fb-8e40-3783d55ab68e",
-                            RoleId = "f844a4bc-b69f-4d5c-982b-ba5565d17064"
+                            UserId = "a5575aa4-79e1-489c-96a9-730ab15bb92f",
+                            RoleId = "122c765f-c4bb-4049-b280-e20200af947a"
                         });
                 });
 
@@ -440,7 +443,7 @@ namespace OnlineCoursesApp.DAL.Migrations
                             InstructorId = -1,
                             AccountStatus = 0,
                             Email = "instructor@mail.com",
-                            IdentityUserID = "413bf88a-2a9a-47fb-8e40-3783d55ab68e",
+                            IdentityUserID = "a5575aa4-79e1-489c-96a9-730ab15bb92f",
                             Image = "/image/Instructor/default.png",
                             Name = "instructor Seed"
                         });
@@ -516,7 +519,7 @@ namespace OnlineCoursesApp.DAL.Migrations
                             StudentId = -1,
                             AccountStatus = 0,
                             Email = "student@mail.com",
-                            IdentityUserID = "d0c84e76-0c37-45d2-b8b1-1c10acfe2f5d",
+                            IdentityUserID = "95d4c99b-0967-454b-90fc-176dc0ca4947",
                             Image = "/image/Student/default.png",
                             Name = "Student Seed"
                         });
@@ -588,7 +591,7 @@ namespace OnlineCoursesApp.DAL.Migrations
                             ID = -1,
                             AccountStatus = 0,
                             Email = "superAdmin@mail.com",
-                            IdentityUserID = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
+                            IdentityUserID = "d2251667-84de-44a2-82d8-275fd697fb5d",
                             Name = "Super Admin"
                         },
                         new
@@ -596,7 +599,7 @@ namespace OnlineCoursesApp.DAL.Migrations
                             ID = -2,
                             AccountStatus = 0,
                             Email = "admin@mail.com",
-                            IdentityUserID = "50481779-3264-46f3-a323-b464e06efc0b",
+                            IdentityUserID = "21e1a67d-371d-4f9c-9ecd-269e6ae32681",
                             Name = "Normal Admin"
                         });
                 });
