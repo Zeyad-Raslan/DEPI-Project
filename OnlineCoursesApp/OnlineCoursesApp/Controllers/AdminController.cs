@@ -6,6 +6,7 @@ using OnlineCoursesApp.BLL.AdminServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using OnlineCoursesApp.ViewModel.AccountViewModels;
+using Microsoft.AspNetCore.Antiforgery;
 
 namespace Admin_Views.Controllers
 {
@@ -176,101 +177,5 @@ namespace Admin_Views.Controllers
             return RedirectToAction("ManageInstructors");
         }
 
-        // register
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        //public async Task<IActionResult> RegisterAdmin(RegisterViewModel newUserVm)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        IdentityUser newUser = new IdentityUser();
-        //        newUser.Email = newUserVm.Email;
-        //        newUser.UserName = newUserVm.Email;
-        //        newUser.EmailConfirmed = true;
-        //        newUser.PasswordHash = newUserVm.Password;
-
-
-
-        //        // save it
-        //        IdentityResult result = await _userManager.CreateAsync(newUser, newUserVm.Password);
-        //        if (result.Succeeded)
-        //        {
-        //            // add role 
-        //            // give it a role 
-        //            IdentityResult roleResult = new IdentityResult();
-        //            if (newUserVm.Role == "Student")
-        //            {
-        //                roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-        //                // add student to the student table
-        //                Student newStudent = new Student()
-        //                {
-        //                    Name = newUserVm.FirstName + " " + newUserVm.LastName,
-        //                    Email = newUserVm.Email,
-        //                    Education = newUserVm.Education,
-        //                    IdentityUserID = newUser.Id,
-        //                    IdentityUser = newUser
-
-        //                };
-        //                _studentService.Add(newStudent);
-        //                return RedirectToAction("Login");
-
-        //            }
-        //            else if (newUserVm.Role == "Instructor")
-        //            {
-        //                roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-        //                // add instructor to instructor table
-        //                Instructor newInstructoer = new Instructor()
-        //                {
-        //                    Name = newUserVm.FirstName + " " + newUserVm.LastName,
-        //                    Email = newUserVm.Email,
-        //                    About = newUserVm.Education,
-        //                    IdentityUserID = newUser.Id,
-        //                    IdentityUser = newUser
-
-        //                };
-        //                _instructorService.Add(newInstructoer);
-        //                return RedirectToAction("Login");
-
-
-        //            }
-        //            //else if (newUserVm.Role == "Admin")
-        //            //{
-        //            //    roleResult = await _userManager.AddToRoleAsync(newUser, newUserVm.Role);
-        //            //    // add admin to admin table
-        //            //    WebAdmin newWebAdmin = new WebAdmin()
-        //            //    {
-        //            //        Name = newUserVm.FirstName + " " + newUserVm.LastName,
-        //            //        Email = newUserVm.Email,
-        //            //        IdentityUserID = newUser.Id,
-        //            //        IdentityUser = newUser
-
-        //            //    };
-        //            //     _webAdminService.Add(newWebAdmin);
-        //            //      return Content($"{newUserVm.FirstName} Added Sucessfully as | {newUserVm.Role}");
-
-        //            //  }
-        //            //  // create cookie
-
-        //        }
-        //        else
-        //        {
-        //            foreach (var errorItem in result.Errors)
-        //            {
-        //                if (errorItem.Code == "DuplicateUserName")
-        //                    continue;
-        //                ModelState.AddModelError("", errorItem.Description);
-        //            }
-        //        }
-
-
-        //    }
-        //    return View(newUserVm);
-        //}
-        // Add new Admin
-        [Authorize(Roles = "SuperAdmin")]
-        public IActionResult AddAdmin(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -26,15 +26,24 @@ namespace OnlineCoursesApp.DAL.Seeds
         {
 
             // Seed Roles
+
+            var SuperAdminRole = new IdentityRole("SuperAdmin");
+            SuperAdminRole.NormalizedName = SuperAdminRole.Name!.ToUpper();
+
             var adminRole = new IdentityRole("Admin");
             adminRole.NormalizedName = adminRole.Name!.ToUpper();
 
-            var memberRole = new IdentityRole("Member");
-            memberRole.NormalizedName = memberRole.Name!.ToUpper();
+            var studentRole = new IdentityRole("Student");
+            studentRole.NormalizedName = studentRole.Name!.ToUpper();
+
+            var instructorRole = new IdentityRole("Instructor");
+            instructorRole.NormalizedName = instructorRole.Name!.ToUpper();
 
             List<IdentityRole> roles = new List<IdentityRole>() {
+                                SuperAdminRole,
                                 adminRole,
-                                memberRole
+                                studentRole,
+                                instructorRole
             };
 
             return roles;
@@ -43,34 +52,62 @@ namespace OnlineCoursesApp.DAL.Seeds
         private List<IdentityUser> GetUsers()
         {
 
-            string pwd = "P@$$w0rd";
+            //string pwd = "superAdmin";
             var passwordHasher = new PasswordHasher<IdentityUser>();
 
             // Seed Users
+            // Super Admin 
+            var superAdminUser = new IdentityUser
+            {
+                UserName = "superAdmin@mail.com",
+                Email = "superAdmin@mail.com",
+                EmailConfirmed = true,
+            };
+            superAdminUser.NormalizedUserName = superAdminUser.UserName.ToUpper();
+            superAdminUser.NormalizedEmail = superAdminUser.Email.ToUpper();
+            superAdminUser.PasswordHash = passwordHasher.
+                HashPassword(superAdminUser, "superAdmin");
+
             var adminUser = new IdentityUser
             {
-                UserName = "aa@aa.aa",
-                Email = "aa@aa.aa",
+                UserName = "admin@mail.com",
+                Email = "admin@mail.com",
                 EmailConfirmed = true,
             };
             adminUser.NormalizedUserName = adminUser.UserName.ToUpper();
             adminUser.NormalizedEmail = adminUser.Email.ToUpper();
-            adminUser.PasswordHash = passwordHasher.HashPassword(adminUser, pwd);
+            adminUser.PasswordHash = passwordHasher.
+                HashPassword(adminUser, "admin");
 
-            var memberUser = new IdentityUser
+            var studentUser = new IdentityUser
             {
-                UserName = "mm@mm.mm",
-                Email = "mm@mm.mm",
+                UserName = "student@mail.com",
+                Email = "student@mail.com",
                 EmailConfirmed = true,
             };
-            memberUser.NormalizedUserName = memberUser.UserName.ToUpper();
-            memberUser.NormalizedEmail = memberUser.Email.ToUpper();
-            memberUser.PasswordHash = passwordHasher.HashPassword(memberUser, pwd);
+            studentUser.NormalizedUserName = studentUser.UserName.ToUpper();
+            studentUser.NormalizedEmail = studentUser.Email.ToUpper();
+            studentUser.PasswordHash = passwordHasher.
+                HashPassword(studentUser, "student");
 
-            List<IdentityUser> users = new List<IdentityUser>() {
-           adminUser,
-           memberUser,
-        };
+            var instructorUser = new IdentityUser
+            {
+                UserName = "instructor@mail.com",
+                Email = "instructor@mail.com",
+                EmailConfirmed = true,
+            };
+            instructorUser.NormalizedUserName = instructorUser.UserName.ToUpper();
+            instructorUser.NormalizedEmail = instructorUser.Email.ToUpper();
+            instructorUser.PasswordHash = passwordHasher.
+                HashPassword(instructorUser, "instructor");
+
+            List <IdentityUser> users = new List<IdentityUser>() {
+                        superAdminUser,
+                        adminUser,
+                        studentUser,
+                        instructorUser
+
+            };
 
             return users;
         }
@@ -83,13 +120,28 @@ namespace OnlineCoursesApp.DAL.Seeds
             userRoles.Add(new IdentityUserRole<string>
             {
                 UserId = users[0].Id,
+                RoleId = roles.First(q => q.Name == "SuperAdmin").Id
+            });
+            userRoles.Add(new IdentityUserRole<string>
+            {
+                UserId = users[0].Id,
                 RoleId = roles.First(q => q.Name == "Admin").Id
             });
 
             userRoles.Add(new IdentityUserRole<string>
             {
                 UserId = users[1].Id,
-                RoleId = roles.First(q => q.Name == "Member").Id
+                RoleId = roles.First(q => q.Name == "Admin").Id
+            });
+            userRoles.Add(new IdentityUserRole<string>
+            {
+                UserId = users[2].Id,
+                RoleId = roles.First(q => q.Name == "Student").Id
+            });
+            userRoles.Add(new IdentityUserRole<string>
+            {
+                UserId = users[3].Id,
+                RoleId = roles.First(q => q.Name == "Instructor").Id
             });
 
             return userRoles;
