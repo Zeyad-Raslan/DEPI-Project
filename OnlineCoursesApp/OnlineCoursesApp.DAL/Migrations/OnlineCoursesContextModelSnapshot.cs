@@ -62,6 +62,20 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "00cddc5d-13ef-4ca0-828c-cb1d7ddb8e36",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "fb263fb1-99e8-49aa-be62-4f255e14afa3",
+                            Name = "Member",
+                            NormalizedName = "MEMBER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -152,6 +166,40 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "e86e991a-ca18-43b9-9988-d8ee5ecd8dbb",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6873d264-fc67-414a-a2cc-3ae99258056b",
+                            Email = "aa@aa.aa",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "AA@AA.AA",
+                            NormalizedUserName = "AA@AA.AA",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDBEpM6HRKKe+/yEm4XB93SUk3xfWJ84bcyisngjMQAJKIfit3f/6G3xBc6EalRKCg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "901fd35e-25a6-434a-8f52-04d3b983cb0e",
+                            TwoFactorEnabled = false,
+                            UserName = "aa@aa.aa"
+                        },
+                        new
+                        {
+                            Id = "39edadb3-4712-46e1-8e2e-47b3fd3ff2a9",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5be0e271-3b69-4314-8809-24d1bd0c0dfa",
+                            Email = "mm@mm.mm",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MM@MM.MM",
+                            NormalizedUserName = "MM@MM.MM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFi1ioIoa6pfQQRycdxZknYtIIBi7Lx3jRGhxo67xjbFv9x7w0GTrnhl2ObcC/x3aA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "d7d88063-c03e-4adf-86f9-6e4bb547c1fe",
+                            TwoFactorEnabled = false,
+                            UserName = "mm@mm.mm"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -214,6 +262,18 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "e86e991a-ca18-43b9-9988-d8ee5ecd8dbb",
+                            RoleId = "00cddc5d-13ef-4ca0-828c-cb1d7ddb8e36"
+                        },
+                        new
+                        {
+                            UserId = "39edadb3-4712-46e1-8e2e-47b3fd3ff2a9",
+                            RoleId = "fb263fb1-99e8-49aa-be62-4f255e14afa3"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

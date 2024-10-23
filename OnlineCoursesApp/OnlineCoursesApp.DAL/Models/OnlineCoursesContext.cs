@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using OnlineCoursesApp.DAL.Seeds;
 
 namespace OnlineCoursesApp.DAL.Models;
 
@@ -66,9 +68,16 @@ public partial class OnlineCoursesContext :IdentityDbContext<IdentityUser>
            .HasOne(sp => sp.Course)
            .WithMany()
            .OnDelete(DeleteBehavior.Cascade);
+    
+
+    
+
+        // Use seed method here
+        SeedUsersRoles seedUsersRoles = new();
+        modelBuilder.Entity<IdentityRole>().HasData(seedUsersRoles.Roles);
+        modelBuilder.Entity<IdentityUser>().HasData(seedUsersRoles.Users);
+        modelBuilder.Entity<IdentityUserRole<string>>().HasData(seedUsersRoles.UserRoles);
     }
-
-
 
 
 
