@@ -1,13 +1,5 @@
 ﻿namespace OnlineCoursesApp.ViewModel.Student
 {
-    public enum CourseType 
-    {
-        BackEnd,
-        FrontEnd,
-        CyberSecurity,
-        UI_UX,
-        DataBase
-    }
     public class StudentCoursesHomeViewModel
     {
         internal string? CourseImage;

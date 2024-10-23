@@ -1,0 +1,28 @@
+﻿@model EditInstructorProfileViewModel
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<div class="container mt-5">
+    <h2>Edit Profile</h2>
+    <hr />
+
+    <form asp-action="EditProfile" method="post">
+        <input type="hidden" asp-for="InstructorId" />
+
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="About"></label>
+            <textarea asp-for="About" class="form-control"></textarea>
+            <span asp-validation-for="About" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+    </form>
+</div>

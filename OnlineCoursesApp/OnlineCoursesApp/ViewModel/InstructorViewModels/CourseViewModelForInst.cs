@@ -9,5 +9,12 @@ namespace OnlineCoursesApp.ViewModel
         public int NumStudents { get; set; }
         public CourseType Type { get; set; }
         public CourseStatus CourseStatus { get; set; } = CourseStatus.UnderReview;  // أضف خاصية CourseStatus
+
+        // خاصية مسار الصورة المخزنة
+        public string? Image { get; set; }
+
+
+
+
     }
 }
