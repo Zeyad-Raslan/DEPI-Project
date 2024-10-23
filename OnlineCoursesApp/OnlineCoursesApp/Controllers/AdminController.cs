@@ -173,5 +173,12 @@ namespace Admin_Views.Controllers
 
             return RedirectToAction("ManageInstructors");
         }
+
+        // Add new Admin
+        [Authorize(Roles = "SuperAdmin")]
+        public IActionResult AddAdmin(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
