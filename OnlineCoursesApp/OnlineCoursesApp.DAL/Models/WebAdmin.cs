@@ -17,7 +17,7 @@ namespace OnlineCoursesApp.DAL.Models
         public string Name { get; set; } = null!;
 
         public string Email { get; set; } = null!;
-        public AccountStatus AccountStatus { get; set; }
+        public AccountStatus AccountStatus { get; set; } = AccountStatus.Active;
 
 
         //public string Password { get; set; } = null!;

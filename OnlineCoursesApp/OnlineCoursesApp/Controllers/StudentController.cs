@@ -1,13 +1,16 @@
 ﻿using Humanizer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.BLL.StudentService;
 using OnlineCoursesApp.DAL.Models;
+using OnlineCoursesApp.ViewModel;
 using OnlineCoursesApp.ViewModel.CourseViewModels;
 using OnlineCoursesApp.ViewModel.Student;
+using OnlineCoursesApp.ViewModel.StudentViewModel;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -19,16 +22,18 @@ namespace project_student.Controllers
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
         private readonly IService<Section> _sectiontService;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IService<StudentProgress> _studentProgressService;
         private readonly IStudentComplexService _studentComplexService;
         public StudentController(IService<Course> courseService, IService<Student> studentService,
-            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService, IService<Section> sectiontService)
+            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService, IService<Section> sectiontService, SignInManager<IdentityUser> signInManager)
         {
             _courseService = courseService;
             _studentService = studentService;
             _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
             _sectiontService = sectiontService;
+            this._signInManager = signInManager;
 
             // save info to session
 
@@ -80,7 +85,8 @@ namespace project_student.Controllers
             List<Course> filteredCourses = courses;
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                filteredCourses = courses.Where(c => c.Name.Contains(searchQuery))
+                searchQuery = searchQuery.ToLower();
+                filteredCourses = courses.Where(c => c.Name.ToLower().Contains(searchQuery))
                                 .ToList(); // Search by name
             }
             if (selectedType.HasValue)
@@ -101,17 +107,28 @@ namespace project_student.Controllers
 
             return View(courceList);
         }
-        public IActionResult MyCourses()
+        public async Task<IActionResult> MyCoursesAsync()
         {
             //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
             //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
-            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            //
+            int studentId;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            Student currentStudent = _studentService.Query()
+                .FirstOrDefault(student => student.IdentityUserID == claimId);
+
+            if (currentStudent == null || (currentStudent.AccountStatus != AccountStatus.Active))
+            {
+                await _signInManager.SignOutAsync();
+                return Content("There is no active user with this login");
+            }
+            studentId = currentStudent.StudentId;
             TempData["studentId"] = studentId;
 
-            if (studentId == 0)
-            {
-                return Content("MyCourses\nstudentId == 0");
-            }
+
+            //
+         
             var student = _studentService.Query()
                                  .Include(i => i.Courses)
                                  .ThenInclude(c => c.Instructor)
@@ -143,7 +160,7 @@ namespace project_student.Controllers
                 .Include(c => c.Sections)
                 .Include(c => c.Instructor)
                 .Include(c => c.Students)
-                .Where(c => c.CourseId == courseId)
+                .Where(c => (c.CourseId == courseId) && (c.CourseStatus == CourseStatus.Approved))
                 .FirstOrDefault();
             CouseContentsViewModel couseContentsViewModel = new CouseContentsViewModel()
             {
@@ -191,7 +208,7 @@ namespace project_student.Controllers
                 Description = course.Description,
                 Image = course.Image,
                 StudentCount = course.Students.Count(),
-                InstructoID = course.Instructor.InstructorId,
+                InstructorID = course.Instructor.InstructorId,
                 InstructorName = course.Instructor.Name,
                 InstructorImage = course.Instructor.Image,
                 InstructorAbout = course.Instructor.About
@@ -293,17 +310,25 @@ namespace project_student.Controllers
             return RedirectToAction("MyCourses", new { studentId = studentId });
         }
 
-        public IActionResult ProfilePage()
+        public async Task<IActionResult> ProfilePageAsync()
         {
-            //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
-            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            //
+            int studentId;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            Student currentStudent= _studentService.Query()
+                .FirstOrDefault(student => student.IdentityUserID == claimId);
+
+            if (currentStudent == null || (currentStudent.AccountStatus != AccountStatus.Active))
+            {
+                await _signInManager.SignOutAsync();
+                return Content("There is no active user with this login");
+            }
+            studentId = currentStudent.StudentId;
             TempData["studentId"] = studentId;
 
-            if (studentId == 0)
-            {
-                return Content("ProfilePage\nstudentId == 0");
-            }
 
+            //
             Student profileInfo = _studentService.GetById(studentId);
             return View(profileInfo);
         }
@@ -324,5 +349,63 @@ namespace project_student.Controllers
 
             return RedirectToAction("ProfilePage", new { id = model.StudentId });
         }
+        [HttpPost]
+        public IActionResult UpdateProfilePicture(StudentProfileViewModel model)
+        {
+            if (model.Image != null && model.Image.Length > 0)
+            {
+                var student = _studentService.GetById(model.StudentId);
+
+                if (student == null)
+                {
+                    return NotFound();
+                }
+
+                // رفع الصورة وحفظها في مجلد wwwroot/image
+                // var fileName = Path.GetFileName(model.Image.FileName);
+                string mustFileName = student.StudentId.ToString();
+
+
+                // delete old file if exist
+
+                //// var oldFilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Student", Student.StudentId.ToString());
+
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Student");
+
+                var files = Directory.GetFiles(folderPath)
+                             .Where(f => Path.GetFileNameWithoutExtension(f).Equals(mustFileName, System.StringComparison.OrdinalIgnoreCase))
+                             .ToList();
+
+                foreach (var oldFile in files)
+                {
+                    if (System.IO.File.Exists(oldFile))
+                    {
+                        // Delete the file
+                        System.IO.File.Delete(oldFile);
+                    }
+                }
+
+
+                // update by new file 
+                string fileExtension = Path.GetExtension(model.Image.FileName);
+                var newFileName = mustFileName + fileExtension;
+                var newFfilePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/image/Student", newFileName);
+                using (var stream = new FileStream(newFfilePath, FileMode.Create))
+                {
+                    model.Image.CopyTo(stream);
+                }
+
+                // تحديث مسار الصورة في قاعدة البيانات
+                student.Image = "/image/Student/" + newFileName;
+                _studentService.Update(student);
+
+                // إعادة توجيه المستخدم إلى صفحة الـ Profile بعد التحديث
+                return RedirectToAction("ProfilePage", new { id = model.StudentId });
+            }
+
+            // في حالة عدم وجود صورة جديدة مرفوعة، إعادة عرض الصفحة
+            return RedirectToAction("ProfilePage", new { id = model.StudentId });
+        }
+
     }
 }

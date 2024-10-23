@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using OnlineCoursesApp.BLL.Services;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.Models;
@@ -26,8 +27,8 @@ namespace OnlineCoursesApp.Controllers
             List<Course> courses = _courseService.Query().
                 Include(i => i.Students).
                 Include(i => i.Instructor).
-                Where(i => i.CourseStatus == CourseStatus.Approved).
-                ToList();  // filter Home Courses
+                Where(i => i.CourseStatus == CourseStatus.Approved).ToList();
+                ;
 
             ViewBag.CourseTypes = new SelectList(Enum.GetValues(typeof(CourseType)), selectedType);
 
@@ -35,7 +36,8 @@ namespace OnlineCoursesApp.Controllers
             List<Course> filteredCourses = courses;
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                filteredCourses = courses.Where(c => c.Name.Contains(searchQuery))
+                searchQuery = searchQuery.ToLower();
+                filteredCourses = courses.Where(c => c.Name.ToLower().Contains(searchQuery))
                                 .ToList(); // Search by name
             }
             if (selectedType.HasValue)

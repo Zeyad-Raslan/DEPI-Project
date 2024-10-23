@@ -23,7 +23,7 @@ namespace OnlineCoursesApp.ViewModel.CourseViewModels
         public int StudentProgress { get; set; }
         public List<Pair<Section,bool>> SectionsStatus { get; set; }
 
-        public int InstructoID { get; set; }
+        public int InstructorID { get; set; }
         public string InstructorName { get; set; }
         public string InstructorImage { get; set; }
         public string InstructorAbout {  get; set; }

@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using OnlineCoursesApp.DAL.Models;
 using OnlineCoursesApp.BLL.AdminServices;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using OnlineCoursesApp.ViewModel.AccountViewModels;
+using Microsoft.AspNetCore.Antiforgery;
 
 namespace Admin_Views.Controllers
 {
@@ -96,6 +99,7 @@ namespace Admin_Views.Controllers
         public IActionResult ManageStudents()
         {
             var students = _adminService.GetAllStudents()
+                .Where(std => std.AccountStatus == AccountStatus.Active)
                 .Select(student => new ManageStudentsViewModel
                 {
                     StudentId = student.StudentId,
@@ -173,5 +177,6 @@ namespace Admin_Views.Controllers
 
             return RedirectToAction("ManageInstructors");
         }
+
     }
 }

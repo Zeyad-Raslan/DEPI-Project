@@ -14,7 +14,7 @@ namespace OnlineCoursesApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-      
+
 
             builder.Services.AddScoped<IService<Instructor>, Service<Instructor>>();
             builder.Services.AddScoped<IService<Course>, Service<Course>>();
@@ -41,18 +41,41 @@ namespace OnlineCoursesApp
             builder.Services.AddDbContext<OnlineCoursesContext>(options =>
               options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            builder.Services.AddIdentity<IdentityUser, IdentityRole>(options=>
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 options.User.RequireUniqueEmail = true;
                 options.User.AllowedUserNameCharacters = null;
 
                 options.Password.RequiredUniqueChars = 0;
-                options.Password.RequiredLength= 4;
-                options.Password.RequireUppercase= false;
+                options.Password.RequiredLength = 4;
+                options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireDigit = false;
             })
-                .AddEntityFrameworkStores<OnlineCoursesContext>();
+            .AddEntityFrameworkStores<OnlineCoursesContext>()
+            .AddRoles<IdentityRole>();
+
+            //
+//            builder.Services.AddIdentity<IdentityUser, IdentityRole>(
+//options => {
+
+//    options.User.RequireUniqueEmail = true;
+//    options.User.AllowedUserNameCharacters = null;
+
+//    options.Password.RequiredUniqueChars = 0;
+//    options.Password.RequiredLength = 4;
+//    options.Password.RequireUppercase = false;
+//    options.Password.RequireNonAlphanumeric = false;
+//    options.Password.RequireDigit = false;
+//    options.Stores.MaxLengthForKeys = 128;
+//})
+//.AddEntityFrameworkStores<OnlineCoursesContext>()
+//.AddRoles<IdentityRole>()
+//.AddDefaultTokenProviders();
+            //
+
+            
+
 
             builder.Services.AddDistributedMemoryCache();
 
@@ -63,7 +86,7 @@ namespace OnlineCoursesApp
                 options.Cookie.IsEssential = true;
             });
 
-            
+
 
             var app = builder.Build();
 

@@ -62,6 +62,32 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "70360925-baef-4893-a830-78330da78d18",
+                            Name = "SuperAdmin",
+                            NormalizedName = "SUPERADMIN"
+                        },
+                        new
+                        {
+                            Id = "6dddd1bb-4d93-4c17-a0c8-21c8b485b5f9",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "0a96fdbf-cae1-484c-b7fb-6999aacd3a00",
+                            Name = "Student",
+                            NormalizedName = "STUDENT"
+                        },
+                        new
+                        {
+                            Id = "f844a4bc-b69f-4d5c-982b-ba5565d17064",
+                            Name = "Instructor",
+                            NormalizedName = "INSTRUCTOR"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -152,6 +178,72 @@ namespace OnlineCoursesApp.DAL.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "834f13f0-e0f5-4320-a357-cbabd7c84633",
+                            Email = "superAdmin@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SUPERADMIN@MAIL.COM",
+                            NormalizedUserName = "SUPERADMIN@MAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAENmxK/j9PpwDTGqZ5poy0u2+7mM+KuFi2a2uHfLATse0AdA9M15FeXxv61K1z3z6vg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "d4e77463-f5db-42eb-95cf-47b6341866c0",
+                            TwoFactorEnabled = false,
+                            UserName = "superAdmin@mail.com"
+                        },
+                        new
+                        {
+                            Id = "50481779-3264-46f3-a323-b464e06efc0b",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c8446670-b17a-4af3-9cf9-d61f3f468d7e",
+                            Email = "admin@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@MAIL.COM",
+                            NormalizedUserName = "ADMIN@MAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJnQYTGgAkcHb95H0AiY8wPMRYfKWXMmHzIrg/SxDztns6uRh4QWRLIH0R2iaacmew==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "10dcb1a7-708c-4f5b-8fa8-cc768fa1788d",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@mail.com"
+                        },
+                        new
+                        {
+                            Id = "d0c84e76-0c37-45d2-b8b1-1c10acfe2f5d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c7f26a58-c497-413b-a5ea-141bc4ae75dd",
+                            Email = "student@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "STUDENT@MAIL.COM",
+                            NormalizedUserName = "STUDENT@MAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEtAsqP9fVCvfxHFm8/40s/ZqEXnZ6CidDMtwFMbOreqeMiOZ4MDCvCYtR5TVpsbSQ==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "ef6c31fd-d998-4d0d-aefd-8ebe5e5429c1",
+                            TwoFactorEnabled = false,
+                            UserName = "student@mail.com"
+                        },
+                        new
+                        {
+                            Id = "413bf88a-2a9a-47fb-8e40-3783d55ab68e",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "54092c83-c2c3-4bf3-8051-4813e15dbd33",
+                            Email = "instructor@mail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "INSTRUCTOR@MAIL.COM",
+                            NormalizedUserName = "INSTRUCTOR@MAIL.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGAs4WSWMzZseCpLsIxmualb1NS5ZU70VNHGjNu5+7WiQX1st6Ht5W204qpKxrJuoA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "576ce1d8-9d2f-472d-af2d-cfaf438f8a83",
+                            TwoFactorEnabled = false,
+                            UserName = "instructor@mail.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -214,6 +306,33 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
+                            RoleId = "70360925-baef-4893-a830-78330da78d18"
+                        },
+                        new
+                        {
+                            UserId = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
+                            RoleId = "6dddd1bb-4d93-4c17-a0c8-21c8b485b5f9"
+                        },
+                        new
+                        {
+                            UserId = "50481779-3264-46f3-a323-b464e06efc0b",
+                            RoleId = "6dddd1bb-4d93-4c17-a0c8-21c8b485b5f9"
+                        },
+                        new
+                        {
+                            UserId = "d0c84e76-0c37-45d2-b8b1-1c10acfe2f5d",
+                            RoleId = "0a96fdbf-cae1-484c-b7fb-6999aacd3a00"
+                        },
+                        new
+                        {
+                            UserId = "413bf88a-2a9a-47fb-8e40-3783d55ab68e",
+                            RoleId = "f844a4bc-b69f-4d5c-982b-ba5565d17064"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -314,6 +433,17 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasIndex("IdentityUserID");
 
                     b.ToTable("Instructors");
+
+                    b.HasData(
+                        new
+                        {
+                            InstructorId = -1,
+                            AccountStatus = 0,
+                            Email = "instructor@mail.com",
+                            IdentityUserID = "413bf88a-2a9a-47fb-8e40-3783d55ab68e",
+                            Image = "/image/Instructor/default.png",
+                            Name = "instructor Seed"
+                        });
                 });
 
             modelBuilder.Entity("OnlineCoursesApp.DAL.Models.Section", b =>
@@ -379,6 +509,17 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasIndex("IdentityUserID");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            StudentId = -1,
+                            AccountStatus = 0,
+                            Email = "student@mail.com",
+                            IdentityUserID = "d0c84e76-0c37-45d2-b8b1-1c10acfe2f5d",
+                            Image = "/image/Student/default.png",
+                            Name = "Student Seed"
+                        });
                 });
 
             modelBuilder.Entity("OnlineCoursesApp.DAL.Models.StudentProgress", b =>
@@ -440,6 +581,24 @@ namespace OnlineCoursesApp.DAL.Migrations
                     b.HasIndex("IdentityUserID");
 
                     b.ToTable("WebAdmins");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = -1,
+                            AccountStatus = 0,
+                            Email = "superAdmin@mail.com",
+                            IdentityUserID = "16fa3db8-1a15-40c2-8a53-61066f1806e2",
+                            Name = "Super Admin"
+                        },
+                        new
+                        {
+                            ID = -2,
+                            AccountStatus = 0,
+                            Email = "admin@mail.com",
+                            IdentityUserID = "50481779-3264-46f3-a323-b464e06efc0b",
+                            Name = "Normal Admin"
+                        });
                 });
 
             modelBuilder.Entity("CourseStudent", b =>
