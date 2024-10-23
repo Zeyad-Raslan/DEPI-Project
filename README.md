@@ -67,12 +67,12 @@ This platform is built following the **3-Layer Architecture**:
 The platform’s database structure follows the ERD as shown below, illustrating the relationships between entities such as **Students**, **Instructors**, **Courses**, and more.
 
 ### ERD Diagram
-![ERD Diagram](Recourses/image/Capture.PNG)
+![ERD Diagram](Resources/image/Capture.PNG)
 
 ### Schema Diagram
 The schema diagram represents the detailed structure of the database.
 
-![Schema Diagram](Recourses/image/Database.PNG)
+![Schema Diagram](Resources/image/Database.PNG)
 
 ---
 
