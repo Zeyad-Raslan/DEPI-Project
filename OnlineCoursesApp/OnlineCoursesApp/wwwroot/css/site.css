@@ -1,80 +1,18 @@
-﻿/*html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}
-*/
-
-
-/* تقليص حجم الـ Footer */
-/*footer {
-    background-color: #2c3e50;*/ /* لون أغمق مثل الأزرق الغامق */
-/*padding: 10px 0;*/ /* تقليص padding لجعل الـ Footer أنحف */
-/*position: fixed;*/ /* تثبيت الـ Footer في الأسفل */
-/*bottom: 0;
-    width: 100%;
-    text-align: center;*/ /* مركزية النص */
-/*color: #ccc;*/ /* لون الخط رمادي فاتح */
-/*}*/
-
-/* تحسين تنسيق الروابط في الـ Footer */
-/*footer a {
-        color: #2980b9;*/ /* لون الرابط أزرق فاتح */
-/*text-decoration: none;
-    }
-
-        footer a:hover {
-            text-decoration: underline;*/ /* إضافة خط تحت الرابط عند التمرير */
-/*}*/
-
-/* التعامل مع زر التمرير الموجود فوق الـ Footer */
-/*button {
-    position: relative;
-    z-index: 1;*/ /* جلب الزر فوق الـ Footer */
-/*}*/
-
-/* تقليل المساحة بين الزر والـ Footer */
-/*.container {
-    margin-bottom: 80px;*/ /* توفير مساحة كافية بين المحتوى والـ Footer */
-/*}*/
-
-
-/* تعديل الحجم الأساسي للنص */
+﻿/* ضبط النص الأساسي */
 html {
     font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
+/* عند الشاشات الكبيرة */
+html {
+    font-size: 16px;
 }
 
 /* تركيز العناصر عند النقر */
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
 }
 
 body {
@@ -86,6 +24,10 @@ body {
     background-color: #2c3e50; /* لون الخلفية */
     font-family: 'Montserrat', sans-serif; /* خط مميز */
     font-size: 1.1rem; /* تكبير الخط */
+    position: fixed; /* تثبيت الـ Header */
+    width: 100%; /* تغطية العرض الكامل */
+    top: 0;
+    z-index: 1000; /* لضمان بقاء الـ Header فوق المحتوى */
 }
 
 .navbar-brand, .nav-link {
@@ -96,15 +38,17 @@ body {
         color: #3498db !important; /* لون عند التمرير */
     }
 
+/* تعديل المحتوى ليتوافق مع الـ Header الثابت */
+body {
+    padding-top: 70px; /* إضافة مسافة لتفادي التداخل مع الـ Header */
+}
 
-
-
-
+/* تنسيق الـ Footer */
 footer {
     background-color: #2c3e50; /* نفس لون الـ Header */
     padding: 5px 0; /* تقليص الـ padding إلى 5px مثل الـ Header */
-    position: fixed; /* تثبيت الـ Footer في الأسفل */
-    bottom: 0;
+    position: absolute; /* وضع الـ Footer في الأسفل */
+    bottom: 0; /* تثبيت الـ Footer في الأسفل */
     width: 100%;
     text-align: center; /* مركزية النص */
     color: #ccc; /* لون الخط رمادي فاتح */
@@ -122,12 +66,10 @@ footer {
             text-decoration: underline; /* إضافة خط تحت الرابط عند التمرير */
         }
 
-/* تقليل المساحة بين الزر والـ Footer */
+/* إضافة مسافة بين الزر والـ Footer */
 .container {
     margin-bottom: 70px; /* توفير مساحة كافية بين المحتوى والـ Footer */
 }
-
-
 
 /* إضافة مظهر جميل لعناصر التركيز */
 .btn:focus, .nav-link:focus, .form-control:focus {

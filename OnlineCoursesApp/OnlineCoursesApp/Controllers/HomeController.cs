@@ -52,7 +52,7 @@ namespace OnlineCoursesApp.Controllers
                 CourseName = e.Name,
                 CourseImage = e.Image,
                 CourseDescription = e.Description,
-                InsrUctorName = e.Instructor.Name,
+                InstructorName = e.Instructor.Name,
                 NumStudent = e.Students.Count
             }).ToList();
 
