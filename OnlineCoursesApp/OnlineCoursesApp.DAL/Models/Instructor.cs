@@ -20,7 +20,7 @@ public partial class Instructor
 
     public string? About { get; set; }
 
-    public string? Image { get; set; }
+    public string? Image { get; set; } = "/image/Instructor/default.png";
     public virtual ICollection<Course> Courses { get; set; }
 
     // for authentication 

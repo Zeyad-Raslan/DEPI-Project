@@ -99,6 +99,7 @@ namespace Admin_Views.Controllers
         public IActionResult ManageStudents()
         {
             var students = _adminService.GetAllStudents()
+                .Where(std => std.AccountStatus == AccountStatus.Active)
                 .Select(student => new ManageStudentsViewModel
                 {
                     StudentId = student.StudentId,

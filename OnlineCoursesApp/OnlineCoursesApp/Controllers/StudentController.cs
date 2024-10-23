@@ -1,5 +1,6 @@
 ﻿using Humanizer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,16 +22,18 @@ namespace project_student.Controllers
         private readonly IService<Course> _courseService;
         private readonly IService<Student> _studentService;
         private readonly IService<Section> _sectiontService;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly IService<StudentProgress> _studentProgressService;
         private readonly IStudentComplexService _studentComplexService;
         public StudentController(IService<Course> courseService, IService<Student> studentService,
-            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService, IService<Section> sectiontService)
+            IStudentComplexService studentComplexService, IService<StudentProgress> studentProgressService, IService<Section> sectiontService, SignInManager<IdentityUser> signInManager)
         {
             _courseService = courseService;
             _studentService = studentService;
             _studentProgressService = studentProgressService;
             _studentComplexService = studentComplexService;
             _sectiontService = sectiontService;
+            this._signInManager = signInManager;
 
             // save info to session
 
@@ -104,13 +107,27 @@ namespace project_student.Controllers
 
             return View(courceList);
         }
-        public IActionResult MyCourses()
+        public async Task<IActionResult> MyCoursesAsync()
         {
             //TempData["studentId"] = HttpContext.Session.GetInt32("studentId"); // need authentication
             //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
-            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            //
+            int studentId;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            Student currentStudent = _studentService.Query()
+                .FirstOrDefault(student => student.IdentityUserID == claimId);
+
+            if (currentStudent == null || (currentStudent.AccountStatus != AccountStatus.Active))
+            {
+                await _signInManager.SignOutAsync();
+                return Content("There is no active user with this login");
+            }
+            studentId = currentStudent.StudentId;
             TempData["studentId"] = studentId;
 
+
+            //
             if (studentId == 0)
             {
                 return Content("MyCourses\nstudentId == 0");
@@ -146,7 +163,7 @@ namespace project_student.Controllers
                 .Include(c => c.Sections)
                 .Include(c => c.Instructor)
                 .Include(c => c.Students)
-                .Where(c => c.CourseId == courseId)
+                .Where(c => (c.CourseId == courseId) && (c.CourseStatus == CourseStatus.Approved))
                 .FirstOrDefault();
             CouseContentsViewModel couseContentsViewModel = new CouseContentsViewModel()
             {
@@ -296,17 +313,25 @@ namespace project_student.Controllers
             return RedirectToAction("MyCourses", new { studentId = studentId });
         }
 
-        public IActionResult ProfilePage()
+        public async Task<IActionResult> ProfilePageAsync()
         {
-            //int studentId = Convert.ToInt32(TempData.Peek("studentId"));
-            int studentId = (int)HttpContext.Session.GetInt32("studentId");
+            //
+            int studentId;
+            string claimId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+
+            Student currentStudent= _studentService.Query()
+                .FirstOrDefault(student => student.IdentityUserID == claimId);
+
+            if (currentStudent == null || (currentStudent.AccountStatus != AccountStatus.Active))
+            {
+                await _signInManager.SignOutAsync();
+                return Content("There is no active user with this login");
+            }
+            studentId = currentStudent.StudentId;
             TempData["studentId"] = studentId;
 
-            if (studentId == 0)
-            {
-                return Content("ProfilePage\nstudentId == 0");
-            }
 
+            //
             Student profileInfo = _studentService.GetById(studentId);
             return View(profileInfo);
         }
